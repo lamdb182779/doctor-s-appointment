@@ -1,6 +1,6 @@
 'use strict';
 const path = require('path')
-const imgPath = '../../../image'
+const imgPath = path.join(__dirname, '../../../image/Specialties')
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
