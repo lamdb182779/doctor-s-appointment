@@ -1,11 +1,16 @@
 import Home from './components/Home';
 import './styles/App.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faCircleQuestion, faPhone, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import logo from '../src/assets/images/logo.png'
 import Image from 'react-bootstrap/Image';
 
+import useFetch from "../src/custom/fetch"
+
 function App() {
+  const { data, loading } = useFetch('http://localhost:8080/api')
+  const contact = Object.keys(data) !== 0 ? data.contact : {}
+  const specialties = Object.keys(data) !== 0 ? data.specialties : []
   return (
     <div className="App">
       <header className="App-header">
@@ -34,20 +39,50 @@ function App() {
         <div className='App-info'>
           <div className='App-logo'>
             <Image src={logo} alt='logo' fluid />
+            <br />
+            Doctor Booking - Nền tảng đặt lịch hẹn khám trực tuyến
           </div>
-          <div className='App-address'>
-
-          </div>
-          <div className='App-email'>
-
-          </div>
-          <div className='App-phone'>
-
-          </div>
+          {loading === false ?
+            <>
+              {Object.keys(contact) !== 0 ?
+                <>
+                  <div className='App-address'>
+                    <FontAwesomeIcon icon={faLocationDot} size="sm" />
+                    <b>Địa chỉ</b><br />
+                    {data.contact.address}
+                  </div>
+                  <div className='App-email'>
+                    <FontAwesomeIcon icon={faEnvelope} size="sm" />
+                    <b>Email</b><br />
+                    {data.contact.email}
+                  </div>
+                  <div className='App-phone'>
+                    <FontAwesomeIcon icon={faPhone} size="sm" />
+                    <b>Điện thoại</b><br />
+                    {data.contact.phoneNumber}
+                  </div>
+                </>
+                :
+                <>
+                  <div className='App-nodata'>
+                    Không tải được dữ liệu
+                  </div>
+                </>
+              }
+            </>
+            :
+            <>
+              <div className='App-loading'>
+                Đang tải dữ liệu ...
+              </div>
+            </>
+          }
         </div>
         <div className='App-rules'>
           <ul>
             <li>Liên hệ hợp tác</li>
+            <li>Danh bạ y tế</li>
+            <li>Sức khỏe doanh nghiệp</li>
             <li>Tuyển dụng</li>
             <li>Câu hỏi thường gặp</li>
             <li>Điều khoản</li>

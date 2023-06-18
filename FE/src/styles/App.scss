@@ -55,13 +55,41 @@
     min-height      : 50vh;
     display         : flex;
     background-color: #F5F5F5;
+    margin          : 0px -5%;
 
     .App-info {
-      width: 50%;
+      width    : 50%;
+      margin   : 2% 10%;
+      font-size: 70%;
+
+      .App-logo {
+        img {
+          margin-bottom: 0px;
+        }
+      }
+
+      >div {
+        margin-bottom: 3%;
+
+        b {
+          margin-left: 1%;
+        }
+      }
     }
 
     .App-rules {
-      margin-left: 15%;
+      width     : 30%;
+      margin-top: 2%;
+      font-size : 70%;
+
+      ul {
+        margin-top: 10%;
+
+        li {
+          margin-top: 2%;
+          list-style: none;
+        }
+      }
     }
   }
 }
