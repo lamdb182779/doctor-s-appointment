@@ -15,7 +15,7 @@ module.exports = {
     return queryInterface.bulkInsert('Admins', [{
       id: '01',
       name: 'Đặng Bảo Lâm',
-      phoneNumber: '03xxxxxx33',
+      phoneNumber: '033xxxxx33',
       email: 'lamxxxxxx79@gmail.com',
       address: '67/34/14 Lê Thanh Nghị, Đồng Tâm, Hai Bà Trưng, Hà Nội',
       username: 'admin',

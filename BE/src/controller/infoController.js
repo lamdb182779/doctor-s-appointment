@@ -1,8 +1,12 @@
 const db = require('../models')
 
-const getHomePage = async (req, res) => {
+const getInfoApp = async (req, res) => {
     try {
-        let data = await db.Specialties.findAll()
+        let data = await db.Admins.findOne({
+            where: {
+                id: '01'
+            }
+        })
         return res.status(200).json({
             message: 'ok',
             data: data
@@ -16,5 +20,5 @@ const getHomePage = async (req, res) => {
 }
 
 module.exports = {
-    getHomePage,
+    getInfoApp,
 }
