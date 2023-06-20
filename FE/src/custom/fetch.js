@@ -8,7 +8,7 @@ const useFetch = (url) => {
     const getInfo = async () => {
         try {
             let res = await axios.get(url)
-            let rs = res?.data?.data ? res.data.data : {}
+            let rs = res?.data?.data ? res.data.data : []
             setData(rs)
         }
         catch (e) {

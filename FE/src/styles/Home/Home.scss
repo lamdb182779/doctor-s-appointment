@@ -1,6 +1,6 @@
 .home-container {
     .home-title {
-        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url('../assets/images/homepage_background.jpg');
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url('../../assets/images/homepage_background.jpg');
         min-height      : 34rem;
         margin-top      : 5%;
 
@@ -32,7 +32,7 @@
             display              : grid;
             grid-template-columns: auto auto auto auto auto auto auto;
             font-size            : 70%;
-            color                : rgb(50, 200, 200);
+            color                : gray;
 
             >div {
                 margin    : 0px auto;

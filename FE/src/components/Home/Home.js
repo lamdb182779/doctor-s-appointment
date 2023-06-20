@@ -1,4 +1,4 @@
-import "../styles/Home.scss"
+import "../../styles/Home/Home.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faMagnifyingGlass,
@@ -10,6 +10,8 @@ import {
     faUserNurse,
     faTruckArrowRight
 } from '@fortawesome/free-solid-svg-icons'
+
+import Slide from "./Slide"
 
 const Home = (props) => {
     return (
@@ -65,6 +67,9 @@ const Home = (props) => {
                         Hợp tác rộng rãi
                     </div>
                 </div>
+            </div>
+            <div className="home-content">
+                <Slide />
             </div>
         </div>
     )

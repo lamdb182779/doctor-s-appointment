@@ -1,4 +1,4 @@
-import Home from './components/Home';
+import Home from './components/Home/Home';
 import './styles/App.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
