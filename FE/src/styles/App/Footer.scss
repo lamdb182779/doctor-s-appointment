@@ -1,0 +1,36 @@
+.App-info {
+    width    : 50%;
+    margin   : auto 10%;
+    font-size: 70%;
+
+    .App-logo {
+        cursor: pointer;
+
+        img {
+            margin-bottom: 0px;
+        }
+    }
+
+    >div {
+        margin-bottom: 3%;
+
+        b {
+            margin-left: 1%;
+        }
+    }
+}
+
+.App-rules {
+    width     : 30%;
+    margin-top: 2%;
+    font-size : 70%;
+
+    ul {
+        margin-top: 10%;
+
+        li {
+            margin-top: 2%;
+            list-style: none;
+        }
+    }
+}

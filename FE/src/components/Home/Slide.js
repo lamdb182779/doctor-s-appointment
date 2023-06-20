@@ -25,7 +25,7 @@ const Slide = (props) => {
                 <b>
                     Chuyên khoa phổ biến
                 </b>
-                <Button variant="outline-primary" size="sm">Xem thêm</Button>
+                <Button className="mt-1" variant="outline-primary" size="sm" onClick={() => props.showMore('/specialties')}>Xem thêm</Button>
             </div>
             <div className="slide-content">
                 {loading === false ?

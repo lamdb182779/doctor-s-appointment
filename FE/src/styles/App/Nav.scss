@@ -1,0 +1,27 @@
+.nav-list {
+    >div {
+        height       : 3rem;
+        margin-bottom: 2%;
+        border-radius: 10px;
+
+        a {
+            height         : 100%;
+            width          : 100%;
+            display        : flex;
+            align-items    : center;
+            text-decoration: none;
+            padding-left   : 3%;
+            color          : black;
+            border-radius  : 10px;
+        }
+
+        &:hover {
+            background-color: whitesmoke;
+        }
+
+        .active {
+            background-color: grey;
+            color           : white
+        }
+    }
+}

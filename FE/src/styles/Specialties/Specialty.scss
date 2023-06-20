@@ -1,0 +1,26 @@
+.specialty-container {
+    border       : 0px;
+    min-height   : 30vh;
+    border-radius: 20px;
+    background   : radial-gradient(circle at center, #6ec2f7, #cfebfc);
+    margin-top   : 2%;
+    padding      : 2% 5%;
+    cursor       : pointer;
+
+    .specialty-title {
+        text-align : left;
+        font-size  : 70%;
+        font-weight: 500;
+    }
+
+    .specialty-content {
+
+        .specialty-image {
+            margin-top   : 1%;
+            max-height   : 100%;
+            width        : 25%;
+            margin-bottom: 1%;
+            border       : 1px solid grey;
+        }
+    }
+}

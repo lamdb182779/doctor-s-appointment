@@ -11,9 +11,16 @@ import {
     faTruckArrowRight
 } from '@fortawesome/free-solid-svg-icons'
 
+import { useNavigate } from "react-router-dom"
+
 import Slide from "./Slide"
 
 const Home = (props) => {
+    const navigate = useNavigate()
+    const handleShowMore = (route) => {
+        navigate(route)
+        window.scrollTo(0, 0);
+    }
     return (
         <div className="home-container">
             <div className="home-title">
@@ -69,7 +76,7 @@ const Home = (props) => {
                 </div>
             </div>
             <div className="home-content">
-                <Slide />
+                <Slide showMore={handleShowMore} />
             </div>
         </div>
     )

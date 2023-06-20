@@ -1,0 +1,44 @@
+.App-home {
+    display: flex;
+    width  : 30%;
+    margin : auto 0px;
+
+    .App-bar {
+        margin         : auto 10%;
+        cursor         : pointer;
+        width          : 12%;
+        border         : 2px solid black;
+        border-radius  : 10px;
+        display        : flex;
+        justify-content: center;
+        align-items    : center;
+
+        &:hover {
+            background-color: black;
+            color           : white;
+        }
+    }
+
+    .App-logo {
+        margin-left: -5%;
+        cursor     : pointer;
+    }
+}
+
+.App-support {
+    font-size   : 70%;
+    display     : flex;
+    margin      : auto;
+    margin-right: 0%;
+    width       : 20%;
+    color       : rgb(50, 200, 200);
+
+    .question-icon {
+        margin      : auto;
+        margin-right: -5%;
+    }
+
+    .phone-number {
+        margin: 0 10%;
+    }
+}
