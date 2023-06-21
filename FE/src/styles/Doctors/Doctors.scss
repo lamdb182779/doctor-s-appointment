@@ -1,5 +1,6 @@
 .doctors-container {
     margin-top: 5%;
+    padding   : 2% 5%;
 
     .doctors-title {
         position: relative;
@@ -7,6 +8,54 @@
         button {
             position: absolute;
             left    : 0;
+        }
+    }
+
+    .doctors-content {
+        margin-top: 1%;
+
+        .doctors-search {
+            text-align : left;
+            font-size  : 70%;
+            font-weight: 500;
+
+            .doctors-specialty,
+            .doctors-name,
+            .doctors-address {
+                display      : flex;
+                align-items  : center;
+                margin-bottom: 3%;
+            }
+
+            .doctors-specialty {
+                button {
+                    margin-left: 1rem;
+                    height     : 2.3rem;
+                }
+            }
+
+            .doctors-name {
+                margin-left: 4rem;
+
+                form {
+                    margin-left: 1rem;
+                    width      : 70%;
+                    height     : 2.3rem;
+                }
+            }
+
+            .doctors-address {
+                form {
+                    margin-left: 4rem;
+                    width      : 75%;
+                    height     : 2.3rem;
+                }
+
+                button {
+                    margin-left: 1rem;
+                    width      : 10%;
+                }
+            }
         }
     }
 }

@@ -23,22 +23,22 @@ const Footer = (props) => {
                 </div>
                 {loading === false ?
                     <>
-                        {Object.keys(data) !== 0 ?
+                        {data?.length > 0 ?
                             <>
                                 <div className='App-address'>
                                     <FontAwesomeIcon icon={faLocationDot} size="sm" />
                                     <b>Địa chỉ</b><br />
-                                    {data.address}
+                                    {data[0].address}
                                 </div>
                                 <div className='App-email'>
                                     <FontAwesomeIcon icon={faEnvelope} size="sm" />
                                     <b>Email</b><br />
-                                    {data.email}
+                                    {data[0].email}
                                 </div>
                                 <div className='App-phone'>
                                     <FontAwesomeIcon icon={faPhone} size="sm" />
                                     <b>Điện thoại</b><br />
-                                    {data.phoneNumber}
+                                    {data[0].phoneNumber}
                                 </div>
                             </>
                             :

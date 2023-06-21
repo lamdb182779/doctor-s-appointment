@@ -10,7 +10,7 @@ import logo from '../src/assets/images/logo.png'
 
 import { Offcanvas } from 'react-bootstrap';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import {
   BrowserRouter,
@@ -23,13 +23,23 @@ function App() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [loc, setLoc] = useState(0);
+
+  useEffect(() => {
+    function handleScroll() {
+      setLoc(window.pageYOffset);
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <BrowserRouter>
       <div className="App">
         <Offcanvas show={show} onHide={handleClose}>
           <Offcanvas.Header closeButton>
             <Offcanvas.Title>
-              Doctor Booking
+              <a href='/' style={{ textDecoration: 'none', color: 'black' }}>Doctor Booking</a>
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>

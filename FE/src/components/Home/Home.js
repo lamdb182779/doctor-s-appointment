@@ -11,14 +11,21 @@ import {
     faTruckArrowRight
 } from '@fortawesome/free-solid-svg-icons'
 
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 import Slide from "./Slide"
 
 const Home = (props) => {
     const navigate = useNavigate()
+    const location = useLocation()
+
     const handleShowMore = (route) => {
-        navigate(route)
+        navigate(route, {
+            state: {
+                route: '/',
+                preState: location.state,
+            }
+        })
         window.scrollTo(0, 0);
     }
     return (

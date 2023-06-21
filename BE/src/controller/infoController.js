@@ -2,7 +2,7 @@ const db = require('../models')
 
 const getInfoApp = async (req, res) => {
     try {
-        let data = await db.Admins.findOne({
+        let data = await db.Admins.findAll({
             where: {
                 id: '01'
             }

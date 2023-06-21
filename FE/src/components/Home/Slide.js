@@ -7,18 +7,32 @@ import { Image, Button } from "react-bootstrap";
 
 import useFetch from "../../custom/fetch";
 
+import { useNavigate, useLocation } from "react-router-dom";
+
 const Slide = (props) => {
+    const navigate = useNavigate()
+    const location = useLocation()
+
     const settings = {
         dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
+        initialSlide: location.state?.id ? location.state.id : 0
     };
 
     const { data, loading } = useFetch('http://localhost:8080/api/home')
 
-    console.log(data)
+    const handleSpecialtyDoctors = (id) => {
+        navigate(`/doctors?specialtyID=${id}`, {
+            state: {
+                route: '/',
+                preState: { ...location.state, slide: id },
+            }
+        })
+        window.scrollTo(0, 0);
+    }
     return (
         <div className="slide-container">
             <div className="slide-title">
@@ -35,7 +49,7 @@ const Slide = (props) => {
                                 <Slider {...settings}>
                                     {data.map((item, index) => {
                                         return (
-                                            <div key={index}>
+                                            <div key={index} onClick={() => handleSpecialtyDoctors(item.id)}>
                                                 <Image src={item.image} alt={item.name} fluid />
                                                 {item.name}
                                             </div>

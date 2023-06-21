@@ -12,3 +12,5 @@ const Doctor = (props) => {
         </div>
     )
 }
+
+export default Doctor
