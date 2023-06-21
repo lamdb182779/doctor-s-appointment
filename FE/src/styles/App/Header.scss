@@ -2,26 +2,31 @@
     display: flex;
     width  : 30%;
     margin : auto 0px;
+    height : 10vh;
 
     .App-bar {
         margin         : auto 10%;
         cursor         : pointer;
         width          : 12%;
-        border         : 2px solid black;
+        height         : 60%;
+        border         : 2px solid white;
         border-radius  : 10px;
         display        : flex;
         justify-content: center;
         align-items    : center;
+        color          : white;
 
         &:hover {
-            background-color: black;
-            color           : white;
+            background-color: white;
+            color           : #3eaef4;
         }
     }
 
     .App-logo {
         margin-left: -5%;
         cursor     : pointer;
+        display    : flex;
+        align-items: center;
     }
 }
 
@@ -31,7 +36,7 @@
     margin      : auto;
     margin-right: 0%;
     width       : 20%;
-    color       : rgb(50, 200, 200);
+    color       : white;
 
     .question-icon {
         margin      : auto;

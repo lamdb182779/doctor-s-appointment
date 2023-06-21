@@ -8,10 +8,13 @@ import { Image, Button } from "react-bootstrap";
 import useFetch from "../../custom/fetch";
 
 import { useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const Slide = (props) => {
     const navigate = useNavigate()
     const location = useLocation()
+
+    const [slide, setSlide] = useState(location.state?.slide ? location.state.slide : 0)
 
     const settings = {
         dots: false,
@@ -19,18 +22,24 @@ const Slide = (props) => {
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
-        initialSlide: location.state?.id ? location.state.id : 0
+        initialSlide: location.state?.slide ? location.state.slide : 0,
+        afterChange: (index) => {
+            setSlide(index)
+        },
     };
 
     const { data, loading } = useFetch('http://localhost:8080/api/home')
 
     const handleSpecialtyDoctors = (id) => {
-        navigate(`/doctors?specialtyID=${id}`, {
+        let route = `/doctors?specialtyID=${id}`
+        navigate(route, {
             state: {
-                route: '/',
-                preState: { ...location.state, slide: id },
+                route: props.route,
+                preState: { ...location.state, slide: slide },
+                loc: props.loc,
             }
         })
+        props.setRoute(route)
         window.scrollTo(0, 0);
     }
     return (

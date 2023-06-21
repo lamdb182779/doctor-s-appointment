@@ -1,5 +1,6 @@
 import Header from './components/Header'
 import Footer from './components/Footer';
+import Nav from './components/Nav';
 import Home from './components/Home/Home';
 import Specialties from './components/Specialties/Specialties';
 import Doctors from './components/Doctors/Doctors'
@@ -17,13 +18,14 @@ import {
   Route,
   Routes,
 } from "react-router-dom"
-import Nav from './components/Nav';
 
 function App() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [loc, setLoc] = useState(0);
+  const [route, setRoute] = useState("/")
+  const [pre, setPre] = useState({})
 
   useEffect(() => {
     function handleScroll() {
@@ -43,7 +45,7 @@ function App() {
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Nav handleClose={handleClose} />
+            <Nav handleClose={handleClose} loc={loc} route={route} />
           </Offcanvas.Body>
         </Offcanvas>
         <header className="App-header">
@@ -51,9 +53,9 @@ function App() {
         </header>
         <main className='App-main'>
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/specialties' element={<Specialties />} />
-            <Route path='/doctors' element={<Doctors />} />
+            <Route path='/' element={<Home loc={loc} setRoute={setRoute} route={route} setPre={setPre} pre={pre} />} />
+            <Route path='/specialties' element={<Specialties setRoute={setRoute} route={route} setPre={setPre} pre={pre} />} />
+            <Route path='/doctors' element={<Doctors setRoute={setRoute} route={route} setPre={setPre} pre={pre} />} />
           </Routes>
         </main>
         <footer className='App-footer'>

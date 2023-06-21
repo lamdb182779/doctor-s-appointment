@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap"
+import { Button, Spinner } from "react-bootstrap"
 import "../../styles/Specialties/Specialties.scss"
 import Specialty from "./Specialty"
 import useFetch from "../../custom/fetch"
@@ -12,17 +12,24 @@ const Specialties = (props) => {
     const location = useLocation()
 
     const handleSpecialtyDoctors = (id) => {
-        navigate(`/doctors?specialtyID=${id}`, {
+        let route = `/doctors?specialtyID=${id}`
+        navigate(route, {
             state: {
-                route: '/specialties',
+                route: props.route,
                 preState: location.state,
+                loc: window.pageYOffset,
             }
         })
+        props.setRoute(route)
         window.scrollTo(0, 0);
     }
 
     const handleBack = () => {
         navigate(location.state.route, { state: location.state.preState })
+        props.setRoute(location.state.route)
+        setTimeout(() => {
+            window.scrollTo(0, location.state.loc)
+        }, 30)
     }
     return (
         <div className="specialties-container">
@@ -33,7 +40,7 @@ const Specialties = (props) => {
             <div className="specialties-content">
                 {loading === false ?
                     <>
-                        {data?.length ?
+                        {data?.length > 0 ?
                             <>
                                 {data.map((item, index) => {
                                     return (
@@ -55,7 +62,8 @@ const Specialties = (props) => {
                     :
                     <>
                         <div className="specialties-loading">
-                            Đang tải dữ liệu ...
+                            <Spinner animation="border" variant="primary" />
+                            Đang tải dữ liệu...
                         </div>
                     </>
                 }

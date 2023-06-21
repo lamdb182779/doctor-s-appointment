@@ -8,13 +8,22 @@ const Nav = (props) => {
     return (
         <div className="nav-list">
             <div className="nav-home" onClick={() => props.handleClose()}>
-                <NavLink to="/" exact>Trang chủ</NavLink>
+                <NavLink to={{
+                    pathname: "/",
+                    state: props.state,
+                }} exact>Trang chủ</NavLink>
             </div>
             <div className="nav-specialties" onClick={() => props.handleClose()}>
-                <NavLink to="/specialties">Chuyên khoa</NavLink>
+                <NavLink to={{
+                    pathname: "/specialties",
+                    state: props.state,
+                }}>Chuyên khoa</NavLink>
             </div>
             <div className="nav-doctors" onClick={() => props.handleClose()}>
-                <NavLink to="/doctors">Bác sĩ</NavLink>
+                <NavLink to={{
+                    pathname: "/doctors",
+                    state: props.state,
+                }}>Bác sĩ</NavLink>
             </div>
             <Form className="d-flex">
                 <Form.Control

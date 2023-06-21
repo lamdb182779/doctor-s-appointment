@@ -15,6 +15,8 @@ import { useNavigate, useLocation } from "react-router-dom"
 
 import Slide from "./Slide"
 
+import { connect } from "react-redux"
+
 const Home = (props) => {
     const navigate = useNavigate()
     const location = useLocation()
@@ -22,10 +24,12 @@ const Home = (props) => {
     const handleShowMore = (route) => {
         navigate(route, {
             state: {
-                route: '/',
+                route: props.route,
                 preState: location.state,
+                loc: props.loc
             }
         })
+        props.setRoute(route)
         window.scrollTo(0, 0);
     }
     return (
@@ -83,10 +87,24 @@ const Home = (props) => {
                 </div>
             </div>
             <div className="home-content">
-                <Slide showMore={handleShowMore} />
+                <Slide showMore={handleShowMore} loc={props.loc} setRoute={props.setRoute} route={props.route} />
             </div>
         </div>
     )
 }
 
-export default Home
+const mapStateToProps = (state) => {
+    return ({
+        route: state.route,
+        preState: state.preState,
+    })
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return ({
+        setRoute: (route) => dispatch({ type: 'SET_ROUTE', payload: route }),
+        setPreState: (preState) => dispatch({ type: 'SET_PRESTATE', payload: preState }),
+    })
+}
+
+export default connect(mapStateToProps)(Home)

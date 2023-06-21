@@ -18,18 +18,25 @@ const Doctors = (props) => {
     const [searchName, setSearchName] = useState(name ? name : '')
     const [searchAddress, setSearchAddress] = useState(clinicAddress ? clinicAddress : '')
     const [searchSpecialtyID, setSearchSpecialtyID] = useState(specialtyID ? specialtyID : '')
+    const [pageNo, setPage] = useState(page ? page : 1)
+    const [pageSize, setPageSize] = useState(pagesize ? pagesize : 5)
 
     const handleSearch = (id, name, address) => {
-        navigate(`/doctors?specialtyID=${id}&name=${name}&clinicAddress=${address}`, {
+        let route = `/doctors?specialtyID=${id}&name=${name}&clinicAddress=${address}`
+        navigate(route, {
             state: location.state
         })
+        props.setRoute(route)
     }
 
     const handleBack = () => {
-        console.log(location.state.loc)
         navigate(location.state.route, {
             state: location.state.preState
         })
+        props.setRoute(location.state.route)
+        setTimeout(() => {
+            window.scrollTo(0, location.state.loc)
+        }, 30)
     }
 
     return (

@@ -4,10 +4,9 @@
     font-size: 70%;
 
     .App-logo {
-        cursor: pointer;
-
         img {
             margin-bottom: 0px;
+            cursor       : pointer;
         }
     }
 
@@ -16,6 +15,19 @@
 
         b {
             margin-left: 1%;
+        }
+    }
+
+    .App-nodata,
+    .App-loading {
+        display    : flex;
+        align-items: center;
+        margin-top : 5%;
+    }
+
+    .App-loading {
+        >div {
+            margin-right: 1%;
         }
     }
 }

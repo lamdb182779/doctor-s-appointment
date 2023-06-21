@@ -9,7 +9,7 @@ import {
     faLocationDot
 } from '@fortawesome/free-solid-svg-icons'
 
-import { Image } from "react-bootstrap"
+import { Image, Spinner } from "react-bootstrap"
 
 const Footer = (props) => {
     const { data, loading } = useFetch('http://localhost:8080/api')
@@ -52,7 +52,8 @@ const Footer = (props) => {
                     :
                     <>
                         <div className='App-loading'>
-                            Đang tải dữ liệu ...
+                            <Spinner animation="border" variant="light" />
+                            Đang tải dữ liệu...
                         </div>
                     </>
                 }
