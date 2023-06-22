@@ -3,33 +3,37 @@ import "../../styles/Specialties/Specialties.scss"
 import Specialty from "./Specialty"
 import useFetch from "../../custom/fetch"
 
-import { useNavigate, useLocation } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { connect } from "react-redux"
 
 const Specialties = (props) => {
     const { data, loading } = useFetch('http://localhost:8080/api/specialties')
 
     const navigate = useNavigate()
-    const location = useLocation()
 
     const handleSpecialtyDoctors = (id) => {
-        let route = `/doctors?specialtyID=${id}`
-        navigate(route, {
-            state: {
-                route: props.route,
-                preState: location.state,
-                loc: window.pageYOffset,
-            }
+        let path = `/doctors?specialtyID=${id}`
+        props.setRoute({
+            preRoute: props.route,
+            path: path,
+            scrollY: window.scrollY
         })
-        props.setRoute(route)
+        navigate(path)
         window.scrollTo(0, 0);
     }
 
     const handleBack = () => {
-        navigate(location.state.route, { state: location.state.preState })
-        props.setRoute(location.state.route)
-        setTimeout(() => {
-            window.scrollTo(0, location.state.loc)
-        }, 30)
+        if (props.route.preRoute) {
+            let scrollY = props.route.scrollY
+            navigate(props.route.preRoute.path)
+            props.setRoute(props.route.preRoute)
+            setTimeout(() => {
+                window.scrollTo(0, scrollY)
+            }, 30)
+        } else {
+            navigate('/')
+            window.scrollTo(0, 0)
+        }
     }
     return (
         <div className="specialties-container">
@@ -72,4 +76,16 @@ const Specialties = (props) => {
     )
 }
 
-export default Specialties
+const mapStateToProps = (state) => {
+    return ({
+        route: state.route
+    })
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return ({
+        setRoute: (route) => dispatch({ type: 'SET_ROUTE', payload: route }),
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Specialties)

@@ -7,14 +7,14 @@ import { Image, Button } from "react-bootstrap";
 
 import useFetch from "../../custom/fetch";
 
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { connect } from "react-redux";
 
 const Slide = (props) => {
     const navigate = useNavigate()
-    const location = useLocation()
 
-    const [slide, setSlide] = useState(location.state?.slide ? location.state.slide : 0)
+    const [slide, setSlide] = useState(props.route.slide ? props.route.slide : 0)
 
     const settings = {
         dots: false,
@@ -22,7 +22,7 @@ const Slide = (props) => {
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
-        initialSlide: location.state?.slide ? location.state.slide : 0,
+        initialSlide: slide,
         afterChange: (index) => {
             setSlide(index)
         },
@@ -31,15 +31,13 @@ const Slide = (props) => {
     const { data, loading } = useFetch('http://localhost:8080/api/home')
 
     const handleSpecialtyDoctors = (id) => {
-        let route = `/doctors?specialtyID=${id}`
-        navigate(route, {
-            state: {
-                route: props.route,
-                preState: { ...location.state, slide: slide },
-                loc: props.loc,
-            }
+        let path = `/doctors?specialtyID=${id}`
+        props.setRoute({
+            preRoute: { ...props.route, slide: slide },
+            path: path,
+            scrollY: props.loc,
         })
-        props.setRoute(route)
+        navigate(path)
         window.scrollTo(0, 0);
     }
     return (
@@ -87,4 +85,16 @@ const Slide = (props) => {
     )
 }
 
-export default Slide
+const mapStateToProps = (state) => {
+    return ({
+        route: state.route
+    })
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return ({
+        setRoute: (route) => dispatch({ type: 'SET_ROUTE', payload: route }),
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Slide)

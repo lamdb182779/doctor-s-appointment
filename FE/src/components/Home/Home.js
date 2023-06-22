@@ -11,7 +11,7 @@ import {
     faTruckArrowRight
 } from '@fortawesome/free-solid-svg-icons'
 
-import { useNavigate, useLocation } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 import Slide from "./Slide"
 
@@ -19,17 +19,16 @@ import { connect } from "react-redux"
 
 const Home = (props) => {
     const navigate = useNavigate()
-    const location = useLocation()
 
-    const handleShowMore = (route) => {
-        navigate(route, {
-            state: {
-                route: props.route,
-                preState: location.state,
-                loc: props.loc
-            }
+    console.log(props)
+
+    const handleShowMore = (path) => {
+        props.setRoute({
+            preRoute: props.route,
+            path: path,
+            scrollY: props.loc,
         })
-        props.setRoute(route)
+        navigate(path)
         window.scrollTo(0, 0);
     }
     return (
@@ -87,7 +86,7 @@ const Home = (props) => {
                 </div>
             </div>
             <div className="home-content">
-                <Slide showMore={handleShowMore} loc={props.loc} setRoute={props.setRoute} route={props.route} />
+                <Slide showMore={handleShowMore} loc={props.loc} />
             </div>
         </div>
     )
@@ -95,16 +94,14 @@ const Home = (props) => {
 
 const mapStateToProps = (state) => {
     return ({
-        route: state.route,
-        preState: state.preState,
+        route: state.route
     })
 }
 
 const mapDispatchToProps = (dispatch) => {
     return ({
         setRoute: (route) => dispatch({ type: 'SET_ROUTE', payload: route }),
-        setPreState: (preState) => dispatch({ type: 'SET_PRESTATE', payload: preState }),
     })
 }
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

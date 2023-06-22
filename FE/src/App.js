@@ -24,8 +24,6 @@ function App() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [loc, setLoc] = useState(0);
-  const [route, setRoute] = useState("/")
-  const [pre, setPre] = useState({})
 
   useEffect(() => {
     function handleScroll() {
@@ -38,14 +36,14 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas show={show} onHide={handleClose} scroll={true} style={{ transition: 'transform 0.5s ease-in-out' }}>
           <Offcanvas.Header closeButton>
             <Offcanvas.Title>
               <a href='/' style={{ textDecoration: 'none', color: 'black' }}>Doctor Booking</a>
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Nav handleClose={handleClose} loc={loc} route={route} />
+            <Nav handleClose={handleClose} loc={loc} />
           </Offcanvas.Body>
         </Offcanvas>
         <header className="App-header">
@@ -53,9 +51,9 @@ function App() {
         </header>
         <main className='App-main'>
           <Routes>
-            <Route path='/' element={<Home loc={loc} setRoute={setRoute} route={route} setPre={setPre} pre={pre} />} />
-            <Route path='/specialties' element={<Specialties setRoute={setRoute} route={route} setPre={setPre} pre={pre} />} />
-            <Route path='/doctors' element={<Doctors setRoute={setRoute} route={route} setPre={setPre} pre={pre} />} />
+            <Route path='/' element={<Home loc={loc} />} />
+            <Route path='/specialties' element={<Specialties />} />
+            <Route path='/doctors' element={<Doctors />} />
           </Routes>
         </main>
         <footer className='App-footer'>

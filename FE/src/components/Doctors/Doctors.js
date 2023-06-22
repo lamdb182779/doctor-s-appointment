@@ -8,6 +8,8 @@ import useFetch from "../../custom/fetch"
 
 // import Doctor from "./Doctor"
 
+import { connect } from "react-redux"
+
 const Doctors = (props) => {
     const navigate = useNavigate()
     const location = useLocation()
@@ -22,21 +24,22 @@ const Doctors = (props) => {
     const [pageSize, setPageSize] = useState(pagesize ? pagesize : 5)
 
     const handleSearch = (id, name, address) => {
-        let route = `/doctors?specialtyID=${id}&name=${name}&clinicAddress=${address}`
-        navigate(route, {
-            state: location.state
-        })
-        props.setRoute(route)
+        let path = `/doctors?specialtyID=${id}&name=${name}&clinicAddress=${address}`
+        navigate(path)
     }
 
     const handleBack = () => {
-        navigate(location.state.route, {
-            state: location.state.preState
-        })
-        props.setRoute(location.state.route)
-        setTimeout(() => {
-            window.scrollTo(0, location.state.loc)
-        }, 30)
+        if (props.route.preRoute) {
+            let scrollY = props.route.scrollY
+            navigate(props.route.preRoute.path)
+            props.setRoute(props.route.preRoute)
+            setTimeout(() => {
+                window.scrollTo(0, scrollY)
+            }, 30)
+        } else {
+            navigate('/')
+            window.scrollTo(0, 0)
+        }
     }
 
     return (
@@ -130,4 +133,16 @@ const Doctors = (props) => {
     )
 }
 
-export default Doctors
+const mapStateToProps = (state) => {
+    return ({
+        route: state.route
+    })
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return ({
+        setRoute: (route) => dispatch({ type: 'SET_ROUTE', payload: route }),
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Doctors)
