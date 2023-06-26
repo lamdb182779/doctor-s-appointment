@@ -1,20 +1,65 @@
 import { Button, Spinner } from "react-bootstrap"
 import "../../styles/Specialties/Specialties.scss"
 import Specialty from "./Specialty"
+
+import { useNavigate, useLocation } from "react-router-dom"
+import { connect } from "react-redux"
+import { useEffect, useState } from "react"
 import useFetch from "../../custom/fetch"
 
-import { useNavigate } from "react-router-dom"
-import { connect } from "react-redux"
-
 const Specialties = (props) => {
-    const { data, loading } = useFetch('http://localhost:8080/api/specialties')
+    let [data, setData] = useState([])
+    let [offset, setOffset] = useState(props.route.limit ? props.route.limit : 0)
+    let [isMounted, setIsMounted] = useState(false)
 
     const navigate = useNavigate()
+    const location = useLocation()
+
+    if (props.route.path === '/') {
+        props.setRoute({ ...props.route, path: location.pathname + location.search })
+    }
+
+    const { data: fetchData, loading } = useFetch(`http://localhost:8080/api/specialties?limit=${props.route.limit ? props.route.limit + 4 : 0}`)
+    console.log(`http://localhost:8080/api/specialties?limit=${props.route.limit ? props.route.limit : 4}`)
+    useEffect(() => {
+        setData(fetchData)
+    }, [fetchData])// eslint-disable-line react-hooks/exhaustive-deps
+
+    useEffect(() => {
+        const fetchData = async () => {
+            if (isMounted) {
+                try {
+                    console.log(`http://localhost:8080/api/specialties?offset=${offset}&limit=4`)
+                    let res = await (await fetch(`http://localhost:8080/api/specialties?offset=${offset}&limit=4`)).json()
+                    res = res?.data ? res.data : []
+                    setData([...data, ...res])
+                } catch (error) {
+                    console.log('Error: ', error)
+                }
+            }
+            else {
+                setIsMounted(true)
+            }
+        }
+        fetchData()
+    }, [offset])// eslint-disable-line react-hooks/exhaustive-deps
+
+    useEffect(() => {
+        const handleScroll = (e) => {
+            const scrollHeight = e.target.documentElement.scrollHeight
+            const currentHeight = e.target.documentElement.scrollTop + window.innerHeight
+            if (currentHeight + 1 >= scrollHeight) {
+                setOffset(offset + 4)
+            }
+        }
+        window.addEventListener("scroll", handleScroll)
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [offset])// eslint-disable-line react-hooks/exhaustive-deps
 
     const handleSpecialtyDoctors = (id) => {
         let path = `/doctors?specialtyID=${id}`
         props.setRoute({
-            preRoute: props.route,
+            preRoute: { ...props.route, limit: offset },
             path: path,
             scrollY: window.scrollY
         })
@@ -27,14 +72,13 @@ const Specialties = (props) => {
             let scrollY = props.route.scrollY
             navigate(props.route.preRoute.path)
             props.setRoute(props.route.preRoute)
-            setTimeout(() => {
-                window.scrollTo(0, scrollY)
-            }, 30)
+            window.scrollTo(0, scrollY)
         } else {
             navigate('/')
             window.scrollTo(0, 0)
         }
     }
+
     return (
         <div className="specialties-container">
             <div className="specialties-title">

@@ -1,6 +1,23 @@
 'use strict';
 const path = require('path')
-const imgPath = "https://res.cloudinary.com/dnujcvcql/image/upload/v1687201496/Specialties"
+const fs = require('fs');
+
+const folderPath = path.join(__dirname, '../../../image_seeders/Specialties')
+
+const toBase64 = (img) => {
+  return new Promise((resolve, reject) => {
+    const imagePath = path.join(folderPath, img)
+    const imageBuffer = fs.readFileSync(imagePath)
+    const imageBase64 = imageBuffer.toString('base64')
+    if (imageBase64) {
+      resolve(imageBase64)
+    } else {
+      reject("Error: Failed to convert image to base64")
+    }
+  })
+}
+
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -18,7 +35,7 @@ module.exports = {
         id: '01',
         name: 'Cơ xương khớp',
         description: '',
-        image: path.join(imgPath, '01Musculoskeletal.PNG.png'),
+        image: await toBase64('01Musculoskeletal.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -26,7 +43,7 @@ module.exports = {
         id: '02',
         name: 'Thần kinh',
         description: '',
-        image: path.join(imgPath, '02Neurology.PNG.png'),
+        image: await toBase64('02Neurology.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -34,7 +51,7 @@ module.exports = {
         id: '03',
         name: 'Tiêu hóa',
         description: '',
-        image: path.join(imgPath, '03Digestion.PNG.png'),
+        image: await toBase64('03Digestion.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -42,7 +59,7 @@ module.exports = {
         id: '04',
         name: 'Tim mạch',
         description: '',
-        image: path.join(imgPath, '04Heart.PNG.png'),
+        image: await toBase64('04Heart.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -50,7 +67,7 @@ module.exports = {
         id: '05',
         name: 'Tai mũi họng',
         description: '',
-        image: path.join(imgPath, '05Otolaryngologist.PNG.png'),
+        image: await toBase64('05Otolaryngologist.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -58,7 +75,7 @@ module.exports = {
         id: '06',
         name: 'Y học cổ truyền',
         description: '',
-        image: path.join(imgPath, '06Traditional medicine.PNG.png'),
+        image: await toBase64('06Traditional medicine.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -66,7 +83,7 @@ module.exports = {
         id: '07',
         name: 'Sản phụ khoa',
         description: '',
-        image: path.join(imgPath, '07Obstetrics and Gynecology.PNG.png'),
+        image: await toBase64('07Obstetrics and Gynecology.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -74,7 +91,7 @@ module.exports = {
         id: '08',
         name: 'Nhi khoa',
         description: '',
-        image: path.join(imgPath, '08Pediatrics.PNG.png'),
+        image: await toBase64('08Pediatrics.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -82,7 +99,7 @@ module.exports = {
         id: '09',
         name: 'Da liễu',
         description: '',
-        image: path.join(imgPath, '09Dermatology.PNG.png'),
+        image: await toBase64('09Dermatology.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -90,7 +107,7 @@ module.exports = {
         id: '10',
         name: 'Sức khỏe tâm thần',
         description: '',
-        image: path.join(imgPath, '10Mental Health.PNG.png'),
+        image: await toBase64('10Mental Health.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -98,7 +115,7 @@ module.exports = {
         id: '11',
         name: 'Dị ứng - Miễn dịch',
         description: '',
-        image: path.join(imgPath, '11Allergy Immunity.PNG.png'),
+        image: await toBase64('11Allergy Immunity.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -106,7 +123,7 @@ module.exports = {
         id: '12',
         name: 'Hô hấp',
         description: '',
-        image: path.join(imgPath, '12Respiratory.PNG.png'),
+        image: await toBase64('12Respiratory.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -114,7 +131,7 @@ module.exports = {
         id: '13',
         name: 'Chuyên khoa mắt',
         description: '',
-        image: path.join(imgPath, '13Ophthalmology.PNG.png'),
+        image: await toBase64('13Ophthalmology.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -122,7 +139,7 @@ module.exports = {
         id: '14',
         name: 'Thận - Tiết niệu',
         description: '',
-        image: path.join(imgPath, '14Nephrology.PNG.png'),
+        image: await toBase64('14Nephrology.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -130,7 +147,7 @@ module.exports = {
         id: '15',
         name: 'Nha khoa',
         description: '',
-        image: path.join(imgPath, '15Dentist.PNG.png'),
+        image: await toBase64('15Dentist.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -138,7 +155,7 @@ module.exports = {
         id: '16',
         name: 'Nội tiết',
         description: '',
-        image: path.join(imgPath, '16Endocrinology.PNG.png'),
+        image: await toBase64('16Endocrinology.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -146,7 +163,7 @@ module.exports = {
         id: '17',
         name: 'Phục hồi chức năng',
         description: '',
-        image: path.join(imgPath, '17Recovery.PNG.png'),
+        image: await toBase64('17Recovery.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -154,7 +171,7 @@ module.exports = {
         id: '18',
         name: 'Thẩm mĩ',
         description: '',
-        image: path.join(imgPath, '18Cosmetic surgery.PNG.png'),
+        image: await toBase64('18Cosmetic surgery.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -162,7 +179,7 @@ module.exports = {
         id: '19',
         name: 'Truyền nhiễm',
         description: '',
-        image: path.join(imgPath, '19Infectious disease.PNG.png'),
+        image: await toBase64('19Infectious disease.png'),
         createdAt: new Date(),
         updatedAt: new Date()
       }

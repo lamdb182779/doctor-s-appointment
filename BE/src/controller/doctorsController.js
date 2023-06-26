@@ -60,7 +60,24 @@ let getAllDoctors = async (req, res) => {
     }
 }
 
+let getSpecialtiesName = async (req, res) => {
+    try {
+        let data = await db.Specialties.findAll({
+            attributes: ['id', 'name']
+        })
+        return res.status(200).json({
+            message: 'ok',
+            data: data
+        })
+    } catch (error) {
+        console.log('Cannot get data. Error:', error)
+        return res.status(500).json({
+            message: 'Server error!'
+        })
+    }
+}
 
 module.exports = {
     getAllDoctors,
+    getSpecialtiesName,
 }

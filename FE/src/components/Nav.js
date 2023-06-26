@@ -7,11 +7,13 @@ import { connect } from "react-redux"
 
 const Nav = (props) => {
     const handleClick = (path) => {
-        props.setRoute({
-            preRoute: props.route,
-            path: path,
-            scrollY: props.loc,
-        })
+        if (!((props.route.path === '/' && path === '/') || (props.route.path.startsWith(path) && path !== '/'))) {
+            props.setRoute({
+                preRoute: props.route,
+                path: path,
+                scrollY: props.loc,
+            })
+        }
         window.scrollTo(0, 0)
         props.handleClose()
     }

@@ -20,8 +20,6 @@ import { connect } from "react-redux"
 const Home = (props) => {
     const navigate = useNavigate()
 
-    console.log(props)
-
     const handleShowMore = (path) => {
         props.setRoute({
             preRoute: props.route,

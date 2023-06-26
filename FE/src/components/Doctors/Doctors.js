@@ -14,8 +14,12 @@ const Doctors = (props) => {
     const navigate = useNavigate()
     const location = useLocation()
 
+    if (props.route.path === '/') {
+        props.setRoute({ ...props.route, path: location.pathname + location.search })
+    }
+
     const { page, pagesize, name, specialtyID, clinicAddress } = Object.fromEntries(new URLSearchParams(location.search).entries())
-    const { data: specialtiesData, loading: specialtiesLoading } = useFetch('http://localhost:8080/api/specialties')
+    const { data: specialtiesData, loading: specialtiesLoading } = useFetch('http://localhost:8080/api/doctors/specialties')
 
     const [searchName, setSearchName] = useState(name ? name : '')
     const [searchAddress, setSearchAddress] = useState(clinicAddress ? clinicAddress : '')
@@ -35,7 +39,7 @@ const Doctors = (props) => {
             props.setRoute(props.route.preRoute)
             setTimeout(() => {
                 window.scrollTo(0, scrollY)
-            }, 30)
+            }, 250)
         } else {
             navigate('/')
             window.scrollTo(0, 0)
@@ -64,13 +68,10 @@ const Doctors = (props) => {
                                                 {specialtiesData?.length > 0 ?
                                                     <>
                                                         {specialtiesData.map((item, index) => {
-                                                            if (item.id !== specialtyID) return (
+                                                            return (
                                                                 <Dropdown.Item id={index} onClick={() => setSearchSpecialtyID(item.id)}>
                                                                     {item.name}
                                                                 </Dropdown.Item>
-                                                            )
-                                                            return (
-                                                                <></>
                                                             )
                                                         })
                                                         }

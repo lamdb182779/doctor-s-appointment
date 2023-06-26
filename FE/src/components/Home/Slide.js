@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { Image, Button } from "react-bootstrap";
+import { Image, Button, Spinner } from "react-bootstrap";
 
 import useFetch from "../../custom/fetch";
 
@@ -15,6 +15,25 @@ const Slide = (props) => {
     const navigate = useNavigate()
 
     const [slide, setSlide] = useState(props.route.slide ? props.route.slide : 0)
+    const [isDragging, setIsDragging] = useState(false)
+
+    const handleMouseUp = () => {
+        setTimeout(() => {
+            setIsDragging(false)
+        }, 100)
+    }
+
+    const handleMouseDown = () => {
+        setTimeout(() => {
+            setIsDragging(true)
+        }, 100)
+    }
+
+    const handleClick = (id) => {
+        if (isDragging === false) {
+            handleSpecialtyDoctors(id)
+        }
+    }
 
     const settings = {
         dots: false,
@@ -41,7 +60,7 @@ const Slide = (props) => {
         window.scrollTo(0, 0);
     }
     return (
-        <div className="slide-container">
+        <div className="slide-container" onMouseDown={() => handleMouseDown()} onMouseUp={() => handleMouseUp()}>
             <div className="slide-title">
                 <b>
                     Chuyên khoa phổ biến
@@ -53,10 +72,10 @@ const Slide = (props) => {
                     <>
                         {data?.length > 0 ?
                             <>
-                                <Slider {...settings}>
+                                <Slider {...settings} draggable={true}>
                                     {data.map((item, index) => {
                                         return (
-                                            <div key={index} onClick={() => handleSpecialtyDoctors(item.id)}>
+                                            <div key={index} onClick={() => handleClick(item.id)}>
                                                 <Image src={item.image} alt={item.name} fluid />
                                                 {item.name}
                                             </div>
@@ -76,6 +95,7 @@ const Slide = (props) => {
                     :
                     <>
                         <div className="slide-loading">
+                            <Spinner animation="border" variant="primary" />
                             Đang tải dữ liệu ...
                         </div>
                     </>

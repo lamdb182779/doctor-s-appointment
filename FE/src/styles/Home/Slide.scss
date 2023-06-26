@@ -29,5 +29,22 @@
                 height: 10rem;
             }
         }
+
+        .slide-nodata,
+        .slide-loading {
+            display        : flex;
+            align-items    : center;
+            justify-content: center;
+            font-size      : 70%;
+            margin-top     : 3%;
+        }
+
+        .slide-loading {
+            color: #1976d2;
+
+            >div {
+                margin-right: 1%;
+            }
+        }
     }
 }

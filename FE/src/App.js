@@ -27,7 +27,7 @@ function App() {
 
   useEffect(() => {
     function handleScroll() {
-      setLoc(window.pageYOffset);
+      setLoc(window.scrollY);
     }
 
     window.addEventListener('scroll', handleScroll);
