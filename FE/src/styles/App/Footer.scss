@@ -16,6 +16,15 @@
         b {
             margin-left: 1%;
         }
+
+        a {
+            color          : white;
+            text-decoration: none;
+
+            &:hover {
+                color: rgb(13, 110, 253);
+            }
+        }
     }
 
     .App-nodata,

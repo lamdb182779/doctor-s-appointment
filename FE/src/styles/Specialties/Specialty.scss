@@ -14,13 +14,38 @@
     }
 
     .specialty-content {
+        display: flex;
 
         .specialty-image {
+            display      : flex;
             margin-top   : 1%;
-            max-height   : 100%;
             width        : 25%;
             margin-bottom: 1%;
-            border       : 1px solid grey;
+            align-items  : center;
+
+            img {
+                border: 1px solid grey;
+            }
+        }
+
+        .specialty-description {
+            width      : 70%;
+            margin-left: 5%;
+            display    : flex;
+            font-size  : 70%;
+            text-align : left;
+            align-items: center;
+
+            .specialty-markdown {
+                width    : 100%;
+                word-wrap: break-word;
+
+                ul {
+                    display              : grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-column-gap      : 10%
+                }
+            }
         }
     }
 }

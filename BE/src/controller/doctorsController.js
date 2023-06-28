@@ -5,7 +5,7 @@ let getAllDoctors = async (req, res) => {
 
     pagesize = parseInt(pagesize)
 
-    pagesize = !pagesize ? 10 : pagesize
+    pagesize = !pagesize ? 5 : pagesize
 
     pagesize = pagesize > 20 ? 20 : pagesize
 
@@ -25,7 +25,7 @@ let getAllDoctors = async (req, res) => {
     let skip = (page - 1) * pagesize
 
     //Structure data need to find
-    let find = {};
+    let find = { active: true };
     if (name) {
         find.name = {
             [Op.substring]: name
@@ -45,7 +45,8 @@ let getAllDoctors = async (req, res) => {
         let data = await db.Doctors.findAll({
             where: find,
             offset: skip,
-            limit: pagesize
+            limit: pagesize,
+            attributes: ['id', 'name', 'clinicAddress', 'email', 'phoneNumber', 'describe', 'image']
         })
 
         return res.status(200).json({

@@ -1,12 +1,12 @@
 import { useState } from "react"
 import "../../styles/Doctors/Doctors.scss"
 
-import { Button, Dropdown, Form, Col, Row } from "react-bootstrap"
+import { Button, Dropdown, Form, Col, Row, Spinner } from "react-bootstrap"
 
 import { useLocation, useNavigate } from "react-router-dom"
 import useFetch from "../../custom/fetch"
 
-// import Doctor from "./Doctor"
+import Doctor from "./Doctor"
 
 import { connect } from "react-redux"
 
@@ -15,11 +15,12 @@ const Doctors = (props) => {
     const location = useLocation()
 
     if (props.route.path === '/') {
-        props.setRoute({ ...props.route, path: location.pathname + location.search })
+        props.setRoute({ ...props.route, path: location.pathname + location.search, preRoute: { path: '/' } })
     }
 
     const { page, pagesize, name, specialtyID, clinicAddress } = Object.fromEntries(new URLSearchParams(location.search).entries())
     const { data: specialtiesData, loading: specialtiesLoading } = useFetch('http://localhost:8080/api/doctors/specialties')
+    const { data, loading } = useFetch(`http://localhost:8080/api/doctors?page=${page}&pagesize=${pagesize}&specialtyID=${specialtyID}&name=${name}&clinicAddress=${clinicAddress}`)
 
     const [searchName, setSearchName] = useState(name ? name : '')
     const [searchAddress, setSearchAddress] = useState(clinicAddress ? clinicAddress : '')
@@ -27,23 +28,29 @@ const Doctors = (props) => {
     const [pageNo, setPage] = useState(page ? page : 1)
     const [pageSize, setPageSize] = useState(pagesize ? pagesize : 5)
 
-    const handleSearch = (id, name, address) => {
-        let path = `/doctors?specialtyID=${id}&name=${name}&clinicAddress=${address}`
+    const handleSearch = () => {
+        let path = `/doctors?page=${pageNo}&pagesize=${pageSize}&specialtyID=${searchSpecialtyID}&name=${searchName}&clinicAddress=${searchAddress}`
         navigate(path)
     }
 
+    const handleDoctor = (id) => {
+        let path = `/doctors/${id}`
+        props.setRoute({
+            preRoute: props.route,
+            path: path,
+            scrollY: window.scrollY
+        })
+        navigate(path)
+        window.scrollTo(0, 0);
+    }
+
     const handleBack = () => {
-        if (props.route.preRoute) {
-            let scrollY = props.route.scrollY
-            navigate(props.route.preRoute.path)
-            props.setRoute(props.route.preRoute)
-            setTimeout(() => {
-                window.scrollTo(0, scrollY)
-            }, 250)
-        } else {
-            navigate('/')
-            window.scrollTo(0, 0)
-        }
+        let scrollY = props.route.scrollY
+        navigate(props.route.preRoute.path)
+        props.setRoute(props.route.preRoute)
+        setTimeout(() => {
+            window.scrollTo(0, scrollY)
+        }, 250)
     }
 
     return (
@@ -125,9 +132,40 @@ const Doctors = (props) => {
                                 />
                             </Form>
                             <Button variant="outline-success"
-                                onClick={() => handleSearch(searchSpecialtyID, searchName, searchAddress)}>Tìm kiếm</Button>
+                                onClick={() => handleSearch()}>Tìm kiếm</Button>
                         </div>
                     </Row>
+                </div>
+                <div className="doctors-list">
+                    {loading === false ?
+                        <>
+                            {data?.length > 0 ?
+                                <>
+                                    {data.map((item, index) => {
+                                        return (
+                                            <div key={index} onClick={() => handleDoctor(item.id)}>
+                                                <Doctor data={item} />
+                                            </div>
+                                        )
+                                    })
+                                    }
+                                </>
+                                :
+                                <>
+                                    <div className="doctors-nodata">
+                                        Không có dữ liệu
+                                    </div>
+                                </>
+                            }
+                        </>
+                        :
+                        <>
+                            <div className="doctors-loading">
+                                <Spinner animation="border" variant="primary" />
+                                Đang tải dữ liệu...
+                            </div>
+                        </>
+                    }
                 </div>
             </div>
         </div>

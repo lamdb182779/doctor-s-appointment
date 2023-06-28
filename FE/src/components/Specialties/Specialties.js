@@ -16,11 +16,10 @@ const Specialties = (props) => {
     const location = useLocation()
 
     if (props.route.path === '/') {
-        props.setRoute({ ...props.route, path: location.pathname + location.search })
+        props.setRoute({ ...props.route, path: location.pathname + location.search, preRoute: { path: '/' } })
     }
 
     const { data: fetchData, loading } = useFetch(`http://localhost:8080/api/specialties?limit=${props.route.limit ? props.route.limit + 4 : 0}`)
-    console.log(`http://localhost:8080/api/specialties?limit=${props.route.limit ? props.route.limit : 4}`)
     useEffect(() => {
         setData(fetchData)
     }, [fetchData])// eslint-disable-line react-hooks/exhaustive-deps
@@ -29,7 +28,6 @@ const Specialties = (props) => {
         const fetchData = async () => {
             if (isMounted) {
                 try {
-                    console.log(`http://localhost:8080/api/specialties?offset=${offset}&limit=4`)
                     let res = await (await fetch(`http://localhost:8080/api/specialties?offset=${offset}&limit=4`)).json()
                     res = res?.data ? res.data : []
                     setData([...data, ...res])
@@ -68,15 +66,10 @@ const Specialties = (props) => {
     }
 
     const handleBack = () => {
-        if (props.route.preRoute) {
-            let scrollY = props.route.scrollY
-            navigate(props.route.preRoute.path)
-            props.setRoute(props.route.preRoute)
-            window.scrollTo(0, scrollY)
-        } else {
-            navigate('/')
-            window.scrollTo(0, 0)
-        }
+        let scrollY = props.route.scrollY
+        navigate(props.route.preRoute.path)
+        props.setRoute(props.route.preRoute)
+        window.scrollTo(0, scrollY)
     }
 
     return (

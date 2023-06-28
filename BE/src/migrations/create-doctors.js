@@ -35,10 +35,10 @@ module.exports = {
       },
       describe: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       content: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       active: {
         allowNull: false,

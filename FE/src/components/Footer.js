@@ -33,7 +33,9 @@ const Footer = (props) => {
                                 <div className='App-email'>
                                     <FontAwesomeIcon icon={faEnvelope} size="sm" />
                                     <b>Email</b><br />
-                                    {data[0].email}
+                                    <a rel="noopener noreferrer" target="_blank" href="https://mail.google.com/mail/?view=cm&to=lamxxxxxx79@gmail.com">
+                                        {data[0].email}
+                                    </a>
                                 </div>
                                 <div className='App-phone'>
                                     <FontAwesomeIcon icon={faPhone} size="sm" />

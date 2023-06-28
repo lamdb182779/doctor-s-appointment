@@ -41,8 +41,8 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     username: DataTypes.STRING,
     image: DataTypes.BLOB('long'),
-    describe: DataTypes.STRING,
-    content: DataTypes.STRING,
+    describe: DataTypes.TEXT,
+    content: DataTypes.TEXT,
     active: DataTypes.BOOLEAN
   }, {
     sequelize,

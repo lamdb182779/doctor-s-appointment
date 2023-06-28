@@ -1,5 +1,6 @@
 import { Image } from "react-bootstrap"
 import "../../styles/Specialties/Specialty.scss"
+import ReactMarkdown from "react-markdown"
 
 const Specialty = (props) => {
     return (
@@ -12,7 +13,7 @@ const Specialty = (props) => {
                     <Image src={props.data.image} alt={props.data.name} fluid />
                 </div>
                 <div className="specialty-description">
-
+                    <ReactMarkdown className="specialty-markdown">{props.data.description.toString()}</ReactMarkdown>
                 </div>
             </div>
         </div>
