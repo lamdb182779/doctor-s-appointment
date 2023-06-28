@@ -18,10 +18,16 @@ const Doctors = (props) => {
         props.setRoute({ ...props.route, path: location.pathname + location.search, preRoute: { path: '/' } })
     }
 
-    const { page, pagesize, name, specialtyID, clinicAddress } = Object.fromEntries(new URLSearchParams(location.search).entries())
+    let { page, pagesize, name, specialtyID, clinicAddress } = Object.fromEntries(new URLSearchParams(location.search).entries())
+
+    page = page !== undefined ? page : ''
+    pagesize = pagesize !== undefined ? pagesize : ''
+    name = name !== undefined ? name : ''
+    specialtyID = specialtyID !== undefined ? specialtyID : ''
+    clinicAddress = clinicAddress !== undefined ? clinicAddress : ''
+
     const { data: specialtiesData, loading: specialtiesLoading } = useFetch('http://localhost:8080/api/doctors/specialties')
     const { data, loading } = useFetch(`http://localhost:8080/api/doctors?page=${page}&pagesize=${pagesize}&specialtyID=${specialtyID}&name=${name}&clinicAddress=${clinicAddress}`)
-
     const [searchName, setSearchName] = useState(name ? name : '')
     const [searchAddress, setSearchAddress] = useState(clinicAddress ? clinicAddress : '')
     const [searchSpecialtyID, setSearchSpecialtyID] = useState(specialtyID ? specialtyID : '')
@@ -72,11 +78,12 @@ const Doctors = (props) => {
                                                 {specialtiesData.find(item => item.id === searchSpecialtyID)?.name}
                                             </Dropdown.Toggle>
                                             <Dropdown.Menu>
+                                                <Dropdown.Item onClick={() => setSearchSpecialtyID('')}>Tát cả</Dropdown.Item>
                                                 {specialtiesData?.length > 0 ?
                                                     <>
                                                         {specialtiesData.map((item, index) => {
                                                             return (
-                                                                <Dropdown.Item id={index} onClick={() => setSearchSpecialtyID(item.id)}>
+                                                                <Dropdown.Item key={index} onClick={() => setSearchSpecialtyID(item.id)}>
                                                                     {item.name}
                                                                 </Dropdown.Item>
                                                             )

@@ -1,4 +1,13 @@
 const db = require('../models')
+const { Op } = require('sequelize')
+
+const toImage = (image) => {
+    if (image) {
+        const imgBuffer = Buffer.from(image).toString('binary')
+        return `data:image/jpg;base64,${imgBuffer}`
+    }
+    return ""
+}
 
 let getAllDoctors = async (req, res) => {
     let { page, pagesize, name, specialtyID, clinicAddress } = req.query
@@ -47,6 +56,11 @@ let getAllDoctors = async (req, res) => {
             offset: skip,
             limit: pagesize,
             attributes: ['id', 'name', 'clinicAddress', 'email', 'phoneNumber', 'describe', 'image']
+        })
+
+        data = data.map((item) => {
+            item.image = toImage(item.image)
+            return item
         })
 
         return res.status(200).json({

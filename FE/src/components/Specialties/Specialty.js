@@ -1,6 +1,6 @@
 import { Image } from "react-bootstrap"
-import "../../styles/Specialties/Specialty.scss"
 import ReactMarkdown from "react-markdown"
+import "../../styles/Specialties/Specialty.scss"
 
 const Specialty = (props) => {
     return (

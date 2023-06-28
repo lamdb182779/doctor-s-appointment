@@ -299,17 +299,15 @@ module.exports = {
         id: '17',
         name: 'Phục hồi chức năng',
         description: `**Phục hồi chức năng cho người lớn**
--   Phục hồi chức năng sau chấn thương chỉnh hình: Sau gãy xương cẳng chân, vỡ bánh chè, gãy xương cánh tay, gãy mỏm khuỷu, gãy các xương bàn ngón tay...
--   Điều trị nội khoa: điều trị thoát vị đĩa đệm cột sống, hội chứng cổ vai gáy, viêm quanh khớp vai, thoái hóa khớp, hội chứng ống cổ tay, viêm gân gấp, viêm điểm bám gân
--   Các bệnh lý thần kinh trung ương: liệt nửa người do tai biến mạch máu não, chấn thương sọ não, đau đầu kéo dài, mất ngủ mạn tính, rối loạn tiền đình...
-        
+-   Điều trị nội khoa
+-   Các bệnh lý thần kinh trung ương
+-   Phục hồi chức năng sau chấn thương chỉnh hình
+
 **Phục hồi chức năng cho trẻ em**
 -   Âm ngữ trị liệu cho trẻ chậm phát triển trí tuệ, chậm nói, nói ngọng, nói lắp, các loại nói khó, tự kỷ, tăng động, giảm chú ý
--   Mất giọng, khàn tiếng sau cắt, phẫu thuật thanh quản, giọng nhi hoá, rối loạn giọng
--   Thất ngôn sau tai biến mạch máu não
--   Khám, điều trị bàn chân bẹt, chân khoèo, chân chữ O, chữ X
--   Dị tật bẩm sinh về vận động, điều trị trẻ bị vẹo cột sống
+-   Khám, điều trị bàn chân bẹt, chân khoèo, chân chữ O, chữ X, dị tật bẩm sinh về vận động, điều trị trẻ bị vẹo cột sống
 -   Điều trị trật khớp háng, điều trị trẻ vẹo cổ, thắt lưng
+-   Mất giọng, khàn tiếng sau cắt, phẫu thuật thanh quản, giọng nhi hoá, rối loạn giọng, thất ngôn sau tai biến mạch máu não
 -   Điều trị trẻ mắc Down, chữa trẻ chậm phát triển trí tuệ `,
         image: await toBase64('17Recovery.png'),
         createdAt: new Date(),
