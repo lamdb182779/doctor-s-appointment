@@ -31,7 +31,15 @@ const Slide = (props) => {
 
     const handleClick = (id) => {
         if (isDragging === false) {
-            handleSpecialtyDoctors(id)
+            switch (props.show) {
+                case '/specialties':
+                    handleSpecialtyDoctors(id)
+                    break
+                case '/doctors':
+                    handleDoctorDetail(id)
+                    break
+                default: break
+            }
         }
     }
 
@@ -45,7 +53,7 @@ const Slide = (props) => {
         afterChange: (index) => {
             setSlide(index)
         },
-    };
+    }
 
     const { data, loading } = useFetch('http://localhost:8080/api/home')
 
@@ -57,7 +65,18 @@ const Slide = (props) => {
             scrollY: props.loc,
         })
         navigate(path)
-        window.scrollTo(0, 0);
+        window.scrollTo(0, 0)
+    }
+
+    const handleDoctorDetail = (id) => {
+        let path = `/doctor/${id}`
+        props.setRoute({
+            preRoute: { ...props.route, slide: slide },
+            path: path,
+            scrollY: props.loc,
+        })
+        navigate(path)
+        window.scrollTo(0, 0)
     }
     return (
         <div className="slide-container" onMouseDown={() => handleMouseDown()} onMouseUp={() => handleMouseUp()}>
@@ -65,7 +84,7 @@ const Slide = (props) => {
                 <b>
                     Chuyên khoa phổ biến
                 </b>
-                <Button className="mt-1" variant="outline-primary" size="sm" onClick={() => props.showMore('/specialties')}>Xem thêm</Button>
+                <Button className="mt-1" variant="outline-primary" size="sm" onClick={() => props.showMore(props.show)}>Xem thêm</Button>
             </div>
             <div className="slide-content">
                 {loading === false ?

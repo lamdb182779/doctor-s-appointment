@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import Home from './components/Home/Home';
 import Specialties from './components/Specialties/Specialties';
 import Doctors from './components/Doctors/Doctors'
+import Detail from './components/Doctors/Detail';
 
 import './styles/App/App.scss';
 
@@ -54,6 +55,7 @@ function App() {
             <Route path='/' element={<Home loc={loc} />} />
             <Route path='/specialties' element={<Specialties />} />
             <Route path='/doctors' element={<Doctors />} />
+            <Route path='/doctor/:id' element={<Detail />} />
           </Routes>
         </main>
         <footer className='App-footer'>

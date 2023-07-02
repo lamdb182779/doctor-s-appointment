@@ -41,14 +41,14 @@ module.exports = {
         */
         return queryInterface.bulkInsert('Doctors', [
             {
-                id: '01',
+                id: '0001',
                 name: 'Nguyễn Thị Kim Loan',
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '01',
                 clinicAddress: `**Hệ thống Y tế Thu Cúc cơ sở Thụy Khuê**        
 286 Thụy Khuê, quận Tây Hồ, Hà Nội`,
-                email: 'loanntk01@gmail.com',
-                username: 'loanntk01',
+                email: 'loanntk0001@gmail.com',
+                username: 'loanntk0001',
                 image: await toBase64('01nguyen-thi-kim-loan.jpg'),
                 describe: `Nguyên Trưởng khoa Cơ xương khớp, Bệnh viện E Hà Nội       
 Được phong tặng Danh hiệu Thầy thuốc Ưu tú       
@@ -118,14 +118,14 @@ Khám và điều trị
                 active: true
             },
             {
-                id: '02',
+                id: '0002',
                 name: 'Nguyễn Vĩnh Ngọc',
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '01',
                 clinicAddress: `**Phòng khám Cơ xương khớp Bảo Ngọc**       
 Số 73 ngõ 109 Hoàng Ngân - Thanh Xuân - Hà Nội`,
-                email: 'ngocnv02@gmail.com',
-                username: 'ngocnv02',
+                email: 'ngocnv0002@gmail.com',
+                username: 'ngocnv0002',
                 image: await toBase64('02pgs-nguyen-vinh-ngoc.jpg'),
                 describe: `Trưởng phân môn khớp, Đại học Y Hà Nội       
 Nguyên Bác sĩ điều trị khoa Cơ xương khớp, Bệnh viện Bạch Mai       
@@ -237,14 +237,14 @@ Khám & điều trị các bệnh
                 active: true
             },
             {
-                id: '03',
+                id: '0003',
                 name: 'Dương Minh Trí',
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '01',
                 clinicAddress: `**Phòng khám Cơ Xương Khớp Bác sĩ Dương Minh Trí**       
 101 Trần Hữu Trang, Phường 10, Quận Phú Nhuận, Thành phố Hồ Chí Minh`,
-                email: 'tridm03@gmail.com',
-                username: 'tridm03',
+                email: 'tridm0003@gmail.com',
+                username: 'tridm0003',
                 image: await toBase64('03duong-minh-tri.jpg'),
                 describe: `Phó Trưởng khoa Hô hấp - Cơ xương khớp, Bệnh viện Nhân dân Gia Định       
 Nhiều năm kinh nghiệm trong khám và điều trị bệnh lý về Nội Cơ xương khớp       
@@ -290,14 +290,14 @@ Bác sĩ khám và điều trị các mặt bệnh:
                 active: true
             },
             {
-                id: '04',
+                id: '0004',
                 name: 'Phạm Trọng Nghĩa',
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '01',
                 clinicAddress: `**Phòng khám Đa khoa Quốc tế Nhân Hậu**       
 522-524 Nguyễn Chí Thanh, Phường 7, Quận 10, Thành phố Hồ Chí Minh`,
-                email: 'nghiapt04@gmail.com',
-                username: 'nghiapt04',
+                email: 'nghiapt0004@gmail.com',
+                username: 'nghiapt0004',
                 image: await toBase64('04bs-pham-trong-nghia.jpg'),
                 describe: `Bác sĩ đang công tác tại Phòng khám Đa khoa Quốc tế Nhân Hậu       
 Bác sĩ điều trị cơ xương khớp bằng các phương pháp kết hợp y học hiện đại và y học cổ truyền`,
@@ -325,14 +325,14 @@ Khám và điều trị
                 active: true
             },
             {
-                id: '05',
+                id: '0005',
                 name: 'Hà Quốc Hùng',
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '01',
                 clinicAddress: `**Bệnh viện Lão khoa Trung ương**       
 Số 1A Phương Mai, Đống Đa, Hà Nội`,
-                email: 'hunghq05@gmail.com',
-                username: 'hunghq05',
+                email: 'hunghq0005@gmail.com',
+                username: 'hunghq0005',
                 image: await toBase64('05thac-si-bac-si-ha-quoc-hung.jpg'),
                 describe: `Gần 30 năm kinh nghiệm khám và điều trị chuyên sâu về các bệnh lý Nội khoa - Cơ xương khớp cho người cao tuổi       
 Hiện đang là Trưởng khoa Khám Theo yêu cầu và Quốc tế, Bệnh viện Lão khoa Trung ương       

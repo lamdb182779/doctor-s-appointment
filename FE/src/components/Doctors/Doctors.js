@@ -40,7 +40,7 @@ const Doctors = (props) => {
     }
 
     const handleDoctor = (id) => {
-        let path = `/doctors/${id}`
+        let path = `/doctor/${id}`
         props.setRoute({
             preRoute: props.route,
             path: path,
