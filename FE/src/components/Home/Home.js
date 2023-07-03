@@ -78,19 +78,20 @@ const Home = (props) => {
                         Thông tin ngay lập tức
                     </div>
                     <div onClick={() => handleClick(4)}>
-                        <FontAwesomeIcon icon={faAddressBook} size="2xl" />
-                        <br />
-                        Liên lạc dễ dàng
-                    </div>
-                    <div onClick={() => handleClick(5)}>
                         <FontAwesomeIcon icon={faBlenderPhone} size="2xl" />
                         <br />
                         Túc trực 24/24
                     </div>
-                    <div onClick={() => handleClick(6)}>
+                    <div onClick={() => handleClick(5)}>
                         <FontAwesomeIcon icon={faHandshake} size="2xl" />
                         <br />
                         Hợp tác rộng rãi
+                    </div>
+
+                    <div onClick={() => handleClick(6)}>
+                        <FontAwesomeIcon icon={faAddressBook} size="2xl" />
+                        <br />
+                        Liên lạc dễ dàng
                     </div>
                 </div>
             </div>

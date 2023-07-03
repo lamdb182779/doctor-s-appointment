@@ -53,6 +53,12 @@ module.exports = {
                 describe: `Nguyên Trưởng khoa Cơ xương khớp, Bệnh viện E Hà Nội       
 Được phong tặng Danh hiệu Thầy thuốc Ưu tú       
 Bác sĩ khám cho người bệnh từ 16 tuổi trở lên`,
+                price: `-   Chưa bao gồm chi phí chụp chiếu, xét nghiệm: 150.000đ
+-   Tổng phân tích tế bào máu ngoại vi bằng máy đếm tổng trở [18TS- bằng máy đếm tự động]: 156.000đ
+-   Siêu âm khớp 1 khớp: 264.000đ
+-   Siêu âm khớp 2 khớp: 528.000đ
+
+Bệnh viện có thanh toán bằng hình thức tiền mặt và quẹt thẻ`,
                 content: `Bác sĩ Chuyên khoa II Nguyễn Thị Kim Loan
 -----------------------------------------
 -   Nguyên Trưởng khoa Cơ Xương Khớp và Nội tổng hợp Bệnh viện E Hà Nội
@@ -130,6 +136,12 @@ Số 73 ngõ 109 Hoàng Ngân - Thanh Xuân - Hà Nội`,
                 describe: `Trưởng phân môn khớp, Đại học Y Hà Nội       
 Nguyên Bác sĩ điều trị khoa Cơ xương khớp, Bệnh viện Bạch Mai       
 Hiện đang là Phó Chủ tịch Hội khớp học Hà Nội`,
+                price: `-   Chưa bao gồm chi phí chụp chiếu, xét nghiệm: 150.000đ
+-   Tổng phân tích tế bào máu ngoại vi bằng máy đếm tổng trở [18TS- bằng máy đếm tự động]: 156.000đ
+-   Siêu âm khớp 1 khớp: 264.000đ
+-   Siêu âm khớp 2 khớp: 528.000đ
+
+Bệnh viện có thanh toán bằng hình thức tiền mặt và quẹt thẻ`,
                 content: `Phó Giáo sư, Tiến sĩ, Bác sĩ Nguyễn Vĩnh Ngọc
 ---------------------------------------------
 -   Phó Giáo sư, Tiến sĩ, Bác sĩ Nguyễn Vĩnh Ngọc hiện đang là Phó Chủ tịch Hội khớp học Hà Nội
@@ -249,6 +261,12 @@ Khám & điều trị các bệnh
                 describe: `Phó Trưởng khoa Hô hấp - Cơ xương khớp, Bệnh viện Nhân dân Gia Định       
 Nhiều năm kinh nghiệm trong khám và điều trị bệnh lý về Nội Cơ xương khớp       
 Bác sĩ nhận khám cho bệnh nhân từ 16 tuổi trở lên`,
+                price: `-   Chưa bao gồm chi phí chụp chiếu, xét nghiệm: 150.000đ
+-   Tổng phân tích tế bào máu ngoại vi bằng máy đếm tổng trở [18TS- bằng máy đếm tự động]: 156.000đ
+-   Siêu âm khớp 1 khớp: 264.000đ
+-   Siêu âm khớp 2 khớp: 528.000đ
+
+Bệnh viện có thanh toán bằng hình thức tiền mặt và quẹt thẻ`,
                 content: `Thạc sĩ, Bác sĩ Chuyên khoa II Dương Minh Trí
 ---------------------------------------------
 -   Phó Trưởng khoa Hô hấp - Cơ xương khớp, Bệnh viện Nhân dân Gia Định
@@ -301,6 +319,12 @@ Bác sĩ khám và điều trị các mặt bệnh:
                 image: await toBase64('04bs-pham-trong-nghia.jpg'),
                 describe: `Bác sĩ đang công tác tại Phòng khám Đa khoa Quốc tế Nhân Hậu       
 Bác sĩ điều trị cơ xương khớp bằng các phương pháp kết hợp y học hiện đại và y học cổ truyền`,
+                price: `-   Chưa bao gồm chi phí chụp chiếu, xét nghiệm: 150.000đ
+-   Tổng phân tích tế bào máu ngoại vi bằng máy đếm tổng trở [18TS- bằng máy đếm tự động]: 156.000đ
+-   Siêu âm khớp 1 khớp: 264.000đ
+-   Siêu âm khớp 2 khớp: 528.000đ
+
+Bệnh viện có thanh toán bằng hình thức tiền mặt và quẹt thẻ`,
                 content: `Bác sĩ Phạm Trọng Nghĩa
 -----------------------
 -   Bác sĩ đang công tác tại Phòng khám Đa khoa Quốc tế Nhân Hậu
@@ -338,6 +362,12 @@ Số 1A Phương Mai, Đống Đa, Hà Nội`,
 Hiện đang là Trưởng khoa Khám Theo yêu cầu và Quốc tế, Bệnh viện Lão khoa Trung ương       
 Nguyên giảng viên bộ môn Lão khoa, Đại học Y Hà Nội       
 Bác sĩ nhận khám từ 18 tuổi trở lên`,
+                price: `-   Chưa bao gồm chi phí chụp chiếu, xét nghiệm: 150.000đ
+-   Tổng phân tích tế bào máu ngoại vi bằng máy đếm tổng trở [18TS- bằng máy đếm tự động]: 156.000đ
+-   Siêu âm khớp 1 khớp: 264.000đ
+-   Siêu âm khớp 2 khớp: 528.000đ
+
+Bệnh viện có thanh toán bằng hình thức tiền mặt và quẹt thẻ`,
                 content: `Bác sĩ Chuyên khoa II Hà Quốc Hùng
 ----------------------------------
 -   Gần 30 năm kinh nghiệm khám và điều trị chuyên sâu về các bệnh lý Nội khoa - Cơ xương khớp cho người cao tuổi

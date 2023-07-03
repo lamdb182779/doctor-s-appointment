@@ -75,6 +75,48 @@ let getAllDoctors = async (req, res) => {
     }
 }
 
+let getDoctorById = async (req, res) => {
+    let id = req.params.id
+    try {
+        let count = await db.Doctors.count()
+        if (id > count || id <= 0) {
+            return res.status(404).json({
+                message: 'data not found',
+            })
+        }
+    } catch (err) {
+        console.log('Cannot count. Error: ', err)
+        return res.status(500).json({
+            message: 'server error',
+        })
+    }
+    if (!id) {
+        return res.status(400).json({
+            message: 'missing required param'
+        })
+    }
+    try {
+        let data = await db.Doctors.findAll({
+            where: {
+                id: id,
+            }
+        })
+        data = data.map((item) => {
+            item.image = toImage(item.image)
+            return item
+        })
+        return res.status(200).json({
+            message: 'ok',
+            data: data
+        })
+    } catch (err) {
+        console.log('Cannot get data. Error:', err)
+        return res.status(500).json({
+            message: 'server error',
+        })
+    }
+}
+
 let getSpecialtiesName = async (req, res) => {
     try {
         let data = await db.Specialties.findAll({
@@ -95,4 +137,5 @@ let getSpecialtiesName = async (req, res) => {
 module.exports = {
     getAllDoctors,
     getSpecialtiesName,
+    getDoctorById,
 }

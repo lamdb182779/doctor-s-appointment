@@ -50,21 +50,21 @@ const Introduce = (props) => {
                         <Carousel.Item interval={4000}>
                             <img
                                 className="d-block w-100"
-                                src={contact}
+                                src={online}
                                 alt="Fifth slide"
                             />
                         </Carousel.Item>
                         <Carousel.Item interval={4000}>
                             <img
                                 className="d-block w-100"
-                                src={online}
+                                src={coop}
                                 alt="Sixth slide"
                             />
                         </Carousel.Item>
                         <Carousel.Item interval={4000}>
                             <img
                                 className="d-block w-100"
-                                src={coop}
+                                src={contact}
                                 alt="Seventh slide"
                             />
                         </Carousel.Item>
@@ -95,10 +95,6 @@ const Introduce = (props) => {
                             <p>Kết quả trả về hồ sơ hợp tác nhanh chóng trong vài ngày.</p>
                         </Carousel.Item>
                         <Carousel.Item >
-                            <p>Mọi thắc mắc có thể liên lạc nhanh chóng qua điện thoại hỗ trợ.</p>
-                            <p>Gửi hồ sơ hợp tác tại email hoặc theo địa chỉ trụ sở.</p>
-                        </Carousel.Item>
-                        <Carousel.Item >
                             <p>Hệ thống nhân viên đông đảo, nhiệt tình, vui vẻ.</p>
                             <p>Luôn luôn túc trực, giải đáp mọi thắc mắc.</p>
                             <p>Thực hiện các yêu cầu, trợ giúp tận tình.</p>
@@ -108,6 +104,10 @@ const Introduce = (props) => {
                             <p>Cùng nhau tạo ra dịch vụ chất lượng.</p>
                             <p>Hợp tác lâu dài, cùng phát triển mạnh mẽ.</p>
                             <p>Liên hệ hợp tác tại email hoặc tại các trụ sở của Doctor Booking.</p>
+                        </Carousel.Item>
+                        <Carousel.Item >
+                            <p>Mọi thắc mắc có thể liên lạc nhanh chóng qua điện thoại hỗ trợ.</p>
+                            <p>Gửi hồ sơ hợp tác tại email hoặc theo địa chỉ trụ sở.</p>
                         </Carousel.Item>
                     </Carousel>
                 </div>

@@ -42,6 +42,7 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     image: DataTypes.BLOB('long'),
     describe: DataTypes.TEXT,
+    price: DataTypes.TEXT,
     content: DataTypes.TEXT,
     active: DataTypes.BOOLEAN
   }, {

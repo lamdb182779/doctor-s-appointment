@@ -37,6 +37,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
+      price: {
+        allowNull: false,
+        type: Sequelize.TEXT
+      },
       content: {
         type: Sequelize.TEXT
       },
