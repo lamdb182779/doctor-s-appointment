@@ -2,6 +2,23 @@
     margin-top: 5%;
     padding   : 3% 5%;
 
+    .detail-nodata,
+    .detail-loading {
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+        font-size      : 70%;
+        margin-top     : 3%;
+    }
+
+    .detail-loading {
+        color: #1976d2;
+
+        >div {
+            margin-right: 1%;
+        }
+    }
+
     .detail-title {
         position: relative;
 
@@ -38,14 +55,13 @@
                     justify-content: left;
                     align-items    : center;
                     font-size      : 70%;
-                    margin-bottom  : 1%;
+                    margin-bottom  : 4%;
                     font-weight    : 500;
                 }
 
                 .detail-timeframe {
-                    margin-top: 3%;
-                    display   : grid;
-                    gap       : 10%;
+                    display: grid;
+                    gap    : 10%;
 
                     button {
                         width: 90%;
@@ -58,7 +74,7 @@
                 width      : 40%;
                 text-align : left;
                 font-size  : 60%;
-                margin-top : 4%;
+                margin-top : 5.5%;
             }
         }
 
@@ -74,6 +90,25 @@
             text-align: left;
             font-size : 60%;
             margin-top: 10%;
+        }
+    }
+
+    .detail-to-order {
+        width           : 60px;
+        height          : 60px;
+        display         : flex;
+        align-items     : center;
+        justify-content : center;
+        background-color: yellow;
+        border-radius   : 50%;
+        position        : sticky;
+        bottom          : 5%;
+        left            : 100%;
+        cursor          : pointer;
+
+        &:hover {
+            background-color: gold;
+            color           : white;
         }
     }
 }

@@ -36,6 +36,11 @@ const Doctors = (props) => {
 
     const handleSearch = () => {
         let path = `/doctors?page=${pageNo}&pagesize=${pageSize}&specialtyID=${searchSpecialtyID}&name=${searchName}&clinicAddress=${searchAddress}`
+        props.setRoute({
+            preRoute: props.route.preRoute,
+            scrollY: props.route.scrollY ? props.route.scrollY : 0,
+            path: path
+        })
         navigate(path)
     }
 
@@ -78,7 +83,7 @@ const Doctors = (props) => {
                                                 {specialtiesData.find(item => item.id === searchSpecialtyID)?.name}
                                             </Dropdown.Toggle>
                                             <Dropdown.Menu>
-                                                <Dropdown.Item onClick={() => setSearchSpecialtyID('')}>Tát cả</Dropdown.Item>
+                                                <Dropdown.Item onClick={() => setSearchSpecialtyID('')}>Tất cả</Dropdown.Item>
                                                 {specialtiesData?.length > 0 ?
                                                     <>
                                                         {specialtiesData.map((item, index) => {
@@ -93,7 +98,7 @@ const Doctors = (props) => {
                                                     :
                                                     <>
                                                         <Dropdown.Item>
-                                                            Không có dữ liệu
+                                                            &nbsp;Không có dữ liệu
                                                         </Dropdown.Item>
                                                     </>
                                                 }
@@ -102,7 +107,7 @@ const Doctors = (props) => {
                                     </>
                                     :
                                     <>
-                                        Loading...
+                                        &nbsp;Loading...
                                     </>
                                 }
                             </div>

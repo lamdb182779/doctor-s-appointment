@@ -1,4 +1,4 @@
-import "../styles/App/Header.scss"
+import "./../../styles/App/Header.scss"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -6,13 +6,13 @@ import {
     faCircleQuestion,
 } from '@fortawesome/free-solid-svg-icons'
 
-import { Image } from "react-bootstrap"
+import { Button, Image } from "react-bootstrap"
 
 const Header = (props) => {
     return (
         <>
             <div className='App-home'>
-                <div className='App-bar' onClick={() => props.handleShow()}>
+                <div className='App-bar' onClick={() => props.handleShowCanvas()}>
                     <FontAwesomeIcon icon={faBars} size="lg" />
                 </div>
                 <div className='App-logo'>
@@ -27,6 +27,12 @@ const Header = (props) => {
                     Hỗ trợ <br />
                     033xxxxx33
                 </div>
+            </div>
+            <div className="App-login" >
+                <Button variant="outline-light" onClick={() => props.handleShowLogin()}>
+                    <h6>Đăng nhập</h6>
+                    <h7>Dành cho nhân viên hệ thống</h7>
+                </Button>
             </div>
         </>
     )

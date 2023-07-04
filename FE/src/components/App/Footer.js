@@ -1,6 +1,6 @@
-import "../styles/App/Footer.scss"
+import "../../styles/App/Footer.scss"
 
-import useFetch from "../custom/fetch"
+import useFetch from "../../custom/fetch"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {

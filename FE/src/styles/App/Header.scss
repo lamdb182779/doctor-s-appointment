@@ -47,3 +47,30 @@
         margin: 0 10%;
     }
 }
+
+.App-login {
+    padding    : 0px 2%;
+    width      : 15%;
+    color      : white;
+    border-left: 3px solid white;
+    display    : flex;
+    align-items: center;
+
+    button {
+        height: 70%;
+
+        &:hover {
+            color: #3eaef4;
+        }
+
+        h6 {
+            margin-top : 5%;
+            line-height: 10%;
+        }
+
+        h7 {
+            font-size: 65%;
+        }
+    }
+
+}

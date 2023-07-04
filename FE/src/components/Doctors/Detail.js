@@ -2,7 +2,9 @@ import "../../styles/Doctors/Detail.scss"
 
 import { Button, Col, Dropdown, Image, Row, Spinner } from "react-bootstrap"
 
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams, useLocation } from "react-router-dom"
+
+import { useRef } from "react"
 
 import { connect } from "react-redux"
 
@@ -13,12 +15,17 @@ import ReactMarkdown from "react-markdown"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faCalendarDays,
+    faPenToSquare,
 } from '@fortawesome/free-solid-svg-icons'
 
 const Detail = (props) => {
     const navigate = useNavigate()
+    const location = useLocation()
     let { id } = useParams()
-
+    const componentRef = useRef(null)
+    if (props.route.path === '/') {
+        props.setRoute({ ...props.route, path: location.pathname + location.search, preRoute: { path: '/' } })
+    }
     const handleBack = () => {
         let scrollY = props.route.scrollY
         navigate(props.route.preRoute.path)
@@ -60,14 +67,14 @@ const Detail = (props) => {
                         <>
                             <div className="detail-loading">
                                 <Spinner animation="border" variant="primary" />
-                                Đang tải dữ liệu ...
+                                Đang tải dữ liệu
                             </div>
                         </>
                     }
                 </div>
             </div>
             <div className="detail-content">
-                <div className="detail-booking">
+                <div className="detail-booking" ref={componentRef}>
                     <div className="detail-time">
                         <div className="detail-day">
                             <Dropdown>
@@ -190,6 +197,9 @@ const Detail = (props) => {
                         </>
                     }
                 </div>
+            </div>
+            <div className="detail-to-order" title="Đặt lịch ngay" onClick={() => componentRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
+                <FontAwesomeIcon icon={faPenToSquare} />
             </div>
         </div>
     )
