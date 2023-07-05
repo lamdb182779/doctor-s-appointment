@@ -16,59 +16,62 @@ let getAllDoctors = async (req, res) => {
 
     pagesize = !pagesize ? 5 : pagesize
 
-    pagesize = pagesize > 20 ? 20 : pagesize
+    pagesize = pagesize > 15 ? 15 : pagesize
 
     page = !page ? 1 : page
     try {
-        let count = await db.Doctors.count()
+        //Structure data need to find
+        let find = { active: true };
+        if (name) {
+            find.name = {
+                [Op.substring]: name
+            }
+        }
+        if (specialtyID) {
+            find.specialtyID = specialtyID
+        }
+        if (clinicAddress) {
+            find.clinicAddress = {
+                [Op.substring]: clinicAddress
+            }
+        }
+        let count = await db.Doctors.count({
+            where: find,
+        })
         if (page > (count - 1) / pagesize + 1) {
             page = parseInt((count - 1) / pagesize + 1)
         }
+        page = page === 0 ? 1 : page
+        let skip = (page - 1) * pagesize
+
+        //
+        try {
+            let data = await db.Doctors.findAll({
+                where: find,
+                offset: skip,
+                limit: pagesize,
+                attributes: ['id', 'name', 'clinicAddress', 'email', 'phoneNumber', 'describe', 'image']
+            })
+
+            data = data.map((item) => {
+                item.image = toImage(item.image)
+                return item
+            })
+
+            data.push(count)
+
+            return res.status(200).json({
+                message: 'ok',
+                data: data
+            })
+        } catch (err) {
+            console.log('Cannot get data. Error:', err)
+            return res.status(500).json({
+                message: 'server error',
+            })
+        }
     } catch (err) {
         console.log('Cannot count. Error: ', err)
-        return res.status(500).json({
-            message: 'server error',
-        })
-    }
-    page = page === 0 ? 1 : page
-    let skip = (page - 1) * pagesize
-
-    //Structure data need to find
-    let find = { active: true };
-    if (name) {
-        find.name = {
-            [Op.substring]: name
-        }
-    }
-    if (specialtyID) {
-        find.specialtyID = specialtyID
-    }
-    if (clinicAddress) {
-        find.clinicAddress = {
-            [Op.substring]: clinicAddress
-        }
-    }
-
-    //
-    try {
-        let data = await db.Doctors.findAll({
-            where: find,
-            offset: skip,
-            limit: pagesize,
-            attributes: ['id', 'name', 'clinicAddress', 'email', 'phoneNumber', 'describe', 'image']
-        })
-
-        data = data.map((item) => {
-            item.image = toImage(item.image)
-            return item
-        })
-
-        return res.status(200).json({
-            message: 'ok',
-            data: data
-        })
-    } catch (err) {
-        console.log('Cannot get data. Error:', err)
         return res.status(500).json({
             message: 'server error',
         })
@@ -84,33 +87,33 @@ let getDoctorById = async (req, res) => {
                 message: 'data not found',
             })
         }
+        if (!id) {
+            return res.status(400).json({
+                message: 'missing required param'
+            })
+        }
+        try {
+            let data = await db.Doctors.findAll({
+                where: {
+                    id: id,
+                }
+            })
+            data = data.map((item) => {
+                item.image = toImage(item.image)
+                return item
+            })
+            return res.status(200).json({
+                message: 'ok',
+                data: data
+            })
+        } catch (err) {
+            console.log('Cannot get data. Error:', err)
+            return res.status(500).json({
+                message: 'server error',
+            })
+        }
     } catch (err) {
         console.log('Cannot count. Error: ', err)
-        return res.status(500).json({
-            message: 'server error',
-        })
-    }
-    if (!id) {
-        return res.status(400).json({
-            message: 'missing required param'
-        })
-    }
-    try {
-        let data = await db.Doctors.findAll({
-            where: {
-                id: id,
-            }
-        })
-        data = data.map((item) => {
-            item.image = toImage(item.image)
-            return item
-        })
-        return res.status(200).json({
-            message: 'ok',
-            data: data
-        })
-    } catch (err) {
-        console.log('Cannot get data. Error:', err)
         return res.status(500).json({
             message: 'server error',
         })

@@ -59,6 +59,23 @@
         }
 
         .doctors-list {
+            margin-top: 2%;
+
+            .doctors-viewmode {
+                text-align : left;
+                font-size  : 70%;
+                font-weight: 500;
+                display    : flex;
+                align-items: center;
+
+                button {
+                    margin-left: 1.5rem;
+                }
+            }
+
+            .page-item {
+                margin-left: 5px;
+            }
 
             .doctors-nodata,
             .doctors-loading {
@@ -75,6 +92,12 @@
                 >div {
                     margin-right: 1%;
                 }
+            }
+
+            .doctors-pagination {
+                margin-top     : 5%;
+                display        : flex;
+                justify-content: center;
             }
         }
     }
