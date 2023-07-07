@@ -28,9 +28,6 @@ const ForgetPw = (props) => {
                             value={email}
                             onChange={(event) => setEmail(event.target.value)}
                         />
-                        <Form.Text className="text-muted">
-                            Email của bạn sẽ được bảo mật
-                        </Form.Text>
                     </Form.Group>
                 </Form>
             </div>

@@ -382,6 +382,318 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        username: 'binhth0046',
+        password: bcrypt.hashSync('binhth0046', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'chungnv0047',
+        password: bcrypt.hashSync('chungnv0047', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'tuannt0048',
+        password: bcrypt.hashSync('tuannt0048', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'hiennt0049',
+        password: bcrypt.hashSync('hiennt0049', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'phinv0050',
+        password: bcrypt.hashSync('phinv0050', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'khanhbv0051',
+        password: bcrypt.hashSync('khanhbv0051', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'landtt0052',
+        password: bcrypt.hashSync('landtt0052', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'anhlh0053',
+        password: bcrypt.hashSync('anhlh0053', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'phuongda0054',
+        password: bcrypt.hashSync('phuongda0054', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'hongntd0055',
+        password: bcrypt.hashSync('hongntd0055', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'hungdk0056',
+        password: bcrypt.hashSync('hungdk0056', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'loanptb0057',
+        password: bcrypt.hashSync('loanptb0057', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'tanpv0058',
+        password: bcrypt.hashSync('tanpv0058', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'hungbv0059',
+        password: bcrypt.hashSync('hungbv0059', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'hondv0060',
+        password: bcrypt.hashSync('hondv0060', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'phonght0061',
+        password: bcrypt.hashSync('phonght0061', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'hanhnth0062',
+        password: bcrypt.hashSync('hanhnth0062', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'huyenph0063',
+        password: bcrypt.hashSync('huyenph0063', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'hieuld0064',
+        password: bcrypt.hashSync('hieuld0064', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'phuongtll0066',
+        password: bcrypt.hashSync('phuongtll0066', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'baont0067',
+        password: bcrypt.hashSync('baont0067', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'quynhnn0068',
+        password: bcrypt.hashSync('quynhnn0068', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'tuphm0069',
+        password: bcrypt.hashSync('tuphm0069', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'trangdt0070',
+        password: bcrypt.hashSync('trangdt0070', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'tungdt0071',
+        password: bcrypt.hashSync('tungdt0071', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'hienntt0072',
+        password: bcrypt.hashSync('hienntt0072', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'ngocnh0073',
+        password: bcrypt.hashSync('ngocnh0073', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'xuanntm0074',
+        password: bcrypt.hashSync('xuanntm0074', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'langnt0075',
+        password: bcrypt.hashSync('langnt0075', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'huunv0076',
+        password: bcrypt.hashSync('huunv0076', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'phongdd0077',
+        password: bcrypt.hashSync('phongdd0077', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'thaohb0078',
+        password: bcrypt.hashSync('thaohb0078', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'harrisonmb0079',
+        password: bcrypt.hashSync('harrisonmb0079', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'hanhvtb0080',
+        password: bcrypt.hashSync('hanhvtb0080', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'chinhvd0081',
+        password: bcrypt.hashSync('chinhvd0081', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'chienlh0082',
+        password: bcrypt.hashSync('chienlh0082', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'tuannq0083',
+        password: bcrypt.hashSync('tuannq0083', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'cuongdd0084',
+        password: bcrypt.hashSync('cuongdd0084', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'mautq0085',
+        password: bcrypt.hashSync('mautq0085', salt),
+        role: 2,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ]);
   },
 

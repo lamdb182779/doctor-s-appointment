@@ -112,7 +112,7 @@ const Doctors = (props) => {
                                             <Dropdown.Toggle variant="outline-dark" size="sm">
                                                 {specialtiesData.find(item => item.id === specialtyID)?.name}
                                             </Dropdown.Toggle>
-                                            <Dropdown.Menu>
+                                            <Dropdown.Menu style={{ height: '50vh', overflowY: 'scroll' }} >
                                                 <Dropdown.Item onClick={() => handleSpecialty('')}>Tất cả</Dropdown.Item>
                                                 {specialtiesData?.length > 0 ?
                                                     <>

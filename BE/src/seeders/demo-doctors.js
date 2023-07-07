@@ -2961,83 +2961,83 @@ Bác sĩ nhận khám và điều trị:
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '10',
                 clinicAddress: `**Phòng khám Chuyên khoa Yên Hòa**          
-                số 11 i4, ngõ 37 Trần Kim Xuyến, khu Đô Thị Mới Yên Hoà, Yên Hoà, Cầu Giấy, Hà Nội`,
+số 11 i4, ngõ 37 Trần Kim Xuyến, khu Đô Thị Mới Yên Hoà, Yên Hoà, Cầu Giấy, Hà Nội`,
                 email: 'binhth0046@gmail.com',
                 username: 'binhth0046',
                 image: await toBase64('46bs-tran-huu-binh.jpg'),
                 describe: `Bác sĩ đầu ngành chuyên khoa Tâm thần, tâm bệnh        
-                Nguyên Viện trưởng Viện Sức khỏe Tâm thần quốc gia, Bệnh viện Bạch Mai        
-                Nguyên Phó Chủ nhiệm Bộ môn Tâm thần trường Đại học Y Hà Nội        
-                Bác sĩ nhận khám mọi độ tuổi        
-                Bác sĩ không nhận khám tự kỉ và chậm nói`,
+Nguyên Viện trưởng Viện Sức khỏe Tâm thần quốc gia, Bệnh viện Bạch Mai        
+Nguyên Phó Chủ nhiệm Bộ môn Tâm thần trường Đại học Y Hà Nội        
+Bác sĩ nhận khám mọi độ tuổi        
+Bác sĩ không nhận khám tự kỉ và chậm nói`,
                 price: `-   Giá khám áp dụng cho bệnh nhân là người Việt: 300.000đ
-                -   Giá khám áp dụng cho bệnh nhân là người nước ngoài: 600.000đ`,
+-   Giá khám áp dụng cho bệnh nhân là người nước ngoài: 600.000đ`,
                 content: `PGS, TS, Giảng viên cao cấp Trần Hữu Bình
-                -----------------------------------------
-                
-                -   Danh hiệu Thầy thuốc Nhân dân
-                -   Bác sĩ đầu ngành chuyên khoa Tâm thần, tâm bệnh
-                -   Nguyên Viện trưởng Viện Sức khoẻ Tâm thần quốc gia, Bệnh viện Bạch Mai
-                -   Nguyên Phó Chủ nhiệm Bộ môn Tâm thần, Trường Đại học Y Hà Nội
-                -   Bác sĩ nhận khám mọi độ tuổi
-                -   Bác sĩ không nhận khám tự kỉ và chậm nói
-                
-                ### Quá trình công tác
-                
-                -   PGS.TS.BS Khám bệnh tại Trung tâm Y khoa số 1, Bệnh viện Đại học Y Hà Nội
-                -   Chủ trì Hội chẩn lâm sàng bệnh nhân Tâm thần tại Viện Sức khỏe Tâm thần, Bệnh viện Bạch Mai
-                -   Đào tạo (giảng dạy, hướng dẫn, chấm luận án) Tiến sĩ, Thạc sĩ, Bác sĩ chuyên khoa II, Bác sĩ nội trú chuyên ngành Tâm thần, Y tế công cộng của Trường Đại học Y Hà Nội
-                -   Viện trưởng Viện Sức khoẻ Tâm thần , Bệnh viện Bạch Mai (2008 -- 2011)
-                -   Trưởng khoa điều trị Nghiện chất Viện Sức khoẻ Tâm thần, Bệnh viện Bạch Mai (2010 -- 2014)
-                -   Trưởng khoa điều trị loạn thần Nam Viện Sức khoẻ Tâm thần , Bệnh viện Bạch Mai (1995 -- 2008)
-                -   Phó Chủ nhiệm Bộ môn Tâm thần, Trường Đại học Y Hà Nội (1995 - 2014)
-                -   Bác sĩ -- cán bộ giảng dạy, Bộ môn Tâm thầnTrường Đại học Y Hà Nội (1978 - 1994)
-                
-                ### Quá trình đào tạo
-                
-                -   Giảng viên cao cấp chuyên ngành Tâm thần, Bộ Giáo dục và đào tạo (2014)
-                -   Phó Giáo sư chuyên ngành Tâm thần, Bộ Giáo dục và đào tạo (2007)
-                -   Tiến sĩ chuyên ngành Tâm thần, Trường Đại học Y Hà Nội (2003)
-                
-                ### Sách và các công trình nghiên cứu khoa học
-                
-                -   Tham gia biên soạn chủ biên và đồng chủ biên 16 đầu sách là giáo trình giảng dạy, sách chuyên khảo chuyên ngành Tâm thần học và y học nói chung (2003 - 2018)
-                -   Trên 50 công trình nghiên cứu khoa học đăng tải trong các tạp chí khoa học có uy tín (Tạp chí Nghiên cứu khoa học Đại học Y Hà Nội, tạp chí Tổng hội Y Dược học Việt Nam, tạp chí Y học thực hành Bộ Y tế, tạp chí Hội Tâm thần học Việt Nam). (1992 - 2020)
-                -   Hướng dẫn bảo vệ thành công 31 luận án Tiến sĩ, luận văn Thạc sĩ, Bác sĩ chuyên khoa cấp 2, Bác sĩ nội trú Bệnh viện, Y tế công cộng Đại học Y Hà Nội (2003 - 2020)
-                
-                ### Thành viên các hội khoa học, tổ chức chuyên môn
-                
-                -   Ban chấp hành Hội Tâm thần học Việt Nam
-                -   Phó Chủ tịch Hội đồng khoa học Viện Nghiên cứu Điều trị các bệnh hiểm nghèo
-                
-                Khám và điều trị
-                ----------------
-                
-                **Bác sĩ nhận khám các vấn đề:**
-                
-                -   Các rối loạn giấc ngủ: Mất ngủ, ngủ nhiều, ác mộng, hoảng sợ khi ngủ, rối loạn nhịp thức ngủ, đi trong giấc ngủ (chứng miên hành).
-                
-                **Các rối loạn liên quan đến Stress và dạng cơ thể:**
-                
-                -   Đau dai dẳng các loại: Đau đầu, đau ngực, đau bụng, đau mọi vị trí không xác định trong cơ thể.
-                -   Rối loạn thần kinh thực vật
-                -   Rối loạn hệ thống tim mạch: Tim đập nhanh, hồi hộp đánh trống ngực, cảm giác đè nặng ngực, nghẹt thở, huyết áp dao động.
-                -   Rối loạn dạ dày - ruột: đau bụng, đầy hơi, trào ngược dạ dày, trào ngược thực quản.
-                -   Rối loạn hệ thống hô hấp: Tức ngực, khó thở, đoản hơi.
-                -   Rối loạn hệ thống tiết niệu - sinh dục: Đái nhiều, đái nóng, đái dắt; giảm ham muốn tình dục, nam rối loạn cương, nữ rối loạn kinh nguyệt.
-                
-                **Rối loạn sự thích ứng:**
-                
-                -   Trầm cảm: Buồn chán, mất thích thú, mệt mỏi, vô lực, giảm tập trung chú ý, kém tự tin, nhìn tương lai ảm đạm và bi quan.
-                -   Lo âu, rối loạn cảm xúc và hành vi,...
-                -   Các rối loạn cảm xúc: Trầm cảm, hưng cảm, cảm xúc dao động, ...
-                -   Các rối loạn tâm ký nặng: Hoang tưởng, Ảo giác, rối loạn phân liệt,...
-                -   Trẻ em: Tự kỷ, tăng động giảm chú ý, tíc, đái dầm, ỉa đùn, nói lắp, trầm cảm, rối loạn cảm xúc và hành vi, rối loạn vận động định hình.
-                -   Người già: Trầm cảm, sa sút trí tuệ, lú lẫn, hoang tưởng, ảo giác.
-                -   Các vấn đề tâm lý ở phụ nữ các giai đoạn: Dậy thì, mang thai, sinh đẻ, mãn kinh,...
-                -   Rối loạn ăn uống: Chán ăn, ăn vô độ, béo phì.
-                -   Rối loạn tình dục: Mất ham muốn, xuất tinh sớm, bất lực, lãnh cảm, đau khi giao hợp, rối loạn phân định giới tính,...
-                -   Các vấn đề về nghiện: Nghiện rượu, ma tuý, Game Online, Internet, ...`,
+-----------------------------------------
+
+-   Danh hiệu Thầy thuốc Nhân dân
+-   Bác sĩ đầu ngành chuyên khoa Tâm thần, tâm bệnh
+-   Nguyên Viện trưởng Viện Sức khoẻ Tâm thần quốc gia, Bệnh viện Bạch Mai
+-   Nguyên Phó Chủ nhiệm Bộ môn Tâm thần, Trường Đại học Y Hà Nội
+-   Bác sĩ nhận khám mọi độ tuổi
+-   Bác sĩ không nhận khám tự kỉ và chậm nói
+
+### Quá trình công tác
+
+-   PGS.TS.BS Khám bệnh tại Trung tâm Y khoa số 1, Bệnh viện Đại học Y Hà Nội
+-   Chủ trì Hội chẩn lâm sàng bệnh nhân Tâm thần tại Viện Sức khỏe Tâm thần, Bệnh viện Bạch Mai
+-   Đào tạo (giảng dạy, hướng dẫn, chấm luận án) Tiến sĩ, Thạc sĩ, Bác sĩ chuyên khoa II, Bác sĩ nội trú chuyên ngành Tâm thần, Y tế công cộng của Trường Đại học Y Hà Nội
+-   Viện trưởng Viện Sức khoẻ Tâm thần , Bệnh viện Bạch Mai (2008 -- 2011)
+-   Trưởng khoa điều trị Nghiện chất Viện Sức khoẻ Tâm thần, Bệnh viện Bạch Mai (2010 -- 2014)
+-   Trưởng khoa điều trị loạn thần Nam Viện Sức khoẻ Tâm thần , Bệnh viện Bạch Mai (1995 -- 2008)
+-   Phó Chủ nhiệm Bộ môn Tâm thần, Trường Đại học Y Hà Nội (1995 - 2014)
+-   Bác sĩ -- cán bộ giảng dạy, Bộ môn Tâm thầnTrường Đại học Y Hà Nội (1978 - 1994)
+
+### Quá trình đào tạo
+
+-   Giảng viên cao cấp chuyên ngành Tâm thần, Bộ Giáo dục và đào tạo (2014)
+-   Phó Giáo sư chuyên ngành Tâm thần, Bộ Giáo dục và đào tạo (2007)
+-   Tiến sĩ chuyên ngành Tâm thần, Trường Đại học Y Hà Nội (2003)
+
+### Sách và các công trình nghiên cứu khoa học
+
+-   Tham gia biên soạn chủ biên và đồng chủ biên 16 đầu sách là giáo trình giảng dạy, sách chuyên khảo chuyên ngành Tâm thần học và y học nói chung (2003 - 2018)
+-   Trên 50 công trình nghiên cứu khoa học đăng tải trong các tạp chí khoa học có uy tín (Tạp chí Nghiên cứu khoa học Đại học Y Hà Nội, tạp chí Tổng hội Y Dược học Việt Nam, tạp chí Y học thực hành Bộ Y tế, tạp chí Hội Tâm thần học Việt Nam). (1992 - 2020)
+-   Hướng dẫn bảo vệ thành công 31 luận án Tiến sĩ, luận văn Thạc sĩ, Bác sĩ chuyên khoa cấp 2, Bác sĩ nội trú Bệnh viện, Y tế công cộng Đại học Y Hà Nội (2003 - 2020)
+
+### Thành viên các hội khoa học, tổ chức chuyên môn
+
+-   Ban chấp hành Hội Tâm thần học Việt Nam
+-   Phó Chủ tịch Hội đồng khoa học Viện Nghiên cứu Điều trị các bệnh hiểm nghèo
+
+Khám và điều trị
+----------------
+
+**Bác sĩ nhận khám các vấn đề:**
+
+-   Các rối loạn giấc ngủ: Mất ngủ, ngủ nhiều, ác mộng, hoảng sợ khi ngủ, rối loạn nhịp thức ngủ, đi trong giấc ngủ (chứng miên hành).
+
+**Các rối loạn liên quan đến Stress và dạng cơ thể:**
+
+-   Đau dai dẳng các loại: Đau đầu, đau ngực, đau bụng, đau mọi vị trí không xác định trong cơ thể.
+-   Rối loạn thần kinh thực vật
+-   Rối loạn hệ thống tim mạch: Tim đập nhanh, hồi hộp đánh trống ngực, cảm giác đè nặng ngực, nghẹt thở, huyết áp dao động.
+-   Rối loạn dạ dày - ruột: đau bụng, đầy hơi, trào ngược dạ dày, trào ngược thực quản.
+-   Rối loạn hệ thống hô hấp: Tức ngực, khó thở, đoản hơi.
+-   Rối loạn hệ thống tiết niệu - sinh dục: Đái nhiều, đái nóng, đái dắt; giảm ham muốn tình dục, nam rối loạn cương, nữ rối loạn kinh nguyệt.
+
+**Rối loạn sự thích ứng:**
+
+-   Trầm cảm: Buồn chán, mất thích thú, mệt mỏi, vô lực, giảm tập trung chú ý, kém tự tin, nhìn tương lai ảm đạm và bi quan.
+-   Lo âu, rối loạn cảm xúc và hành vi,...
+-   Các rối loạn cảm xúc: Trầm cảm, hưng cảm, cảm xúc dao động, ...
+-   Các rối loạn tâm ký nặng: Hoang tưởng, Ảo giác, rối loạn phân liệt,...
+-   Trẻ em: Tự kỷ, tăng động giảm chú ý, tíc, đái dầm, ỉa đùn, nói lắp, trầm cảm, rối loạn cảm xúc và hành vi, rối loạn vận động định hình.
+-   Người già: Trầm cảm, sa sút trí tuệ, lú lẫn, hoang tưởng, ảo giác.
+-   Các vấn đề tâm lý ở phụ nữ các giai đoạn: Dậy thì, mang thai, sinh đẻ, mãn kinh,...
+-   Rối loạn ăn uống: Chán ăn, ăn vô độ, béo phì.
+-   Rối loạn tình dục: Mất ham muốn, xuất tinh sớm, bất lực, lãnh cảm, đau khi giao hợp, rối loạn phân định giới tính,...
+-   Các vấn đề về nghiện: Nghiện rượu, ma tuý, Game Online, Internet, ...`,
                 active: true
             },
             {
@@ -3046,49 +3046,49 @@ Bác sĩ nhận khám và điều trị:
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '10',
                 clinicAddress: `**Phòng khám Hello Doctor cơ sở Hoàng Cầu - Hà Nội**        
-                Số 5, Ngách 4, Ngõ 95, Hoàng Cầu, Đống Đa, Hà Nội`,
+Số 5, Ngách 4, Ngõ 95, Hoàng Cầu, Đống Đa, Hà Nội`,
                 email: 'chungnv0047@gmail.com',
                 username: 'chungnv0047',
                 image: await toBase64('47bs-nguyen-viet-chung.jpg'),
                 describe: `Bác sĩ khám và điều trị tại Khoa Sức khoẻ Tâm thần, Bệnh viện E        
-                Giảng viên Bộ môn Tâm thần và Tâm lý lâm sàng, Trường Đại học Y Dược - Đại học Quốc Gia Hà Nội        
-                Bác sĩ nhận khám cho bệnh nhân từ 7 tuổi trở lên`,
+Giảng viên Bộ môn Tâm thần và Tâm lý lâm sàng, Trường Đại học Y Dược - Đại học Quốc Gia Hà Nội        
+Bác sĩ nhận khám cho bệnh nhân từ 7 tuổi trở lên`,
                 price: `-   Giá khám áp dụng cho bệnh nhân là người Việt: 300.000đ
-                -   Giá khám áp dụng cho bệnh nhân là người nước ngoài: 600.000đ`,
+-   Giá khám áp dụng cho bệnh nhân là người nước ngoài: 600.000đ`,
                 content: `Thạc sĩ, Bác sĩ Nguyễn Viết Chung
-                ---------------------------------
-                
-                -   Bác sĩ khám và điều trị tại Khoa Sức khoẻ Tâm thần, Bệnh viện E
-                -   Giảng viên Bộ môn Tâm thần và Tâm lý lâm sàng, Trường Đại học Y Dược - Đại học Quốc Gia Hà Nội
-                
-                Khám và điều trị
-                ----------------
-                
-                **Bác sĩ có thế mạnh khám và điều trị các bệnh:**
-                
-                -   Rối loạn lo âu, ám ảnh, stress: Lo lắng một hay nhiều chủ đề; Đau đầu căng thẳng, bồn chồn; Các triệu chứng thần kinh thực vật, vã mồ hôi, run, khô miệng, hồi hộp - đánh trống ngực; Trào ngược dạ dày - thực quản, đau thượng vị, rối loạn tiêu hoá, đi tiểu nhiều lần
-                -   Rối loạn trầm cảm: Buồn chán, mệt mỏi, mất các quan tâm thích thú - mất cảm nhận niềm vui trong cuộc sống; Suy nghĩ tiêu cực, bi quan, giảm giá trị bản thân; Có ý tưởng tự sát; Mất ngủ, chán ăn; Mất tập trung, hay quên, thiếu động lực trong cuộc sống
-                -   Rối loạn giấc ngủ: Ngủ nhiều hoặc mất ngủ, ngủ không sâu giấc, khó vào giấc ngủ, thức dậy nhiều lần trong đêm, thức dậy sớm, mộng du
-                -   Rối loạn tiền đình: Đau nửa đầu, đau sau gáy, đau liên quan đến stress hay thay đổi thời tiết; Chóng mặt, hoa mắt, cảm giác quay, buồn nôn, nôn
-                -   Sa sút trí tuệ: Hay quên; Thay đổi tính tình: cáu gắt, bực bội; Hoang tưởng - ảo giác, cho rằng bị mất cắp, có người lạ - kẻ trộm trong nhà
-                -   Rối loạn cảm xúc hành vi ở người già: Tính tình dễ thay đổi, có khi trầm buồn, ít nói, ít giao tiếp, có khi trở nên cáu gắt - khó chịu, đánh người khác; Mất ngủ, ăn kém
-                -   Rối loạn cảm xúc hành vi ở trẻ em - thanh thiếu niên: Buồn chán, ít nói, mất đông lực sống - học tập; Cáu gắt, bực bội, dễ nổi nóng - đánh người; Chống đối - bướng bỉnh
-                -   Rối loạn tăng động giảm chú ý: Tăng động; Kém tập trung chú ý
-                -   Rối loạn phát triển
-                -   Rối loạn liên quan đến sử dụng chất
-                
-                ### Quá trình công tác
-                
-                -   Bác sĩ điều trị tại khoa Sức khỏe tâm thần, Bệnh viện E (2019 - nay)
-                -   Giảng viên Bộ môn Tâm thần và Tâm lý lâm sàng, Trường Đại học Y Dược - Đại học Quốc Gia Hà Nội (2019 - nay)
-                -   Bác sĩ Nội trú chuyên ngành Tâm thần, Viện Sức khỏe Tâm thần Quốc gia, Bệnh viện Bạch Mai (2016 - 2019)
-                
-                ### Quá trình đào tạo
-                
-                -   Tham gia Khóa đào tạo về liệu pháp kích hoạt hành vi, tiến hành bởi Giáo sư Victoria Ngo, Nguyễn Thanh Tâm, Basic Needs VietNam (2019)
-                -   Thạc sĩ Y học, Đại học Y Hà Nội (2018)
-                -   Bác sĩ Nội trú, Đại học Y Hà Nội (2016 - 2019)
-                -   Tốt nghiệp Đại học Y Hà Nội (2016)`,
+---------------------------------
+
+-   Bác sĩ khám và điều trị tại Khoa Sức khoẻ Tâm thần, Bệnh viện E
+-   Giảng viên Bộ môn Tâm thần và Tâm lý lâm sàng, Trường Đại học Y Dược - Đại học Quốc Gia Hà Nội
+
+Khám và điều trị
+----------------
+
+**Bác sĩ có thế mạnh khám và điều trị các bệnh:**
+
+-   Rối loạn lo âu, ám ảnh, stress: Lo lắng một hay nhiều chủ đề; Đau đầu căng thẳng, bồn chồn; Các triệu chứng thần kinh thực vật, vã mồ hôi, run, khô miệng, hồi hộp - đánh trống ngực; Trào ngược dạ dày - thực quản, đau thượng vị, rối loạn tiêu hoá, đi tiểu nhiều lần
+-   Rối loạn trầm cảm: Buồn chán, mệt mỏi, mất các quan tâm thích thú - mất cảm nhận niềm vui trong cuộc sống; Suy nghĩ tiêu cực, bi quan, giảm giá trị bản thân; Có ý tưởng tự sát; Mất ngủ, chán ăn; Mất tập trung, hay quên, thiếu động lực trong cuộc sống
+-   Rối loạn giấc ngủ: Ngủ nhiều hoặc mất ngủ, ngủ không sâu giấc, khó vào giấc ngủ, thức dậy nhiều lần trong đêm, thức dậy sớm, mộng du
+-   Rối loạn tiền đình: Đau nửa đầu, đau sau gáy, đau liên quan đến stress hay thay đổi thời tiết; Chóng mặt, hoa mắt, cảm giác quay, buồn nôn, nôn
+-   Sa sút trí tuệ: Hay quên; Thay đổi tính tình: cáu gắt, bực bội; Hoang tưởng - ảo giác, cho rằng bị mất cắp, có người lạ - kẻ trộm trong nhà
+-   Rối loạn cảm xúc hành vi ở người già: Tính tình dễ thay đổi, có khi trầm buồn, ít nói, ít giao tiếp, có khi trở nên cáu gắt - khó chịu, đánh người khác; Mất ngủ, ăn kém
+-   Rối loạn cảm xúc hành vi ở trẻ em - thanh thiếu niên: Buồn chán, ít nói, mất đông lực sống - học tập; Cáu gắt, bực bội, dễ nổi nóng - đánh người; Chống đối - bướng bỉnh
+-   Rối loạn tăng động giảm chú ý: Tăng động; Kém tập trung chú ý
+-   Rối loạn phát triển
+-   Rối loạn liên quan đến sử dụng chất
+
+### Quá trình công tác
+
+-   Bác sĩ điều trị tại khoa Sức khỏe tâm thần, Bệnh viện E (2019 - nay)
+-   Giảng viên Bộ môn Tâm thần và Tâm lý lâm sàng, Trường Đại học Y Dược - Đại học Quốc Gia Hà Nội (2019 - nay)
+-   Bác sĩ Nội trú chuyên ngành Tâm thần, Viện Sức khỏe Tâm thần Quốc gia, Bệnh viện Bạch Mai (2016 - 2019)
+
+### Quá trình đào tạo
+
+-   Tham gia Khóa đào tạo về liệu pháp kích hoạt hành vi, tiến hành bởi Giáo sư Victoria Ngo, Nguyễn Thanh Tâm, Basic Needs VietNam (2019)
+-   Thạc sĩ Y học, Đại học Y Hà Nội (2018)
+-   Bác sĩ Nội trú, Đại học Y Hà Nội (2016 - 2019)
+-   Tốt nghiệp Đại học Y Hà Nội (2016)`,
                 active: true
             },
             {
@@ -3097,60 +3097,60 @@ Bác sĩ nhận khám và điều trị:
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '10',
                 clinicAddress: `**Phòng khám Hello Doctor cơ sở TP.HCM**        
-                152/6 Thành Thái, phường 12, quận 10, TP.HCM`,
+152/6 Thành Thái, phường 12, quận 10, TP.HCM`,
                 email: 'tuannt0048@gmail.com',
                 username: 'tuannt0048',
                 image: await toBase64('48bs-tuan.jpg'),
                 describe: `Gần 20 năm kinh nghiệm khám, chẩn đoán và chữa trị các bệnh lý về Tâm thần        
-                Hiện đang công tác tại Bệnh viện Tâm thần TP. HCM        
-                Thực tập chương trình FFI chuyên ngành Tâm thần tại Bệnh viện TENON, Cộng hòa Pháp        
-                Bác sĩ nhận khám từ 10 tuổi trở lên`,
+Hiện đang công tác tại Bệnh viện Tâm thần TP. HCM        
+Thực tập chương trình FFI chuyên ngành Tâm thần tại Bệnh viện TENON, Cộng hòa Pháp        
+Bác sĩ nhận khám từ 10 tuổi trở lên`,
                 price: `-   Giá khám áp dụng cho bệnh nhân là người Việt: 300.000đ
-                -   Giá khám áp dụng cho bệnh nhân là người nước ngoài: 600.000đ`,
+-   Giá khám áp dụng cho bệnh nhân là người nước ngoài: 600.000đ`,
                 content: `Bác sĩ Chuyên khoa I Nguyễn Trọng Tuân
-                --------------------------------------
-                
-                -   Gần 20 năm kinh nghiệm khám, chẩn đoán và chữa trị các bệnh lý về Tâm thần
-                -   Hiện đang công tác tại Bệnh viện Tâm thần TP. HCM
-                -   Thực tập chương trình FFI chuyên ngành Tâm thần tại Bệnh viện TENON, Cộng hòa Pháp
-                -   Bác sĩ nhận khám từ 10 tuổi trở lên
-                
-                Khám và điều trị
-                ----------------
-                
-                Bác sĩ nhận khám và điều trị các vấn đề về Tâm thần, Tâm lý:
-                
-                -   Các rối loạn tâm thần cấp tính do stress, do nghiện chất (chất kích thích, ma túy, rượu),tâm thần phân liệt, do bệnh động kinh
-                -   Các rối loạn cảm xúc như trầm cảm, hưng cảm, rối loạn lưỡng cực
-                -   Rối loạn giấc ngủ
-                -   Mất ngủ
-                -   Rối loạn stress
-                -   Sang chấn sau stress
-                -   Đau đầu do căng thẳng
-                -   Khám sức khỏe tâm thần cho các trẻ em bị khiếm khuyết về trí tuệ
-                
-                ### Quá trình công tác
-                
-                -   Công tác tại phòng Kế hoạch tổng hợp, Bệnh viện Tâm thần TP. HCM (2004 - nay)
-                -   Quản lý chương trình quốc gia tâm thần và động kinh 24 quận - huyện thuộc TP. HCM
-                -   Khám sức khỏe tâm thần cho các trẻ em bị khiếm khuyết về trí tuệ ở các trường khuyết tật
-                -   Khám sức khỏe tâm thần cho các trung tâm cai nghiện
-                
-                ### Quá trình đào tạo
-                
-                -   Bác sĩ Chuyên khoa I ngành Tâm thần, Đại học Y dược TP. HCM (2010 - 2012)
-                -   Thực tập chương trình FFI (Faisant fonction d'interne) chuyên ngành Tâm thần tại Bệnh viện TENON quận 20, Cộng hòa Pháp (2007 - 2008)
-                -   Bác sĩ Y khoa, Trường Đại học Y khoa Phạm Ngọc Thạch (1998 - 2004)
-                
-                ### Sách, các công trình nghiên cứu và báo cáo khoa học
-                
-                Các nghiên cứu khoa học đã tham gia:
-                
-                -   Tuân thủ điều trị thuốc của bệnh nhân tâm thần phân liệt đang điều trị tại cộng đồng TP. HCM (2016 - 2017)
-                -   Khảo sát hiệu quả liệu pháp gia đình trên bệnh nhân tâm thần phân liệt tại cộng đồng TP. HCM (2014 - 2015)
-                -   Nghiên cứu các rối loạn tâm thần trên bệnh nhân động kinh cơn lớn đang điều trị tại cộng đồng TP. HCM (2013)
-                -   Khảo sát khoảng thời gian loạn thần không điều trị (DUP) và các yếu tố liên quan trên bệnh nhân loạn thần đến khám tại Bệnh viện Tâm thần TP. HCM (2011 - 2012)
-                -   Khảo sát phản ứng tâm lý bệnh nhân tâm thần phân liệt đối với các định kiến xã hội tại TP. HCM (2006)`,
+--------------------------------------
+
+-   Gần 20 năm kinh nghiệm khám, chẩn đoán và chữa trị các bệnh lý về Tâm thần
+-   Hiện đang công tác tại Bệnh viện Tâm thần TP. HCM
+-   Thực tập chương trình FFI chuyên ngành Tâm thần tại Bệnh viện TENON, Cộng hòa Pháp
+-   Bác sĩ nhận khám từ 10 tuổi trở lên
+
+Khám và điều trị
+----------------
+
+Bác sĩ nhận khám và điều trị các vấn đề về Tâm thần, Tâm lý:
+
+-   Các rối loạn tâm thần cấp tính do stress, do nghiện chất (chất kích thích, ma túy, rượu),tâm thần phân liệt, do bệnh động kinh
+-   Các rối loạn cảm xúc như trầm cảm, hưng cảm, rối loạn lưỡng cực
+-   Rối loạn giấc ngủ
+-   Mất ngủ
+-   Rối loạn stress
+-   Sang chấn sau stress
+-   Đau đầu do căng thẳng
+-   Khám sức khỏe tâm thần cho các trẻ em bị khiếm khuyết về trí tuệ
+
+### Quá trình công tác
+
+-   Công tác tại phòng Kế hoạch tổng hợp, Bệnh viện Tâm thần TP. HCM (2004 - nay)
+-   Quản lý chương trình quốc gia tâm thần và động kinh 24 quận - huyện thuộc TP. HCM
+-   Khám sức khỏe tâm thần cho các trẻ em bị khiếm khuyết về trí tuệ ở các trường khuyết tật
+-   Khám sức khỏe tâm thần cho các trung tâm cai nghiện
+
+### Quá trình đào tạo
+
+-   Bác sĩ Chuyên khoa I ngành Tâm thần, Đại học Y dược TP. HCM (2010 - 2012)
+-   Thực tập chương trình FFI (Faisant fonction d'interne) chuyên ngành Tâm thần tại Bệnh viện TENON quận 20, Cộng hòa Pháp (2007 - 2008)
+-   Bác sĩ Y khoa, Trường Đại học Y khoa Phạm Ngọc Thạch (1998 - 2004)
+
+### Sách, các công trình nghiên cứu và báo cáo khoa học
+
+Các nghiên cứu khoa học đã tham gia:
+
+-   Tuân thủ điều trị thuốc của bệnh nhân tâm thần phân liệt đang điều trị tại cộng đồng TP. HCM (2016 - 2017)
+-   Khảo sát hiệu quả liệu pháp gia đình trên bệnh nhân tâm thần phân liệt tại cộng đồng TP. HCM (2014 - 2015)
+-   Nghiên cứu các rối loạn tâm thần trên bệnh nhân động kinh cơn lớn đang điều trị tại cộng đồng TP. HCM (2013)
+-   Khảo sát khoảng thời gian loạn thần không điều trị (DUP) và các yếu tố liên quan trên bệnh nhân loạn thần đến khám tại Bệnh viện Tâm thần TP. HCM (2011 - 2012)
+-   Khảo sát phản ứng tâm lý bệnh nhân tâm thần phân liệt đối với các định kiến xã hội tại TP. HCM (2006)`,
                 active: true
             },
             {
@@ -3159,52 +3159,52 @@ Bác sĩ nhận khám và điều trị:
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '10',
                 clinicAddress: `**Bệnh viện Lão khoa Trung ương**        
-                Số 1A Phương Mai, Đống Đa, Hà Nội`,
+Số 1A Phương Mai, Đống Đa, Hà Nội`,
                 email: 'hiennt0049@gmail.com',
                 username: 'hiennt0049',
                 image: await toBase64('49thac-si-nguyen-trong-hien.jpg'),
                 describe: `Bác sĩ khoa Sức khỏe Tâm thần, Bệnh viện Lão khoa Trung ương        
-                Từng là giảng viên bộ môn Tâm thần, Đại học Y Hà Nội        
-                Từng công tác tại Bệnh viện Đa khoa Quốc tế Vinmec Hà Nội`,
+Từng là giảng viên bộ môn Tâm thần, Đại học Y Hà Nội        
+Từng công tác tại Bệnh viện Đa khoa Quốc tế Vinmec Hà Nội`,
                 price: `-   Giá khám áp dụng cho bệnh nhân là người Việt: 300.000đ
-                -   Giá khám áp dụng cho bệnh nhân là người nước ngoài: 600.000đ`,
+-   Giá khám áp dụng cho bệnh nhân là người nước ngoài: 600.000đ`,
                 content: `Thạc sĩ, Bác sĩ Nguyễn Trọng Hiến 
-                ----------------------------------
-                
-                -   Bác sĩ khoa Sức khỏe Tâm thần, Bệnh viện Lão khoa Trung ương
-                -   Từng là giảng viên bộ môn Tâm thần, Đại học Y Hà Nội
-                -   Từng công tác tại Bệnh viện Đa khoa Quốc tế Vinmec Hà Nội
-                -   Bác sĩ nhận khám mọi độ tuổi
-                
-                Khám & điều trị các bệnh
-                ------------------------
-                
-                -   Trầm cảm
-                -   Rối loạn lo âu
-                -   Rối loạn hoảng sợ
-                -   Tâm thần phân liệt
-                -   Các rối loạn loạn thần
-                -   Nghiện chất (rượu, ma túy, cần sa, ma túy đá...)
-                -   Nghiện game, nghiện cờ bạc
-                -   Rối loạn cảm xúc lưỡng cực
-                -   Rối loạn giấc ngủ
-                -   Rối loạn ăn uống
-                -   Rối loạn chức năng tình dục
-                -   Rối loạn nhân cách
-                -   Rối loạn hành vi
-                -   Rối loạn trí nhớ, sa sút trí tuệ
-                
-                ### Quá trình công tác
-                
-                -   Bác sĩ khoa Sức khỏe Tâm thần, Bệnh viện Lão khoa Trung ương (2016 - nay)
-                -   Giảng viên bộ môn Tâm thần, Đại học Y Hà Nội (2016 - 2020)
-                -   Bác sĩ, Bệnh viện Đa khoa Quốc tế Vinmec Hà Nội (2016 - 2020)
-                
-                ### Quá trình đào tạo
-                
-                -   Chuyên khoa Tâm thần, Bác sĩ chuyên khoa cấp II, Đại học Y Hà Nội (2020 - 2022)
-                -   Bác sĩ Nội trú Chuyên ngành Tâm thần, Đại học Y Hà Nội (2016)
-                -   Tốt nghiệp Bác sĩ Đa Khoa, Đại học Y Hà Nội (2013)`,
+----------------------------------
+
+-   Bác sĩ khoa Sức khỏe Tâm thần, Bệnh viện Lão khoa Trung ương
+-   Từng là giảng viên bộ môn Tâm thần, Đại học Y Hà Nội
+-   Từng công tác tại Bệnh viện Đa khoa Quốc tế Vinmec Hà Nội
+-   Bác sĩ nhận khám mọi độ tuổi
+
+Khám & điều trị các bệnh
+------------------------
+
+-   Trầm cảm
+-   Rối loạn lo âu
+-   Rối loạn hoảng sợ
+-   Tâm thần phân liệt
+-   Các rối loạn loạn thần
+-   Nghiện chất (rượu, ma túy, cần sa, ma túy đá...)
+-   Nghiện game, nghiện cờ bạc
+-   Rối loạn cảm xúc lưỡng cực
+-   Rối loạn giấc ngủ
+-   Rối loạn ăn uống
+-   Rối loạn chức năng tình dục
+-   Rối loạn nhân cách
+-   Rối loạn hành vi
+-   Rối loạn trí nhớ, sa sút trí tuệ
+
+### Quá trình công tác
+
+-   Bác sĩ khoa Sức khỏe Tâm thần, Bệnh viện Lão khoa Trung ương (2016 - nay)
+-   Giảng viên bộ môn Tâm thần, Đại học Y Hà Nội (2016 - 2020)
+-   Bác sĩ, Bệnh viện Đa khoa Quốc tế Vinmec Hà Nội (2016 - 2020)
+
+### Quá trình đào tạo
+
+-   Chuyên khoa Tâm thần, Bác sĩ chuyên khoa cấp II, Đại học Y Hà Nội (2020 - 2022)
+-   Bác sĩ Nội trú Chuyên ngành Tâm thần, Đại học Y Hà Nội (2016)
+-   Tốt nghiệp Bác sĩ Đa Khoa, Đại học Y Hà Nội (2013)`,
                 active: true
             },
             {
@@ -3213,108 +3213,108 @@ Bác sĩ nhận khám và điều trị:
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '10',
                 clinicAddress: `**Bệnh viện Lão khoa Trung ương**        
-                Số 1A Phương Mai, Đống Đa, Hà Nội`,
+Số 1A Phương Mai, Đống Đa, Hà Nội`,
                 email: 'phinv0050@gmail.com',
                 username: 'phinv0050',
-                image: await toBase64(),
+                image: await toBase64('50thac-si-nguyen-van-phi.jpg'),
                 describe: `Nhiều năm kinh nghiệm trong lĩnh vực Tâm thần        
-                Hiện đang là Phụ trách khoa Sức khỏe tâm thần, Bệnh viện Lão khoa        
-                Giảng viên - Giáo vụ Đại học bộ môn Tâm thần, Đại học Y Hà Nội        
-                Từng công tác tại Viện sức khỏe Tâm thần, Bệnh viện Bạch Mai`,
+Hiện đang là Phụ trách khoa Sức khỏe tâm thần, Bệnh viện Lão khoa        
+Giảng viên - Giáo vụ Đại học bộ môn Tâm thần, Đại học Y Hà Nội        
+Từng công tác tại Viện sức khỏe Tâm thần, Bệnh viện Bạch Mai`,
                 price: `-   Giá khám áp dụng cho bệnh nhân là người Việt: 300.000đ
-                -   Giá khám áp dụng cho bệnh nhân là người nước ngoài: 600.000đ`,
+-   Giá khám áp dụng cho bệnh nhân là người nước ngoài: 600.000đ`,
                 content: `Bác sĩ Chuyên khoa II Nguyễn Văn Phi
-                ------------------------------------
-                
-                -   Nhiều năm kinh nghiệm trong lĩnh vực Tâm thần
-                -   Hiện đang là Phụ trách khoa Sức khỏe tâm thần, Bệnh viện Lão khoa
-                -   Giảng viên - Giáo vụ Đại học bộ môn Tâm thần, Đại học Y Hà Nội
-                -   Từng công tác tại Viện sức khỏe Tâm thần, Bệnh viện Bạch Mai
-                -   Bác sĩ nhận khám bệnh nhân ở mọi độ tuổi
-                
-                Khám và điều trị
-                ----------------
-                
-                Bác sĩ có thế mạnh về tư vấn và trị liệu tâm lý, cũng như điều trị và tư vấn một số rối loạn tâm thần như:
-                
-                -   Các rối loạn giấc ngủ: Ngủ kém, mất ngủ, mộng du, hoảng sợ khi ngủ
-                -   Các rối loạn cảm xúc: Trầm cảm, hưng cảm; Chán nản, thất vọng, tức giận, cáu gắt, lo lắng, căng thẳng, ý tưởng muốn chết
-                -   Các rối loạn lo âu, liên quan stress: Lo âu, căng thẳng, dễ cáu gắt...
-                -   Đau đầu: Đau đầu, đau nửa đầu
-                -   Rối loạn thần kinh thực vật dạng cơ thể: Hồi hộp, lo lắng, khó thở, nóng ruột, vã mồ hôi...
-                -   Rối loạn dạng cơ thể khác: Đau, khó chịu nhiều vị trí khám không có bệnh cơ thể
-                -   Các rối loạn tình dục: Giảm ham muốn, rối loạn cương dương, rối loạn xuất tinh...
-                -   Các rối loạn ăn uống: Chán ăn, ăn vô độ tâm thần
-                -   Rối loạn nhận thức, sa sút trí tuệ: Suy giảm trí nhớ, trí tuệ, rối loạn hành vi
-                -   Các rối loạn hành vi: Bướng bỉnh, chống đối, tăng động...
-                -   Các rối loạn tâm thần trẻ em và thanh thiếu niên: Nóng giận, hành vi đập phá đồ đạc, không nghe lời bố mẹ, giảm sút kết quả học tập, bướng bỉnh...; Rối loạn phổ tự kỷ, chậm nói, chậm phát triển tâm thần
-                -   Các rối loạn tâm thần liên quan đến sử dụng chất (cần sa, bóng cười, thuốc lắc, đá...)
-                -   Tâm thần phân liệt, rối loạn hoang tưởng... : Cho rằng có người khác làm hại, nghe thấy tiếng nói trong đầu, cho rằng chồng/ vợ không chung thuỷ với mình
-                -   Các rối loạn tâm thần liên quan đến sinh đẻ (trầm cảm sau sinh...): Buồn chán, thay đổi cảm xúc, rối loạn giấc ngủ liên quan thai nghén và sau sinh
-                -   Các rối loạn tâm thần sau tổn thương não
-                -   Rối loạn nhân cách loại ranh giới, rối loạn nhân cách phụ thuộc... : Cảm xúc thay đổi thất thường, thường xuyên suy nghĩ tiêu cực về bản thân, mất động lực sống, chán ghét bản thân, ít bạn bè, ít mối quan hệ ...
-                
-                ### Quá trình công tác
-                
-                -   Phụ trách khoa Sức khỏe tâm thần, Bệnh viện Lão khoa (11/2021 - Nay)
-                -   Giảng viên - Giáo vụ Đại học Bộ môn Tâm thần, Đại học Y Hà Nội (09/2016 - Nay)
-                -   Phó khoa Sức khỏe tâm thần, Bệnh viện Lão khoa (02/2021 - 10/2021)
-                -   Bác sĩ điều trị khoa Sức khỏe tâm thần, Bệnh viện Lão khoa (07/2017 - 02/2021)
-                -   Bác sĩ điều trị Viện Sức Khoẻ Tâm thần, Bệnh viện Bạch Mai (03/2015 - 07/2017)
-                -   Giảng viên Đại học Bộ môn Tâm thần, Đại học Y Hà Nội (03/2015 - 09/2016)
-                
-                ### Quá trình đào tạo
-                
-                -   Bác sĩ Chuyên khoa cấp II chuyên ngành Tâm thần, Đại học Y Hà Nội (2019 - 2021)
-                -   Thạc sĩ chuyên ngành Tâm thần, Đại học Y Hà Nội (2020 - 2021)
-                -   Bác sĩ Nội trú chuyên ngành Tâm thần, Đại học Y Hà Nội (2011 - 2014)
-                -   Bác sĩ Đa khoa, Đại học Y Hà Nội (2006 - 2011)
-                
-                ### Chứng chỉ trong nước hoặc nước ngoài
-                
-                -   Chứng chỉ đào tạo lâm sàng tâm thần học , Đại học Sydney (2019)
-                -   Chứng chỉ đào tạo leadership, Indonesia, Tổ chức Y tế Thế giới (2018)
-                
-                ### Giải thưởng
-                
-                -   Bằng khen của Bộ trưởng Bộ Y tế
-                -   Giấy khen Giám đốc Bệnh viện Bạch Mai
-                -   Giấy khen Giám đốc Bệnh viện Lão khoa
-                -   Bằng khen Hiệu trưởng Trường Đại Học Y Hà Nội dành cho Bác sĩ Nội trú tốt nghiệp Thủ khoa toàn khóa
-                -   Bằng khen của Thủ tướng Chính phủ dành cho thành viên đội tuyển tham dự Olympic Sinh Quốc tế
-                -   Và nhiều học bổng trong và ngoài nước
-                
-                ### Sách và các công trình nghiên cứu, báo cáo khoa học
-                
-                -   Biên soạn 2 sách giáo khoa về Tâm thần học, 1 sách chẩn đoán và điều trị Covid-19
-                -   Dịch giả nhiều đầu sách chuyên ngành.
-                -   Đồng Chủ nhiệm 1 đề tài cấp bộ. Tham gia 1 đề tài cấp nhà nước và 2 đề tài cấp bộ
-                -   Đồng tác giả 1 bài báo quốc tế và 4 báo cáo tại Hội nghị Quốc tế tổ chức bởi hội tâm Tâm thần học thế giới
-                -   Hơn 10 đề tài nghiên cứu khoa học và 20 bài báo khoa học đã được xuất bản.
-                
-                ### Thành viên các Hội khoa học, tổ chức chuyên môn
-                
-                -   Hội Tâm thần học Việt Nam
-                -   Hội Lão khoa Việt Nam
-                
-                ### Tham gia các chuyên đề sức khỏe trên báo chí, truyền hình
-                
-                -   Tham dự nhiều chương trình tư vấn sức khỏe tâm thần trên VTV và VTC
-                -   Cố vấn chuyên môn tổ chức Beautiful Mind Việt Nam
-                
-                Khám & điều trị các bệnh
-                ------------------------
-                
-                Bác sĩ có thế mạnh về tư vấn và trị liệu tâm lý, cũng như điều trị và tư vấn một số rối loạn tâm thần như:
-                
-                -   Rối loạn giấc ngủ
-                -   Rối loạn lo âu
-                -   Rối loạn liên quan stress
-                -   Trầm cảm
-                -   Sử dụng chất (ma túy)
-                -   Sa sút trí tuệ
-                -   Hưng cảm
-                -   Tâm thần phân liệt`,
+------------------------------------
+
+-   Nhiều năm kinh nghiệm trong lĩnh vực Tâm thần
+-   Hiện đang là Phụ trách khoa Sức khỏe tâm thần, Bệnh viện Lão khoa
+-   Giảng viên - Giáo vụ Đại học bộ môn Tâm thần, Đại học Y Hà Nội
+-   Từng công tác tại Viện sức khỏe Tâm thần, Bệnh viện Bạch Mai
+-   Bác sĩ nhận khám bệnh nhân ở mọi độ tuổi
+
+Khám và điều trị
+----------------
+
+Bác sĩ có thế mạnh về tư vấn và trị liệu tâm lý, cũng như điều trị và tư vấn một số rối loạn tâm thần như:
+
+-   Các rối loạn giấc ngủ: Ngủ kém, mất ngủ, mộng du, hoảng sợ khi ngủ
+-   Các rối loạn cảm xúc: Trầm cảm, hưng cảm; Chán nản, thất vọng, tức giận, cáu gắt, lo lắng, căng thẳng, ý tưởng muốn chết
+-   Các rối loạn lo âu, liên quan stress: Lo âu, căng thẳng, dễ cáu gắt...
+-   Đau đầu: Đau đầu, đau nửa đầu
+-   Rối loạn thần kinh thực vật dạng cơ thể: Hồi hộp, lo lắng, khó thở, nóng ruột, vã mồ hôi...
+-   Rối loạn dạng cơ thể khác: Đau, khó chịu nhiều vị trí khám không có bệnh cơ thể
+-   Các rối loạn tình dục: Giảm ham muốn, rối loạn cương dương, rối loạn xuất tinh...
+-   Các rối loạn ăn uống: Chán ăn, ăn vô độ tâm thần
+-   Rối loạn nhận thức, sa sút trí tuệ: Suy giảm trí nhớ, trí tuệ, rối loạn hành vi
+-   Các rối loạn hành vi: Bướng bỉnh, chống đối, tăng động...
+-   Các rối loạn tâm thần trẻ em và thanh thiếu niên: Nóng giận, hành vi đập phá đồ đạc, không nghe lời bố mẹ, giảm sút kết quả học tập, bướng bỉnh...; Rối loạn phổ tự kỷ, chậm nói, chậm phát triển tâm thần
+-   Các rối loạn tâm thần liên quan đến sử dụng chất (cần sa, bóng cười, thuốc lắc, đá...)
+-   Tâm thần phân liệt, rối loạn hoang tưởng... : Cho rằng có người khác làm hại, nghe thấy tiếng nói trong đầu, cho rằng chồng/ vợ không chung thuỷ với mình
+-   Các rối loạn tâm thần liên quan đến sinh đẻ (trầm cảm sau sinh...): Buồn chán, thay đổi cảm xúc, rối loạn giấc ngủ liên quan thai nghén và sau sinh
+-   Các rối loạn tâm thần sau tổn thương não
+-   Rối loạn nhân cách loại ranh giới, rối loạn nhân cách phụ thuộc... : Cảm xúc thay đổi thất thường, thường xuyên suy nghĩ tiêu cực về bản thân, mất động lực sống, chán ghét bản thân, ít bạn bè, ít mối quan hệ ...
+
+### Quá trình công tác
+
+-   Phụ trách khoa Sức khỏe tâm thần, Bệnh viện Lão khoa (11/2021 - Nay)
+-   Giảng viên - Giáo vụ Đại học Bộ môn Tâm thần, Đại học Y Hà Nội (09/2016 - Nay)
+-   Phó khoa Sức khỏe tâm thần, Bệnh viện Lão khoa (02/2021 - 10/2021)
+-   Bác sĩ điều trị khoa Sức khỏe tâm thần, Bệnh viện Lão khoa (07/2017 - 02/2021)
+-   Bác sĩ điều trị Viện Sức Khoẻ Tâm thần, Bệnh viện Bạch Mai (03/2015 - 07/2017)
+-   Giảng viên Đại học Bộ môn Tâm thần, Đại học Y Hà Nội (03/2015 - 09/2016)
+
+### Quá trình đào tạo
+
+-   Bác sĩ Chuyên khoa cấp II chuyên ngành Tâm thần, Đại học Y Hà Nội (2019 - 2021)
+-   Thạc sĩ chuyên ngành Tâm thần, Đại học Y Hà Nội (2020 - 2021)
+-   Bác sĩ Nội trú chuyên ngành Tâm thần, Đại học Y Hà Nội (2011 - 2014)
+-   Bác sĩ Đa khoa, Đại học Y Hà Nội (2006 - 2011)
+
+### Chứng chỉ trong nước hoặc nước ngoài
+
+-   Chứng chỉ đào tạo lâm sàng tâm thần học , Đại học Sydney (2019)
+-   Chứng chỉ đào tạo leadership, Indonesia, Tổ chức Y tế Thế giới (2018)
+
+### Giải thưởng
+
+-   Bằng khen của Bộ trưởng Bộ Y tế
+-   Giấy khen Giám đốc Bệnh viện Bạch Mai
+-   Giấy khen Giám đốc Bệnh viện Lão khoa
+-   Bằng khen Hiệu trưởng Trường Đại Học Y Hà Nội dành cho Bác sĩ Nội trú tốt nghiệp Thủ khoa toàn khóa
+-   Bằng khen của Thủ tướng Chính phủ dành cho thành viên đội tuyển tham dự Olympic Sinh Quốc tế
+-   Và nhiều học bổng trong và ngoài nước
+
+### Sách và các công trình nghiên cứu, báo cáo khoa học
+
+-   Biên soạn 2 sách giáo khoa về Tâm thần học, 1 sách chẩn đoán và điều trị Covid-19
+-   Dịch giả nhiều đầu sách chuyên ngành.
+-   Đồng Chủ nhiệm 1 đề tài cấp bộ. Tham gia 1 đề tài cấp nhà nước và 2 đề tài cấp bộ
+-   Đồng tác giả 1 bài báo quốc tế và 4 báo cáo tại Hội nghị Quốc tế tổ chức bởi hội tâm Tâm thần học thế giới
+-   Hơn 10 đề tài nghiên cứu khoa học và 20 bài báo khoa học đã được xuất bản.
+
+### Thành viên các Hội khoa học, tổ chức chuyên môn
+
+-   Hội Tâm thần học Việt Nam
+-   Hội Lão khoa Việt Nam
+
+### Tham gia các chuyên đề sức khỏe trên báo chí, truyền hình
+
+-   Tham dự nhiều chương trình tư vấn sức khỏe tâm thần trên VTV và VTC
+-   Cố vấn chuyên môn tổ chức Beautiful Mind Việt Nam
+
+Khám & điều trị các bệnh
+------------------------
+
+Bác sĩ có thế mạnh về tư vấn và trị liệu tâm lý, cũng như điều trị và tư vấn một số rối loạn tâm thần như:
+
+-   Rối loạn giấc ngủ
+-   Rối loạn lo âu
+-   Rối loạn liên quan stress
+-   Trầm cảm
+-   Sử dụng chất (ma túy)
+-   Sa sút trí tuệ
+-   Hưng cảm
+-   Tâm thần phân liệt`,
                 active: true
             },
             {
@@ -3323,100 +3323,100 @@ Bác sĩ nhận khám và điều trị:
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '11',
                 clinicAddress: `**Phòng khám Tâm Phúc**        
-                Phòng 401, Tầng 4, Tòa nhà An Bình, số 3 đường Trần Nguyên Đán, khu đô thị mới Định Công, quận Hoàng Mai, Hà Nội.`,
+Phòng 401, Tầng 4, Tòa nhà An Bình, số 3 đường Trần Nguyên Đán, khu đô thị mới Định Công, quận Hoàng Mai, Hà Nội.`,
                 email: 'khanhbv0051@gmail.com',
                 username: 'khanhbv0051',
                 image: await toBase64('51ths-bui-van-khanh.jpg'),
                 describe: `Hiện đang công tác tại khoa Dị ứng miễn dịch, Bệnh viện Bạch Mai        
-                Tham gia tư vấn các bệnh lý Dị ứng miễn dịch trên Báo sức khỏe đời sống, VN Express, Báo người lao động...`,
+Tham gia tư vấn các bệnh lý Dị ứng miễn dịch trên Báo sức khỏe đời sống, VN Express, Báo người lao động...`,
                 price: `-    Giá khám chưa bao gồm chi phí xét nghiệm: 250.000đ
 
-                Phòng khám có hình thức thanh toán chi phí bằng tiền mặt`,
+Phòng khám có hình thức thanh toán chi phí bằng tiền mặt`,
                 content: `Tiến sĩ, Bác sĩ Bùi Văn Khánh
-                -----------------------------
-                
-                -   Đạt giải thưởng hội dị ứng châu Âu (2016)
-                -   Là hội viên hội dị ứng miễn dịch châu Âu
-                -   Tham gia tư vấn các bệnh lý dị ứng miễn dịch trên báo sức khỏe đời sống, VN Express, báo người lao động....
-                
-                ### Quá trình đào tạo
-                
-                -   Đang làm nghiên cứu sinh tại trường Đại học y Hà Nội từ năm 2015
-                -   Tốt nghiệp thạc sĩ y khoa trường Đại học y Hà Nội (2015)
-                -   Thực tập sinh tại Hàn quốc (2011)
-                -   Tốt nghiệp trường Đại học Y Hà Nội (2006)
-                
-                ### Chứng chỉ trong nước, ngoài nước
-                
-                -   Chứng chỉ hen và dị ứng của Hội hô hấp hen phế quản châu Âu
-                -   Chứng chỉ bệnh vảy nến của Hội da liễu châu Á Thái Bình Dương
-                -   Chứng chỉ mề đay mãn tính của Hội dị ứng châu Âu
-                
-                ### Quá trình công tác
-                
-                -   Làm việc tại khoa dị ứng miễn dịch Bệnh viện Bạch Mai từ năm 2011
-                -   Là Bí thư đoàn thanh niên của khoa dị ứng miễn dịch Bệnh viện Bạch Mai
-                
-                ### Giải thưởng
-                
-                -   Đạt giải thưởng hội dị ứng châu Âu(2016)
-                
-                ### Sách và các công trình nghiên cứu khoa học
-                
-                -   Biên soạn cuốn:'' Hiểu biết mới về số bệnh dị ứng và miễn dịch"
-                -   Tham gia báo cáo về dị ứng thuốc giảm đau chống viêm không steroid tại Viên, Áo tại Hội nghị dị ứng miễn dịch châu Âu (2016)
-                -   Báo cáo về hen phế quản nhạy cảm với Aspirin tại Barcelona, Tây Ban Nha (2015)
-                -   Báo cáo về hiệu quả điều trị mày đay mãn tính bằng chế phẩm sinh học tại Áo (2016)
-                -   Tiếp cận chẩn đoán và điều trị dị ứng Aspirin tại Hội nghị Tim mạch quốc gia (2016)
-                -   Tiếp cận và điều trị mày đay mãn tính tại Hội dị ứng miễn dịch thành phố Hồ CHí Minh (2017)
-                -   Báo cáo:"Lợi ích và nguy cơ Glucocorticoids trong điều trị sốc phản vệ" (2014)
-                
-                ### Thành viên các Hội khoa học, tổ chức chuyên môn
-                
-                -   Hội viên Hội dị ứng miễn dịch châu Âu
-                -   Hội viên Hội dị ứng miễn dịch của Mỹ
-                -   Hội viên Hội suy giảm miễn dịch của châu Âu
-                
-                ### Tham gia các chuyên đề sức khỏe trên báo chí, truyền hình
-                
-                -   Báo VN Express: "Tư vấn về tình trạng dị ứng"
-                -   Báo Sức khỏe & Đời sống: "Coi chừng dị ứng mỹ phẩm"
-                
-                Khám và điều trị
-                ----------------
-                
-                **Bệnh dị ứng **
-                
-                -   Bệnh dị ứng thuốc
-                -   Bệnh dị ứng thức ăn
-                -   Bệnh dị ứng mỹ phẩm
-                -   Bệnh dị ứng vắc xin
-                -   Bệnh dị ứng do côn trùng đốt
-                -   Bệnh mày đay, phù mạch
-                -   Bệnh viêm da dị ứng
-                -   Bệnh viêm mũi dị ứng
-                -   Bệnh viêm xoang dị ứng
-                
-                **Bệnh hen phế quản**
-                
-                -   Bệnh hen phế quản
-                -   Bệnh hen phế quản trẻ em
-                -   Bệnh hen phế quản người già
-                -   Bệnh hen phế quản nghề nghiệp
-                -   Bệnh hen phế quản thai kỳ  
-                
-                **Bệnh miễn dịch**
-                
-                -   Bệnh lupus ban đỏ
-                -   Bệnh xơ cứng bì
-                -   Bệnh mô liên kết hỗn hợp
-                -   Bệnh viêm da cơ, viêm đa cơ
-                -   Bệnh viêm mạch
-                -   Bệnh viêm gan, thận, phổi, tim tự miễn
-                -   Bệnh rối loại miễn dịch
-                -   Các bệnh tự miễn khác
-                
-                **Điều trị giải mẫn cảm đặc hiệu với dị nguyên dị ứng**`,
+-----------------------------
+
+-   Đạt giải thưởng hội dị ứng châu Âu (2016)
+-   Là hội viên hội dị ứng miễn dịch châu Âu
+-   Tham gia tư vấn các bệnh lý dị ứng miễn dịch trên báo sức khỏe đời sống, VN Express, báo người lao động....
+
+### Quá trình đào tạo
+
+-   Đang làm nghiên cứu sinh tại trường Đại học y Hà Nội từ năm 2015
+-   Tốt nghiệp thạc sĩ y khoa trường Đại học y Hà Nội (2015)
+-   Thực tập sinh tại Hàn quốc (2011)
+-   Tốt nghiệp trường Đại học Y Hà Nội (2006)
+
+### Chứng chỉ trong nước, ngoài nước
+
+-   Chứng chỉ hen và dị ứng của Hội hô hấp hen phế quản châu Âu
+-   Chứng chỉ bệnh vảy nến của Hội da liễu châu Á Thái Bình Dương
+-   Chứng chỉ mề đay mãn tính của Hội dị ứng châu Âu
+
+### Quá trình công tác
+
+-   Làm việc tại khoa dị ứng miễn dịch Bệnh viện Bạch Mai từ năm 2011
+-   Là Bí thư đoàn thanh niên của khoa dị ứng miễn dịch Bệnh viện Bạch Mai
+
+### Giải thưởng
+
+-   Đạt giải thưởng hội dị ứng châu Âu(2016)
+
+### Sách và các công trình nghiên cứu khoa học
+
+-   Biên soạn cuốn:'' Hiểu biết mới về số bệnh dị ứng và miễn dịch"
+-   Tham gia báo cáo về dị ứng thuốc giảm đau chống viêm không steroid tại Viên, Áo tại Hội nghị dị ứng miễn dịch châu Âu (2016)
+-   Báo cáo về hen phế quản nhạy cảm với Aspirin tại Barcelona, Tây Ban Nha (2015)
+-   Báo cáo về hiệu quả điều trị mày đay mãn tính bằng chế phẩm sinh học tại Áo (2016)
+-   Tiếp cận chẩn đoán và điều trị dị ứng Aspirin tại Hội nghị Tim mạch quốc gia (2016)
+-   Tiếp cận và điều trị mày đay mãn tính tại Hội dị ứng miễn dịch thành phố Hồ CHí Minh (2017)
+-   Báo cáo:"Lợi ích và nguy cơ Glucocorticoids trong điều trị sốc phản vệ" (2014)
+
+### Thành viên các Hội khoa học, tổ chức chuyên môn
+
+-   Hội viên Hội dị ứng miễn dịch châu Âu
+-   Hội viên Hội dị ứng miễn dịch của Mỹ
+-   Hội viên Hội suy giảm miễn dịch của châu Âu
+
+### Tham gia các chuyên đề sức khỏe trên báo chí, truyền hình
+
+-   Báo VN Express: "Tư vấn về tình trạng dị ứng"
+-   Báo Sức khỏe & Đời sống: "Coi chừng dị ứng mỹ phẩm"
+
+Khám và điều trị
+----------------
+
+**Bệnh dị ứng **
+
+-   Bệnh dị ứng thuốc
+-   Bệnh dị ứng thức ăn
+-   Bệnh dị ứng mỹ phẩm
+-   Bệnh dị ứng vắc xin
+-   Bệnh dị ứng do côn trùng đốt
+-   Bệnh mày đay, phù mạch
+-   Bệnh viêm da dị ứng
+-   Bệnh viêm mũi dị ứng
+-   Bệnh viêm xoang dị ứng
+
+**Bệnh hen phế quản**
+
+-   Bệnh hen phế quản
+-   Bệnh hen phế quản trẻ em
+-   Bệnh hen phế quản người già
+-   Bệnh hen phế quản nghề nghiệp
+-   Bệnh hen phế quản thai kỳ  
+
+**Bệnh miễn dịch**
+
+-   Bệnh lupus ban đỏ
+-   Bệnh xơ cứng bì
+-   Bệnh mô liên kết hỗn hợp
+-   Bệnh viêm da cơ, viêm đa cơ
+-   Bệnh viêm mạch
+-   Bệnh viêm gan, thận, phổi, tim tự miễn
+-   Bệnh rối loại miễn dịch
+-   Các bệnh tự miễn khác
+
+**Điều trị giải mẫn cảm đặc hiệu với dị nguyên dị ứng**`,
                 active: true
             },
             {
@@ -3425,44 +3425,44 @@ Bác sĩ nhận khám và điều trị:
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '11',
                 clinicAddress: `**Phòng khám Vietlife MRI Trần Bình Trọng**        
-                14 Trần Bình Trọng - Hoàn Kiếm - Hà Nội`,
+14 Trần Bình Trọng - Hoàn Kiếm - Hà Nội`,
                 email: 'landtt0052@gmail.com',
                 username: 'landtt0052',
                 image: await toBase64('52bs-lan.jpg'),
                 describe: `Từng công tác tại Bệnh viện Bạch Mai        
-                Giảng viên Bộ môn Dị ứng, Đại học Y Hà Nội        
-                Nhiều năm kinh nghiệm trong khám và điều trị bệnh lý Dị ứng - Miễn dịch        
-                Nhận khám từ 15 tuổi trở lên`,
+Giảng viên Bộ môn Dị ứng, Đại học Y Hà Nội        
+Nhiều năm kinh nghiệm trong khám và điều trị bệnh lý Dị ứng - Miễn dịch        
+Nhận khám từ 15 tuổi trở lên`,
                 price: `-    Giá khám chưa bao gồm chi phí xét nghiệm: 250.000đ
 
-                Phòng khám có hình thức thanh toán chi phí bằng tiền mặt`,
+Phòng khám có hình thức thanh toán chi phí bằng tiền mặt`,
                 content: `Bác sĩ chuyên khoa II Đỗ Trương Thanh Lan
-                -----------------------------------------
-                
-                -   Từng công tác tại Bệnh viện Bạch Mai
-                -   Giảng viên Bộ môn Dị ứng, Đại học Y Hà Nội
-                -   Nhiều năm kinh nghiệm trong khám và điều trị bệnh lý Dị ứng - Miễn dịch
-                -   Nhận khám từ 15 tuổi trở lên
-                
-                ### Quá trình công tác
-                
-                -   Hiện là Bác sĩ tại Phòng khám Đa khoa Vietlife
-                -   Nguyên Phó trưởng Bộ môn và Giảng viên chính Bộ môn Dị ứng, Đại học Y Hà Nội (1982 - 2013)
-                -   Bác sĩ chuyên khoa II, Trung tâm Dị ứng - Miễn dịch lâm sàng, Bệnh viện Bạch Mai (1982 - 2013)
-                
-                ### Quá trình đào tạo
-                
-                -   Tốt nghiệp Bác sĩ chuyên khoa II, chuyên ngành Dị ứng - Miễn dịch lâm sàng, Đại học Y Hà Nội (1997)
-                -   Tốt nghiệp Bác sĩ chuyên khoa I, chuyên ngành Dị ứng - Miễn dịch lâm sàng, Đại học Y Hà Nội (1994)
-                -   Tốt nghiệp Bác sĩ đa khoa, Đại học Y khoa Oderxa (Liên Xô cũ) (1982)
-                
-                Khám và điều trị
-                ----------------
-                
-                -   Các bệnh dị ứng do thuốc, thức ăn, hóa chất, mỹ phẩm,...
-                -   Mày đay, viêm da tiếp xúc, viêm da chàm hóa, phù Quincke, hồng ban nút, hồng ban nhiễm sắc cố định,...
-                -   Hen phế quản, Bệnh phổi tắc nghẽn mạn tính (COPD),viêm mũi dị ứng
-                -   Bệnh tự miễn, Lupus ban đỏ hệ thống, xơ cứng bì, viêm da cơ,...`,
+-----------------------------------------
+
+-   Từng công tác tại Bệnh viện Bạch Mai
+-   Giảng viên Bộ môn Dị ứng, Đại học Y Hà Nội
+-   Nhiều năm kinh nghiệm trong khám và điều trị bệnh lý Dị ứng - Miễn dịch
+-   Nhận khám từ 15 tuổi trở lên
+
+### Quá trình công tác
+
+-   Hiện là Bác sĩ tại Phòng khám Đa khoa Vietlife
+-   Nguyên Phó trưởng Bộ môn và Giảng viên chính Bộ môn Dị ứng, Đại học Y Hà Nội (1982 - 2013)
+-   Bác sĩ chuyên khoa II, Trung tâm Dị ứng - Miễn dịch lâm sàng, Bệnh viện Bạch Mai (1982 - 2013)
+
+### Quá trình đào tạo
+
+-   Tốt nghiệp Bác sĩ chuyên khoa II, chuyên ngành Dị ứng - Miễn dịch lâm sàng, Đại học Y Hà Nội (1997)
+-   Tốt nghiệp Bác sĩ chuyên khoa I, chuyên ngành Dị ứng - Miễn dịch lâm sàng, Đại học Y Hà Nội (1994)
+-   Tốt nghiệp Bác sĩ đa khoa, Đại học Y khoa Oderxa (Liên Xô cũ) (1982)
+
+Khám và điều trị
+----------------
+
+-   Các bệnh dị ứng do thuốc, thức ăn, hóa chất, mỹ phẩm,...
+-   Mày đay, viêm da tiếp xúc, viêm da chàm hóa, phù Quincke, hồng ban nút, hồng ban nhiễm sắc cố định,...
+-   Hen phế quản, Bệnh phổi tắc nghẽn mạn tính (COPD),viêm mũi dị ứng
+-   Bệnh tự miễn, Lupus ban đỏ hệ thống, xơ cứng bì, viêm da cơ,...`,
                 active: true
             },
             {
@@ -3471,59 +3471,59 @@ Bác sĩ nhận khám và điều trị:
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '12',
                 clinicAddress: `**Phòng khám Chuyên khoa Quốc tế Phổi Sài Gòn**        
-                476B Nguyễn Tri Phương, Phường 9, Quận 10, Hồ Chí Minh`,
+476B Nguyễn Tri Phương, Phường 9, Quận 10, Hồ Chí Minh`,
                 email: 'anhlh0053@gmail.com',
                 username: 'anhlh0053',
                 image: await toBase64('53bs-hong-anh.jpg'),
                 describe: `Hơn 20 năm kinh nghiệm trong lĩnh vực Phổi và Lao        
-                Từng công tác nhiều năm tại Bệnh viện Phạm Ngọc Thạch        
-                Bác sĩ nhận bệnh nhân từ 13 tuổi trở lên`,
+Từng công tác nhiều năm tại Bệnh viện Phạm Ngọc Thạch        
+Bác sĩ nhận bệnh nhân từ 13 tuổi trở lên`,
                 price: `-    Giá tái khám: 250.000 VNĐ ( bệnh nhân phải có mặt)
-                -   Giá tư vấn tái khám: 200.000 VNĐ (người nhà bệnh nhân đến báo lại tình trạng của bệnh nhân và lấy thuốc)
-                -   Chụp X-quang/1 tấmTheo chỉ định của bác sĩ: 250.000đ
-                -   Đo chức năng hô hấpTheo chỉ định của bác sĩ: 500.000đ`,
+-   Giá tư vấn tái khám: 200.000 VNĐ (người nhà bệnh nhân đến báo lại tình trạng của bệnh nhân và lấy thuốc)
+-   Chụp X-quang/1 tấmTheo chỉ định của bác sĩ: 250.000đ
+-   Đo chức năng hô hấpTheo chỉ định của bác sĩ: 500.000đ`,
                 content: `Bác sĩ Chuyên khoa II Lê Hồng Anh
-                ---------------------------------
-                
-                -   Hơn 20 năm kinh nghiệm trong lĩnh vực Phổi và Lao
-                -   Từng công tác nhiều năm tại Bệnh viện Phạm Ngọc Thạch
-                -   Giám đốc chuyên môn tại Phòng khám Chuyên khoa Quốc tế Phổi Sài Gòn
-                -   Bác sĩ nhận bệnh nhân từ 13 tuổi trở lên
-                
-                ### Quá trình công tác
-                
-                -   Giám đốc chuyên môn Phòng khám Chuyên khoa Quốc tế Phổi Sài Gòn (2016 - nay)
-                -   Bác sĩ điều trị, Bệnh viện Phạm Ngọc Thạch (2001 - 2016)
-                
-                ### Quá trình đào tạo
-                
-                -   Tốt nghiệp Bác sĩ Chuyên khoa II chuyên ngành bệnh Phổi và Lao, Đại học Y dược TP.HCM (2014)
-                -   Tốt nghiệp Bác sĩ Chuyên khoa I chuyên ngành bệnh Phổi và Lao, Đại học Y dược TP.HCM (2007)
-                -   Tốt nghiệp Bác sĩ Đa khoa Tổng quát, Đại học Y dược TP.HCM (1996)
-                
-                ### Thành viên các Hội khoa học, tổ chức chuyên môn
-                
-                -   Hội Phổi Việt Nam
-                -   Hội Hô Hấp TP.HCM
-                -   Hội Hô Hấp Việt Nam
-                -   Hội Hen - Dị ứng - Miễn dịch Lâm sàng TP.HCM
-                
-                ### Tham gia các chuyên đề sức khỏe trên báo chí, truyền hình...
-                
-                -   HTV9
-                -   HTV7
-                -   Báo Thanh Niên
-                
-                Khám và điều trị
-                ----------------
-                
-                -   Lao
-                -   Lao kháng thuốc
-                -   Hen
-                -   COPD
-                -   Ung Thư
-                -   Các bệnh Phổi nghề nghiệp
-                -   Các bệnh hô hấp`,
+---------------------------------
+
+-   Hơn 20 năm kinh nghiệm trong lĩnh vực Phổi và Lao
+-   Từng công tác nhiều năm tại Bệnh viện Phạm Ngọc Thạch
+-   Giám đốc chuyên môn tại Phòng khám Chuyên khoa Quốc tế Phổi Sài Gòn
+-   Bác sĩ nhận bệnh nhân từ 13 tuổi trở lên
+
+### Quá trình công tác
+
+-   Giám đốc chuyên môn Phòng khám Chuyên khoa Quốc tế Phổi Sài Gòn (2016 - nay)
+-   Bác sĩ điều trị, Bệnh viện Phạm Ngọc Thạch (2001 - 2016)
+
+### Quá trình đào tạo
+
+-   Tốt nghiệp Bác sĩ Chuyên khoa II chuyên ngành bệnh Phổi và Lao, Đại học Y dược TP.HCM (2014)
+-   Tốt nghiệp Bác sĩ Chuyên khoa I chuyên ngành bệnh Phổi và Lao, Đại học Y dược TP.HCM (2007)
+-   Tốt nghiệp Bác sĩ Đa khoa Tổng quát, Đại học Y dược TP.HCM (1996)
+
+### Thành viên các Hội khoa học, tổ chức chuyên môn
+
+-   Hội Phổi Việt Nam
+-   Hội Hô Hấp TP.HCM
+-   Hội Hô Hấp Việt Nam
+-   Hội Hen - Dị ứng - Miễn dịch Lâm sàng TP.HCM
+
+### Tham gia các chuyên đề sức khỏe trên báo chí, truyền hình...
+
+-   HTV9
+-   HTV7
+-   Báo Thanh Niên
+
+Khám và điều trị
+----------------
+
+-   Lao
+-   Lao kháng thuốc
+-   Hen
+-   COPD
+-   Ung Thư
+-   Các bệnh Phổi nghề nghiệp
+-   Các bệnh hô hấp`,
                 active: true
             },
             {
@@ -3532,54 +3532,54 @@ Bác sĩ nhận khám và điều trị:
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '12',
                 clinicAddress: `**Bệnh viện Quốc tế City**        
-                3 Đường Số 17A, Bình Trị Đông B, Bình Tân, Thành phố Hồ Chí Minh`,
+3 Đường Số 17A, Bình Trị Đông B, Bình Tân, Thành phố Hồ Chí Minh`,
                 email: 'phuongda0054@gmail.com',
                 username: 'phuongda0054',
                 image: await toBase64('54drduonganhphuong270x356.jpg'),
                 describe: `Bác sĩ Chuyên khoa II Dương Anh Phượng        
-                Hơn 20 năm kinh nghiệm trong lĩnh vực Nội tổng quát - Hô hấp        
-                Nguyên Phó Trưởng khoa Hô Hấp - Phó Trưởng khoa Hồi Sức Tích Cực, Bệnh viện Nhân Dân Gia Định        
-                Bác sĩ nhận khám bệnh nhân từ 16 tuổi trở lên`,
+Hơn 20 năm kinh nghiệm trong lĩnh vực Nội tổng quát - Hô hấp        
+Nguyên Phó Trưởng khoa Hô Hấp - Phó Trưởng khoa Hồi Sức Tích Cực, Bệnh viện Nhân Dân Gia Định        
+Bác sĩ nhận khám bệnh nhân từ 16 tuổi trở lên`,
                 price: `-    Giá tái khám: 250.000 VNĐ ( bệnh nhân phải có mặt)
-                -   Giá tư vấn tái khám: 200.000 VNĐ (người nhà bệnh nhân đến báo lại tình trạng của bệnh nhân và lấy thuốc)
-                -   Chụp X-quang/1 tấmTheo chỉ định của bác sĩ: 250.000đ
-                -   Đo chức năng hô hấpTheo chỉ định của bác sĩ: 500.000đ`,
+-   Giá tư vấn tái khám: 200.000 VNĐ (người nhà bệnh nhân đến báo lại tình trạng của bệnh nhân và lấy thuốc)
+-   Chụp X-quang/1 tấmTheo chỉ định của bác sĩ: 250.000đ
+-   Đo chức năng hô hấpTheo chỉ định của bác sĩ: 500.000đ`,
                 content: `Bác sĩ Chuyên khoa II Dương Anh Phượng
-                --------------------------------------
-                
-                -   Hơn 20 năm kinh nghiệm trong lĩnh vực Nội tổng quát - Hô hấp
-                -   Nguyên Phó Trưởng khoa Hô Hấp - Phó Trưởng khoa Hồi Sức Tích Cực, Bệnh viện Nhân Dân Gia Định
-                -   Bác sĩ nhận khám bệnh nhân từ 16 tuổi trở lên
-                
-                ### Quá trình công tác
-                
-                -   Bác sĩ điều trị Khoa Nội, Bệnh viện Quốc tế City (2015 - nay)
-                -   Phó Trưởng khoa Hô Hấp, Bệnh viện Nhân Dân Gia Định (2008 - 2015)
-                -   Phó Trưởng khoa Hồi Sức Tích Cực, Bệnh viện Nhân Dân Gia Định (2006 - 2008)
-                -   Bác sĩ Khoa Hồi Sức Tích Cực, Bệnh viện Nhân Dân Gia Định (2002 - 2006)
-                
-                ### Quá trình đào tạo
-                
-                -   Tốt nghiệp BSCKII chuyên ngành Nội Hô Hấp, Đại học Y Dược TP.HCM (2015)
-                -   Tốt nghiệp BSCKII chuyên ngành Nội Hô Hấp, Đại học Y Dược TP.HCM (2008)
-                -   Tốt nghiệp Bác sĩ Đa khoa, Đại học Y Dược TP.HCM (2000)
-                -   Chứng chỉ Soi phế quản, Bệnh viện Chợ Rẫy (2010)
-                -   Chứng chỉ Quản lý hen và COPD trong cộng đồng, Đại học Y Dược TP.HCM (2009)
-                
-                Khám và điều trị
-                ----------------
-                
-                Khám & Kiểm tra sức khỏe tổng quát (tại khoa EHS bệnh viện Quốc tế City)
-                
-                Chẩn đoán & Điều trị các bệnh lý nội hô hấp:
-                
-                -   Lao
-                -   Lao kháng thuốc
-                -   Hen
-                -   COPD
-                -   Ung Thư
-                -   Các bệnh Phổi nghề nghiệp
-                -   Các bệnh hô hấp`,
+--------------------------------------
+
+-   Hơn 20 năm kinh nghiệm trong lĩnh vực Nội tổng quát - Hô hấp
+-   Nguyên Phó Trưởng khoa Hô Hấp - Phó Trưởng khoa Hồi Sức Tích Cực, Bệnh viện Nhân Dân Gia Định
+-   Bác sĩ nhận khám bệnh nhân từ 16 tuổi trở lên
+
+### Quá trình công tác
+
+-   Bác sĩ điều trị Khoa Nội, Bệnh viện Quốc tế City (2015 - nay)
+-   Phó Trưởng khoa Hô Hấp, Bệnh viện Nhân Dân Gia Định (2008 - 2015)
+-   Phó Trưởng khoa Hồi Sức Tích Cực, Bệnh viện Nhân Dân Gia Định (2006 - 2008)
+-   Bác sĩ Khoa Hồi Sức Tích Cực, Bệnh viện Nhân Dân Gia Định (2002 - 2006)
+
+### Quá trình đào tạo
+
+-   Tốt nghiệp BSCKII chuyên ngành Nội Hô Hấp, Đại học Y Dược TP.HCM (2015)
+-   Tốt nghiệp BSCKII chuyên ngành Nội Hô Hấp, Đại học Y Dược TP.HCM (2008)
+-   Tốt nghiệp Bác sĩ Đa khoa, Đại học Y Dược TP.HCM (2000)
+-   Chứng chỉ Soi phế quản, Bệnh viện Chợ Rẫy (2010)
+-   Chứng chỉ Quản lý hen và COPD trong cộng đồng, Đại học Y Dược TP.HCM (2009)
+
+Khám và điều trị
+----------------
+
+Khám & Kiểm tra sức khỏe tổng quát (tại khoa EHS bệnh viện Quốc tế City)
+
+Chẩn đoán & Điều trị các bệnh lý nội hô hấp:
+
+-   Lao
+-   Lao kháng thuốc
+-   Hen
+-   COPD
+-   Ung Thư
+-   Các bệnh Phổi nghề nghiệp
+-   Các bệnh hô hấp`,
                 active: true
             },
             {
@@ -3588,83 +3588,83 @@ Bác sĩ nhận khám và điều trị:
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '12',
                 clinicAddress: `**Phòng khám Đa khoa Mediplus**        
-                Tầng 2, Trung tâm thương mại Mandarin Garden 2, 99 phố Tân Mai, Tân Mai, Hoàng Mai, Hà Nội`,
+Tầng 2, Trung tâm thương mại Mandarin Garden 2, 99 phố Tân Mai, Tân Mai, Hoàng Mai, Hà Nội`,
                 email: 'hongntd0055@gmail.com',
                 username: 'hongntd0055',
-                image: await toBase64('54drduonganhphuong270x356.jpg'),
+                image: await toBase64('55bs-hong.jpg'),
                 describe: `Hiện là bác sĩ điều trị tại Trung tâm Hô hấp, Bệnh viện Bạch Mai        
-                Chủ tịch Công đoàn Trung tâm Hô hấp, Bệnh viện Bạch Mai        
-                Gần 30 năm kinh nghiệm trong khám và điều trị bệnh lý Hô hấp        
-                Bác sĩ được đào tạo chuyên sâu về Hô hấp nhiều năm tại Cộng hòa Pháp        
-                Bác sĩ nhận khám độ tuổi từ 10 tuổi trở lên`,
+Chủ tịch Công đoàn Trung tâm Hô hấp, Bệnh viện Bạch Mai        
+Gần 30 năm kinh nghiệm trong khám và điều trị bệnh lý Hô hấp        
+Bác sĩ được đào tạo chuyên sâu về Hô hấp nhiều năm tại Cộng hòa Pháp        
+Bác sĩ nhận khám độ tuổi từ 10 tuổi trở lên`,
                 price: `-    Giá tái khám: 250.000 VNĐ ( bệnh nhân phải có mặt)
-                -   Giá tư vấn tái khám: 200.000 VNĐ (người nhà bệnh nhân đến báo lại tình trạng của bệnh nhân và lấy thuốc)
-                -   Chụp X-quang/1 tấmTheo chỉ định của bác sĩ: 250.000đ
-                -   Đo chức năng hô hấpTheo chỉ định của bác sĩ: 500.000đ`,
+-   Giá tư vấn tái khám: 200.000 VNĐ (người nhà bệnh nhân đến báo lại tình trạng của bệnh nhân và lấy thuốc)
+-   Chụp X-quang/1 tấmTheo chỉ định của bác sĩ: 250.000đ
+-   Đo chức năng hô hấpTheo chỉ định của bác sĩ: 500.000đ`,
                 content: `Thạc sĩ, Bác sĩ Nguyễn Thị Diệu Hồng
-                ------------------------------------
-                
-                -   Hiện là bác sĩ điều trị tại Trung tâm Hô hấp, Bệnh viện Bạch Mai
-                -   Chủ tịch Công đoàn Trung tâm Hô hấp, Bệnh viện Bạch Mai
-                -   Gần 30 năm kinh nghiệm trong khám và điều trị bệnh lý Hô hấp
-                -   Bác sĩ được đào tạo chuyên sâu về Hô hấp nhiều năm tại Cộng hòa Pháp
-                
-                ### Quá trình công tác
-                
-                -   Hiện là Bác sĩ Nội Hô hấp, Phòng khám Đa khoa Mediplus
-                -   Chủ tịch Công đoàn Trung tâm Hô hấp, Bệnh viện Bạch Mai (2017 - nay)
-                -   Bác sĩ điều trị tại Trung tâm Hô hấp, Bệnh viện Bạch Mai (2010 - nay)
-                -   Trợ giảng Chuyên khoa Chuyên sâu Hô hấp tại Viện trường Nancy, Cộng hòa Pháp (2009 - 2010)
-                -   Bác sĩ điều trị tại Trung tâm Hô hấp, Bệnh viện Bạch Mai (1994 -2004)
-                
-                ### Quá trình đào tạo
-                
-                -   Hội nghị hội Hô hấp Châu Âu tại Madrid Tây Ban Nha (2019)
-                -   Hội nghị hội Hô hấp Châu Âu tại Paris, Cộng hòa Pháp (2018)
-                -   Hoàn thành khóa thực tập nội soi phế quản ống mềm có can thiệp trong chẩn đoán bệnh tại Viện NCJM Nhật Bản (2017)
-                -   Khóa học Phục hồi chức năng hô hấp tại Bệnh viện Bạch Mai do Hội phổi Pháp Việt đào tạo (2015)
-                -   Khóa học Thăm dò chức năng tại Khoa Thăm dò chức năng, Bệnh viện Brabois, Cộng hòa Pháp (2011)
-                -   Học Chuyên khoa Chuyên sâu ngành Hô hấp tại Viện trường Nancy, Cộng hòa Pháp (2009 - 2010)
-                -   Tốt nghiệp Thạc sĩ, Đại học Y Hà Nội (2008)
-                -   Tham gia khóa học Nội soi phế quản và Nội soi lồng ngực tại Bệnh viện Bạch Mai do Hội phổi Pháp Việt đào tạo (2006)
-                -   Bác sĩ nội trú FFI tại Viện trường Nancy, Cộng hòa Pháp (2004-2005)
-                -   Học chuyên khoa sơ bộ Đông Y tại Viện Y học Cổ truyền Trung ương (1993-1994)
-                -   Tốt nghiệp Bác sĩ Đa khoa, Đại học Y Hà Nội (1993)
-                
-                Khám và điều trị
-                ----------------
-                
-                -   Bệnh phổi tắc nghẽn mạn tính:
-                    -   Tình trạng ho mãn tính, kéo dài: ho có đờm, đờm có màu trắng, màu vàng xám, màu xanh lá cây thậm chí đôi khi có thể thấy đờm kèm máu
-                    -   Bị nhiễm trùng đường hô hấp và tái đi tái lại tình trạng cúm, cảm lạnh. Khó thở, thở gấp sức, thở gấp
-                    -   Ngực có cảm giác thắt chặt, đau
-                    -   Thở khò khè, mệt mỏi kéo dài
-                    -   Sốt nhẹ và có cảm giác ớn lạnh.
-                -   Hen phế quản:
-                    -   Khó thở nhiều khi thở ra, phải ngồi dậy để thở.
-                    -   Có thể nghe thấy tiếng thở rít hay khò khè, ho, khạc đờm kèm theo.
-                    -   Đôi khi thấy hình ảnh lồng ngực biến dạng.
-                -   Khám và chẩn đoán ung thư phổi:
-                    -   Ho kéo dài, đau ngực
-                    -   Có cảm giác khó thở, thở ngắn, có đờm lẫn máu.
-                    -   Cơ thể bị gầy sút, mệt mỏi, khàn giọng, khó nuốt, thở khò khè, đau xương
-                    -   Tràn dịch màng phổi
-                -   Viêm phổi
-                    -   Đau ngực khi bạn thở hoặc ho.
-                    -   Ho có đờm hoặc chất nhầy
-                    -   Mệt mỏi và chán ăn
-                    -   Sốt, vã mồ hôi và ớn lạnh.
-                    -   Buồn nôn, nôn và tiêu chảy
-                    -   Hụt hơi
-                -   Khám và chẩn đoán lao phổi
-                    -   Ho kéo dài, sút cân
-                    -   Cơ thể có biểu hiện mệt mỏi, giảm cân và mất cảm giác thèm ăn
-                    -   Người bệnh bị đau ngực thậm chí là khó thở
-                    -   Bị ra mồ hôi vào ban đêm và có biểu hiện sốt nhẹ về chiều.
-                -   Hội chứng ngừng thở khi ngủ
-                    -   Ngủ ngáy, buồn ngủ ban ngày, mệt mỏi, cáu gắt
-                    -   Biến chứng gây rối loạn chuyển hóa....
-                -   Chẩn đoán ho kéo dài Ho kéo dài do nhiều nguyên nhân ....`,
+------------------------------------
+
+-   Hiện là bác sĩ điều trị tại Trung tâm Hô hấp, Bệnh viện Bạch Mai
+-   Chủ tịch Công đoàn Trung tâm Hô hấp, Bệnh viện Bạch Mai
+-   Gần 30 năm kinh nghiệm trong khám và điều trị bệnh lý Hô hấp
+-   Bác sĩ được đào tạo chuyên sâu về Hô hấp nhiều năm tại Cộng hòa Pháp
+
+### Quá trình công tác
+
+-   Hiện là Bác sĩ Nội Hô hấp, Phòng khám Đa khoa Mediplus
+-   Chủ tịch Công đoàn Trung tâm Hô hấp, Bệnh viện Bạch Mai (2017 - nay)
+-   Bác sĩ điều trị tại Trung tâm Hô hấp, Bệnh viện Bạch Mai (2010 - nay)
+-   Trợ giảng Chuyên khoa Chuyên sâu Hô hấp tại Viện trường Nancy, Cộng hòa Pháp (2009 - 2010)
+-   Bác sĩ điều trị tại Trung tâm Hô hấp, Bệnh viện Bạch Mai (1994 -2004)
+
+### Quá trình đào tạo
+
+-   Hội nghị hội Hô hấp Châu Âu tại Madrid Tây Ban Nha (2019)
+-   Hội nghị hội Hô hấp Châu Âu tại Paris, Cộng hòa Pháp (2018)
+-   Hoàn thành khóa thực tập nội soi phế quản ống mềm có can thiệp trong chẩn đoán bệnh tại Viện NCJM Nhật Bản (2017)
+-   Khóa học Phục hồi chức năng hô hấp tại Bệnh viện Bạch Mai do Hội phổi Pháp Việt đào tạo (2015)
+-   Khóa học Thăm dò chức năng tại Khoa Thăm dò chức năng, Bệnh viện Brabois, Cộng hòa Pháp (2011)
+-   Học Chuyên khoa Chuyên sâu ngành Hô hấp tại Viện trường Nancy, Cộng hòa Pháp (2009 - 2010)
+-   Tốt nghiệp Thạc sĩ, Đại học Y Hà Nội (2008)
+-   Tham gia khóa học Nội soi phế quản và Nội soi lồng ngực tại Bệnh viện Bạch Mai do Hội phổi Pháp Việt đào tạo (2006)
+-   Bác sĩ nội trú FFI tại Viện trường Nancy, Cộng hòa Pháp (2004-2005)
+-   Học chuyên khoa sơ bộ Đông Y tại Viện Y học Cổ truyền Trung ương (1993-1994)
+-   Tốt nghiệp Bác sĩ Đa khoa, Đại học Y Hà Nội (1993)
+
+Khám và điều trị
+----------------
+
+-   Bệnh phổi tắc nghẽn mạn tính:
+    -   Tình trạng ho mãn tính, kéo dài: ho có đờm, đờm có màu trắng, màu vàng xám, màu xanh lá cây thậm chí đôi khi có thể thấy đờm kèm máu
+    -   Bị nhiễm trùng đường hô hấp và tái đi tái lại tình trạng cúm, cảm lạnh. Khó thở, thở gấp sức, thở gấp
+    -   Ngực có cảm giác thắt chặt, đau
+    -   Thở khò khè, mệt mỏi kéo dài
+    -   Sốt nhẹ và có cảm giác ớn lạnh.
+-   Hen phế quản:
+    -   Khó thở nhiều khi thở ra, phải ngồi dậy để thở.
+    -   Có thể nghe thấy tiếng thở rít hay khò khè, ho, khạc đờm kèm theo.
+    -   Đôi khi thấy hình ảnh lồng ngực biến dạng.
+-   Khám và chẩn đoán ung thư phổi:
+    -   Ho kéo dài, đau ngực
+    -   Có cảm giác khó thở, thở ngắn, có đờm lẫn máu.
+    -   Cơ thể bị gầy sút, mệt mỏi, khàn giọng, khó nuốt, thở khò khè, đau xương
+    -   Tràn dịch màng phổi
+-   Viêm phổi
+    -   Đau ngực khi bạn thở hoặc ho.
+    -   Ho có đờm hoặc chất nhầy
+    -   Mệt mỏi và chán ăn
+    -   Sốt, vã mồ hôi và ớn lạnh.
+    -   Buồn nôn, nôn và tiêu chảy
+    -   Hụt hơi
+-   Khám và chẩn đoán lao phổi
+    -   Ho kéo dài, sút cân
+    -   Cơ thể có biểu hiện mệt mỏi, giảm cân và mất cảm giác thèm ăn
+    -   Người bệnh bị đau ngực thậm chí là khó thở
+    -   Bị ra mồ hôi vào ban đêm và có biểu hiện sốt nhẹ về chiều.
+-   Hội chứng ngừng thở khi ngủ
+    -   Ngủ ngáy, buồn ngủ ban ngày, mệt mỏi, cáu gắt
+    -   Biến chứng gây rối loạn chuyển hóa....
+-   Chẩn đoán ho kéo dài Ho kéo dài do nhiều nguyên nhân ....`,
                 active: true
             },
             {
@@ -3673,37 +3673,37 @@ Bác sĩ nhận khám và điều trị:
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '12',
                 clinicAddress: `**Bệnh viện Quốc tế DoLife**        
-                108 Đường Nguyễn Hoàng, Phường Mỹ Đình 2, Quận Nam Từ Liêm, Thành phố Hà Nội.`,
+108 Đường Nguyễn Hoàng, Phường Mỹ Đình 2, Quận Nam Từ Liêm, Thành phố Hà Nội.`,
                 email: 'hungdk0056@gmail.com',
                 username: 'hungdk0056',
                 image: await toBase64('56pgs-hung1.jpg'),
                 describe: `Nhiều năm kinh nghiệm về lĩnh vực Hô hấp - Phổi        
-                Nguyên Phó Giám đốc Bệnh viện Quân y 103        
-                Nguyên Phó Giám đốc Học viện Quân y`,
+Nguyên Phó Giám đốc Bệnh viện Quân y 103        
+Nguyên Phó Giám đốc Học viện Quân y`,
                 price: `-    Giá tái khám: 250.000 VNĐ ( bệnh nhân phải có mặt)
-                -   Giá tư vấn tái khám: 200.000 VNĐ (người nhà bệnh nhân đến báo lại tình trạng của bệnh nhân và lấy thuốc)
-                -   Chụp X-quang/1 tấmTheo chỉ định của bác sĩ: 250.000đ
-                -   Đo chức năng hô hấpTheo chỉ định của bác sĩ: 500.000đ`,
+-   Giá tư vấn tái khám: 200.000 VNĐ (người nhà bệnh nhân đến báo lại tình trạng của bệnh nhân và lấy thuốc)
+-   Chụp X-quang/1 tấmTheo chỉ định của bác sĩ: 250.000đ
+-   Đo chức năng hô hấpTheo chỉ định của bác sĩ: 500.000đ`,
                 content: `Phó Giáo sư, Tiến sĩ, Bác sĩ Đồng Khắc Hưng
-                -------------------------------------------
-                
-                -   Nhiều năm kinh nghiệm về lĩnh vực Hô hấp - Phổi
-                -   Nguyên Phó Giám đốc Bệnh viện Quân y 103
-                -   Nguyên Phó Giám đốc Học viện Quân y
-                
-                Khám và điều trị
-                ----------------
-                
-                -   Ho, khó thở, đau ngực, ho ra máu không rõ nguyên nhân
-                -   Chẩn đoán điều trị bệnh phổi tắc nghẽn mạn tính, hen phế quản, viêm phổi, tràn dịch màng phổi, bệnh phổi kẽ
-                -   Chẩn đoán ung thư sớm
-                -   Điều trị tế bào gốc đối với các bệnh phổi mạn tính
-                
-                ### Quá trình công tác
-                
-                -   Bác sĩ tại Bệnh viện Quốc tế DoLife (Nay)
-                -   Nguyên Phó Giám đốc Học viện Quân y
-                -   Nguyên Phó Giám đốc Bệnh viện Quân y 103` ,
+-------------------------------------------
+
+-   Nhiều năm kinh nghiệm về lĩnh vực Hô hấp - Phổi
+-   Nguyên Phó Giám đốc Bệnh viện Quân y 103
+-   Nguyên Phó Giám đốc Học viện Quân y
+
+Khám và điều trị
+----------------
+
+-   Ho, khó thở, đau ngực, ho ra máu không rõ nguyên nhân
+-   Chẩn đoán điều trị bệnh phổi tắc nghẽn mạn tính, hen phế quản, viêm phổi, tràn dịch màng phổi, bệnh phổi kẽ
+-   Chẩn đoán ung thư sớm
+-   Điều trị tế bào gốc đối với các bệnh phổi mạn tính
+
+### Quá trình công tác
+
+-   Bác sĩ tại Bệnh viện Quốc tế DoLife (Nay)
+-   Nguyên Phó Giám đốc Học viện Quân y
+-   Nguyên Phó Giám đốc Bệnh viện Quân y 103` ,
                 active: true
             },
             {
@@ -3712,70 +3712,1775 @@ Bác sĩ nhận khám và điều trị:
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '12',
                 clinicAddress: `**Phòng khám Bệnh viện Đại học Y Dược 1**        
-                20-22 Dương Quang Trung, Phường 12, Quận 10, Tp. HCM`,
+20-22 Dương Quang Trung, Phường 12, Quận 10, Tp. HCM`,
                 email: 'loanptb0057@gmail.com',
                 username: 'loanptb0057',
                 image: await toBase64('57bs-pham-thi-bich-loan.jpg'),
                 describe: `Gần 30 năm kinh nghiệm lĩnh vực Hô hấp        
-                Hiện đang công tác tại Phòng khám Bệnh viện Đại học Y Dược I        
-                Từng công tác tại Bệnh viện An Bình`,
+Hiện đang công tác tại Phòng khám Bệnh viện Đại học Y Dược I        
+Từng công tác tại Bệnh viện An Bình`,
+                price: `-    Giá tái khám: 250.000 VNĐ ( bệnh nhân phải có mặt)
+-   Giá tư vấn tái khám: 200.000 VNĐ (người nhà bệnh nhân đến báo lại tình trạng của bệnh nhân và lấy thuốc)
+-   Chụp X-quang/1 tấmTheo chỉ định của bác sĩ: 250.000đ
+-   Đo chức năng hô hấpTheo chỉ định của bác sĩ: 500.000đ`,
                 content: `Bác sĩ Chuyên khoa II Phạm Thị Bích Loan
-                ----------------------------------------
-                
-                -   Gần 30 năm kinh nghiệm lĩnh vực Hô hấp
-                -   Hiện đang công tác tại Phòng khám Bệnh viện Đại học Y Dược I
-                -   Từng công tác tại Bệnh viện An Bình
-                
-                Khám và điều trị
-                ----------------
-                
-                -   Bệnh phổi tắc nghẽn mạn tính:
-                    -   Tình trạng ho mãn tính, kéo dài: ho có đờm, đờm có màu trắng, màu vàng xám, màu xanh lá cây thậm chí đôi khi có thể thấy đờm kèm máu
-                    -   Bị nhiễm trùng đường hô hấp và tái đi tái lại tình trạng cúm, cảm lạnh. Khó thở, thở gấp sức, thở gấp
-                    -   Ngực có cảm giác thắt chặt, đau
-                    -   Thở khò khè, mệt mỏi kéo dài
-                    -   Sốt nhẹ và có cảm giác ớn lạnh
-                -   Hen phế quản:
-                    -   Khó thở nhiều khi thở ra, phải ngồi dậy để thở
-                    -   Có thể nghe thấy tiếng thở rít hay khò khè, ho, khạc đờm kèm theo.
-                    -   Đôi khi thấy hình ảnh lồng ngực biến dạng
-                -   Khám và chẩn đoán ung thư phổi:
-                    -   Ho kéo dài, đau ngực
-                    -   Có cảm giác khó thở, thở ngắn, có đờm lẫn máu
-                    -   Cơ thể bị gầy sút, mệt mỏi, khàn giọng, khó nuốt, thở khò khè, đau xương
-                    -   Tràn dịch màng phổi
-                -   Viêm phổi
-                    -   Đau ngực khi bạn thở hoặc ho
-                    -   Ho có đờm hoặc chất nhầy
-                    -   Mệt mỏi và chán ăn
-                    -   Sốt, vã mồ hôi và ớn lạnh.
-                    -   Buồn nôn, nôn và tiêu chảy
-                    -   Hụt hơi
-                -   Khám và chẩn đoán lao phổi
-                    -   Ho kéo dài, sút cân 
-                    -   Cơ thể có biểu hiện mệt mỏi, giảm cân và mất cảm giác thèm ăn
-                    -   Người bệnh bị đau ngực thậm chí là khó thở
-                    -   Bị ra mồ hôi vào ban đêm và có biểu hiện sốt nhẹ về chiều
-                -   Hội chứng ngừng thở khi ngủ
-                    -   Ngủ ngáy, buồn ngủ ban ngày, mệt mỏi, cáu gắt
-                    -   Biến chứng gây rối loạn chuyển hóa...
-                -   Chẩn đoán ho kéo dài do nhiều nguyên nhân...
-                
-                ### Quá trình công tác
-                
-                -   Bác sĩ Nội tổng quát -- Hô hấp Phòng khám Bệnh viện Đại học Y Dược 1 (2019 - Nay)
-                -   Công tác tại Bệnh viện An Bình (1994 - 2019)
-                
-                ### Quá trình đào tạo
-                
-                -   Học Chuyên khoa II Khoa Lao -- Bệnh phổi trường Đại học Y Dược TP. Hồ Chí Minh (2012 - 2014)
-                -   Học Chuyên khoa I Khoa Lao -- Bệnh phổi trường Đại học Y Dược TP. Hồ Chí Minh ( 2005 - 2007)
-                -   Học và tốt nghiệp Bác sĩ trường Đại học Y Dược TP. Hồ Chí Minh (1986 - 1992)
-                
-                ### Thành viên các Hội khoa học, tổ chức chuyên môn
-                
-                -   Hội Hô hấp Việt Nam
-                -   Hội Hô hấp TP. Hồ Chí Minh`,
+----------------------------------------
+
+-   Gần 30 năm kinh nghiệm lĩnh vực Hô hấp
+-   Hiện đang công tác tại Phòng khám Bệnh viện Đại học Y Dược I
+-   Từng công tác tại Bệnh viện An Bình
+
+Khám và điều trị
+----------------
+
+-   Bệnh phổi tắc nghẽn mạn tính:
+    -   Tình trạng ho mãn tính, kéo dài: ho có đờm, đờm có màu trắng, màu vàng xám, màu xanh lá cây thậm chí đôi khi có thể thấy đờm kèm máu
+    -   Bị nhiễm trùng đường hô hấp và tái đi tái lại tình trạng cúm, cảm lạnh. Khó thở, thở gấp sức, thở gấp
+    -   Ngực có cảm giác thắt chặt, đau
+    -   Thở khò khè, mệt mỏi kéo dài
+    -   Sốt nhẹ và có cảm giác ớn lạnh
+-   Hen phế quản:
+    -   Khó thở nhiều khi thở ra, phải ngồi dậy để thở
+    -   Có thể nghe thấy tiếng thở rít hay khò khè, ho, khạc đờm kèm theo.
+    -   Đôi khi thấy hình ảnh lồng ngực biến dạng
+-   Khám và chẩn đoán ung thư phổi:
+    -   Ho kéo dài, đau ngực
+    -   Có cảm giác khó thở, thở ngắn, có đờm lẫn máu
+    -   Cơ thể bị gầy sút, mệt mỏi, khàn giọng, khó nuốt, thở khò khè, đau xương
+    -   Tràn dịch màng phổi
+-   Viêm phổi
+    -   Đau ngực khi bạn thở hoặc ho
+    -   Ho có đờm hoặc chất nhầy
+    -   Mệt mỏi và chán ăn
+    -   Sốt, vã mồ hôi và ớn lạnh.
+    -   Buồn nôn, nôn và tiêu chảy
+    -   Hụt hơi
+-   Khám và chẩn đoán lao phổi
+    -   Ho kéo dài, sút cân 
+    -   Cơ thể có biểu hiện mệt mỏi, giảm cân và mất cảm giác thèm ăn
+    -   Người bệnh bị đau ngực thậm chí là khó thở
+    -   Bị ra mồ hôi vào ban đêm và có biểu hiện sốt nhẹ về chiều
+-   Hội chứng ngừng thở khi ngủ
+    -   Ngủ ngáy, buồn ngủ ban ngày, mệt mỏi, cáu gắt
+    -   Biến chứng gây rối loạn chuyển hóa...
+-   Chẩn đoán ho kéo dài do nhiều nguyên nhân...
+
+### Quá trình công tác
+
+-   Bác sĩ Nội tổng quát -- Hô hấp Phòng khám Bệnh viện Đại học Y Dược 1 (2019 - Nay)
+-   Công tác tại Bệnh viện An Bình (1994 - 2019)
+
+### Quá trình đào tạo
+
+-   Học Chuyên khoa II Khoa Lao -- Bệnh phổi trường Đại học Y Dược TP. Hồ Chí Minh (2012 - 2014)
+-   Học Chuyên khoa I Khoa Lao -- Bệnh phổi trường Đại học Y Dược TP. Hồ Chí Minh ( 2005 - 2007)
+-   Học và tốt nghiệp Bác sĩ trường Đại học Y Dược TP. Hồ Chí Minh (1986 - 1992)
+
+### Thành viên các Hội khoa học, tổ chức chuyên môn
+
+-   Hội Hô hấp Việt Nam
+-   Hội Hô hấp TP. Hồ Chí Minh`,
+                active: true
+            },
+            {
+                id: '0058',
+                name: 'Phạm Văn Tần',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '13',
+                clinicAddress: `**Phòng khám Chuyên khoa Mắt Dr.Tần**        
+Số nhà 5 ngõ 192 Lê Trọng Tấn, Khương Mai, Thanh Xuân Hà Nội`,
+                email: 'tanpv0058@gmail.com',
+                username: 'tanpv0058',
+                image: await toBase64('58anh-avt.jpg'),
+                describe: `Nguyên Trưởng khoa Khám bệnh và Điều trị ngoại trú, Bệnh viện Mắt Trung ương        
+Trưởng Phòng khám chuyên khoa Mắt Dr.Tần        
+20 năm kinh nghiệm khám và điều trị các bệnh về mắt`,
+                price: `-  Giá khám: 500.000đ`,
+                content: `Phó Giáo sư, Tiến sĩ Phạm Văn Tần
+---------------------------------
+
+-   Nguyên Trưởng khoa Khám bệnh và Điều trị ngoại trú, Bệnh viện Mắt Trung ương
+-   Trưởng Phòng khám chuyên khoa Mắt Dr.Tần
+-   Đạt danh hiệu Bác sĩ Cao cấp
+-   20 năm kinh nghiệm khám và điều trị các bệnh về mắt
+
+### Quá trình công tác
+
+-   Trưởng Phòng khám chuyên khoa Mắt Dr.Tần (2012 - nay)
+-   Bác sĩ tại Phòng khám Giáo sư Bệnh viện Mắt Trung ương
+-   Trưởng khoa Khám bệnh và Điều trị ngoại trú, Bệnh viện Mắt Trung ương (2004 - 2018)
+-   Bác sĩ phụ trách khoa Khám bệnh và điều trị ngoại trú, Bệnh viện Mắt Trung ương (2002 -2003)
+-   Giáo viên Y Khoa, Đại học Y Thái Bình (1981 - 1991)
+
+### Quá trình đào tạo
+
+-   Tiến sĩ chuyên khoa Mắt
+-   Bác sĩ chuyên khoa II
+-   Bác sĩ chuyên khoa I
+-   Nghiên cứu sinh chuyên khoa Mắt, Đại học Y Hà Nội
+-   Tốt nghiệp Bác sĩ Đa khoa, Đại học Y Thái Bình
+
+Khám và điều trị
+----------------
+
+**Bác sĩ khám và điều trị các bệnh lý về mắt:**
+
+-   Glôcôm bẩm sinh
+-   Đặt kính áp tròng ban đêm Ortho-K - hơn 50 bệnh nhận đã đặt thành công (2019)
+-   Điều trị nhược thị (chuyên sâu)
+-   Khám tật khúc xạ (chuyên sâu)
+-   Khám lác (chuyên sâu)
+-   Chữa chắp (lẹo)
+-   Tập điều trị nhược thị và phục hồi thị giác - hàng trăm trẻ em đã phục hồi được thị lực với kết quả rất tốt!
+-   Khám mắt trẻ em
+-   Khám thể thủy tinh
+-   Khám glôcôm (thiên đầu thống)
+-   Khám màng bồ đào
+-   Khám dịch kính - võng mạc
+-   Đo thị lực, cắt kính`,
+                active: true
+            },
+            {
+                id: '0059',
+                name: 'Bùi Việt Hưng',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '13',
+                clinicAddress: `**Phòng khám Mắt Tuệ Anh**        
+104 phố Huế, Hai Bà Trưng, Hà Nội`,
+                email: 'hungbv0059@gmail.com',
+                username: 'hungbv0059',
+                image: await toBase64('59bsbuiviethung.jpg'),
+                describe: `Bác sĩ chuyên ngành Nhãn khoa, Bệnh viện Mắt Trung ương        
+Hơn 10 năm kinh nghiệm trong ngành Nhãn khoa        `,
+                price: `-  Giá khám: 500.000đ`,
+                content: `Thạc sĩ, Bác sĩ Bùi Việt Hưng
+-----------------------------
+
+-   Bác sĩ chuyên ngành Nhãn khoa, Bệnh viện Mắt Trung ương
+-   Hơn 10 năm kinh nghiệm trong ngành Nhãn khoa
+
+### Quá trình công tác
+
+-   Bác sĩ chuyên ngành Nhãn khoa, Bệnh viện Mắt Trung ương (2011 - nay)
+-   Bác sĩ chuyên khoa Mắt tại Phòng khám Mắt Tuệ Anh
+
+### Quá trình đào tạo
+
+-   Tốt nghiệp Bác sĩ Đa Khoa Đại học Y Hà Nội (2009)
+-   Tu nghiệp về chuyên ngành Nhãn khoa tại Bệnh viện Pasteur, Cộng Hòa Pháp (2011)
+-   Chứng chỉ đào tạo liên tục về Phẫu thuật Phaco, Bệnh viện Mắt Trung ương
+-   Chứng chỉ đào tạo liên tục về phẫu thuật đặc biệt thuộc lĩnh vực Dịch kính -- Võng mạc, Bệnh viện Mắt Trung ương
+-   Chứng chỉ đào tạo liên tục về Phẫu thuật đặc biệt: Lấy thể thủy tinh sa, lệch bằng PP Phaco, phối hợp cắt dịch kính đặt IOL, phẫu thuật thủy tinh thể bằng PP phaco và femto đặt IOL
+
+### Giải thưởng
+
+-   Giải Nhì Hội thi sáng tạo trẻ ngành Y Tế Hà Nội (2015)
+
+-   Giải Ba Hội thi sáng tạo trẻ ngành Y Tế Hà Nội (2016)
+
+-   Giải Nhì Báo cáo khoa học tại Hội nghị Nhãn khoa Toàn Quốc (2017)
+
+### Thành viên các Hội khoa học, tổ chức chuyên môn sâu
+
+-   Ủy viên Ban Chấp hành Hội nhãn khoa Việt Nam
+
+-   Ủy viên Ban Chấp hành Câu lạc bộ Dịch kính Võng mạc
+
+-   Thành viên Hội Nhãn Khoa Đông Nam Á
+
+Khám và điều trị
+----------------
+
+Bác sĩ nhận khám, điều trị tất cả các bệnh về mắt
+
+**Chuyên sâu về các bệnh lý: Dịch kính - võng mạc**
+
+-   Cắt dịch kính, bóc màng trước võng mạc
+
+-   Cắt dịch kính, khí nội nhãn điều trị lỗ hoàng điểm
+
+-   Cắt dịch kính, Laser nội nhãn, lấy dị vật nội nhãn
+
+-   Phẫu thuật bong võng mạc, cắt dịch kính, laser nội nhãn, dầu/khí nội nhãn
+
+**Phẫu thuật đặc biệt**
+
+-   Lấy thể thủy tinh sa, lệch bằng PP Phaco
+-   Phối hợp cắt dịch kính đặt IOL
+-   Phẫu thuật thủy tinh thể bằng PP phaco và femto đặt IOL
+-   Phẫu thuật viên Phaco độc lập`,
+                active: true
+            },
+            {
+                id: '0060',
+                name: 'Đỗ Như Hơn',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '13',
+                clinicAddress: `**Phòng khám Quang Hà**        
+Tầng 4, số 171 Lò Đúc, Hai Bà Trưng, Hà Nội`,
+                email: 'hondv0060@gmail.com',
+                username: 'hondv0060',
+                image: await toBase64('60gs-do-nhu-hon.jpg'),
+                describe: `Nguyên Giám đốc Bệnh viện Mắt Trung ương        
+Được phong tặng Danh hiệu Thầy thuốc Nhân dân`,
+                price: `-  Giá khám: 500.000đ`,
+                content: `Giáo sư, Tiến sĩ Đỗ Như Hơn
+---------------------------
+
+-   Giáo sư, Tiến sĩ, Bác sĩ chuyên khoa Mắt
+-   Chuyên gia đầu ngành về Nhãn khoa
+-   Nguyên Giám đốc Bệnh viện Mắt Trung ương
+-   Danh hiệu Thầy thuốc Nhân dân
+
+### Quá trình đào tạo
+
+-   Học hàm Giáo sư (2014)
+-   Học hàm Phó Giáo sư (2002)
+-   Tiến sĩ Y khoa, Đại học Y Hà Nội (1992 -1996)
+-   Thực tâp sinh tại Cộng hòa Pháp (1989 - 1990)
+-   Bác sĩ Nội trú Chuyên ngành Nhãn khoa, Đại học Y Hà Nội (1978 - 1980)
+-   Chuyên ngành Nhãn khoa, Đại học Y Hà Nội (1973 - 1978)
+
+### Quá trình công tác
+
+-   Giám đốc Bệnh viện Mắt Trung ương (2007 - 2015)
+-   Phó khoa Chấn thương, Phó Viện trưởng Viện mắt (2000)
+-   Bác sĩ Bệnh viện Mắt Trung Ương (1980 - nay)
+
+### Sách và công trình nghiên cứu
+
+-   Đề tài cấp nhà nước: "Ứng dụng kỹ thuật tiên tiến trong điều trị một số bệnh lý nhãn khoa"
+-   Đề tài cấp Bộ: "Nghiên cứu đào tạo chuyển giao phát triển kỹ thuật dịch kính võng mạc cho một số tỉnh thành phố.
+-   Xây dựng bộ giáo trình Nhãn khoa dành cho công tác đào tạo sau đại học: CKI, Nội trú, Cao học và bộ giáo trình Điều dưỡng Nhãn khoa dành cho công tác đào tạo Điều dưỡng chuyên khoa Mắt
+
+### Giải thưởng
+
+-   Thầy thuốc Nhân dân
+
+### Thành viên các Hội khoa học, tổ chức chuyên môn
+
+-   Phó Chủ tịch Ủy ban Quốc gia Phòng chống mù lòa
+
+Khám và điều trị
+----------------
+
+**Dịch kính võng mạc**
+
+-   Bong võng mạc
+-   Thoái hóa võng mạc
+-   Thoái hóa dịch kính võng mạc
+-   Bệnh võng mạc đái tháo đường
+-   Bệnh thoái hóa hoàng điểm tuổi già
+-   Các bệnh võng mạc trong các bệnh lý toàn thân
+-   Viêm màng bồ đào
+-   Viêm nội nhãn
+-   Xuất huyết dịch kính
+
+**Chấn thương**
+
+-   Chấn thương mắt
+-   Chấn thương mi
+-   Chấn thương lệ đạo
+-   Dị vật kết giác mạc
+-   Dị vật nội nhãn
+
+**Các bệnh lí về mắt**
+
+-   Mắt hột
+-   Khám, điều trị bệnh thiên đầu thống (glocom)
+
+**Tật khúc xạ**
+
+-   Cận thị
+-   Nhược thị
+-   Viễn thị
+-   Lão thị
+-   Loạn thị
+
+**Các rối loạn về mắt**
+
+-   Hội chứng khô mắt
+-   Rối loạn ở hốc mắt
+-   Rối loạn tuyến lệ
+-   Tăng nhãn áp
+
+**Các bệnh lí khác về mắt**
+
+-   Quặm mi
+-   Sa mí mắt
+-   Viêm kết mạc
+-   Lác mắt
+-   Mộng thịt
+-   Song thị
+-   Viêm giác mạc
+-   Viêm mi mắt
+-   Bong võng mạc
+-   Rách võng mạc
+-   Đục thủy tinh thể
+
+**Thủ thuật **
+
+-   Lấy sạn vôi kết mạc
+-   Thông lệ đạo 1 mắt
+-   Tiêm cạnh nhãn cầu
+-   Khâu kết mạc
+-   Khâu vết thương da mi`,
+                active: true
+            },
+            {
+                id: '0061',
+                name: 'Huỳnh Tấn Phong',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '13',
+                clinicAddress: `**Trung tâm Mắt công nghệ cao 3P Sài Gòn**        
+101 Đường Số 3, KDC Cityland, Phường 10, Quận Gò Vấp - TP Hồ Chí Minh`,
+                email: 'phonght0061@gmail.com',
+                username: 'phonght0061',
+                image: await toBase64('61bs-phong.jpg'),
+                describe: `Cố vấn chuyên môn Trung tâm Mắt Sài Gòn Hikari        
+Nhiều năm kinh nghiệm trong khám và điều trị bệnh lý về mắt`,
+                price: `-  Giá khám: 500.000đ`,
+                content: `Bác sĩ chuyên khoa II Huỳnh Tấn Phong
+-------------------------------------
+
+-   Cố vấn chuyên môn Trung tâm Mắt Sài Gòn Hikari
+-   Nhiều năm kinh nghiệm trong khám và điều trị bệnh lý về mắt
+
+### Quá trình công tác
+
+-   Cố vấn chuyên môn kiêm bác sĩ khám và điều trị, Trung tâm Mắt Sài Gòn Hikari (2019 - nay)
+-   Nguyên Giám đốc chuyên môn, Bệnh viện Mắt Quốc tế Hoàn Mỹ Sài Gòn (2018 - 2019)
+-   Nguyên Trưởng khoa Mắt, Bệnh viện Quốc tế Hoàn Mỹ Đồng Nai (2015 - 2018)
+-   Nguyên Phó Giám đốc Bệnh viện Mắt Sài Gòn (chi nhánh Hà Nội) (2010 -2015)
+
+### Quá trình đào tạo
+
+-   Tốt nghiệp Bác sĩ chuyên khoa II chuyên ngành Quản lý Y tế, Đại học Y tế Công cộng (2020)
+-   Tốt nghiệp Bác sĩ chuyên khoa I chuyên ngành Nhãn khoa, Đại học Y khoa Phạm Ngọc Thạch (2012)
+-   Tốt nghiệp Bác sĩ Đa khoa, Đại học Y dược TP.HCM (2003)
+-   Chứng chỉ phẫu thuật dịch kính võng mạc, Đại học Y khoa Phạm Ngọc Thạch (2013)
+-   Chứng chỉ phẫu thuật Phaco đục thủy tinh thể, Đại học Y khoa Phạm Ngọc Thạch (2010)
+
+Khám và điều trị
+----------------
+
+Bác sĩ có thế mạnh về phẫu thuật Phaco, Lasik,...
+
+-   Phẫu thuật viên chính Phaco đục thủy tinh thể
+-   Phẫu thuật khúc xạ Lasik, Femtosecond Lasik
+-   Cross Linking cho điều trị khúc xạ và bệnh lý giác mạc chóp
+-   Chỉnh hình giác mạc điều trị tật khúc xạ bằng phương pháp Ortho-K
+-   Điều trị nội khoa bệnh lý dịch kính -- võng mạc: Võng mạc đái tháo đường
+-   Trung phẫu: phẫu thuật mộng thịt
+-   Laser YAG mống mắt, bao sau
+-   Kỹ năng siêu âm A/B thành thạo.
+-   Kỹ năng khám, tư vấn và đo khúc xạ thuần thục, quản lý cận thị
+-   Kỹ năng phẫu thuật tạo hình mí mắt bằng Laser CO2`,
+                active: true
+            },
+            {
+                id: '0062',
+                name: 'Nghiêm Thị Hồng Hạnh',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '13',
+                clinicAddress: `**Bệnh viện chuyên khoa Mắt Hitec - cơ sở 2 Hàm Long**        
+55 Hàm Long, Hoàn Kiếm, Hà Nội`,
+                email: 'hanhnth0062@gmail.com',
+                username: 'hanhnth0062',
+                image: await toBase64('62bs-nghiem-thi-hong-hanh1.jpg'),
+                describe: `Giám đốc Bệnh viện chuyên khoa mắt Hitec        
+22 năm kinh nghiệm trong khám và điều trị các bệnh nhãn khoa`,
+                price: `-  Giá khám: 500.000đ`,
+                content: `Thạc sĩ, Bác sĩ Nghiêm Thị Hồng Hạnh
+------------------------------------
+
+-   Giám đốc Bệnh viện chuyên khoa mắt Hitec
+-   22 năm kinh nghiệm trong khám và điều trị các bệnh nhãn khoa
+
+### Quá trình công tác
+
+-   Giám đốc Bệnh viện chuyên khoa mắt Hitec (2015-nay)
+-   Bác sĩ Chuyên khoa Mắt, Bệnh viện chuyên khoa mắt Hitec (2000-nay)
+
+### Quá trình đào tạo
+
+-   Thạc sĩ nhãn khoa, Đại học Y Hà Nội (2011)
+-   Tốt nghiệp đại học, Đại học Y Thái Bình (1998)
+
+### Chứng chỉ trong nước hoặc nước ngoài
+
+-   Chứng chỉ Phẫu thuật Lasik không chạm Streamlight, Hãng Alcon (2020)
+-   Chứng nhận Chuyên gia về kính Ortho K Fargo&iSee, Fargo Việt Nam (2018)
+-   Chứng chỉ điều trị Laser bán phần sau, Bệnh viện Mắt Trung Ương (2018)
+-   Chứng nhận học kèm cặp tại khoa Đáy mắt, Bệnh viện Mắt Trung Ương (2018)
+-   Chứng chỉ Phẫu thuật viên Lasik, Bệnh viện Mắt TP.HCM (2015)
+
+### Giải thưởng
+
+-   Giải Nhì chuyên đề Glocom Hội nghị nhãn khoa toàn quốc do Hội nhãn khoa, Tổng hội Y học Việt Nam tổ chức tại Vũng Tàu (2011)
+
+### Thành viên các Hội khoa học, tổ chức chuyên môn sâu
+
+-   Thành viên của Hội nhãn khoa Hà Nội
+-   Thành viên của Hội nhãn khoa Việt Nam
+-   Thành viên của Hội Dịch kính võng mạc
+-   Thành viên của CLB Glocom
+
+Khám và điều trị
+----------------
+
+**Dịch kính võng mạc**
+
+-   Bong võng mạc
+-   Thoái hóa võng mạc
+-   Thoái hóa dịch kính võng mạc
+-   Bệnh võng mạc đái tháo đường
+-   Bệnh thoái hóa hoàng điểm tuổi già
+-   Các bệnh võng mạc trong các bệnh lý toàn thân
+-   Viêm màng bồ đào
+-   Viêm nội nhãn
+-   Xuất huyết dịch kính
+
+**Chấn thương**
+
+-   Chấn thương mắt
+-   Chấn thương mi
+-   Chấn thương lệ đạo
+-   Dị vật kết giác mạc
+-   Dị vật nội nhãn
+
+**Các bệnh lí về mắt**
+
+-   Mắt hột
+-   Khám, điều trị bệnh thiên đầu thống (glocom)
+
+**Tật khúc xạ**
+
+-   Cận thị
+-   Nhược thị
+-   Viễn thị
+-   Lão thị
+-   Loạn thị
+
+**Các rối loạn về mắt**
+
+-   Hội chứng khô mắt
+-   Rối loạn ở hốc mắt
+-   Rối loạn tuyến lệ
+-   Tăng nhãn áp
+
+**Các bệnh lí khác về mắt**
+
+-   Quặm mi
+-   Sa mí mắt
+-   Viêm kết mạc
+-   Lác mắt
+-   Mộng thịt
+-   Song thị
+-   Viêm giác mạc
+-   Viêm mi mắt
+-   Bong võng mạc
+-   Rách võng mạc
+-   Đục thủy tinh thể
+
+**Thủ thuật **
+
+-   Lấy sạn vôi kết mạc
+-   Thông lệ đạo 1 mắt
+-   Tiêm cạnh nhãn cầu
+-   Khâu kết mạc
+-   Khâu vết thương da mi`,
+                active: true
+            },
+            {
+                id: '0063',
+                name: 'Phạm Huy Huyên',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '14',
+                clinicAddress: `**Hệ thống Y tế Thu Cúc cơ sở Thụy Khuê**        
+286 Thụy Khuê, quận Tây Hồ, Hà Nội`,
+                email: 'huyenph0063@gmail.com',
+                username: 'huyenph0063',
+                image: await toBase64('63bs-huyen.jpg'),
+                describe: `Hơn 30 năm kinh nghiệm công tác trong lĩnh vực Thận tiết niệu        
+Nguyên Trưởng khoa Phẫu thuật Tiết niệu, Bệnh viện Xanh Pôn        
+Hiện là Phó Giám đốc, Phụ trách Ngoại thận tiết niệu tại Hệ thống Y tế Thu Cúc TCI`,
+                price: `-    Giá khámChưa bao gồm chi phí chụp chiếu, xét nghiệm: 200.000đ
+-   Tổng phân tích tế bào máu ngoại viBằng máy đếm tổng trở [18TS- bằng máy đếm tự động]: 156.000đ
+-   Chụp Xquang số hóa 1 phimTheo chỉ định của bác sĩ: 120.000đ
+-   Tổng phân tích nước tiểu (Bằng máy tự động) [10 thông số]Theo chỉ định của bác sĩ: 78.000đ
+-   Định lượng Creatinin (máu)Theo chỉ định của bác sĩ: 78.000đ
+-   Định lượng Urê [Máu]Theo chỉ định của bác sĩ: 78.000đ
+-   Siêu âm ổ bụngTùy vào loại thường hay 4D: 354.000đ - 440.000đ
+
+Bệnh viện có thanh toán bằng hình thức tiền mặt và quẹt thẻ`,
+                content: `Thầy thuốc Ưu tú, Bác sĩ Chuyên khoa II Phạm Huy Huyên
+------------------------------------------------------
+
+-   Hơn 30 năm kinh nghiệm công tác trong lĩnh vực Thận tiết niệu
+-   Nguyên Trưởng khoa Phẫu thuật Tiết niệu, Bệnh viện Xanh Pôn
+-   Hiện là Phó Giám đốc, Phụ trách Ngoại thận tiết niệu tại Hệ thống Y tế Thu Cúc TCI
+
+Khám và điều trị:
+-----------------
+
+-   Suy thận cấp
+-   Suy thận mạn do các nguyên nhân
+-   Các bệnh lý bệnh cầu thận
+-   Bệnh ống kẽ thận
+-   Sỏi thận - tiết niệu
+-   Hội chứng thận hư do viêm cầu thận
+-   Viêm thận Lupus
+-   Viêm bàng quang, nhiễm khuẩn tiết niệu cấp/mạn tính
+-   Cùng nhiều bệnh lý khác
+
+### Quá trình công tác
+
+-   Hiện là Phó Giám đốc, Phụ trách Ngoại thận tiết niệu tại Hệ thống Y tế Thu Cúc TCI
+-   Nguyên Trưởng khoa Phẫu thuật Tiết niệu, Bệnh viện Đa khoa Xanh Pôn
+
+### Thành viên các Hội khoa học, tổ chức chuyên môn
+
+-   Ủy viên ban chấp hành hội tiết niệu toàn quốc
+-   Phó chủ tịch hội tiết niệu phía Bắc
+-   Tổng thư ký hội thận học tiết niệu Hà Nội`,
+                active: true
+            },
+            {
+                id: '0064',
+                name: 'Lê Đình Hiếu',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '14',
+                clinicAddress: `**Phòng khám Đa khoa SIM Medical Center**        
+Toà nhà Richstar 2 - RS5, 239-241 đường Hòa Bình, P. Hiệp Tân, Q.Tân Phú, TP. HCM`,
+                email: 'hieuld0064@gmail.com',
+                username: 'hieuld0064',
+                image: await toBase64('64.jpg'),
+                describe: `Hơn 25 năm kinh nghiệm chuyên sâu về lĩnh vực bệnh lý Tiết niệu, Bệnh lý Nam giới - Hiếm muộn Nam        
+Hiện đang công tác tại Bệnh viện Nhân dân 115        
+Giảng viên Bộ môn Ngoại - Trường Đại học Y Khoa Phạm Ngọc Thạch TP. HCM`,
+                price: `-    Giá khámChưa bao gồm chi phí chụp chiếu, xét nghiệm: 200.000đ
+-   Tổng phân tích tế bào máu ngoại viBằng máy đếm tổng trở [18TS- bằng máy đếm tự động]: 156.000đ
+-   Chụp Xquang số hóa 1 phimTheo chỉ định của bác sĩ: 120.000đ
+-   Tổng phân tích nước tiểu (Bằng máy tự động) [10 thông số]Theo chỉ định của bác sĩ: 78.000đ
+-   Định lượng Creatinin (máu)Theo chỉ định của bác sĩ: 78.000đ
+-   Định lượng Urê [Máu]Theo chỉ định của bác sĩ: 78.000đ
+-   Siêu âm ổ bụngTùy vào loại thường hay 4D: 354.000đ - 440.000đ
+
+Bệnh viện có thanh toán bằng hình thức tiền mặt và quẹt thẻ`,
+                content: `Tiến sĩ, Bác sĩ Lê Đình Hiếu
+----------------------------
+
+-   Hơn 25 năm kinh nghiệm chuyên sâu về lĩnh vực bệnh lý Tiết niệu, Bệnh lý Nam giới - Hiếm muộn Nam
+-   Hiện đang công tác tại Bệnh viện Nhân dân 115
+-   Giảng viên Bộ môn Ngoại - Trường Đại học Y Khoa Phạm Ngọc Thạch TP. HCM
+-   Bác sĩ nhận khám cho cả người lớn và trẻ em
+
+Khám và điều trị 
+-----------------
+
+-   Bệnh lý thận tiết niệu
+-   Bệnh lý nam khoa 
+-   Hiếm muộn nam 
+
+### Quá trình công tác
+
+-   Bác sĩ khám và điều trị bệnh lý Tiết niệu & Bệnh lý Nam giới - Hiếm muộn nam tại SIM Medical Center
+-   Phẫu thuật viên, chuyên ngành Tiết niệu - Nam khoa và Ghép thận, BV Nhân Dân 115
+-   Bác sĩ điều trị, chuyên ngành Hiếm muộn nam, BV Hùng Vương & BV Phụ sản Quốc tế Sài Gòn
+-   Giảng viên của Bộ môn Ngoại tại Trường Đại Học Y Khoa Phạm Ngọc Thạch
+
+### Quá trình đào tạo
+
+-   Tốt nghiệp Tiến sĩ Y khoa chuyên ngành Ghép tạng, Đại Học Liège, Vương Quốc Bỉ (2013)
+-   Tốt nghiệp Thạc sĩ Y khoa chuyên ngành Tiết niệu, trường Đại học Y Dược, TP. HCM (2003)
+-   Tốt nghiệp Bác sĩ Đa khoa, Trường Đại học Y khoa Phạm Ngọc Thạch (1996)
+
+### Sách và các công trình nghiên cứu, báo cáo khoa học
+
+-   Điều trị thải ghép cấp tính kháng steroid ở cấy ghép thận (2013)
+-   Ghép thận từ người thân hiến tạng ở bệnh viện nhân dân 115. Kết quả và biến chứng phãu thuật (2004 - 2008)
+-   Bệnh nhân ghép thận mang thai (2004 - 2008)
+-   Bệnh nhân ghép thận bị thủy đậu (2004 - 2008)
+-   Các biến chứng của động mạch và tĩnh mạch phát hiện bằng phương pháp siêu âm Doppler ở bệnh nhân chạy thận nhân tạo. Hẹp động mạch thận ở người nhận thận được phát hiện bằng siêu âm Doppler tại Bệnh viện Nhân dân 115 (2004 - 2008)
+-   Hội chứng tan máu tăng urê máu ở bệnh nhân ghép thận: một báo cáo trường hợp và tổng quan y văn (2004 - 2008)
+-   Siêu âm Doppler trong quá trình theo dõi thận ghép tại Bệnh viện Nhân dân 115 (2004 - 2008)
+-   Sinh thiết qua da của thận tự nhiên và thận ghép dưới hướng dẫn siêu âm tại Bệnh viện Nhân dân 115 (2004 - 2008)`,
+                active: true
+            },
+            {
+                id: '0065',
+                name: 'Trần Ngọc Lân',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '14',
+                clinicAddress: `**Phòng khám Đa khoa Medelab**        
+Số 86-88 Phố Nguyễn Lương Bằng, Phường Nam Đồng, Đống Đa, Hà Nội`,
+                email: 'lantn0065@gmail.com',
+                username: 'lantn0065',
+                image: await toBase64('65bs-ngoc-lan.jpg'),
+                describe: `Hơn 40 năm kinh nghiệm trong chuyên khoa Thận tiết niệu        
+Nguyên trưởng khoa Thận lọc máu bệnh viện Hữu nghị Việt Xô        
+Từng là Chuyên gia Y tế Vương Quốc Campuchia`,
+                price: `-    Giá khámChưa bao gồm chi phí chụp chiếu, xét nghiệm: 200.000đ
+-   Tổng phân tích tế bào máu ngoại viBằng máy đếm tổng trở [18TS- bằng máy đếm tự động]: 156.000đ
+-   Chụp Xquang số hóa 1 phimTheo chỉ định của bác sĩ: 120.000đ
+-   Tổng phân tích nước tiểu (Bằng máy tự động) [10 thông số]Theo chỉ định của bác sĩ: 78.000đ
+-   Định lượng Creatinin (máu)Theo chỉ định của bác sĩ: 78.000đ
+-   Định lượng Urê [Máu]Theo chỉ định của bác sĩ: 78.000đ
+-   Siêu âm ổ bụngTùy vào loại thường hay 4D: 354.000đ - 440.000đ
+
+Bệnh viện có thanh toán bằng hình thức tiền mặt và quẹt thẻ`,
+                content: `Bác sĩ Chuyên khoa I Trần Ngọc Lân
+----------------------------------
+
+-   Hơn 40 năm kinh nghiệm trong chuyên khoa Thận tiết niệu
+-   Nguyên trưởng khoa Thận lọc máu bệnh viện Hữu nghị Việt Xô
+-   Từng là Chuyên gia Y tế Vương Quốc Campuchia
+
+Khám và điều trị
+----------------
+
+-   Các bệnh về Nội khoa
+-   Chuyên sâu Thận
+
+### Quá trình công tác
+
+-   Bác sĩ điều trị tại Phòng khám Đa khoa Medelab (Nay)
+-   Bác sĩ Trưởng khoa Thận - Lọc máu Bệnh viện Hữu Nghị Việt Xô (1994 - 2012)
+-   Bác sĩ Phó trưởng khoa Thận - Lọc máu Bệnh viện Hữu Nghị Việt Xô (1992 -- 1994)
+-   Bác sĩ khoa hồi sức cấp cứu Bệnh viện Hữu Nghị Việt Xô (1986 -- 1992)
+-   Chuyên gia Y tế Vương Quốc Campuchia (1979 -- 1986)
+
+### Quá trình đào tạo
+
+-   Thạc sĩ về Bệnh học, Đại học Y Fukushima -- Nhật Bản (1999 - 2000)
+-   Chuyên khoa I Nội, Đại học Y Hà Nội (1989 - 1991)
+-   Bác sĩ, Đại học Y Hà Nội (1973 -- 1979)
+
+### Chứng chỉ trong và ngoài nước
+
+-   Đào tạo liên tục kiến thức Thận Học -- Hà Nội, Việt Nam (10/2009)
+-   Ghép thận và điều trị sau ghép, Jeju - Korea (10/2005)
+-   Chương trình Thận học,  Kualalupur - Malaysia (8/1998)
+
+### Thành viên các Hội khoa học, tổ chức chuyên môn
+
+-   Ủy viên BCH hội Thận -- Lọc máu Nhi khoa Việt Nam và Hội Thận Học Việt Nam`,
+                active: true
+            },
+            {
+                id: '0066',
+                name: 'Trần Lê Linh Phương',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '14',
+                clinicAddress: `**Bệnh viện FV**        
+6 Nguyễn Lương Bằng, Nam Sài Gòn (Phú Mỹ Hưng), Quận 7, TP. HCM` ,
+                email: 'phuongtll0066@gmail.com',
+                username: 'phuongtll0066',
+                image: await toBase64('66dr-tran-le-linh-phuong1.jpg'),
+                describe: `Hơn 30 năm kinh nghiệm trong lĩnh vực Tiết niệu        
+Từng công tác tại Khoa Tiết Niệu và Đơn vị Thận, Bệnh Viện Chợ Rẫy        
+Hiện đang công tác tại Khoa Tiết niệu, Bệnh Viện FV`,
+                price: `-    Giá khámChưa bao gồm chi phí chụp chiếu, xét nghiệm: 200.000đ
+-   Tổng phân tích tế bào máu ngoại viBằng máy đếm tổng trở [18TS- bằng máy đếm tự động]: 156.000đ
+-   Chụp Xquang số hóa 1 phimTheo chỉ định của bác sĩ: 120.000đ
+-   Tổng phân tích nước tiểu (Bằng máy tự động) [10 thông số]Theo chỉ định của bác sĩ: 78.000đ
+-   Định lượng Creatinin (máu)Theo chỉ định của bác sĩ: 78.000đ
+-   Định lượng Urê [Máu]Theo chỉ định của bác sĩ: 78.000đ
+-   Siêu âm ổ bụngTùy vào loại thường hay 4D: 354.000đ - 440.000đ
+
+Bệnh viện có thanh toán bằng hình thức tiền mặt và quẹt thẻ`,
+                content: `Phó Giáo Sư, Tiến sĩ Trần Lê Linh Phương
+----------------------------------------
+
+-   Hơn 30 năm kinh nghiệm trong lĩnh vực Tiết niệu
+-   Từng công tác tại Khoa Tiết Niệu và Đơn vị Thận, Bệnh Viện Chợ Rẫy
+-   Hiện đang công tác tại Khoa Tiết niệu, Bệnh Viện FV
+
+Khám và điều trị 
+-----------------
+
+-   Sỏi thận
+-   Ung thư đường tiết niệu
+-   Phụ khoa -- Tiết niệu
+
+### Quá trình công tác 
+
+-   Bác sĩ điều trị cấp cao, Khoa Tiết niệu, Bệnh Viện FV  (2020 - nay)
+-   Trưởng Khoa Phẫu thuật tổng quát và Tiết niệu, Bệnh Viện Đa khoa Quốc Tế Vinmec, Nha Trang (2016 - 2020)
+-   Bác sĩ điều trị cấp cao, Giảng viên, Khoa Tiết Niệu, Trường Đại học Y Dược TP. HCM (1996 - 2016) 
+-   Bác sĩ điều trị cấp cao, Khoa Tiết Niệu và Đơn vị Thận, Bệnh Viện Chợ Rẫy (1993 - 1996)
+
+### Quá trình đào tạo
+
+-   Phó Giáo Sư Y học, Hội đồng Chức Danh Giáo Sư Nhà Nước, Việt Nam (2007)
+-   Tiến sĩ, Y học, Đại học Y Dược TP. HCM (2004)
+-   Thạc sĩ Y học, Đại học Y Dược TP. HCM (1999)
+-   Chuyên khoa cấp I, Tiết niệu, Đại học Y Dược TP. HCM (1993)
+-   Tốt nghiệp Đại Học Y Dược TP. HCM (1989)
+
+### Chứng chỉ trong và ngoài nước
+
+-   Phẫu thuật Ung Thư hệ Niệu, Khoa Niệu, Bệnh Viện Mayo Rochester, Minnesota, Hoa Kỳ (2008)
+-   Phẫu thuật nội soi cắt tuyến tiền liệt tận gốc và phẫu thuật nội soi lấy thận ghép, Khoa Niệu và ghép thận, Bệnh Viện Đại học Rangeuil, Toulouse, Pháp (2006)
+-   Phẫu thuật nội soi Tiết niệu, Bệnh Viện Tan Tock Seng, Singapore (2005)
+-   Kỹ thuật nội soi ổ bụng nâng cao trong Tiết niệu, Đại học Louis Pasteur, Strabourg, Pháp (2003)
+-   Thận học và ghép thận, Khoa Thận và Ghép Thận tại Bệnh Viện Đại học Pellegrin, Bordeaux, Pháp, (1994 - 1995)`,
+                active: true
+            },
+            {
+                id: '0067',
+                name: 'Nguyễn Thị Bảo',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '14',
+                clinicAddress: `**Phòng khám Vietlife MRI Trần Bình Trọng**        
+14 Trần Bình Trọng - Hoàn Kiếm - Hà Nội`,
+                email: 'baont0067@gmail.com',
+                username: 'baont0067',
+                image: await toBase64('67bs-bao.jpg'),
+                describe: `Từng công tác tại Bệnh viện Thận Hà Nội        
+Nhiều năm kinh nghiệm trong khám và điều trị bệnh lý Thận - Tiết niệu        
+Nhận khám từ 15 tuổi trở lên`,
+                price: `-    Giá khámChưa bao gồm chi phí chụp chiếu, xét nghiệm: 200.000đ
+-   Tổng phân tích tế bào máu ngoại viBằng máy đếm tổng trở [18TS- bằng máy đếm tự động]: 156.000đ
+-   Chụp Xquang số hóa 1 phimTheo chỉ định của bác sĩ: 120.000đ
+-   Tổng phân tích nước tiểu (Bằng máy tự động) [10 thông số]Theo chỉ định của bác sĩ: 78.000đ
+-   Định lượng Creatinin (máu)Theo chỉ định của bác sĩ: 78.000đ
+-   Định lượng Urê [Máu]Theo chỉ định của bác sĩ: 78.000đ
+-   Siêu âm ổ bụngTùy vào loại thường hay 4D: 354.000đ - 440.000đ
+
+Bệnh viện có thanh toán bằng hình thức tiền mặt và quẹt thẻ`,
+                content: `Bác sĩ chuyên khoa II Nguyễn Thị Bảo
+------------------------------------
+
+-   Từng công tác tại Bệnh viện Thận Hà Nội
+-   Nhiều năm kinh nghiệm trong khám và điều trị bệnh lý Thận - Tiết niệu
+-   Nhận khám từ 15 tuổi trở lên
+
+### Quá trình đào tạo
+
+-   Tốt nghiệp Bác sĩ chuyên khoa II, Đại học Y Hà Nội (2005)
+-   Tốt nghiệp Bác sĩ chuyên khoa I, Đại học Y Hà Nội (1995)
+-   Tốt nghiệp Bác sĩ Đa khoa, Đại học Y Hà Nội (1985)
+
+### Quá trình công tác
+
+-   Hiện là Bác sĩ tại Phòng khám Đa khoa Vietlife
+-   Nguyên Giám đốc Bệnh viện Thận Hà Nội (2000 - 2010)
+-   Bác sĩ điều trị tại Bệnh viện Thanh Nhàn 
+
+Bác sĩ từ xa
+------------
+
+-   Các bệnh lý Nội khoa, thận -- tiết niệu
+-   Sỏi thận
+-   Tiểu không tự chủ
+-   Bệnh thận đa nang
+-   Sỏi tiết niệu
+-   Viêm bàng quang 
+-   Viêm đài bể thận 
+-   Áp xe quanh thận ...`,
+                active: true
+            },
+            {
+                id: '0068',
+                name: 'Nguyễn Ngọc Quỳnh',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '15',
+                clinicAddress: `**Nha khoa Trồng răng Sài Gòn**        
+470 - 472 Lê Hồng Phong, Phường 1, Quận 10, TP. Hồ Chí Minh`,
+                email: 'quynhnn0068@gmail.com',
+                username: 'quynhnn0068',
+                image: await toBase64('68bac-si--le-ngoc-quynh.jpg'),
+                describe: `Hơn 10 năm cống hiến trong lĩnh vực răng sứ thẩm mỹ        
+Từ tu nghiệp, học tập chuyên sâu về lĩnh vực phục hình tại Cuba        
+Từng công tác tại Bệnh viện răng hàm mặt`,
+                price: `-    Giá khám: Miễn phí`,
+                content: `Bác sĩ Nguyễn Ngọc Quỳnh
+------------------------
+
+-   Hơn 10 năm cống hiến trong lĩnh vực răng sứ thẩm mỹ
+-   Từ tu nghiệp, học tập chuyên sâu về lĩnh vực phục hình tại Cuba
+-   Từng công tác tại Bệnh viện răng hàm mặt
+
+Khám và điều trị
+----------------
+
+-   Chuyên phục hình răng sứ thẩm mỹ theo xu hướng bảo tồn răng thật tối đa
+-   Nha khoa tổng quát
+-   Nhổ răng khôn
+-   Nha khoa trẻ em
+-   Điều trị tủy răng
+-   Trồng răng giả phục hình mất răng
+
+### Quá trình công tác
+
+-   Từng công tác tại: Bệnh viện răng hàm mặt -- Bệnh Viện Thẩm mỹ, Trung tâm Phòng khám đa khoa, Bệnh viện đa khoa tại Hà Nội và TP. Hồ Chí Minh
+
+### Quá trình đào tạo
+
+-   Tốt nghiệp chính quy Bác sĩ chuyên khoa Răng Hàm Mặt Đại học Y Khoa Lahabana Cuba
+-   Tốt nghiệp chính quy Bác sĩ phục hình răng Trường Đại Học Y Khoa Sancti Spiritus Cuba
+-   Tham gia nhiều khóa học nâng cao về chuyên môn phục hình răng, nha khoa thẩm mỹ tại các cơ sở đầu ngành tổ chức`,
+                active: true
+            },
+            {
+                id: '0069',
+                name: 'Phan Hoàng Minh Tú',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '15',
+                clinicAddress: `**Nha khoa Trồng răng Sài Gòn**        
+470 - 472 Lê Hồng Phong, Phường 1, Quận 10, TP. Hồ Chí Minh`,
+                email: 'tuphm0069@gmail.com',
+                username: 'tuphm0069',
+                image: await toBase64('69bac-si-cki-phan-hoang-minh-tu.jpg'),
+                describe: `Thâm niên 5 năm trong điều trị chuyên sâu răng hàm mặt        
+Hiện là bác sĩ điều trị tại Nha khoa trồng răng Sài Gòn        
+Từng công tác tại: Bệnh viện răng hàm mặt`,
+                price: `-    Giá khám: Miễn phí`,
+                content: `Bác sĩ Chuyên khoa I Phan Hoàng Minh Tú
+---------------------------------------
+
+-   Thâm niên 5 năm trong điều trị chuyên sâu răng hàm mặt
+-   Hiện là bác sĩ điều trị tại Nha khoa trồng răng Sài Gòn
+-   Từng công tác tại: Bệnh viện răng hàm mặt
+
+Khám và điều trị 
+-----------------
+
+-   Bác sĩ chuyên niềng răng chỉnh nha
+-   Bác sĩ nha khoa tổng quát
+-   Chuyên gia phục hình răng giả tháo lắp
+-   Chuyên sâu răng sứ thẩm mỹ
+-   Chuyên gia điều trị tủy răng
+
+### Quá trình công tác
+
+-   Từng công tác tại: Bệnh viện răng hàm mặt -- Bệnh Viện Thẩm mỹ, trung tâm nha khoa lớn tại TP. Hồ Chí Minh
+
+### Quá trình đào tạo
+
+-   Tốt nghiệp chính quy Bác sĩ chuyên khoa Răng Hàm Mặt Đại học Y Dược Cần Thơ
+-   Bác sĩ Chuyên khoa I Nha khoa tại Đại học Y Dược Cần Thơ 
+-   Tham gia nhiều khóa học nâng cao về chuyên môn về phẫu thuật nướu, phục hồi xâm lấn tối thiểu tại các cơ sở đào tạo đầu ngành
+
+### Chứng chỉ trong nước hoặc nước ngoài
+
+-   Chứng chỉ chỉnh hình răng mặt do Đại học Y Dược TP. Hồ Chí Minh cấp`,
+                active: true
+            },
+            {
+                id: '0070',
+                name: 'Dương Thu Trang',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '15',
+                clinicAddress: `**Nha khoa Phú Hòa**        
+Cơ sở 1: 484 Trần Khát Chân, Hai Bà Trưng, Hà Nội        
+Cơ sở 2: Phong lan 1-25, đường Nguyễn Lam, Vinhomes Riverside, Long Biên, Hà Nội`,
+                email: 'trangdt0070@gmail.com',
+                username: 'trangdt0070',
+                image: await toBase64('70dung-thu-trang-nk-phu-hoa.jpg'),
+                describe: `Hơn 10 năm kinh nghiệm lĩnh vực Nha khoa        
+Từng công tác tại Bệnh viện Đại Học Y Côn Minh, Trung Quốc        
+Từng công tác tại Bệnh Viện Đa Khoa Vinmec`,
+                price: `-    Giá khám: Miễn phí`,
+                content: `Thạc sĩ, Bác sĩ Dương Thu Trang
+-------------------------------
+
+-   Hơn 10 năm kinh nghiệm lĩnh vực Nha khoa
+-   Từng công tác tại Bệnh viện Đại Học Y Côn Minh, Trung Quốc
+-   Từng công tác tại Bệnh Viện Đa Khoa Vinmec
+
+Khám và điều trị
+----------------
+
+Bác sĩ có chuyên môn trong lĩnh vực Chỉnh nha:
+
+-   Cắm ghép Implant
+-   Phục hình răng sứ
+-   Dán veneer
+-   Chỉnh hình răng
+-   Trám răng
+-   Nhổ răng
+
+### Quá trình công tác
+
+-   Bác sĩ Nha khoa - Nha khoa Phú Hòa
+-   Bác sĩ chuyên khoa Răng hàm mặt - Bệnh Viện Đa Khoa Vinmec (2011 -- 2018)
+-   Bác sĩ Răng hàm mặt - Bệnh viện Đại Học Y Côn Minh
+
+### Quá trình đào tạo
+
+-   Cộng tác với chuyên gia Trung tâm nghiên cứu Tế bào gốc và công nghệ Gen -- bệnh viện ĐKQT Vinmec nghiên cứu về tế bào gốc từ tủy răng sữa
+-   Tốt nghiệp Thạc sĩ Răng hàm mặt (2011)
+-   Nghiên cứu sinh chuyên sâu về Chỉnh Nha Thẩm Mỹ - Đại Học Y Côn Minh
+-   Tốt nghiệp đại học chuyên ngành RHM - Đại Học Y Côn Minh, Vân Nam, Trung Quốc (2008)
+
+### Sách và các công trình nghiên cứu, báo cáo khoa học
+
+-   Nghiên cứu đề tài chuyên khoa: chỉnh nha bằng minivis, làm trắng răng bằng phủ/ dán veneer...
+
+### Giải thưởng
+
+-   Đạt danh hiệu bác sĩ hạng Gold - Tổ chức Invisalign Hoa Kỳ`,
+                active: true
+            },
+            {
+                id: '0071',
+                name: 'Đoàn Thanh Tùng',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '15',
+                clinicAddress: `**Phòng khám Nha khoa Thanh Tùng**        
+81 Trần Nguyên Đán, Khu Đô Thị Định Công, Hoàng Mai, Hà Nội`,
+                email: 'tungdt0071@gmail.com',
+                username: 'tungdt0071',
+                image: await toBase64('71bs-thanh-tung.jpg'),
+                describe: `Bác sĩ Răng Hàm Mặt, Bệnh viện Đại học Y Hà Nội        
+Giảng viên Viện Đào tạo Răng Hàm Mặt, Đại học Y Hà Nộ`,
+                price: `-    Giá khám: Miễn phí`,
+                content: `Bác sĩ Đoàn Thanh Tùng
+----------------------
+
+-   Bác sĩ Răng Hàm Mặt, Bệnh viện Đại học Y Hà Nội
+-   Giảng viên Viện Đào tạo Răng Hàm Mặt, Đại học Y Hà Nội 
+
+### Quá trình công tác
+
+-   Bác sĩ Răng Hàm Mặt, Bệnh viện Đại học Y Hà Nội (2011 - 2018)
+-   Giảng viên Viện Đào tạo Răng Hàm Mặt, Đại học Y Hà Nội (2011 - 2018)
+
+### Quá trình đào tạo
+
+-   Tốt nghiệp khóa Phẫu thuật nha chu, Trung tâm Giovani, Bologna, Ý (2019)
+-   Tốt nghiệp khóa Cấy ghép Implant tại Brazil (2018)
+-   Tốt nghiệp Bác sĩ Nội trú Răng Hàm Mặt, Bệnh viện Đại học Y Hà Nội (2011)
+
+### Thành viên các Hội khoa học, tổ chức chuyên môn
+
+-   Thành viên Hiệp hội ITI - Hiệp hội các nhà cấy ghép Implant Nha khoa Thế giới
+
+Khám và điều trị
+----------------
+
+Bác sĩ có thế mạnh trong khám và điều trị:
+
+-   Răng khôn mọc lệch, đau nhức sưng lợi vùng góc hàm
+-   U nang xương hàm Sưng phồng xương hàm, đau, răng lung lay
+-   Mất răng Mất răng do đã nhổ hoặc có chỉ định nhổ răng
+-   Cắm ghép Implant Trồng chân răng nhân tạo thay thế răng mất
+-   Cười hở lợi Hở lợi hàm trên khi cười gây mất tự tin
+-   Bệnh lý tủy răng Viêm tủy, tủy hoại tử, viêm quanh cuống
+-   Răng lệch lạc Răng khấp khểnh, vổ, móm, cắn hở cửa
+-   Răng trẻ em Răng sữa sâu, lung lay, viêm tủy sưng đau
+-   Loạn năng khớp TDH Khít hàm, đau khi há, tiếng kêu khớp, mỏi hàm, đau nửa đầu, lệch khớp cắn.`,
+                active: true
+            },
+            {
+                id: '0072',
+                name: 'Nguyễn Thị Thu Hiền',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '15',
+                clinicAddress: `**Nha khoa Thẩm mỹ Quốc tế Win Smile**        
+CS1: 53 Lê Duẩn, Phường Cửa Nam, Quận Hoàn Kiếm, Hà Nội        
+CS2: 11 Vũ Trọng Phụng, Thanh Xuân, Hà Nội`,
+                email: 'hienntt0072@gmail.com',
+                username: 'hienntt0072',
+                image: await toBase64('72bsi-hien-win-smile.jpg'),
+                describe: `Nhiều năm kinh nghiệm lĩnh vực Nha khoa        
+Tốt nghiệp Khoa Răng hàm mặt - Đại học Y Hà Nội`,
+                price: `-    Giá khám: Miễn phí`,
+                content: `Bác sĩ Nguyễn Thị Thu Hiền
+--------------------------
+
+-   Nhiều năm kinh nghiệm lĩnh vực Nha khoa
+-   Tốt nghiệp Khoa Răng hàm mặt - Đại học Y Hà Nội
+-   Bác sĩ nhận khám và điều trị cho đối tượng từ 10 đến  50 tuổi
+
+Khám và điều trị
+----------------
+
+Bác sĩ có thế mạnh chuyên môn về Phục hình thẩm mỹ. Ngoài ra bác sĩ còn thực hiện khám và điều trị:
+
+-   Viêm lợi: Sưng đỏ vùng lợi, cao răng mảng bám nhiều
+-   Viêm tủy: Đau răng bị viêm tủy hoặc vùng lân cận
+-   Đau răng số 8
+-   Sâu răng, gãy thân răng: có tổn thương tổ chức cứng có tổn thương sâu hoặc không do sâu
+
+### Quá trình công tác
+
+-   Bác sĩ - Nha khoa Win Smile (2023)
+-   Bác sĩ - Nha khoa Hana (2020 - 2023)
+
+### Quá trình đào tạo
+
+-   Bác sĩ Răng hàm mặt - Đại học Y Hà Nội (2008 - 2014)`,
+                active: true
+            },
+            {
+                id: '0073',
+                name: 'Nguyễn Hồng Ngọc',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '16',
+                clinicAddress: `**Phòng khám Bệnh viện Đại học Y Dược 1**        
+20-22 Dương Quang Trung, Phường 12, Quận 10, Tp. HCM`,
+                email: 'ngocnh0073@gmail.com',
+                username: 'ngocnh0073',
+                image: await toBase64('73bs-nguyen-hong-ngoc-noi-tiet.jpg'),
+                describe: `Hơn 30 năm kinh nghiệm lĩnh vực Nội tiết        
+Hiện đang công tác tại Phòng khám Bệnh viện Đại học Y Dược 1        
+Bác sĩ nhận khám từ 15 tuổi trở lên`,
+                price: `-    Giá khám: 150.000đ
+
+Bệnh nhân sử dụng Bảo hiểm tư nhân vui lòng đến khám trước 15h hàng ngày`,
+                content: `Bác sĩ Chuyên khoa I Nguyễn Hồng Ngọc
+-------------------------------------
+
+-   Hơn 30 năm kinh nghiệm lĩnh vực Nội tiết
+-   Hiện đang công tác tại Phòng khám Bệnh viện Đại học Y Dược 1
+-   Bác sĩ nhận khám từ 15 tuổi trở lên
+
+Khám và điều trị
+----------------
+
+-   Đái tháo đường (type 1, type 2, do bệnh lý tụy, đái tháo đường thai kỳ)
+-   Béo phì, rối loạn lipid máu
+-   Các bệnh tuyến giáp: Cường giáp/Basedow, suy giáp, các bệnh viêm giáp, bướu nhân
+-   Chẩn đoán các bệnh lý thượng thận (hội chứng Cushing, cường aldosteron, u tủy thượng thận)
+-   điều trị suy thượng thận (tiên phát, do thuốc)
+-   Các bệnh tuyến yên: Chẩn đoán các bệnh to đầu chi, bệnh Cushing;...
+-   Chẩn đoán và điều trị đái tháo nhạt, U tiết prolactin
+-   Suy sinh dục nam, rối loạn mãn kinh
+
+### Qúa trình công tác
+
+-   Phòng khám Bệnh viện Đại học Y Dược 1 (2019 - Nay)
+-   Bệnh viện quận 3 TP. HCM (2007 - 2017)
+-   Trung tâm Y tế Quận 3 TP. HCM (1991 - 2007)
+
+### Qúa trình đào tạo
+
+-   Học Chuyên khoa I Đại học Y Dược TP. HCM
+-   Học và tốt nghiệp Đại học Y Dược TP. HCM (1985 -- 1991)`,
+                active: true
+            },
+            {
+                id: '0074',
+                name: 'Ngô Thị Mai Xuân',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '16',
+                clinicAddress: `**Bệnh viện Thanh Nhàn**        
+Phòng khám bệnh theo yêu cầu, 42 Thanh Nhàn, Hai Bà Trưng, Hà Nội`,
+                email: 'xuanntm0074@gmail.com',
+                username: 'xuanntm0074',
+                image: await toBase64('74bac-si-chuyen-khoa-ii-ngo-thi-thanh-xuan.jpg'),
+                describe: `Nguyên Trưởng khoa Khám bệnh, Bệnh viện Thanh Nhàn        
+Thành viên Hội Nội tiết Việt Nam        
+Bác sĩ nhận khám cho người bệnh từ 18 tuổi trở lên`,
+                price: `-    Giá khám: 150.000đ
+
+Bệnh nhân sử dụng Bảo hiểm tư nhân vui lòng đến khám trước 15h hàng ngày`,
+                content: `Bác sĩ Chuyên khoa II Ngô Thị Mai Xuân
+--------------------------------------
+
+-   Nguyên Trưởng khoa Khám bệnh, Bệnh viện Thanh Nhàn
+-   Thành viên Hội Nội - Nội tiết Việt Nam
+-   Bác sĩ nhận khám cho người bệnh từ 18 tuổi trở lên
+
+### Quá trình công tác
+
+-   Bác sĩ tại Phòng khám chuyên gia, Bệnh viện Thanh Nhàn (2015 - nay)
+-   Trưởng khoa Khám bệnh, Bệnh viện Thanh Nhàn (tháng 6/2008)
+-   Phó khoa Khám bệnh, Bệnh viện Thanh Nhàn (1997 - 2015)
+-   Bác sĩ tại khoa Nội cán bộ, Bệnh viện Thanh Nhàn (1985 - 1987)
+
+### Quá trình đào tạo 
+
+-   Học bác sĩ chuyên khoa II chuyên ngành Nội - Nội tiết, trường Đại học Y Hà Nội (2005 - 2007)
+-   Học bác sĩ chuyên khoa I chuyên ngành Nội, trường Đại học Y Hà Nội (1995 - 1998)
+-   Học bác sĩ Đa khoa, trường Đại học Y Hà Nội (1978 - 1984)
+
+Khám và điều trị 
+-----------------
+
+-   Đái tháo đường
+-   Basedow
+-   Suy giáp
+-   Viêm tuyến giáp
+-   Nhân tuyến giáp
+-   Suy tuyến yên 
+-   U tuyến yên 
+-   Viêm tuyến giáp
+-   Suy thượng thận
+-   U thượng thận
+-   Hội chứng Cushing 
+-   Rối loạn Lipid máu`,
+                active: true
+            },
+            {
+                id: '0075',
+                name: 'Nguyễn Tiến Lãng',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '16',
+                clinicAddress: `**Bệnh viện Ung bướu Hưng Việt**          
+34 Đại Cồ Việt, Hai Bà Trưng, Hà Nội`,
+                email: 'langnt0075@gmail.com',
+                username: 'langnt0075',
+                image: await toBase64('75screenshot-from-2021-02-22-11-17-23.jpg'),
+                describe: `Nguyên Trưởng khoa Ngoại chung – Bệnh viện Nội tiết Trung ương            
+Gần 40 năm kinh nghiệm trong lĩnh vực Nội tiết, hơn 30 năm phẫu thuật tuyến giáp           
+Bác sĩ nhận khám trên 3 tuổi`,
+                price: `-    Giá khám: 150.000đ
+
+Bệnh nhân sử dụng Bảo hiểm tư nhân vui lòng đến khám trước 15h hàng ngày`,
+                content: `Thầy thuốc Ưu tú, Bác sĩ CKII Nguyễn Tiến Lãng
+----------------------------------------------
+
+-   Nguyên Trưởng khoa Ngoại chung -- Bệnh viện Nội tiết Trung ương
+-   Gần 40 năm kinh nghiệm trong lĩnh vực Nội tiết, hơn 30 năm phẫu thuật tuyến giáp
+-   Bác sĩ nhận khám trên 3 tuổi
+
+### Quá trình công tác
+
+-   Nguyên Trưởng khoa Ngoại chung -- Bệnh viện Nội tiết Trung ương
+
+### Quá trình đào tạo
+
+-   Tốt nghiệp Thủ khoa Chuyên khoa II, Đại học Y Hà Nội (2008)
+
+### Thành viên các Hội khoa học, tổ chức chuyên môn
+
+-   Hội viên Hội Phẫu thuật Ung thư Tuyến giáp
+-   Hội viên Hội Phẫu thuật Nội soi
+
+### Sách và công trình nghiên cứu khoa học
+
+-   Công trình nghiên cứu cấp Nhà nước về phẫu thuật nội soi ung thư tuyến giáp
+-   Công trình nghiên cứu cấp Bộ về phẫu thuật tuyến giáp
+-   Công trình nghiên cứu cấp Cơ sở về phẫu thuật tuyến giáp và các mặt bệnh tuyến giáp nói chung
+-   Báo cáo đánh giá kết quả phẫu thuật ung thư tuyến giáp phối hợp điều trị Iod 131
+-   Nhiều bài báo đăng trong các tạp chí chuyên ngành, các hội nghị nội tiết và rối loạn chuyển hóa toàn quốc -- Tạp chí Y Dược học Việt Nam
+
+Khám và điều trị
+----------------
+
+**Bác sĩ có thế mạnh về phẫu thuật ung thư tuyến giáp**
+
+**Khám, tư vấn, điều trị các bệnh lý tuyến giáp: **
+
+-   Đái tháo đường
+-   Basedow
+-   Bướu cổ
+-   Cường cận giáp
+-   Suy giáp
+-   Cường giáp
+-   Suy tuyến yên
+-   Tăng đường huyết bệnh tiểu đường
+-   Hạ đường huyết ở bệnh tiểu đường
+-   Tiền tiểu đường
+-   Tiểu đường tuýp 1
+-   Tiểu đường tuýp 2
+-   U tuyến yên
+-   Ung thư tuyến giáp`,
+                active: true
+            },
+            {
+                id: '0076',
+                name: 'Nguyễn Văn Hữu',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '16',
+                clinicAddress: `**Phòng khám đa khoa Victoria Healthcare Thủ Đức**        
+37-39 Lương Định Của, Phường An Khánh, TP. Thủ Đức`,
+                email: 'huunv0076@gmail.com',
+                username: 'huunv0076',
+                image: await toBase64('76bs-huu-victoria.jpg'),
+                describe: `20 năm kinh nghiệm lĩnh vực Nội tiết        
+Từng công tác tại Bệnh viện Nhân dân Gia Định`,
+                price: `-    Giá khám: 150.000đ
+
+Bệnh nhân sử dụng Bảo hiểm tư nhân vui lòng đến khám trước 15h hàng ngày`,
+                content: `Bác sĩ Chuyên khoa II Nguyễn Văn Hữu
+------------------------------------
+
+-   20 năm kinh nghiệm lĩnh vực Nội tiết
+-   Từng công tác tại Bệnh viện Nhân dân Gia Định
+
+Khám và điều trị
+----------------
+
+-   Khám và điều trị bệnh lý đái tháo đường
+-   Khám và điều trị bệnh lý suy giáp
+-   Khám và điều trị bệnh lý cường giáp
+-   Khám bệnh lý bướu cổ
+-   Bệnh thượng thận
+-   Khám huyết áp, mỡ máu, gout 
+
+### Quá trình công tác
+
+-   Bác sĩ, Phòng khám Victoria healthcare (2023 - Nay)
+-   Bác sĩ Khoa Nội tiết - Thận, Bệnh viện Nhân Dân Gia Định
+-   Bác sĩ Phòng khám đái tháo đường, Bệnh viện quận 1 TP. HCM 
+
+### Quá trình đào tạo
+
+-   Chuyên khoa cấp II Nội Tiết, Đại Học Y Dược TP. HCM
+-   Chuyên khoa cấp I Nội Tiết, Đại Học Y Dược TP. HCM
+
+### Chứng chỉ trong và ngoài nước
+
+-   Chứng chỉ tham gia lớp "Training Course on Good Clinical Practice"
+-   Chứng chỉ tham gia lớp " Y HọcThực Chứng"
+-   Công trình nghiên cứu " tỉ lệ thiếu vitamin D ở bệnh nhân đái tháo đường tip 2 đến khám tại phòng khám nội tiết bệnh viện Nhân Dân Gia Định"`,
+                active: true
+            },
+            {
+                id: '0077',
+                name: 'Đào Đức Phong',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '16',
+                clinicAddress: `**Bệnh viện Đa khoa Hồng Ngọc - Phúc Trường Minh**        
+số 8 đường Châu Văn Liêm, phường Phú Đô, quận Nam Từ Liêm, Hà Nội`,
+                email: 'phongdd0077@gmail.com',
+                username: 'phongdd0077',
+                image: await toBase64('77bsi-phong-hong-ngoc.jpg'),
+                describe: `Gần 20 năm kinh nghiệm khám và điều trị Nội tiết và Đái tháo đường        
+Từng công tác nhiều năm tại Bệnh viện Bạch Mai`,
+                price: `-    Giá khám: 150.000đ
+
+Bệnh nhân sử dụng Bảo hiểm tư nhân vui lòng đến khám trước 15h hàng ngày`,
+                content: `Thạc sĩ, Bác sĩ nội trú Đào Đức Phong
+-------------------------------------
+
+-   Gần 20 năm kinh nghiệm khám và điều trị Nội tiết và Đái tháo đường
+-   Từng công tác nhiều năm tại Bệnh viện Bạch Mai
+
+Khám và điều trị
+----------------
+
+-   Khám và điều trị bệnh lý đái tháo đường
+-   Khám và điều trị bệnh lý suy giáp
+-   Khám và điều trị bệnh lý cường giáp
+-   Khám bệnh lý bướu cổ
+-   Bệnh thượng thận
+-   Khám huyết áp, mỡ máu, gout 
+
+### Quá trình công tác
+
+-   Bác sĩ chuyên khoa Nội/chuyên khoa Nội tiết, khoa Khám bệnh, Bệnh viện Hồng Ngọc (9/2022)
+-   Viên chức khoa Nội tiết -- Đái tháo đường thuộc Bệnh viện Bạch Mai (2001 - 08/2022)
+
+### Quá trình đào tạo
+
+-   Bác sĩ nội trú -- Đại học Y Hà Nội (1998 - 2001)
+
+-   Bác sĩ y khoa - Đại học Y Hà Nội (1992 - 1998)
+
+### Chứng chỉ trong nước hoặc nước ngoài
+
+-   Chứng chỉ chọc hút tế bào tuyến giáp dưới hướng dẫn siêu âm từ nhày (20/06/2022 - 19/08/2022)
+
+### Sách và các công trình nghiên cứu, báo cáo khoa học
+
+-   Đặc điểm lâm sàng thần kinh Đái tháo đường bệnh nhân nội trú Bệnh viện Bạch Mai (2017)
+-   Đặc điểm lâm sàng cận lâm sàng Hội chứng Sheehan (2001)
+-   Cập nhật Chẩn đoán điêu trị Bệnh Đái tháo đường do Hội Nôi Tiết - Đái Tháo Đường Việt Nam
+
+### Tham gia các chuyên đề sức khỏe
+
+-   Tham gia Khóa học Đái tháo đường tại trung tâm Đái tháo đường Quốc tế IDC (2019)
+-   Tham dự hội thảo ADA (2018, 2019)`,
+                active: true
+            },
+            {
+                id: '0078',
+                name: 'Huỳnh Bích Thảo',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '17',
+                clinicAddress: `**Bệnh viện Gia An 115**        
+Số 05, Đường 17A, Khu phố 11, Phường Bình Trị Đông B, Quận Bình Tân, TP.HCM`,
+                email: 'thaohb0078@gmail.com',
+                username: 'thaohb0078',
+                image: await toBase64('78bs-thao.jpg'),
+                describe: `Gần 15 năm kinh nghiệm trong khám và điều trị Vật lý trị liệu - Phục hồi chức năng        
+Trưởng khoa Vật lý trị liệu - Phục hồi chức năng, Bệnh viện Gia An 115        
+Từng công tác tại các bệnh viện lớn: Bệnh viện Chợ Rẫy, Bệnh viện Ung Bướu TP. HCM, Bệnh viện Đại học Y dược TP. HCM
+Bác sĩ khám cho người bệnh từ 16 tuổi trở lên`,
+                price: `-   Giá khám Phục hồi chức năng là 150.000 vnđ
+-   Giá khám Ngôn ngữ là 200.000 vnđ 
+-   Tái khám: 120.000đ
+-   Đánh giá ngôn ngữ: 200.000đ
+-   Điều trị hồng ngoại: 40.000đ
+-   Điện xung, điện phân: 45.000đ
+
+Phòng khám có hình thức thanh toán chi phí bằng tiền mặt`,
+                content: `Bác sĩ Chuyên khoa I Huỳnh Bích Thảo
+------------------------------------
+
+-   Gần 15 năm kinh nghiệm trong khám và điều trị Vật lý trị liệu - Phục hồi chức năng
+-   Trưởng khoa Vật lý trị liệu - Phục hồi chức năng, Bệnh viện Gia An 115
+-   Từng công tác tại các bệnh viện lớn: Bệnh viện Chợ Rẫy, Bệnh viện Ung Bướu TP. HCM, Bệnh viện Đại học Y dược TP. HCM
+-   Tham gia đào tạo Y khoa liên tục để bổi đắp và cập nhật kiến thức về Phục hồi chức năng
+-   Bác sĩ khám cho người bệnh từ 16 tuổi trở lên
+
+Khám và điều trị
+----------------
+
+Bác sĩ khám và điều trị các bệnh lý về Vật lý trị liệu và Phục hồi chức năng:
+
+-   Phục hồi chức năng các bệnh lý, tổn thương hoặc sau phẫu thuật thần kinh, chấn thương chỉnh hình và cơ xương khớp, hô hấp - tim mạch, ung thư
+-   Phục hồi chức năng rối loạn nuốt
+-   Rối loạn giọng nói, liệt dây thanh, mất ngôn ngữ, các rối loạn giao tiếp do tổn thương thần kinh, nói lắp ở người lớn qua các giai đoạn cấp tính đến mạn tính
+
+### Quá trình công tác
+
+-   Trưởng khoa Vật lý trị liệu - Phục hồi chức năng, Bệnh viện Gia An 115 (12/2020 - nay)
+-   Bác sĩ khoa Phục hồi chức năng, Bệnh viện Đại học Y dược TP. HCM (2010 - 2020)
+-   Bác sĩ tổ Vật lý trị liệu - Phục hồi chức năng, Bệnh viện Ung Bướu TP. HCM (2015 - 2020)
+-   Bác sĩ khoa Vật lý trị liệu - Phục hồi chức năng, Bệnh viện Chợ Rẫy (2009 - 2015)
+
+### Quá trình đào tạo
+
+-   Bác sĩ Chuyên khoa I Phục hồi chức năng - Đại học Y Dược TP. HCM (2018 - 2020)
+-   Chứng chỉ Âm ngữ trị liệu (3500 tiết) - Trường Đại học Y Khoa Phạm Ngọc Thạch phối hợp với Trinh Foundation Australia (2010 - 2020)
+-   Bác sĩ Đa khoa - Đại học Y Dược TP. HCM (2002 - 2008)
+
+### Chứng chỉ trong nước hoặc nước ngoài
+
+-   Phục hồi chức năng rối loạn nuốt - Đại học Hồng Bàng (Giảng viên Úc) (2019)
+-   Thủy trị liệu người lớn - cấp độ 1 - Đại học Hồng Bàng (Giảng viên Đức) (2018)
+-   Vật lý trị liệu sàn chậu - Đại học Y Dược TP. HCM (Giảng viên Bỉ) (2018)
+-   Tập huấn phục hồi chức năng tim mạch ứng dụng lâm sàng máy CPX - Bệnh viện PHCN và Điều trị BNN (Giảng viên Nhật) (2017)
+-   Phục hồi chức năng hô hấp - Đại học Y Dược TP. HCM (Giảng viên Bỉ) (2016)
+-   Cập nhật kiến thức tổn thương gân bàn tay - Đại học Y Dược TP. HCM (2015)
+-   Phục hồi chức năng cho bệnh nhân Tai biến mạch máu não - cách tiếp cận đa chuyên ngành - Bệnh viện Chợ Rẫy (2014)
+-   Tập huấn điều trị Ung thư thanh quản - Bệnh viện Chợ Rẫy (2014)
+-   Cập nhật chẩn đoán và điều trị Hemophilia - Bệnh viện Truyền máu - Huyết học (2014)
+-   Cập nhật viêm khớp hệ thống - Bệnh viện Chợ Rẫy (2014)
+-   Tập huấn về PHCN tại Úc (Xây dựng dịch vụ thực hành Phục hồi chức năng tốt nhất ở Việt Nam) (2014)
+-   Tập huấn về PHCN tại Nhật (2013)
+-   Phục hồi chức năng tim mạch - Bệnh viện An Bình phối hợp với Trinity College Dublin (2010)
+-   Laser y học và Vật lý trị liệu - Phân viện Vật lý Y sinh học, Hội Laser y học & Laser Ngoại khoa TP. HCM, Viện ngoại khoa Laser (2009)`,
+                active: true
+            },
+            {
+                id: '0079',
+                name: 'Mark Bryan Harrison',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '17',
+                clinicAddress: `**Phòng khám Dr.Allen Chiropractic cơ sở Hồ Chí Minh**        
+138 Lý Tự Trọng, Quận 1, TP. Hồ Chí Minh`,
+                email: 'harrisonmb0079@gmail.com',
+                username: 'harrisonmb0079',
+                image: await toBase64('79bs-mark.jpg'),
+                describe: `Hơn 25 năm kinh nghiệm trong ngành Chiropractic        
+Giám đốc chuyên môn tại Đại học Japan Chiropractic Doctors College (JCDC)        
+Giám đốc sáng lập trung tâm The Kinesiology Centre`,
+                price: `-   Giá khám Phục hồi chức năng là 150.000 vnđ
+-   Giá khám Ngôn ngữ là 200.000 vnđ 
+-   Tái khám: 120.000đ
+-   Đánh giá ngôn ngữ: 200.000đ
+-   Điều trị hồng ngoại: 40.000đ
+-   Điện xung, điện phân: 45.000đ
+
+Phòng khám có hình thức thanh toán chi phí bằng tiền mặt`,
+                content: `Bác sĩ Mark Bryan Harrison
+--------------------------
+
+-   Hơn 25 năm kinh nghiệm trong ngành Chiropractic
+-   Giám đốc chuyên môn tại Đại học Japan Chiropractic Doctors College (JCDC)
+-   Giám đốc sáng lập trung tâm The Kinesiology Centre
+-   Giám đốc điều hành phòng khám Mind Body
+
+### Quá trình đào tạo
+
+-   Tốt nghiệp chuyên ngành Chiropractic tại Trường Đại học Life Chiropractic College West
+
+### Thành viên các Hội khoa học, tổ chức chuyên môn
+
+-   Thành viên Hiệp Hội Chiropractic Hoa Kỳ`,
+                active: true
+            },
+            {
+                id: '0080',
+                name: 'Vũ Thị Bích Hạnh',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '17',
+                clinicAddress: `**Phòng khám Việt An**        
+19 Trương Hán Siêu, Hoàn Kiếm, Hà Nội`,
+                email: 'hanhvtb0080@gmail.com',
+                username: 'hanhvtb0080',
+                image: await toBase64('80pgs-vu-thi-bich-hanh.jpg'),
+                describe: `	
+Phó giáo sư, Tiến sĩ Vũ Thị Bích Hạnh
+Nguyên Trưởng khoa Phục hồi chức năng, Bệnh viện Đại học Y Hà Nội        
+Hiện là Phó khoa khám bệnh theo yêu cầu, Bệnh viện Đại học Y Hà Nội        
+Tốt nghiệp Tiến sĩ Phục hồi chức năng về can thiệp ngôn ngữ cho trẻ sau phẫu thuật khe hở môi miệng`,
+                price: `-   Giá khám Phục hồi chức năng là 150.000 vnđ
+-   Giá khám Ngôn ngữ là 200.000 vnđ 
+-   Tái khám: 120.000đ
+-   Đánh giá ngôn ngữ: 200.000đ
+-   Điều trị hồng ngoại: 40.000đ
+-   Điện xung, điện phân: 45.000đ
+
+Phòng khám có hình thức thanh toán chi phí bằng tiền mặt`,
+                content: `Phó giáo sư, Tiến sĩ, Bác sĩ Vũ Thị Bích Hạnh
+---------------------------------------------
+
+-   Nguyên Trưởng khoa Phục hồi chức năng Bệnh viện Đại học Y Hà Nội
+-   Phó Giám đốc trung tâm Đào tạo và Chăm sóc sức khoẻ cộng đồng
+-   Phó khoa khám bệnh theo yêu cầu Bệnh viện Đại học Y Hà Nội
+-   Bác sĩ Nội trú chuyên ngành Phục hồi chức năng tại Pháp
+-   Tốt nghiệp Tiến sĩ Phục hồi chức năng về can thiệp ngôn ngữ cho trẻ sau phẫu thuật khe hở môi miệng
+
+### Quá trình đào tạo
+
+-   Học Đại học Y khoa Odessa tại Liên Xô (1982)
+-   Bác sĩ Nội trú chuyên ngành Phục hồi chức năng tại Pháp (1989-1990)
+-   Học ngành Âm ngữ trị liệu tại Mỹ và Úc nhiều đợt (1994 đến nay)
+-   Tốt nghiệp Tiến sĩ Phục hồi chức năng về can thiệp ngôn ngữ cho trẻ sau phẫu thuật khe hở môi miệng (năm 2000)
+-   Nhận danh hiệu Phó giáo sư năm 2006
+-   Chuyên ngành nhi khoa - âm ngữ trị liệu, phục hồi chức năng bệnh lý thần kinh, cơ xương khớp
+
+### Quá trình công tác
+
+-   Đào tạo nhiều khóa học về âm ngữ trị liệu tại Đại học y Hà Nội cho kỹ thuật viên tại các tỉnh ( theo liên kết với các chuyên gia ngôn ngữ trị liệu của Mỹ)
+-   Xây dựng phòng ngôn ngữ trị liệu tại Bệnh viện Bạch Mai, Bệnh viện Đại học y Hà Nội, Bệnh viện Phục hồi chức năng Hà Tĩnh, Trung tâm Phục hồi chức năng 38 Tú Xương quận 3 Thành phố Hồ Chí Minh...
+-   Mở nhiều lớp đào tạo trong nước ở toàn bộ các tỉnh miền Bắc, miền Trung và Thành phố Hồ Chí Minh về Phục hồi chức năng nói cho trẻ em phẫu thuật khe hở vòm miệng (46 tỉnh)
+-   Nguyên cán bộ Trung tâm Phục hồi chức năng Bệnh viện Bạch Mai (1982-2009)
+-   Làm việc tại Bệnh viện Đại học Y Hà Nội (2009 đến nay)
+-   Phó Chủ nhiệm bộ môn Phục hồi chức năng, Trường Đại học Y Hà Nội
+-   Nguyên Trưởng khoa Phục hồi chức năng Bệnh viện Đại học Y Hà Nội
+-   Phó Giám đốc trung tâm Đào tạo và Chăm sóc sức khoẻ cộng đồng
+-   Phó khoa quốc tế (khoa khám chữa bệnh theo yêu cầu) tại Bệnh viện Đại học Y Hà Nội
+
+### Giải thưởng
+
+-   Giải thưởng Khoa học sáng tạo của Liên đoàn Lao động Việt Nam (2005)
+-   Đạt Danh hiệu Chiến sĩ thi đua cấp Bộ
+-   Bằng khen của Bộ Y tế về công tác Phục hồi chức năng
+
+### Sách và các công trình nghiên cứu khoa học
+
+-   Tự kỉ: phát hiện sớm và can thiệp sớm
+-   Vật lý trị liệu chuyên ngành cho sinh viên sau Đại học
+-   Hướng dẫn Phục hồi chức năng cho cộng đồng của Bộ Y tế
+-   Hướng dẫn thực hành âm ngữ trị liệu
+-   Có 50 bài báo về Phục hồi chức năng
+-   Nghiên cứu về vai trò Hội người khuyết tật 
+-   Chủ trì 1 đề tài cấp bộ và tham gia nhiều đề tài cấp bộ, trường, cơ sở
+
+### Thành viên Hội khoa học, tổ chức chuyên môn
+
+-   Thành viên Hội phục hồi chức năng
+-   Thành viên Hội âm ngữ trị liệu quốc tế (1997)
+
+Khám và điều trị
+----------------
+
+-   Khám, đánh giá, can thiệt âm ngữ trị liệu cho trẻ chậm phát triển trí tuệ, chậm nói, nói ngọng, nói lắp, các loại nói khó, tự kỷ, tăng động, giảm chú ý
+-   Mất giọng, khàn tiếng sau cắt, phẫu thuật thanh quản
+-   Giọng nhi hoá, rối loạn giọng
+-   Can thiệp cho trẻ khiếm thính, sau cấy điện cực cốc tai, đeo máy trợ thính
+-   Thất ngôn sau tai biến mạch máu não
+-   Khám, điều trị bàn chân bẹt, chân khoèo, chân chữ O, chữ X
+-   Dị tật bẩm sinh về vận động 
+-   Viêm khớp vai, cứng khớp vai
+-   Cứng khớp sau chấn thương, phẫu thuật
+-   Điều trị trật khớp háng
+-   Điều trị trẻ vẹo cổ, thắt lưng
+-   Khám trẻ bại não
+-   Điều trị trẻ mắc Down
+-   Chữa trẻ chậm phát triển trí tuệ
+-   Điều trị trẻ bị vẹo cột sống
+-   Chữa viêm khớp dạng thấp
+-   Phục hồi chức năng sẹo sau bỏng
+-   Điều trị bệnh Parkinson
+-   Điều trị thoái hóa cột sống cổ
+-   Điều trị thoát vị đĩa đệm
+-   Chữa đau thần kinh tọa
+-   Chữa vẹo cột sống`,
+                active: true
+            },
+            {
+                id: '0081',
+                name: 'Vũ Duy Chinh',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '17',
+                clinicAddress: `**Trung tâm Y khoa Ecohealth**        
+Tòa nhà Ngôi sao Việt, số 4 ngõ 4 Kim Đồng, Giáp Bát, Hoàng Mai, Hà Nội`,
+                email: 'chinhvd0081@gmail.com',
+                username: 'chinhvd0081',
+                image: await toBase64('81ths-bs-vu-duy-chinh-phcn-ecohealth.jpg'),
+                describe: `Hơn 20 năm kinh nghiệm trong lĩnh vực Phục hồi chức năng        
+Phó Giám đốc Trung tâm Y học tái tạo và trị liệu tế bào        
+Bệnh viện Đa khoa Quốc tế Vinmec Times City`,
+                price: `-   Giá khám Phục hồi chức năng là 150.000 vnđ
+-   Giá khám Ngôn ngữ là 200.000 vnđ 
+-   Tái khám: 120.000đ
+-   Đánh giá ngôn ngữ: 200.000đ
+-   Điều trị hồng ngoại: 40.000đ
+-   Điện xung, điện phân: 45.000đ
+
+Phòng khám có hình thức thanh toán chi phí bằng tiền mặt`,
+                content: `### Thạc sĩ, Bác sĩ Vũ Duy Chinh
+
+-   Hơn 20 năm kinh nghiệm trong lĩnh vực Phục hồi chức năng
+-   Phó Giám đốc Trung tâm Y học tái tạo và trị liệu tế bào, Bệnh viện Đa khoa Quốc tế Vinmec Times City
+-   Phó Chủ nhiệm bộ môn Phục hồi chức năng, Đại học Y tế Hải Dương
+-   Một trong những bác sỹ lâm sàng đầu tiên của hệ thống Vinmec tham gia vào việc khám, tư vấn và ghép tế bào gốc điều trị một số bệnh lý: bại não, tự kỷ, thoát vị màng não tủy,...
+
+### Khám và điều trị
+
+Bác sĩ có **thế mạnh chuyên môn sâu** về khám, tư vấn và điều trị phục hồi chức năng cho các bệnh nhân có tổn thương thần kinh, sau chấn thương, cơ-xương-khớp, sản, nhi,... 
+
+#### Phục hồi chức năng cho các bệnh nhân có tổn thương thần kinh
+
+-   Chấn thương sọ não
+-   Tai biến mạch máu não
+-   Tổn thương tủy sống
+-   Tổn thương đám rối thần kinh cánh tay
+-   Đau thần kinh tọa
+-   Các bệnh lý có tổn thương thần kinh khác
+
+#### Phục hồi chức năng cho các bệnh nhân sau chấn thương, bệnh lý cơ xương khớp
+
+-   Chấn thương đụng dập phần mềm
+-   Gãy xương
+-   Tổn thương dây chằng chéo trước, chéo sau khớp gối
+-   Bệnh nhân sau phẫu thuật chỉnh hình, thay khớp háng, khớp gối
+-   Bệnh lý đau lưng, thoái hóa xương, khớp và cột sống...
+
+#### Phục hồi chức năng cho các bệnh lý trẻ em
+
+-   Bại não
+-   Chậm phát triển tinh thần, vận động
+-   Xơ hóa cơ ức đòn chũm
+-   Bàn chân bẹt, bàn chân khoèo bẩm sinh...
+
+Phục hồi chức năng cho các bệnh nhân rối loạn cơ tròn bàng quang, hậu môn, bệnh lý sàn chậu 
+
+Phục hồi chức năng cho các bệnh nhân sau phẫu thuật lồng ngực, ổ bụng, bệnh lý hô hấp, tim mạch**...**
+
+### Quá trình công tác
+
+-   Phó Giám đốc Trung tâm Y học tái tạo và trị liệu tế bào, Bệnh viện Đa khoa Quốc tế Vinmec Times City
+-   Phó Giám đốc đơn nguyên Phòng khám Y học tái tạo và tâm lý giáo dục, Bệnh viện Đa khoa Quốc tế Vinmec Times City
+-   Phó Chủ nhiệm bộ môn Phục hồi chức năng, Đại học Y tế Hải Dương
+-   Bác sĩ - Giảng viên tại trường Đại học Kỹ thuật Y tế Hải Dương
+
+### Quá trình đào tạo
+
+-   Thạc sĩ chuyên ngành Phục hồi chức năng, Đại học Y Hà Nội (2001- 2005)
+-   Tốt nghiệp Đại học Y Hà Nội (2001)
+
+### Sách và các công trình nghiên cứu, báo cáo khoa học
+
+-   Bài giảng Vật lý trị liệu/ Phục hồi chức năng, tập 3, Trường Đại học Kỹ thuật Y tế Hải Dương
+-   "Spectrum of MECP2 mutations in Vietnamese patients with RETT syndrome", đăng trên BMC Medical Genetics (2018)
+-   "Improved Bowel Function in Patients with Spina Bifida After Bone Marrow Mononuclear Cell Transplantation: A Report of 2 Cases" đăng trên American Journal of case reports (2018)
+-   Đánh giá chất lượng cuộc sống của trẻ bại não trước và sau khi ghép Tế bào gốc tự thân" đăng trên Tạp chí Y học thực hành (1051) tháng 7/2017 (2017)
+-   Nghiên cứu sử dụng Tế bào gốc tự thân trong điều trị bại não trẻ em tại Bệnh viện Đa khoa Quốc tế Vinmec Times City" đăng trên Tạp chí Y học Việt Nam - Tập 453 (2017)
+-   "Outcomes of autologous bone marrow mononuclear cells for cerebral palsy: an open label uncontrolled clinical trial" đăng trên trang web Quốc tế BMC Pediatrics (2017)
+
+### Thành viên các Hội khoa học, tổ chức chuyên môn
+
+-   Hội Phục hồi chức năng Việt Nam
+
+### Tham gia các chuyên đề sức khỏe trên báo chí, truyền hình...
+
+-   Là nghiên cứu sinh chính tham gia đề tài cấp nhà nước về ghép tế bào gốc điều trị bại não, ghép tế bào gốc điều trị tự kỷ, đồng tác giả & 10 bài báo đã được đăng trên các tạp chí có uy tín trên thế giới và trong nước. Nội dung các bài báo là các công trình nghiên cứu về tế bào gốc điều trị bại não do ngạt, đuối nước, vàng da, điều trị thoát vị màng não tủy và một số bệnh lý rối loạn vận động, nhận thức liên quan đến gen di truyền.`,
+                active: true
+            },
+            {
+                id: '0082',
+                name: 'Lưu Huy Chiến',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '17',
+                clinicAddress: `**Phòng khám Y học cổ truyền Minh Tâm**        
+303 Tên Lửa, P. Bình Trị Đông B, Q. Bình Tân, Thành phố Hồ Chí Minh`,
+                email: 'chienlh0082@gmail.com',
+                username: 'chienlh0082',
+                image: await toBase64('82bac-si-luu-huy-chien.jpg'),
+                describe: `Hơn 25 năm kinh nghiệm chuyên môn lĩnh vực Phục hồi chức năng        
+Từng công tác tại Bệnh viện Chỉnh hình - Phục hồi chức năng TP. HCM`,
+                price: `-   Giá khám Phục hồi chức năng là 150.000 vnđ
+-   Giá khám Ngôn ngữ là 200.000 vnđ 
+-   Tái khám: 120.000đ
+-   Đánh giá ngôn ngữ: 200.000đ
+-   Điều trị hồng ngoại: 40.000đ
+-   Điện xung, điện phân: 45.000đ
+
+Phòng khám có hình thức thanh toán chi phí bằng tiền mặt`,
+                content: `Bác sĩ Chuyên khoa I Lưu Huy Chiến
+----------------------------------
+
+-   Hơn 25 năm kinh nghiệm chuyên môn lĩnh vực Phục hồi chức năng
+-   Từng công tác tại Bệnh viện Chỉnh hình - Phục hồi chức năng TP.HCM
+
+Khám và điều trị
+----------------
+
+-   Phục hồi chức năng sau chấn thương cột sống, chấn thương sọ não
+-   Phục hồi chức năng cho bệnh nhân đột quỵ và vẹo cột sống
+-   Phục hồi chức năng sau chấn thương chi dưới, chi trên và bàn tay
+-   Phục hồi chức năng đường ruột và đường tiểu
+-   Phục hồi chức năng trước mổ và sau mổ lồng ngực và ổ bụng
+-   Điều trị phục hồi chức năng cho bệnh nhân đau cột sống do thoái hóa, loãng xương, thoát vị đĩa đệm
+-   Đặc biệt những bệnh nhân không dùng được thuốc giảm đau
+-   Xây dựng chương trình phục hồi chức năng cho các bệnh nhân thừa cân béo phì đạt được kết quả tốt
+
+### Quá trình công tác
+
+-   Bác sĩ chuyên khoa Phục hồi chức năng, Phòng khám PHCN -- YHCT Minh Tâm (2021 - Nay)
+-   Phụ trách chuyên môn phòng khám Phục hồi chức năng Mạnh Đức tại quận Thủ Đức, TP. HCM (2017 - 2019)
+-   Bác sĩ khám và điều trị khoa Khám bệnh, Bệnh viện Chỉnh hình - Phục hồi chức năng TP. HCM (2011 - 2017)
+-   Bác sĩ khám và điều trị Nội khớp và Cấp cứu, Bệnh viện Đa khoa Phổ Quang cơ sở 2 (2009 - 2011)
+-   Bác sĩ điều trị, Bệnh viện Đa khoa Hoàn Mỹ TP. HCM (2003 - 2009)
+-   Bác sĩ điều trị khoa Ngoại - Chấn thương chỉnh hình, Bệnh viện 30/04 TP. HCM (1996 - 2003)
+
+### Quá trình đào tạo
+
+-   Tốt nghiệp Bác sĩ Chuyên khoa I chuyên ngành Phục hồi chức năng, Học viện Quân Y (2011)
+-   Tốt nghiệp Bác sĩ Đa khoa, Học viện Quân Y (1996)`,
+                active: true
+            },
+            {
+                id: '0083',
+                name: 'Nguyễn Quang Tuấn',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '19',
+                clinicAddress: `**Hệ thống Y tế Thu Cúc cơ sở Trần Duy Hưng**        
+216 Trần Duy Hưng, Cầu Giấy, Hà Nội`,
+                email: 'tuannq0083@gmail.com',
+                username: 'tuannq0083',
+                image: await toBase64('83bs-nguyen-quang-tuan.jpg'),
+                describe: `Nguyên Trưởng khoa Truyền nhiễm Bệnh viện Bạch Mai        
+Được phong tặng danh hiệu Thầy thuốc ưu tú        
+Hơn 40 năm kinh nghiệm khám và điều trị tại chuyên khoa Nội Truyền nhiễm`,
+                price: `-  Giá khám: 150.000đ`,
+                content: `Bác sĩ cao cấp, Bác sĩ CKII Nguyễn Quang Tuấn
+---------------------------------------------
+
+-   Nguyên Trưởng khoa Truyền nhiễm Bệnh viện Bạch Mai
+-   Được phong tặng danh hiệu Thầy thuốc ưu tú
+-   Hơn 40 năm kinh nghiệm khám và điều trị tại chuyên khoa Nội Truyền nhiễm
+
+### Quá trình đào tạo
+
+-   Tốt nghiệp Chuyên khoa cấp II Chuyên khoa Truyền nhiễm, Trường Đại học Y Hà Nội
+
+### Quá trình công tác
+
+-   Nguyên Trưởng khoa Truyền nhiễm, Bệnh viện Bạch Mai
+-   Từng công tác tại khoa Truyền nhiễm, Bệnh viện Bạch Mai
+
+Khám và điều trị
+----------------
+
+-   Cúm H1N1, H5N1, ...
+-   Sốt vi rút
+-   Sốt phát ban
+-   Viêm màng não
+-   Sởi
+-   Bệnh dại
+-   Lỵ trực trùng
+-   Quai bị
+-   Thuỷ đậu
+-   Uốn ván
+-   Lả chảy
+-   Viêm gan A, B, C
+-   Suy giảm miễn dịch
+-   Sốt xuất huyết
+-   Các bệnh Truyền nhiễm mới nổi.....`,
+                active: true
+            },
+            {
+                id: '0084',
+                name: 'Đỗ Duy Cường',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '19',
+                clinicAddress: `**Trung tâm Y khoa Ecohealth**        
+Tòa nhà Ngôi sao Việt, số 4 ngõ 4 Kim Đồng, Giáp Bát, Hoàng Mai, Hà Nội`,
+                email: 'cuongdd0084@gmail.com',
+                username: 'cuongdd0084',
+                image: await toBase64('84pgs-ts-do-duy-cuong-noi-truyen-nhiem-ecohealth.jpg'),
+                describe: `Giám đốc Trung tâm Bệnh Nhiệt đới, Bệnh viện Bạch Mai        
+Chuyên gia đầu ngành về bệnh Truyền nhiễm`,
+                price: `-  Giá khám: 150.000đ`,
+                content: `Phó Giáo sư, Tiến sĩ Đỗ Duy Cường 
+----------------------------------
+
+-   Giám đốc Trung tâm Bệnh Nhiệt đới, Bệnh viện Bạch Mai
+-   Chuyên gia đầu ngành về bệnh Truyền nhiễm
+
+### Quá trình công tác
+
+-   Giám đốc Trung tâm Bệnh Nhiệt đới, Bệnh viện Bạch Mai
+-   Bác sĩ tại Bệnh viện Bạch Mai (2007)
+-   Tham gia triển khai các dự án cho người nhiễm HIV, Tổ chức Sức khỏe gia đình quốc tế (FHI) (2005)
+-   Bác sĩ trực tiếp điều trị bệnh Truyền nhiễm, Bệnh viện Bạch Mai
+-   Giảng viên bộ môn Truyền nhiễm, Trường Đại học Y Hà Nội
+
+### Quá trình đào tạo
+
+-   Bác sĩ nội trú chuyên môn Truyền nhiễm, Đại học Y Hà Nội
+
+Khám và điều trị
+----------------
+
+-   HIV/ AIDS
+-   Viêm Gan B
+-   Bại liệt, cúm, dại, đậu mùa, dịch hạch
+-   Lao phổi
+-   Giang mai
+-   Lậu 
+-   Sởi 
+-   Tả
+-   Thủy đậu
+-   Sốt xuất huyết, sốt phát ban
+-   Tay chân miệng
+-   Tiêu chảy cấp
+-   Uốn ván
+-   Viêm gan virus (A,B,C,D,E)
+-   Viêm màng não mô cầu`,
+                active: true
+            },
+            {
+                id: '0085',
+                name: 'Tạ Quang Mậu',
+                phoneNumber: randomPhoneNumber(),
+                specialtyID: '19',
+                clinicAddress: `**Hệ thống Y tế Thu Cúc cơ sở Trần Duy Hưng**        
+216 Trần Duy Hưng, Cầu Giấy, Hà Nội`,
+                email: 'mautq0085@gmail.com',
+                username: 'mautq0085',
+                image: await toBase64('85bs-ta-quang-mau.jpg'),
+                describe: `Giám đốc Phòng khám Đa khoa Quốc tế Thu Cúc        
+Hơn 40 năm kinh nghiệm khám và chữa các bệnh nội khoa        
+Bác sĩ chuyên khoa Nội và Truyền nhiễm`,
+                price: `-  Giá khám: 150.000đ`,
+                content: `Thạc sĩ, Bác sĩ, Thầy thuốc ưu tú Tạ Quang Mậu
+----------------------------------------------
+
+-   Giám đốc Phòng khám Đa khoa Quốc tế Thu Cúc
+-   Hơn 40 năm kinh nghiệm khám và chữa các bệnh nội khoa
+-   Bác sĩ chuyên khoa Nội và Truyền nhiễm
+
+### Quá trình công tác
+
+-   Giám đốc Phòng khám Đa khoa Quốc tế Thu Cúc
+-   Trưởng khoa bệnh nhiệt đới, kiêm trưởng dịch vụ tiêm chủng, Bệnh viện Đa khoa Hà Đông
+-   Phó Trưởng khoa bệnh nhiệt đới, Bệnh viện Đa khoa Hà Đông
+-   Bác sĩ điều trị, Bệnh viện Đa khoa Hà Đông (1987 - 2002)
+-   Bác sĩ chuyên khoa Nội, Bệnh viện Quân Y, Đội điều trị, Phòng hậu cần Sư đoàn 391 (1983 - 1987)
+
+### Quá trình đào tạo
+
+-   Tốt nghiệp Đại học Y Hà Nội, ngành Đa khoa Nội Nhi
+
+Khám và điều trị
+----------------
+
+-   Bác sĩ khám và điều trị bệnh lý chuyên khoa Nội và truyền nhiễm, tổ chức tiêm chủng vacxin bệnh viện`,
                 active: true
             },
             // {
@@ -3783,54 +5488,6 @@ Bác sĩ nhận khám và điều trị:
             //     phoneNumber: randomPhoneNumber(),
             //     specialtyID: ,
             //     clinicAddress: ,
-            //     email: '@gmail.com',
-            //     username: ,
-            //     image: await toBase64(),
-            //     describe: ,
-            //     content: ,
-            //     active: true
-            // },
-            // {
-            //     name: ,
-            //     phoneNumber: randomPhoneNumber(),
-            //     specialtyID: ,
-            //     clinicAddress: ,
-            //     email: '@gmail.com',
-            //     username: ,
-            //     image: await toBase64(),
-            //     describe: ,
-            //     content: ,
-            //     active: true
-            // },
-            // {
-            //     name: ,
-            //     phoneNumber: randomPhoneNumber(),
-            //     specialtyID: ,
-            //     clinicAddress: ,
-            //     email: '@gmail.com',
-            //     username: ,
-            //     image: await toBase64(),
-            //     describe: ,
-            //     content: ,
-            //     active: true
-            // },
-            // {
-            //     name: ,
-            //     phoneNumber: randomPhoneNumber(),
-            //     specialtyID: ,
-            //     clinicAddress: ,
-            //     email: '@gmail.com',
-            //     username: ,
-            //     image: await toBase64(),
-            //     describe: ,
-            //     content: ,
-            //     active: true
-            // },
-            // {
-            //     name: ,
-            //     phoneNumber: randomPhoneNumber(),
-            //     specialtyID: ,
-            //     clinicAddress: ,
             //     email: '@gmail.com' ,
             //     username: ,
             //     image: await toBase64(),
@@ -3850,103 +5507,6 @@ Bác sĩ nhận khám và điều trị:
             //     content: ,
             //     active: true
             // },
-            // {
-            //     name: ,
-            //     phoneNumber: randomPhoneNumber(),
-            //     specialtyID: ,
-            //     clinicAddress: ,
-            //     email: '@gmail.com' ,
-            //     username: ,
-            //     image: await toBase64(),
-            //     describe: ,
-            //     content: ,
-            //     active: true
-            // },
-            // {
-            //     name: ,
-            //     phoneNumber: randomPhoneNumber(),
-            //     specialtyID: ,
-            //     clinicAddress: ,
-            //     email: '@gmail.com' ,
-            //     username: ,
-            //     image: await toBase64(),
-            //     describe: ,
-            //     content: ,
-            //     active: true
-            // },
-            // {
-            //     name: ,
-            //     phoneNumber: randomPhoneNumber(),
-            //     specialtyID: ,
-            //     clinicAddress: ,
-            //     email: '@gmail.com' ,
-            //     username: ,
-            //     image: await toBase64(),
-            //     describe: ,
-            //     content: ,
-            //     active: true
-            // },
-            // {
-            //     name: ,
-            //     phoneNumber: randomPhoneNumber(),
-            //     specialtyID: ,
-            //     clinicAddress: ,
-            //     email: '@gmail.com' ,
-            //     username: ,
-            //     image: await toBase64(),
-            //     describe: ,
-            //     content: ,
-            //     active: true
-            // },
-            // {
-            //     name: ,
-            //     phoneNumber: randomPhoneNumber(),
-            //     specialtyID: ,
-            //     clinicAddress: ,
-            //     email: '@gmail.com' ,
-            //     username: ,
-            //     image: await toBase64(),
-            //     describe: ,
-            //     content: ,
-            //     active: true
-            // },
-            // {
-            //     name: ,
-            //     phoneNumber: randomPhoneNumber(),
-            //     specialtyID: ,
-            //     clinicAddress: ,
-            //     email: '@gmail.com' ,
-            //     username: ,
-            //     image: await toBase64(),
-            //     describe: ,
-            //     content: ,
-            //     active: true
-            // },
-            // {
-            //     name: ,
-            //     phoneNumber: randomPhoneNumber(),
-            //     specialtyID: ,
-            //     clinicAddress: ,
-            //     email: '@gmail.com' ,
-            //     username: ,
-            //     image: await toBase64(),
-            //     describe: ,
-            //     content: ,
-            //     active: true
-            // },
-            // {
-            //     name: ,
-            //     phoneNumber: randomPhoneNumber(),
-            //     specialtyID: ,
-            //     clinicAddress: ,
-            //     email: '@gmail.com' ,
-            //     username: ,
-            //     image: await toBase64(),
-            //     describe: ,
-            //     content: ,
-            //     active: true
-            // },
-            // {
             //     name: ,
             //     phoneNumber: randomPhoneNumber(),
             //     specialtyID: ,
