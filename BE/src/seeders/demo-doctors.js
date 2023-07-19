@@ -121,7 +121,10 @@ Khám và điều trị
 -   Viêm màng hoạt dịch (khớp gối, háng, cổ chân, khớp khủy)
 -   Viêm cột sống dính khớp
 -   Loạn dưỡng cơ tiến triển`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0002',
@@ -246,7 +249,10 @@ Khám & điều trị các bệnh
 -   Viêm gân gấp ngón tay, Viêm gân duỗi
 -   Chấn thương do thể thao
 -   Rách dây chứng chéo trước, sau`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0003',
@@ -305,7 +311,10 @@ Bác sĩ khám và điều trị các mặt bệnh:
 -   U hoạch dịch quanh khớp
 -   Dãn tĩnh mạch chân
 -   Viêm khớp vẩy nến`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0004',
@@ -346,7 +355,10 @@ Khám và điều trị
 -   Bệnh gout
 -   Thoái hóa khớp
 -   Viêm khớp dạng thấp`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0005',
@@ -403,7 +415,10 @@ Bác sĩ khám và điều trị chuyên sâu về các bệnh lý nội khoa ch
 
 ### Tham gia các chuyên đề sức khỏe trên báo chí, truyền hình
 -   Tham gia các chuyên đề sức khỏe lão khoa trên kênh VOV, VTV`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0006',
@@ -446,7 +461,10 @@ Khám và điều trị
 -   Liệt nửa người do nhồi máu não
 -   Các bệnh lý về sa sút trí tuệ: Suy giảm nhận thức nhẹ, suy giảm trí nhớ, sa sút trí tuệ nguyên nhân mạch máu (sa sút trí tuệ sau đột quỵ),Alzheimer
 -   Bệnh rối loạn vận động như bệnh Parkinson`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0007',
@@ -532,7 +550,10 @@ Khám & điều trị các bệnh
 -   Bệnh lý thoái hóa hệ thần kinh
 -   Các bệnh cơ: đau cơ, yếu cơ, teo cơ, loạn dưỡng cơ
 -   Mọi chứng bệnh thần kinh khác do sang chấn, tai nạn, nhiễm trùng, nhiễm độc`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0008',
@@ -586,7 +607,10 @@ Khám & điều trị
 -   Phẫu thuật u não và u tủy sống
 -   Bệnh động kinh, mạch máu não, các bệnh về sa sút trí tuệ
 -   Các bệnh lý liên quan đến tủy sống và thần kinh ngoại biên`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0009',
@@ -659,10 +683,13 @@ Phó Giáo sư khám, điều trị các bệnh lý chuyên khoa Nội Thần ki
 -   Tai biến mạch máu não do huyết áp cao, đái đường, giai đoạn mới, di chứng.
 -   Các bệnh cơ: teo cơ, bệnh nhược cơ
 -   Mọi chứng bệnh thần kinh khác do sang chấn, tai nạn, nhiễm trùng, nhiễm độc.`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
-                id: ' 0010',
+                id: '0010',
                 name: `Trần Thị Mai Thy`,
                 phoneNumber: randomPhoneNumber(),
                 specialtyID: '02',
@@ -706,7 +733,10 @@ Khám và điều trị
 
 -   Tốt nghiệp Thạc sĩ chuyên ngành Thần kinh, Đại học Y dược TP. HCM (2013)
 -   Tốt nghiệp Bác sĩ Đa khoa, Đại học Y khoa Phạm Ngọc Thạch (2002)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0011',
@@ -835,7 +865,10 @@ Bệnh lý đại tràng, trực tràng, hậu môn 
 -   Nội soi cắt polyp đại trực tràng  
 -   Phẫu thuật nội soi cắt u dưới niêm mạc dạ dày -- tá tràng, đại tràng
 -   Phẫu thuật nội soi trào ngược dạ dày thực quản`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0012',
@@ -873,7 +906,10 @@ Khám & điều trị
 -   Nội soi thực quản - dạ dày
 -   Nội soi đại tràng
 -   Khám, tư vấn và điều trị các bệnh tiêu hóa - gan mật`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0013',
@@ -929,7 +965,10 @@ Khám và điều trị
 
 -   Học Chuyên khoa I chuyên ngành Ngoại Tổng quát Trường Đại học Y Dược TP. HCM
 -   Tốt nghiệp Bác sĩ Đa khoa Trường Đại học Y Dược TP. HCM (1977)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0014',
@@ -1002,7 +1041,10 @@ Khám và điều trị 
 
 -   Viêm xơ gan do rượu
 -   Gan nhiễm mỡ`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0015',
@@ -1055,7 +1097,10 @@ Bác sĩ khám và điều trị các bệnh lý vể Tiêu hóa:
 -   Tốt nghiệp Bác sĩ chuyên khoa II chuyên ngành Nội Tiêu hóa, Học viện Quân Y (2010)
 -   Tốt nghiệp Bác sĩ chuyên khoa I chuyên ngành Nội chung, Học viện Quân Y (1996)
 -   Tốt nghiệp Bác sĩ Đa khoa, Học viện Quân Y (1990)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0016',
@@ -1131,7 +1176,10 @@ Tại bệnh viện có thanh toán bằng hình thức tiền mặt`,
 -   Máy chụp X.Quang tim phổi
 -   Máy điện tâm đồ
 -   Xét nghiệm máu (Sinh hóa, Huyết học, Đông máu, Nước tiểu)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0017',
@@ -1217,7 +1265,10 @@ Khám và điều trị
 -   Bệnh huyết áp thấp
 -   Tư vấn điều trị bệnh huyết áp
 -   Tai biến mạch máu não do cao huyết áp`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0018',
@@ -1304,7 +1355,10 @@ Khám và điều trị
 **Bước 2:** Người bệnh gặp **Giáo sư, Tiến sĩ Nguyễn Lân Việt** để đọc kết quả và tư vấn điều trị.
 
 *Ghi chú*: Bệnh nhân chỉ gặp Giáo sư, Tiến sĩ Nguyễn Lân Việt ở **Bước 2 **(sau khi đã có kết quả xét nghiệm, chụp chiếu). Bệnh nhân có kết quả cận lâm sàng dưới 1 tháng có thể dùng kết quả đó.`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0019',
@@ -1354,7 +1408,10 @@ Khám và điều trị
 -   Bác sĩ chuyên khoa I Y học gia đình - Đại học Y Dược TP. HCM (2005)
 -   Chuyên ngành Nội Tim mạch - Bệnh viện Chợ Rẫy (1999)
 -   Bác sĩ Đa khoa - Đại học Y Dược TP. HCM (1995)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0020',
@@ -1417,7 +1474,10 @@ Bác sĩ khám và điều trị bệnh lý nội khoa nói chung và bệnh lý
 
 -   Bệnh cao huyết áp
 -   Bệnh huyết áp thấp`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0021',
@@ -1481,7 +1541,10 @@ Khám & điều trị
 -   Viêm amiđan cấp, mạn
 -   Nạo V.A
 -   Cắt Amidan`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0022',
@@ -1549,7 +1612,10 @@ Khám chuyên khoa Tai Mũi Họng
 
 -   Ở trẻ em viêm VA, viêm mũi họng mạn tính. Đặc biệt những biến chứng của viêm VA (như viêm tai thanh dịch, viêm tai giữa cấp, viêm thanh khí phế quản....)  nạo VA
 -   Viêm amiđan cấp, mạn.`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0023',
@@ -1637,7 +1703,10 @@ Khám và điều trị
 -   Dị vật mũi, họng, thanh quản, thực quản
 -   Nấm ống tai, viêm da khô ống tai, ráy tai
 -   Viêm loét lưỡi, ung thư lưỡi`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0024',
@@ -1692,7 +1761,10 @@ Khám và điều trị
 
 -   Học Chuyên khoa I Đại học Y Dược TP. HCM (2016 - 2018)
 -   Tốt nghiệp Bác sĩ Đại học Y Dược TP. HCM (2013)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0025',
@@ -1750,7 +1822,10 @@ Bác sĩ khám và điều trị:
 -   Viêm mũi xoang dị ứng
 -   Viêm thanh quản mạn
 -   ...`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0026',
@@ -1789,7 +1864,10 @@ Khám và điều trị
 ### Quá trình đào tạo
 
 -   Bác sĩ Y học cổ truyền - Học viện Y dược học cổ truyền Việt Nam (2013 - 2019)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0027',
@@ -1834,7 +1912,10 @@ Khám và điều trị
 -   Đánh giá hiệu quả điều trị thoát vị đĩa đệm cột sống hắt lưng bằng kết hợp sóng ngắn, xoa bóp bấm huyệt, điện châm, kéo giãn cột sống và đề xuất qui trình điều trị (2021 - 2022)
 -   Nghiên cứu thăm dò tác dụng của viên nang Ích huyết minh não trên bệnh nhân thiểu năng tuần hoàn não mạn tính (2020 - 2021)
 -   Đánh giá tác dụng hỗ trợ giảm đau của Bột Ngâm Chân do Trung tâm nghiên cứu điều trị kĩ thuật cao sản xuất trên bệnh nhân viem khớp dạng thấp (2018 - 2019)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0028',
@@ -1875,7 +1956,10 @@ Bác sĩ nhận khám bệnh nhân từ 10 tuổi trở lên`,
 ### **Chứng chỉ trong nước hoặc nước ngoài**
 
 -   Chứng chỉ Phục hồi chức năng - Đại học Y Hà Nội (2020)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0029',
@@ -1933,7 +2017,10 @@ Khám và điều trị
 ### Quá trình đào tạo 
 
 -   Tốt nghiệp Cao học Y học Cổ truyền (2016 - 2018)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0030',
@@ -1983,7 +2070,10 @@ Khám và điều trị
 ### Chứng chỉ trong nước hoặc nước ngoài
 
 -   Chứng chỉ đào tạo liên tục - Sở y tế Hà Nội (2022)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0031',
@@ -2058,7 +2148,10 @@ Khám và điều trị
 **Tư vấn, chăm sóc sức khỏe sinh sản vị thành niên**
 
 **Khám và tư vấn sức khỏe tiền hôn nhân**`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0032',
@@ -2119,7 +2212,10 @@ Khám và điều trị 
 -   Điều trị dự phòng sảy thai, lưu thai liên tiếp 
 -   Chấn đoán sớm bệnh lý về thai 
 -   Điều trị bệnh lý viêm nhiễm phụ khoa`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0033',
@@ -2184,7 +2280,10 @@ Khám và điều trị 
 -   Rối loạn tiền mãn kinh, mãn kinh
 -   Tư vấn, chăm sóc sức khỏe sinh sản vị thành niên 
 -   Khám và tư vấn sức khỏe tiền hôn nhân`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0034',
@@ -2241,7 +2340,10 @@ Khám và điều trị
 -   Polyp cổ tử cung
 -   Tầm soát ung thư cổ tử cung
 -   Các bệnh phụ khoa`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0035',
@@ -2306,7 +2408,10 @@ Khám và điều trị
 
 -   Tốt nghiệp Thạc sĩ chuyên ngành Sản phụ khoa, Đại học Y Hà Nội (2011)
 -   Tốt nghiệp trường Đại học Y Hà Nội chuyên ngành Đa khoa Ngoại Sản (1986)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0036',
@@ -2353,7 +2458,10 @@ Nhận khám và điều trị 
 
 -   Đặc điểm lâm sàng, cận lâm sàng, nội soi phế quản ống mềm và chụp cắt lớp vi tính ở bệnh nhân lao phổi sau điều trị khỏi.
 -   Nghiên cứu tình trạng thiếu máu thiếu sắt trên bệnh nhân nhi điều trị nội trú tại Khoa nhi Bệnh viện trung ương Quân đội 108.`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0037',
@@ -2404,7 +2512,10 @@ Khám và điều trị
 -   Chứng nhận đào tạo liên tục: "Đánh giá huyết động học trong hồi sức sốc ở trẻ em"
 -   Chứng nhận "Tư vấn truyền thông sức khỏe về nuôi con bằng sữa mẹ"
 -   Chứng chỉ đào tạo liên tục: "Thiết lập tĩnh mạch trung tâm từ ngoại biên bằng phương pháp Seldinger cải tiến dưới hướng dẫn siêu âm ở trẻ em dành cho bác sĩ"`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0038',
@@ -2450,7 +2561,10 @@ Khám và điều trị
 Bác sĩ khám và điều trị:
 
 -   Các bệnh lý về Nhi khoa, đặc biệt là bệnh nhân nặng ở khoa Cấp cứu và khoa Hồi sức Tích cực`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0039',
@@ -2493,7 +2607,10 @@ Bác sĩ nhận khám và điều trị bệnh lý Nhi khoa:
 -   Dinh dưỡng
 -   Tiết niệu
 -   Tim mạch`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0040',
@@ -2537,7 +2654,10 @@ Khám và điều trị
 -   Truyền nhiễm
 -   Bệnh Thần kinh trẻ em
 -   Bệnh tim trẻ em`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0041',
@@ -2608,7 +2728,10 @@ Khám và điều trị
 -   Sẹo lồi: Tổn thương nổi gồ trên bề mặt da, không đau, màu trùng màu da hoặc đậm hơn
 -   Lão hóa da: Da bị chảy xệ, trùng nhão không được săn chắc. Nhiều nếp nhăn vùng trán, đuôi mắt, rãnh mũi má
 -   Rụng tóc: Tóc rụng thành chỏm hoặc nhiều sợi , sợi tóc mỏng xơ dễ gãy`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0042',
@@ -2688,7 +2811,10 @@ Khám và điều trị
 -   Hội bác sĩ Da liễu Thẩm mỹ
 -   Hội thầy thuốc trẻ Việt Nam
 -   Hội laser và thẩm mỹ nội khoa`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0043',
@@ -2831,7 +2957,10 @@ Khám và điều trị
 -   Đánh giá hiệu quả triệt lông bằng IPL (2015)
 -   Đánh giá hiệu quả điều trị tàn nhang bằng Laser Alexandoit (2013)
 -   Xác định sự hiện diện của tụ cầu vàng và đánh giá hiệu quả của Fucidin H trong viêm da cơ địa ở trẻ em (2007 - 2009)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0044',
@@ -2892,7 +3021,10 @@ Khám và điều trị
 -   Ứng dụng Botulinum Toxin trong thẩm mỹ da, Bệnh viện Da liễu Trung Ương (2021)
 -   Tiêm chất làm đầy trong thẩm mỹ da, Bệnh viện Da liễu Trung Ương (2021)
 -   Mesotherapy trong thẩm mỹ da, Bệnh viện Da liễu Trung Ương (2021)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0045',
@@ -2953,7 +3085,10 @@ Bác sĩ nhận khám và điều trị:
 ### Thành viên các Hội khoa học, tổ chức chuyên môn
 
 -   Phó chủ tịch hội bác sĩ Da liễu trẻ Việt Nam`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0046',
@@ -3038,7 +3173,10 @@ Khám và điều trị
 -   Rối loạn ăn uống: Chán ăn, ăn vô độ, béo phì.
 -   Rối loạn tình dục: Mất ham muốn, xuất tinh sớm, bất lực, lãnh cảm, đau khi giao hợp, rối loạn phân định giới tính,...
 -   Các vấn đề về nghiện: Nghiện rượu, ma tuý, Game Online, Internet, ...`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0047',
@@ -3089,7 +3227,10 @@ Khám và điều trị
 -   Thạc sĩ Y học, Đại học Y Hà Nội (2018)
 -   Bác sĩ Nội trú, Đại học Y Hà Nội (2016 - 2019)
 -   Tốt nghiệp Đại học Y Hà Nội (2016)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0048',
@@ -3151,7 +3292,10 @@ Các nghiên cứu khoa học đã tham gia:
 -   Nghiên cứu các rối loạn tâm thần trên bệnh nhân động kinh cơn lớn đang điều trị tại cộng đồng TP. HCM (2013)
 -   Khảo sát khoảng thời gian loạn thần không điều trị (DUP) và các yếu tố liên quan trên bệnh nhân loạn thần đến khám tại Bệnh viện Tâm thần TP. HCM (2011 - 2012)
 -   Khảo sát phản ứng tâm lý bệnh nhân tâm thần phân liệt đối với các định kiến xã hội tại TP. HCM (2006)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0049',
@@ -3205,7 +3349,10 @@ Khám & điều trị các bệnh
 -   Chuyên khoa Tâm thần, Bác sĩ chuyên khoa cấp II, Đại học Y Hà Nội (2020 - 2022)
 -   Bác sĩ Nội trú Chuyên ngành Tâm thần, Đại học Y Hà Nội (2016)
 -   Tốt nghiệp Bác sĩ Đa Khoa, Đại học Y Hà Nội (2013)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0050',
@@ -3315,7 +3462,10 @@ Bác sĩ có thế mạnh về tư vấn và trị liệu tâm lý, cũng như �
 -   Sa sút trí tuệ
 -   Hưng cảm
 -   Tâm thần phân liệt`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0051',
@@ -3417,7 +3567,10 @@ Khám và điều trị
 -   Các bệnh tự miễn khác
 
 **Điều trị giải mẫn cảm đặc hiệu với dị nguyên dị ứng**`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0052',
@@ -3463,7 +3616,10 @@ Khám và điều trị
 -   Mày đay, viêm da tiếp xúc, viêm da chàm hóa, phù Quincke, hồng ban nút, hồng ban nhiễm sắc cố định,...
 -   Hen phế quản, Bệnh phổi tắc nghẽn mạn tính (COPD),viêm mũi dị ứng
 -   Bệnh tự miễn, Lupus ban đỏ hệ thống, xơ cứng bì, viêm da cơ,...`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0053',
@@ -3524,7 +3680,10 @@ Khám và điều trị
 -   Ung Thư
 -   Các bệnh Phổi nghề nghiệp
 -   Các bệnh hô hấp`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0054',
@@ -3580,7 +3739,10 @@ Chẩn đoán & Điều trị các bệnh lý nội hô hấp:
 -   Ung Thư
 -   Các bệnh Phổi nghề nghiệp
 -   Các bệnh hô hấp`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0055',
@@ -3665,7 +3827,10 @@ Khám và điều trị
     -   Ngủ ngáy, buồn ngủ ban ngày, mệt mỏi, cáu gắt
     -   Biến chứng gây rối loạn chuyển hóa....
 -   Chẩn đoán ho kéo dài Ho kéo dài do nhiều nguyên nhân ....`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0056',
@@ -3704,7 +3869,10 @@ Khám và điều trị
 -   Bác sĩ tại Bệnh viện Quốc tế DoLife (Nay)
 -   Nguyên Phó Giám đốc Học viện Quân y
 -   Nguyên Phó Giám đốc Bệnh viện Quân y 103` ,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0057',
@@ -3780,7 +3948,10 @@ Khám và điều trị
 
 -   Hội Hô hấp Việt Nam
 -   Hội Hô hấp TP. Hồ Chí Minh`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0058',
@@ -3838,7 +4009,10 @@ Khám và điều trị
 -   Khám màng bồ đào
 -   Khám dịch kính - võng mạc
 -   Đo thị lực, cắt kính`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0059',
@@ -3909,7 +4083,10 @@ Bác sĩ nhận khám, điều trị tất cả các bệnh về mắt
 -   Phối hợp cắt dịch kính đặt IOL
 -   Phẫu thuật thủy tinh thể bằng PP phaco và femto đặt IOL
 -   Phẫu thuật viên Phaco độc lập`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0060',
@@ -4025,7 +4202,10 @@ Khám và điều trị
 -   Tiêm cạnh nhãn cầu
 -   Khâu kết mạc
 -   Khâu vết thương da mi`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0061',
@@ -4076,7 +4256,10 @@ Bác sĩ có thế mạnh về phẫu thuật Phaco, Lasik,...
 -   Kỹ năng siêu âm A/B thành thạo.
 -   Kỹ năng khám, tư vấn và đo khúc xạ thuần thục, quản lý cận thị
 -   Kỹ năng phẫu thuật tạo hình mí mắt bằng Laser CO2`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0062',
@@ -4190,7 +4373,10 @@ Khám và điều trị
 -   Tiêm cạnh nhãn cầu
 -   Khâu kết mạc
 -   Khâu vết thương da mi`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0063',
@@ -4244,7 +4430,10 @@ Khám và điều trị:
 -   Ủy viên ban chấp hành hội tiết niệu toàn quốc
 -   Phó chủ tịch hội tiết niệu phía Bắc
 -   Tổng thư ký hội thận học tiết niệu Hà Nội`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0064',
@@ -4306,7 +4495,10 @@ Khám và điều trị 
 -   Hội chứng tan máu tăng urê máu ở bệnh nhân ghép thận: một báo cáo trường hợp và tổng quan y văn (2004 - 2008)
 -   Siêu âm Doppler trong quá trình theo dõi thận ghép tại Bệnh viện Nhân dân 115 (2004 - 2008)
 -   Sinh thiết qua da của thận tự nhiên và thận ghép dưới hướng dẫn siêu âm tại Bệnh viện Nhân dân 115 (2004 - 2008)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0065',
@@ -4366,7 +4558,10 @@ Khám và điều trị
 ### Thành viên các Hội khoa học, tổ chức chuyên môn
 
 -   Ủy viên BCH hội Thận -- Lọc máu Nhi khoa Việt Nam và Hội Thận Học Việt Nam`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0066',
@@ -4426,7 +4621,10 @@ Khám và điều trị 
 -   Phẫu thuật nội soi Tiết niệu, Bệnh Viện Tan Tock Seng, Singapore (2005)
 -   Kỹ thuật nội soi ổ bụng nâng cao trong Tiết niệu, Đại học Louis Pasteur, Strabourg, Pháp (2003)
 -   Thận học và ghép thận, Khoa Thận và Ghép Thận tại Bệnh Viện Đại học Pellegrin, Bordeaux, Pháp, (1994 - 1995)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0067',
@@ -4480,7 +4678,10 @@ Bác sĩ từ xa
 -   Viêm bàng quang 
 -   Viêm đài bể thận 
 -   Áp xe quanh thận ...`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0068',
@@ -4522,7 +4723,10 @@ Khám và điều trị
 -   Tốt nghiệp chính quy Bác sĩ chuyên khoa Răng Hàm Mặt Đại học Y Khoa Lahabana Cuba
 -   Tốt nghiệp chính quy Bác sĩ phục hình răng Trường Đại Học Y Khoa Sancti Spiritus Cuba
 -   Tham gia nhiều khóa học nâng cao về chuyên môn phục hình răng, nha khoa thẩm mỹ tại các cơ sở đầu ngành tổ chức`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0069',
@@ -4567,7 +4771,10 @@ Khám và điều trị 
 ### Chứng chỉ trong nước hoặc nước ngoài
 
 -   Chứng chỉ chỉnh hình răng mặt do Đại học Y Dược TP. Hồ Chí Minh cấp`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0070',
@@ -4623,7 +4830,10 @@ Bác sĩ có chuyên môn trong lĩnh vực Chỉnh nha:
 ### Giải thưởng
 
 -   Đạt danh hiệu bác sĩ hạng Gold - Tổ chức Invisalign Hoa Kỳ`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0071',
@@ -4673,7 +4883,10 @@ Bác sĩ có thế mạnh trong khám và điều trị:
 -   Răng lệch lạc Răng khấp khểnh, vổ, móm, cắn hở cửa
 -   Răng trẻ em Răng sữa sâu, lung lay, viêm tủy sưng đau
 -   Loạn năng khớp TDH Khít hàm, đau khi há, tiếng kêu khớp, mỏi hàm, đau nửa đầu, lệch khớp cắn.`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0072',
@@ -4714,7 +4927,10 @@ Bác sĩ có thế mạnh chuyên môn về Phục hình thẩm mỹ. Ngoài ra
 ### Quá trình đào tạo
 
 -   Bác sĩ Răng hàm mặt - Đại học Y Hà Nội (2008 - 2014)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0073',
@@ -4761,7 +4977,10 @@ Khám và điều trị
 
 -   Học Chuyên khoa I Đại học Y Dược TP. HCM
 -   Học và tốt nghiệp Đại học Y Dược TP. HCM (1985 -- 1991)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0074',
@@ -4814,7 +5033,10 @@ Khám và điều trị 
 -   U thượng thận
 -   Hội chứng Cushing 
 -   Rối loạn Lipid máu`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0075',
@@ -4881,7 +5103,10 @@ Khám và điều trị
 -   Tiểu đường tuýp 2
 -   U tuyến yên
 -   Ung thư tuyến giáp`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0076',
@@ -4930,7 +5155,10 @@ Khám và điều trị
 -   Chứng chỉ tham gia lớp "Training Course on Good Clinical Practice"
 -   Chứng chỉ tham gia lớp " Y HọcThực Chứng"
 -   Công trình nghiên cứu " tỉ lệ thiếu vitamin D ở bệnh nhân đái tháo đường tip 2 đến khám tại phòng khám nội tiết bệnh viện Nhân Dân Gia Định"`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0077',
@@ -4988,7 +5216,10 @@ Khám và điều trị
 
 -   Tham gia Khóa học Đái tháo đường tại trung tâm Đái tháo đường Quốc tế IDC (2019)
 -   Tham dự hội thảo ADA (2018, 2019)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0078',
@@ -5059,7 +5290,10 @@ Bác sĩ khám và điều trị các bệnh lý về Vật lý trị liệu v�
 -   Tập huấn về PHCN tại Nhật (2013)
 -   Phục hồi chức năng tim mạch - Bệnh viện An Bình phối hợp với Trinity College Dublin (2010)
 -   Laser y học và Vật lý trị liệu - Phân viện Vật lý Y sinh học, Hội Laser y học & Laser Ngoại khoa TP. HCM, Viện ngoại khoa Laser (2009)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0079',
@@ -5097,7 +5331,10 @@ Phòng khám có hình thức thanh toán chi phí bằng tiền mặt`,
 ### Thành viên các Hội khoa học, tổ chức chuyên môn
 
 -   Thành viên Hiệp Hội Chiropractic Hoa Kỳ`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0080',
@@ -5198,7 +5435,10 @@ Khám và điều trị
 -   Điều trị thoát vị đĩa đệm
 -   Chữa đau thần kinh tọa
 -   Chữa vẹo cột sống`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0081',
@@ -5288,7 +5528,10 @@ Phục hồi chức năng cho các bệnh nhân sau phẫu thuật lồng ngực
 ### Tham gia các chuyên đề sức khỏe trên báo chí, truyền hình...
 
 -   Là nghiên cứu sinh chính tham gia đề tài cấp nhà nước về ghép tế bào gốc điều trị bại não, ghép tế bào gốc điều trị tự kỷ, đồng tác giả & 10 bài báo đã được đăng trên các tạp chí có uy tín trên thế giới và trong nước. Nội dung các bài báo là các công trình nghiên cứu về tế bào gốc điều trị bại não do ngạt, đuối nước, vàng da, điều trị thoát vị màng não tủy và một số bệnh lý rối loạn vận động, nhận thức liên quan đến gen di truyền.`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0082',
@@ -5341,7 +5584,10 @@ Khám và điều trị
 
 -   Tốt nghiệp Bác sĩ Chuyên khoa I chuyên ngành Phục hồi chức năng, Học viện Quân Y (2011)
 -   Tốt nghiệp Bác sĩ Đa khoa, Học viện Quân Y (1996)`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0083',
@@ -5391,7 +5637,10 @@ Khám và điều trị
 -   Suy giảm miễn dịch
 -   Sốt xuất huyết
 -   Các bệnh Truyền nhiễm mới nổi.....`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0084',
@@ -5442,7 +5691,10 @@ Khám và điều trị
 -   Uốn ván
 -   Viêm gan virus (A,B,C,D,E)
 -   Viêm màng não mô cầu`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             {
                 id: '0085',
@@ -5481,7 +5733,10 @@ Khám và điều trị
 ----------------
 
 -   Bác sĩ khám và điều trị bệnh lý chuyên khoa Nội và truyền nhiễm, tổ chức tiêm chủng vacxin bệnh viện`,
-                active: true
+                active: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+
             },
             // {
             //     name: ,
@@ -5493,7 +5748,10 @@ Khám và điều trị
             //     image: await toBase64(),
             //     describe: ,
             //     content: ,
-            //     active: true
+            //     active: true,
+            // createdAt: new Date(),
+            // updatedAt: new Date()
+
             // },
             // {
             //     name: ,
@@ -5505,7 +5763,10 @@ Khám và điều trị
             //     image: await toBase64(),
             //     describe: ,
             //     content: ,
-            //     active: true
+            //     active: true,
+            // createdAt: new Date(),
+            //             updatedAt: new Date()
+
             // },
             //     name: ,
             //     phoneNumber: randomPhoneNumber(),
@@ -5516,19 +5777,10 @@ Khám và điều trị
             //     image: await toBase64(),
             //     describe: ,
             //     content: ,
-            //     active: true
-            // },
-            // {
-            //     name: ,
-            //     phoneNumber: randomPhoneNumber(),
-            //     specialtyID: ,
-            //     clinicAddress: ,
-            //     email: '@gmail.com' ,
-            //     username: ,
-            //     image: await toBase64(),
-            //     describe: ,
-            //     content: ,
-            //     active: true
+            //     active: true,
+            // createdAt: new Date(),
+            //             updatedAt: new Date()
+
             // },
             // {
             //     name: ,
@@ -5540,7 +5792,10 @@ Khám và điều trị
             //     image: await toBase64(),
             //     describe: ,
             //     content: ,
-            //     active: true
+            //     active: true,
+            // createdAt: new Date(),
+            //             updatedAt: new Date()
+
             // },
             // {
             //     name: ,
@@ -5552,7 +5807,10 @@ Khám và điều trị
             //     image: await toBase64(),
             //     describe: ,
             //     content: ,
-            //     active: true
+            //     active: true,
+            // createdAt: new Date(),
+            //             updatedAt: new Date()
+
             // },
             // {
             //     name: ,
@@ -5564,7 +5822,25 @@ Khám và điều trị
             //     image: await toBase64(),
             //     describe: ,
             //     content: ,
-            //     active: true
+            //     active: true,
+            // createdAt: new Date(),
+            //             updatedAt: new Date()
+
+            // },
+            // {
+            //     name: ,
+            //     phoneNumber: randomPhoneNumber(),
+            //     specialtyID: ,
+            //     clinicAddress: ,
+            //     email: '@gmail.com' ,
+            //     username: ,
+            //     image: await toBase64(),
+            //     describe: ,
+            //     content: ,
+            //     active: true,
+            // createdAt: new Date(),
+            //             updatedAt: new Date()
+
             // },
         ]);
     },

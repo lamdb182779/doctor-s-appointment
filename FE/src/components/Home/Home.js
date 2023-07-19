@@ -28,7 +28,7 @@ const Home = (props) => {
         props.setRoute({
             preRoute: props.route,
             path: path,
-            scrollY: props.loc,
+            scrollY: window.scrollY,
         })
         navigate(path)
         window.scrollTo(0, 0);
@@ -99,8 +99,8 @@ const Home = (props) => {
                 <div ref={componentRef}>
                     <Introduce index={index} setIndex={setIndex} />
                 </div>
-                <Slide showMore={handleShowMore} loc={props.loc} show={'/specialties'} />
-                <Slide showMore={handleShowMore} loc={props.loc} show={'/doctors'} />
+                <Slide showMore={handleShowMore} show={'/specialties'} />
+                <Slide showMore={handleShowMore} show={'/doctors'} />
             </div>
         </div>
     )

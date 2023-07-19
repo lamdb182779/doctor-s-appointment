@@ -2,7 +2,6 @@
     margin-top: 5%;
     padding   : 3% 5%;
 
-    .detail-nodata,
     .detail-loading {
         display        : flex;
         align-items    : center;
@@ -17,6 +16,11 @@
         >div {
             margin-right: 1%;
         }
+    }
+
+    .detail-nodata {
+        font-size : 70%;
+        margin-top: 3%;
     }
 
     .detail-title {

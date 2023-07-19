@@ -1,19 +1,16 @@
 const express = require('express')
-const { getHomePage } = require('../controller/homeController')
 const { getInfoApp } = require('../controller/infoController')
-const { getSpecialties } = require('../controller/specialtiesController')
-const { getAllDoctors, getSpecialtiesName, getDoctorById } = require('../controller/doctorsController')
 const router = express.Router()
+const home = require('./home')
+const specialties = require('./specialties')
+const doctors = require('./doctors')
+const login = require('./login')
 
 const route = (app) => {
-    router.get('/home', getHomePage)
-
-    router.get('/specialties', getSpecialties)
-
-    router.get('/doctors/specialties', getSpecialtiesName)
-    router.get('/doctors', getAllDoctors)
-    router.get('/doctor/:id', getDoctorById)
-
+    specialties(router)
+    doctors(router)
+    home(router)
+    login(router)
     router.get('/', getInfoApp)
     return app.use('/api', router)
 }

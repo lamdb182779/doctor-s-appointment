@@ -19,14 +19,30 @@
             background-color: grey;
         }
 
-        >div {
-            margin   : 1% auto;
+        .slide-specialties {
+            margin   : 10% auto;
             font-size: 70%;
             cursor   : pointer;
 
             img {
                 width : 18rem;
                 height: 10rem;
+            }
+        }
+
+        .slide-doctors {
+            margin   : 10% auto;
+            font-size: 70%;
+            cursor   : pointer;
+
+            img {
+                margin: 0 auto;
+                width : 10rem;
+                height: 10rem;
+            }
+
+            small {
+                color: grey;
             }
         }
 

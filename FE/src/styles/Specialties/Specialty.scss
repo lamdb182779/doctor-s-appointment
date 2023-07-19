@@ -1,11 +1,12 @@
 .specialty-container {
-    border       : 0px;
-    min-height   : 30vh;
-    border-radius: 20px;
-    background   : radial-gradient(circle at center, #6ec2f7, #cfebfc);
-    margin-top   : 2%;
-    padding      : 2% 5%;
-    cursor       : pointer;
+    border             : 0px;
+    min-height         : 30vh;
+    border-radius      : 20px;
+    background-color   : #c7ceea;
+    margin-top         : 2%;
+    padding            : 2% 5%;
+    cursor             : pointer;
+    // color           : white;
 
     .specialty-title {
         text-align : left;

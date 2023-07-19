@@ -11,7 +11,7 @@ const Nav = (props) => {
             props.setRoute({
                 preRoute: props.route,
                 path: path,
-                scrollY: props.loc,
+                scrollY: window.scrollY,
             })
         }
         window.scrollTo(0, 0)

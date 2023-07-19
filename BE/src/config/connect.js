@@ -40,4 +40,4 @@ let conn = async () => {
   }
 }
 
-module.exports = conn
+module.exports = { conn, sequelize }

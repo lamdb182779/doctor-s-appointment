@@ -11,7 +11,7 @@ const toImage = (image) => {
 
 let getAllDoctors = async (req, res) => {
     let { page, pagesize, name, specialtyID, clinicAddress } = req.query
-
+    page = parseInt(page)
     pagesize = parseInt(pagesize)
 
     pagesize = !pagesize ? 5 : pagesize

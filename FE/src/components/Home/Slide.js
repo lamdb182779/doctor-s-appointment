@@ -55,14 +55,14 @@ const Slide = (props) => {
         },
     }
 
-    const { data, loading } = useFetch('http://localhost:8080/api/home')
+    const { data, loading } = useFetch(`http://localhost:8080/api/home/${props.show}`)
 
     const handleSpecialtyDoctors = (id) => {
         let path = `/doctors?specialtyID=${id}`
         props.setRoute({
             preRoute: { ...props.route, slide: slide },
             path: path,
-            scrollY: props.loc,
+            scrollY: window.scrollY,
         })
         navigate(path)
         window.scrollTo(0, 0)
@@ -73,7 +73,7 @@ const Slide = (props) => {
         props.setRoute({
             preRoute: { ...props.route, slide: slide },
             path: path,
-            scrollY: props.loc,
+            scrollY: window.scrollY,
         })
         navigate(path)
         window.scrollTo(0, 0)
@@ -82,7 +82,7 @@ const Slide = (props) => {
         <div className="slide-container" onMouseDown={() => handleMouseDown()} onMouseUp={() => handleMouseUp()}>
             <div className="slide-title">
                 <b>
-                    Chuyên khoa phổ biến
+                    {props.show === '/doctors' ? 'Một số bác sĩ trong hệ thống' : 'Một số chuyên khoa'}
                 </b>
                 <Button className="mt-1" variant="outline-primary" size="sm" onClick={() => props.showMore(props.show)}>Xem thêm</Button>
             </div>
@@ -95,8 +95,22 @@ const Slide = (props) => {
                                     {data.map((item, index) => {
                                         return (
                                             <div key={index} onClick={() => handleClick(item.id)}>
-                                                <Image src={item.image} alt={item.name} fluid />
-                                                {item.name}
+                                                {props.show === '/doctors' ?
+                                                    <>
+                                                        <div className="slide-doctors">
+                                                            <Image src={item.image} alt={item.name} width='20px' height='20px' roundedCircle />
+                                                            {item.name}<br />
+                                                            <small>{item.Specialty.name}</small>
+                                                        </div>
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <div className="slide-specialties">
+                                                            <Image src={item.image} alt={item.name} fluid />
+                                                            {item.name}
+                                                        </div>
+                                                    </>
+                                                }
                                             </div>
                                         )
                                     })

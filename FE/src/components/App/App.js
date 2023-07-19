@@ -7,6 +7,7 @@ import Home from '../Home/Home';
 import Specialties from '../Specialties/Specialties';
 import Doctors from '../Doctors/Doctors';
 import Detail from '../Doctors/Detail';
+import Notfound from '../Notfound/Notfound';
 
 import '../../styles/App/App.scss';
 
@@ -14,7 +15,7 @@ import logo from '../../assets/images/logo.png'
 
 import { Offcanvas, Button, Modal } from 'react-bootstrap';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import {
   BrowserRouter,
@@ -32,16 +33,7 @@ function App() {
   const handleShowForgetPw = () => setShowForgetPw(true)
   const handleCloseLogin = () => setShowLogin(false)
   const handleShowLogin = () => setShowLogin(true)
-  const [loc, setLoc] = useState(0)
 
-  useEffect(() => {
-    function handleScroll() {
-      setLoc(window.scrollY);
-    }
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <BrowserRouter>
       <div className="App">
@@ -52,7 +44,7 @@ function App() {
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Nav handleClose={handleCloseCanvas} loc={loc} />
+            <Nav handleClose={handleCloseCanvas} />
           </Offcanvas.Body>
         </Offcanvas>
         <header className="App-header">
@@ -60,10 +52,11 @@ function App() {
         </header>
         <main className='App-main'>
           <Routes>
-            <Route path='/' element={<Home loc={loc} />} />
+            <Route path='/' element={<Home />} />
             <Route path='/specialties' element={<Specialties />} />
             <Route path='/doctors' element={<Doctors />} />
             <Route path='/doctor/:id' element={<Detail />} />
+            <Route path='*' element={<Notfound />} />
           </Routes>
         </main>
         <footer className='App-footer'>

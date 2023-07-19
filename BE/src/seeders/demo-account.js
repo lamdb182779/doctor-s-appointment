@@ -1,6 +1,6 @@
 'use strict';
 const bcrypt = require('bcryptjs');
-const salt = bcrypt.genSaltSync(10)
+const salt = bcrypt.genSaltSync(parseInt(process.env.BCRYPT_SALT))
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {

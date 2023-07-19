@@ -31,9 +31,12 @@ const Doctors = (props) => {
     const { data, loading } = useFetch(`http://localhost:8080/api/doctors?page=${page}&pagesize=${pagesize}&specialtyID=${specialtyID}&name=${name}&clinicAddress=${clinicAddress}`)
     const [searchName, setSearchName] = useState(name ? name : '')
     const [searchAddress, setSearchAddress] = useState(clinicAddress ? clinicAddress : '')
-    // const [searchSpecialtyID, setSearchSpecialtyID] = useState(specialtyID ? specialtyID : '')
+    const [isShowTypePage, setIsShowTypePage] = useState(false)
+    const [typePage, setTypePage] = useState(page.toString())
 
     const handleSearch = () => {
+        setIsShowTypePage(false)
+        setTypePage('1')
         let path = `/doctors?page=1&pagesize=${pagesize}&specialtyID=${specialtyID}&name=${searchName}&clinicAddress=${searchAddress}`
         props.setRoute({
             preRoute: props.route.preRoute,
@@ -44,6 +47,8 @@ const Doctors = (props) => {
     }
 
     const handlePage = (page) => {
+        setIsShowTypePage(false)
+        setTypePage(page.toString())
         let path = `/doctors?page=${page}&pagesize=${pagesize}&specialtyID=${specialtyID}&name=${name}&clinicAddress=${clinicAddress}`
         props.setRoute({
             preRoute: props.route.preRoute,
@@ -55,6 +60,8 @@ const Doctors = (props) => {
     }
 
     const handlePagesize = (pagesize) => {
+        setIsShowTypePage(false)
+        setTypePage('1')
         let path = `/doctors?page=1&pagesize=${pagesize}&specialtyID=${specialtyID}&name=${name}&clinicAddress=${clinicAddress}`
         props.setRoute({
             preRoute: props.route.preRoute,
@@ -65,6 +72,8 @@ const Doctors = (props) => {
     }
 
     const handleSpecialty = (specialtyID) => {
+        setIsShowTypePage(false)
+        setTypePage('1')
         let path = `/doctors?page=1&pagesize=${pagesize}&specialtyID=${specialtyID}&name=${name}&clinicAddress=${clinicAddress}`
         props.setRoute({
             preRoute: props.route.preRoute,
@@ -145,34 +154,30 @@ const Doctors = (props) => {
                         <Col xs={8}>
                             <div className="doctors-name">
                                 Tên:
-                                <Form className="d-flex">
-                                    <Form.Control
-                                        type="search"
-                                        placeholder="Nhập tên bác sĩ"
-                                        className="me-2"
-                                        aria-label="Search"
-                                        size="sm"
-                                        value={searchName}
-                                        onChange={(event) => setSearchName(event.target.value)}
-                                    />
-                                </Form>
+                                <Form.Control
+                                    type="search"
+                                    placeholder="Nhập tên bác sĩ"
+                                    className="me-2"
+                                    aria-label="Search"
+                                    size="sm"
+                                    value={searchName}
+                                    onChange={(event) => setSearchName(event.target.value)}
+                                />
                             </div>
                         </Col>
                     </Row>
                     <Row>
                         <div className="doctors-address">
                             Địa chỉ:
-                            <Form className="d-flex">
-                                <Form.Control
-                                    type="search"
-                                    placeholder="Nhập địa chỉ"
-                                    className="me-2"
-                                    aria-label="Search"
-                                    size="sm"
-                                    value={searchAddress}
-                                    onChange={(event) => setSearchAddress(event.target.value)}
-                                />
-                            </Form>
+                            <Form.Control
+                                type="search"
+                                placeholder="Nhập địa chỉ"
+                                className="me-2"
+                                aria-label="Search"
+                                size="sm"
+                                value={searchAddress}
+                                onChange={(event) => setSearchAddress(event.target.value)}
+                            />
                             <Button variant="outline-success"
                                 onClick={() => handleSearch()}>Tìm kiếm</Button>
                         </div>
@@ -239,7 +244,7 @@ const Doctors = (props) => {
                                                         <Pagination.First onClick={() => handlePage(1)} />
                                                         <Pagination.Prev onClick={() => handlePage(page <= 1 ? 1 : page - 1)} />
                                                         {pagination}
-                                                        <Pagination.Ellipsis />
+                                                        <Pagination.Ellipsis onClick={() => setIsShowTypePage(!isShowTypePage)} />
                                                         <Pagination.Item key={len} onClick={() => handlePage(len)}>{len}</Pagination.Item>
                                                         <Pagination.Next onClick={() => handlePage(page >= len ? len : page + 1)} />
                                                         <Pagination.Last onClick={() => handlePage(len)} />
@@ -261,7 +266,7 @@ const Doctors = (props) => {
                                                         <Pagination.First onClick={() => handlePage(1)} />
                                                         <Pagination.Prev onClick={() => handlePage(page <= 1 ? 1 : page - 1)} />
                                                         <Pagination.Item key={1} onClick={() => handlePage(1)}>{1}</Pagination.Item>
-                                                        <Pagination.Ellipsis />
+                                                        <Pagination.Ellipsis onClick={() => setIsShowTypePage(!isShowTypePage)} />
                                                         {pagination}
                                                         <Pagination.Next onClick={() => handlePage(page >= len ? len : page + 1)} />
                                                         <Pagination.Last onClick={() => handlePage(len)} />
@@ -282,9 +287,9 @@ const Doctors = (props) => {
                                                     <Pagination.First onClick={() => handlePage(1)} />
                                                     <Pagination.Prev onClick={() => handlePage(page <= 1 ? 1 : page - 1)} />
                                                     <Pagination.Item key={1} onClick={() => handlePage(1)}>{1}</Pagination.Item>
-                                                    <Pagination.Ellipsis />
+                                                    <Pagination.Ellipsis onClick={() => setIsShowTypePage(!isShowTypePage)} />
                                                     {pagination}
-                                                    <Pagination.Ellipsis />
+                                                    <Pagination.Ellipsis onClick={() => setIsShowTypePage(!isShowTypePage)} />
                                                     <Pagination.Item key={len} onClick={() => handlePage(len)}>{len}</Pagination.Item>
                                                     <Pagination.Next onClick={() => handlePage(page >= len ? len : page + 1)} />
                                                     <Pagination.Last onClick={() => handlePage(len)} />
@@ -292,6 +297,24 @@ const Doctors = (props) => {
                                             </div>
                                         )
                                     })
+                                    }
+                                    {isShowTypePage === true ?
+                                        <>
+                                            <div className="doctors-type-page">
+                                                Nhập trang cần tới:
+                                                <Form.Control
+                                                    type="search"
+                                                    aria-label="Search"
+                                                    size="sm"
+                                                    value={typePage}
+                                                    onChange={(event) => setTypePage(event.target.value)}
+                                                />
+                                                <Button size="sm" variant="outline-secondary"
+                                                    onClick={() => handlePage(isNaN(parseInt(typePage)) ? 1 : parseInt(typePage))}>Đi tới trang</Button>
+                                            </div>
+                                        </>
+                                        :
+                                        <></>
                                     }
                                 </>
                                 :

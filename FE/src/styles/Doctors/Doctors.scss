@@ -37,7 +37,7 @@
             .doctors-name {
                 margin-left: 3.7rem;
 
-                form {
+                input {
                     margin-left: 1rem;
                     width      : 70%;
                     height     : 2.3rem;
@@ -45,7 +45,7 @@
             }
 
             .doctors-address {
-                form {
+                input {
                     margin-left: 4rem;
                     width      : 75%;
                     height     : 2.3rem;
@@ -75,6 +75,21 @@
 
             .page-item {
                 margin-left: 5px;
+            }
+
+            .doctors-type-page {
+                display        : flex;
+                font-size      : 70%;
+                justify-content: center;
+                margin-top     : 1%;
+
+                * {
+                    margin-left: 1%;
+                }
+
+                input {
+                    width: 5%;
+                }
             }
 
             .doctors-nodata,
