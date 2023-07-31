@@ -19,6 +19,7 @@ module.exports = {
       email: 'lamxxxxxx79@gmail.com',
       address: '67/34/14 Lê Thanh Nghị, Đồng Tâm, Hai Bà Trưng, Hà Nội',
       username: 'admin',
+      active: true,
       createdAt: new Date(),
       updatedAt: new Date()
     }]);

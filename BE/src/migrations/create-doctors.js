@@ -13,6 +13,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       phoneNumber: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       specialtyID: {

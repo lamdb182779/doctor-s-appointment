@@ -8,6 +8,8 @@ import {
 
 import { Button, Image } from "react-bootstrap"
 
+import { connect } from "react-redux"
+
 const Header = (props) => {
     return (
         <>
@@ -28,14 +30,31 @@ const Header = (props) => {
                     033xxxxx33
                 </div>
             </div>
-            <div className="App-login" >
-                <Button variant="outline-light" onClick={() => props.handleShowLogin()}>
-                    <h6>Đăng nhập</h6>
-                    <a>Dành cho nhân viên hệ thống</a>
-                </Button>
-            </div>
+            {Object.keys(props.user).length === 0 ?
+                <>
+                    <div className="App-login" >
+                        <Button variant="outline-light" onClick={() => props.handleShowLogin()}>
+                            <h6>Đăng nhập</h6>
+                            <small>Dành cho nhân viên hệ thống</small>
+                        </Button>
+                    </div>
+                </>
+                :
+                <>
+                    <div className="App-user fs-6 my-auto text-white mx-5">
+                        Chào mừng,<br />
+                        {props.user.name}
+                    </div>
+                </>
+            }
         </>
     )
 }
 
-export default Header
+const mapStateToProps = (state) => {
+    return ({
+        user: state.user
+    })
+}
+
+export default connect(mapStateToProps)(Header)

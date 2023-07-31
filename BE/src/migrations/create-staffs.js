@@ -19,9 +19,11 @@ module.exports = {
         type: Sequelize.DATE
       },
       phoneNumber: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       email: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       address: {

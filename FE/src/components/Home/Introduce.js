@@ -76,7 +76,7 @@ const Introduce = (props) => {
                             <p>Với Doctor Booking, việc thao tác cực kỳ đơn giản.</p>
                             <p>Đặt lịch khám bệnh nhanh chóng, tiện lợi với trang web của chúng tôi.</p>
                             <p>Mau chóng chọn bác sĩ phù hợp và hẹn trước.</p>
-                            <p>Đặt lịch ngay &gt;&gt;&gt;</p>
+                            <p style={{ cursor: "pointer" }} onClick={() => props.showMore('/doctors')}>Đặt lịch ngay &gt;&gt;&gt;</p>
                         </Carousel.Item>
                         <Carousel.Item >
                             <p>Doctor Booking cung cấp cho bạn nhiều tiện ích với sự chăm sóc tận tình.</p>
@@ -87,7 +87,7 @@ const Introduce = (props) => {
                         <Carousel.Item>
                             <p>Quy tụ rất nhiều bác sĩ hàng đầu thuộc đầy đủ các chuyên khoa.</p>
                             <p>Cung cấp đầy đủ các chuyên khoa bệnh khác nhau.</p>
-                            <p>Tìm hiểu ngay các chuyên khoa &gt;&gt;&gt;</p>
+                            <p style={{ cursor: "pointer" }} onClick={() => props.showMore('/specialties')}>Tìm hiểu ngay các chuyên khoa &gt;&gt;&gt;</p>
                         </Carousel.Item>
                         <Carousel.Item >
                             <p>Lịch hẹn liên tục cập nhật.</p>

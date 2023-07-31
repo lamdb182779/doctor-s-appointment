@@ -24,7 +24,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
-    image: DataTypes.BLOB('long')
+    image: DataTypes.BLOB('long'),
+    table: {
+      type: DataTypes.VIRTUAL,
+      get() {
+        return 'Specialties';
+      }
+    },
   }, {
     sequelize,
     modelName: 'Specialties',

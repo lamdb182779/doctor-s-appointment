@@ -9,6 +9,14 @@ const toImage = (image) => {
     return ""
 }
 
+const hiddenEmail = (email) => {
+    return email.replace(/^(.{3}).*(\d{2}@.*$)/, '$1****$2')
+}
+
+const hiddenPhoneNumber = (phoneNumber) => {
+    return phoneNumber.replace(/^(\d{3}).*(\d{2})$/, '$1****$2')
+}
+
 let getAllDoctors = async (req, res) => {
     let { page, pagesize, name, specialtyID, clinicAddress } = req.query
     page = parseInt(page)
@@ -57,7 +65,18 @@ let getAllDoctors = async (req, res) => {
                 item.image = toImage(item.image)
                 return item
             })
-
+            data = data.map((item) => {
+                if (item.phoneNumber) {
+                    item.phoneNumber = hiddenPhoneNumber(item.phoneNumber)
+                }
+                return item
+            })
+            data = data.map((item) => {
+                if (item.email) {
+                    item.email = hiddenEmail(item.email)
+                }
+                return item
+            })
             data.push(count)
 
             return res.status(200).json({
@@ -100,6 +119,18 @@ let getDoctorById = async (req, res) => {
             })
             data = data.map((item) => {
                 item.image = toImage(item.image)
+                return item
+            })
+            data = data.map((item) => {
+                if (item.phoneNumber) {
+                    item.phoneNumber = hiddenPhoneNumber(item.phoneNumber)
+                }
+                return item
+            })
+            data = data.map((item) => {
+                if (item.email) {
+                    item.email = hiddenEmail(item.email)
+                }
                 return item
             })
             return res.status(200).json({

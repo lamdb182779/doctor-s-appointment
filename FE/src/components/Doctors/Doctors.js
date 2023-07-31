@@ -1,12 +1,13 @@
 import { useState, useRef } from "react"
 import "../../styles/Doctors/Doctors.scss"
 
-import { Button, Dropdown, Form, Col, Row, Spinner, Pagination } from "react-bootstrap"
+import { Button, Dropdown, Form, Col, Row, Spinner } from "react-bootstrap"
 
 import { useLocation, useNavigate } from "react-router-dom"
 import useFetch from "../../custom/fetch"
 
 import Doctor from "./Doctor"
+import Page from "../Page/Page"
 
 import { connect } from "react-redux"
 
@@ -31,13 +32,9 @@ const Doctors = (props) => {
     const { data, loading } = useFetch(`http://localhost:8080/api/doctors?page=${page}&pagesize=${pagesize}&specialtyID=${specialtyID}&name=${name}&clinicAddress=${clinicAddress}`)
     const [searchName, setSearchName] = useState(name ? name : '')
     const [searchAddress, setSearchAddress] = useState(clinicAddress ? clinicAddress : '')
-    const [isShowTypePage, setIsShowTypePage] = useState(false)
-    const [typePage, setTypePage] = useState(page.toString())
 
     const handleSearch = () => {
-        setIsShowTypePage(false)
-        setTypePage('1')
-        let path = `/doctors?page=1&pagesize=${pagesize}&specialtyID=${specialtyID}&name=${searchName}&clinicAddress=${searchAddress}`
+        let path = `/doctors?page=1&pagesize=${pagesize}&specialtyID=${specialtyID}&name=${searchName.trim()}&clinicAddress=${searchAddress.trim()}`
         props.setRoute({
             preRoute: props.route.preRoute,
             scrollY: props.route.scrollY ? props.route.scrollY : 0,
@@ -47,8 +44,6 @@ const Doctors = (props) => {
     }
 
     const handlePage = (page) => {
-        setIsShowTypePage(false)
-        setTypePage(page.toString())
         let path = `/doctors?page=${page}&pagesize=${pagesize}&specialtyID=${specialtyID}&name=${name}&clinicAddress=${clinicAddress}`
         props.setRoute({
             preRoute: props.route.preRoute,
@@ -60,8 +55,6 @@ const Doctors = (props) => {
     }
 
     const handlePagesize = (pagesize) => {
-        setIsShowTypePage(false)
-        setTypePage('1')
         let path = `/doctors?page=1&pagesize=${pagesize}&specialtyID=${specialtyID}&name=${name}&clinicAddress=${clinicAddress}`
         props.setRoute({
             preRoute: props.route.preRoute,
@@ -72,8 +65,6 @@ const Doctors = (props) => {
     }
 
     const handleSpecialty = (specialtyID) => {
-        setIsShowTypePage(false)
-        setTypePage('1')
         let path = `/doctors?page=1&pagesize=${pagesize}&specialtyID=${specialtyID}&name=${name}&clinicAddress=${clinicAddress}`
         props.setRoute({
             preRoute: props.route.preRoute,
@@ -84,7 +75,7 @@ const Doctors = (props) => {
     }
 
     const handleDoctor = (id) => {
-        let path = `/doctor/${id}`
+        let path = `/doctors/${id}`
         props.setRoute({
             preRoute: props.route,
             path: path,
@@ -202,119 +193,20 @@ const Doctors = (props) => {
                             {data?.length > 1 ?
                                 <>
                                     {data.map((item, index) => {
-                                        if (index !== data.length - 1)
+                                        if (index !== data.length - 1) {
                                             return (
                                                 <div key={index} onClick={() => handleDoctor(item.id)}>
                                                     <Doctor data={item} />
                                                 </div>
                                             )
-                                        let pagination = []
+                                        }
                                         let len = parseInt((item - 1) / pagesize + 1)
-                                        if (len <= 9) {
-                                            for (let num = 1; num <= len; num++) {
-                                                pagination.push(
-                                                    <Pagination.Item key={num} active={num === page} onClick={() => handlePage(num)}>
-                                                        {num}
-                                                    </Pagination.Item>
-                                                )
-                                            }
-                                            return (
-                                                <div className="doctors-pagination">
-                                                    <Pagination size="lg">
-                                                        <Pagination.First onClick={() => handlePage(1)} />
-                                                        <Pagination.Prev onClick={() => handlePage(page <= 1 ? 1 : page - 1)} />
-                                                        {pagination}
-                                                        <Pagination.Next onClick={() => handlePage(page >= len ? len : page + 1)} />
-                                                        <Pagination.Last onClick={() => handlePage(len)} />
-                                                    </Pagination>
-                                                </div>
-                                            )
-                                        }
-                                        if (page <= 4) {
-                                            for (let num = 1; num <= page + 1; num++) {
-                                                pagination.push(
-                                                    <Pagination.Item key={num} active={num === page} onClick={() => handlePage(num)}>
-                                                        {num}
-                                                    </Pagination.Item>
-                                                )
-                                            }
-                                            return (
-                                                <div className="doctors-pagination">
-                                                    <Pagination size="lg">
-                                                        <Pagination.First onClick={() => handlePage(1)} />
-                                                        <Pagination.Prev onClick={() => handlePage(page <= 1 ? 1 : page - 1)} />
-                                                        {pagination}
-                                                        <Pagination.Ellipsis onClick={() => setIsShowTypePage(!isShowTypePage)} />
-                                                        <Pagination.Item key={len} onClick={() => handlePage(len)}>{len}</Pagination.Item>
-                                                        <Pagination.Next onClick={() => handlePage(page >= len ? len : page + 1)} />
-                                                        <Pagination.Last onClick={() => handlePage(len)} />
-                                                    </Pagination>
-                                                </div>
-                                            )
-                                        }
-                                        if (page >= len - 3) {
-                                            for (let num = page - 1; num <= len; num++) {
-                                                pagination.push(
-                                                    <Pagination.Item key={num} active={num === page} onClick={() => handlePage(num)}>
-                                                        {num}
-                                                    </Pagination.Item>
-                                                )
-                                            }
-                                            return (
-                                                <div className="doctors-pagination">
-                                                    <Pagination size="lg">
-                                                        <Pagination.First onClick={() => handlePage(1)} />
-                                                        <Pagination.Prev onClick={() => handlePage(page <= 1 ? 1 : page - 1)} />
-                                                        <Pagination.Item key={1} onClick={() => handlePage(1)}>{1}</Pagination.Item>
-                                                        <Pagination.Ellipsis onClick={() => setIsShowTypePage(!isShowTypePage)} />
-                                                        {pagination}
-                                                        <Pagination.Next onClick={() => handlePage(page >= len ? len : page + 1)} />
-                                                        <Pagination.Last onClick={() => handlePage(len)} />
-                                                    </Pagination>
-                                                </div>
-                                            )
-                                        }
-                                        for (let num = page - 1; num <= page + 1; num++) {
-                                            pagination.push(
-                                                <Pagination.Item key={num} active={num === page} onClick={() => handlePage(num)}>
-                                                    {num}
-                                                </Pagination.Item>
-                                            )
-                                        }
                                         return (
-                                            <div className="doctors-pagination">
-                                                <Pagination size="lg">
-                                                    <Pagination.First onClick={() => handlePage(1)} />
-                                                    <Pagination.Prev onClick={() => handlePage(page <= 1 ? 1 : page - 1)} />
-                                                    <Pagination.Item key={1} onClick={() => handlePage(1)}>{1}</Pagination.Item>
-                                                    <Pagination.Ellipsis onClick={() => setIsShowTypePage(!isShowTypePage)} />
-                                                    {pagination}
-                                                    <Pagination.Ellipsis onClick={() => setIsShowTypePage(!isShowTypePage)} />
-                                                    <Pagination.Item key={len} onClick={() => handlePage(len)}>{len}</Pagination.Item>
-                                                    <Pagination.Next onClick={() => handlePage(page >= len ? len : page + 1)} />
-                                                    <Pagination.Last onClick={() => handlePage(len)} />
-                                                </Pagination>
-                                            </div>
+                                            <Page page={page > len ? len : page}
+                                                len={len}
+                                                handlePage={handlePage} />
                                         )
                                     })
-                                    }
-                                    {isShowTypePage === true ?
-                                        <>
-                                            <div className="doctors-type-page">
-                                                Nhập trang cần tới:
-                                                <Form.Control
-                                                    type="search"
-                                                    aria-label="Search"
-                                                    size="sm"
-                                                    value={typePage}
-                                                    onChange={(event) => setTypePage(event.target.value)}
-                                                />
-                                                <Button size="sm" variant="outline-secondary"
-                                                    onClick={() => handlePage(isNaN(parseInt(typePage)) ? 1 : parseInt(typePage))}>Đi tới trang</Button>
-                                            </div>
-                                        </>
-                                        :
-                                        <></>
                                     }
                                 </>
                                 :

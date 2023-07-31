@@ -26,7 +26,14 @@ module.exports = (sequelize, DataTypes) => {
     phoneNumber: DataTypes.STRING,
     email: DataTypes.STRING,
     address: DataTypes.STRING,
-    username: DataTypes.STRING
+    username: DataTypes.STRING,
+    active: DataTypes.BOOLEAN,
+    table: {
+      type: DataTypes.VIRTUAL,
+      get() {
+        return 'Admins';
+      }
+    },
   }, {
     sequelize,
     modelName: 'Admins',

@@ -1,11 +1,13 @@
 import "../../styles/App/Nav.scss"
 
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 
 import { Button, Form } from "react-bootstrap"
 import { connect } from "react-redux"
+import { useState } from "react"
 
 const Nav = (props) => {
+    const navigate = useNavigate()
     const handleClick = (path) => {
         if (!((props.route.path === '/' && path === '/') || (props.route.path.startsWith(path) && path !== '/'))) {
             props.setRoute({
@@ -17,6 +19,8 @@ const Nav = (props) => {
         window.scrollTo(0, 0)
         props.handleClose()
     }
+
+    const [search, setSearch] = useState('')
 
     return (
         <div className="nav-list">
@@ -35,8 +39,15 @@ const Nav = (props) => {
                     placeholder="Nhập từ khóa"
                     className="me-2"
                     aria-label="Search"
+                    value={search}
+                    onChange={(event) => setSearch(event.target.value)}
                 />
-                <Button variant="outline-success">Tìm</Button>
+                <Button onClick={() => {
+                    if (search.trim() !== '') {
+                        handleClick(`/search?${search.trim()}`)
+                        navigate(`/search?${search.trim()}`)
+                    }
+                }} variant="outline-success">Tìm</Button>
             </Form>
         </div>
     )

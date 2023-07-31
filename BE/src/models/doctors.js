@@ -44,7 +44,13 @@ module.exports = (sequelize, DataTypes) => {
     describe: DataTypes.TEXT,
     price: DataTypes.TEXT,
     content: DataTypes.TEXT,
-    active: DataTypes.BOOLEAN
+    active: DataTypes.BOOLEAN,
+    table: {
+      type: DataTypes.VIRTUAL,
+      get() {
+        return 'Doctors';
+      }
+    },
   }, {
     sequelize,
     modelName: 'Doctors',

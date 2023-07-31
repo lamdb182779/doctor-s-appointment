@@ -8,9 +8,9 @@ import { useEffect, useState } from "react"
 import useFetch from "../../custom/fetch"
 
 const Specialties = (props) => {
-    let [data, setData] = useState([])
-    let [offset, setOffset] = useState(props.route.limit ? props.route.limit : 0)
-    let [isMounted, setIsMounted] = useState(false)
+    const [data, setData] = useState([])
+    const [offset, setOffset] = useState(props.route.limit ? props.route.limit : 0)
+    const [isMounted, setIsMounted] = useState(false)
 
     const navigate = useNavigate()
     const location = useLocation()

@@ -39,7 +39,21 @@ const Home = (props) => {
         componentRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
     }
 
-    let [index, setIndex] = useState(0)
+    const handleSearch = (event) => {
+        if (search.trim() !== '' && event.key === 'Enter') {
+            let path = `/search?${search.trim()}`
+            props.setRoute({
+                preRoute: props.route,
+                path: path,
+                scrollY: window.scrollY,
+            })
+            navigate(path)
+            window.scrollTo(0, 0)
+        }
+    }
+
+    const [index, setIndex] = useState(0)
+    const [search, setSearch] = useState('')
     return (
         <div className="home-container">
             <div className="home-title">
@@ -54,7 +68,11 @@ const Home = (props) => {
                     <div className="search-icon">
                         <FontAwesomeIcon icon={faMagnifyingGlass} size="2xs" />
                     </div>
-                    <input type="text" placeholder="Tìm lý do khám. Ví dụ: đau lưng, ho, đau bụng,..." />
+                    <input onKeyDown={(event) => handleSearch(event)}
+                        type="text"
+                        placeholder="Nhập từ khóa (ngắn gọn). Ví dụ: lưng, Thu Hà, Ba Đình, ..."
+                        value={search}
+                        onChange={(event) => setSearch(event.target.value)} />
                 </div>
                 <div className="home-functions">
                     <div onClick={() => handleClick(0)}>
@@ -97,7 +115,7 @@ const Home = (props) => {
             </div>
             <div className="home-content">
                 <div ref={componentRef}>
-                    <Introduce index={index} setIndex={setIndex} />
+                    <Introduce index={index} setIndex={setIndex} showMore={handleShowMore} />
                 </div>
                 <Slide showMore={handleShowMore} show={'/specialties'} />
                 <Slide showMore={handleShowMore} show={'/doctors'} />

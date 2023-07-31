@@ -30,7 +30,13 @@ module.exports = (sequelize, DataTypes) => {
     address: DataTypes.STRING,
     username: DataTypes.STRING,
     image: DataTypes.BLOB('long'),
-    active: DataTypes.BOOLEAN
+    active: DataTypes.BOOLEAN,
+    table: {
+      type: DataTypes.VIRTUAL,
+      get() {
+        return 'Staffs';
+      }
+    },
   }, {
     sequelize,
     modelName: 'Staffs',

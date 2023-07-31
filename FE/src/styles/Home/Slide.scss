@@ -1,6 +1,5 @@
 .slide-container {
-    min-height: 40vh;
-    padding   : 0px 5%;
+    padding: 0px 5%;
 
     .slide-title {
         text-align: left;
@@ -15,34 +14,47 @@
     }
 
     .slide-content {
-        button {
-            background-color: grey;
-        }
+        display    : flex;
+        align-items: center;
 
-        .slide-specialties {
-            margin   : 10% auto;
-            font-size: 70%;
-            cursor   : pointer;
+        .slide-arrow {
+            cursor: pointer;
+            color : gray;
 
-            img {
-                width : 18rem;
-                height: 10rem;
+            &:hover {
+                color: black;
             }
         }
 
-        .slide-doctors {
-            margin   : 10% auto;
-            font-size: 70%;
-            cursor   : pointer;
+        .slide-slider {
+            width : 95%;
+            margin: auto;
 
-            img {
-                margin: 0 auto;
-                width : 10rem;
-                height: 10rem;
+            .slide-specialties {
+                margin   : 10% auto;
+                font-size: 70%;
+                cursor   : pointer;
+
+                img {
+                    width : 18rem;
+                    height: 10rem;
+                }
             }
 
-            small {
-                color: grey;
+            .slide-doctors {
+                margin   : 10% auto;
+                font-size: 70%;
+                cursor   : pointer;
+
+                img {
+                    margin: 0 auto;
+                    width : 10rem;
+                    height: 10rem;
+                }
+
+                small {
+                    color: grey;
+                }
             }
         }
 
@@ -52,7 +64,8 @@
             align-items    : center;
             justify-content: center;
             font-size      : 70%;
-            margin-top     : 3%;
+            width          : 30%;
+            margin         : 3% auto;
         }
 
         .slide-loading {
