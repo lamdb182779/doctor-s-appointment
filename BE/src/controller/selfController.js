@@ -64,6 +64,13 @@ const changePw = async (req, res) => {
                             active: true,
                         }
                     })
+                    if (data === [0]) {
+                        console.log('no matching data.')
+                        res.return(500).json({
+                            message: 'wrong verify',
+                        })
+                    }
+                    console.log(data)
                     return res.status(200).json({
                         message: 'ok',
                     })

@@ -36,6 +36,8 @@ import DoctorNav from '../Doctor/DoctorNav';
 import StaffNav from '../Staff/StaffNav';
 
 import { connect } from 'react-redux';
+import DoctorInfo from '../Admin/DoctorInfo';
+import StaffInfo from '../Admin/StaffInfo';
 
 const App = (props) => {
   const [showChangePw, setShowChangePw] = useState(false)
@@ -96,8 +98,10 @@ const App = (props) => {
             <Route path='/admin' element={<Admin />} />
             <Route path='/admin/staff-list' element={<StaffList />} />
             <Route path='/admin/staff-add' element={<StaffAdd />} />
+            <Route path='/admin/staff-info/:id' element={<StaffInfo />} />
             <Route path='/admin/doctor-add' element={<DoctorAdd />} />
             <Route path='/admin/doctor-list' element={<DoctorList />} />
+            <Route path='/admin/doctor-info/:id' element={<DoctorInfo />} />
             <Route path='/doctor' element={<Doctor />} />
             <Route path='/staff' element={<Staff />} />
             <Route path='*' element={<Notfound />} />

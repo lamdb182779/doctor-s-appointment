@@ -73,7 +73,7 @@ const ChangePw = (props) => {
     const { message, loading } = useFetch(url, options)
 
     useEffect(() => {
-        setIsBlankOldPw(message === 'wrong password' ? false : true)
+        setIsValidOldPw(message === 'wrong password' ? false : true)
         if (props.changeClick !== 0 && loading === false) {
             if (message === 'ok') {
                 setShowSuccess(true)
@@ -103,7 +103,7 @@ const ChangePw = (props) => {
             </div>
             <div className="changepw-content">
                 <Form>
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Group className="mb-3" controlId="formOldPassword">
                         <Form.Label>
                             <FontAwesomeIcon icon={faLocationPinLock} size="sm" />
                             &nbsp;Mật khẩu hiện tại
@@ -121,7 +121,7 @@ const ChangePw = (props) => {
                     </Form.Group>
 
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Group className="mb-3" controlId="formNewPassword">
                         <Form.Label>
                             <FontAwesomeIcon icon={faLock} size="sm" />
                             &nbsp;Mật khẩu mới
@@ -134,8 +134,7 @@ const ChangePw = (props) => {
                             placeholder="Mật khẩu mới" />
                         <Form.Control.Feedback type="invalid">
                             &nbsp;{isBlankNewPw ? 'Vui lòng điền mật khẩu mới'
-                                : isDupPw ? 'Mật khẩu mới không được trùng với mật khẩu cũ'
-                                    : message === 'wrong password' ? 'Sai mật khẩu hiện tại' : ''}
+                                : isDupPw ? 'Mật khẩu mới không được trùng với mật khẩu cũ' : ''}
                         </Form.Control.Feedback>
                     </Form.Group>
 

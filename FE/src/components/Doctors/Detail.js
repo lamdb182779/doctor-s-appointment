@@ -1,6 +1,6 @@
 import "../../styles/Doctors/Detail.scss"
 
-import { Button, Col, Dropdown, Image, Row, Spinner } from "react-bootstrap"
+import { Button, Col, Dropdown, Image, Row, Spinner, OverlayTrigger, Tooltip } from "react-bootstrap"
 
 import { useNavigate, useParams, useLocation } from "react-router-dom"
 
@@ -37,6 +37,12 @@ const Detail = (props) => {
     }
 
     const { data, loading } = useFetch(`http://localhost:8080/api/doctors/${id}`)
+
+    const renderBookingTooltip = (props) => (
+        <Tooltip id="booking-tooltip" {...props}>
+            Đặt lịch ngay
+        </Tooltip>
+    )
     return (
         <div className="detail-container">
             {loading === false ?
@@ -142,9 +148,13 @@ const Detail = (props) => {
 
                                 </div>
                             </div>
-                            <div className="detail-to-order" title="Đặt lịch ngay" onClick={() => componentRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
-                                <FontAwesomeIcon icon={faPenToSquare} />
-                            </div>
+                            <OverlayTrigger
+                                placement="auto"
+                                overlay={renderBookingTooltip}>
+                                <div className="detail-to-order" onClick={() => componentRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
+                                    <FontAwesomeIcon icon={faPenToSquare} />
+                                </div>
+                            </OverlayTrigger>
                         </>
                         :
                         <>

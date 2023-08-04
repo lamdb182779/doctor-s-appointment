@@ -1,0 +1,5 @@
+- validate form
+- sửa trang chuyên khoa và trang bác sĩ theo useFetch
+- sửa tên state đăng nhập, quên mật khẩu, đổi mật khẩu, danh sách bác sĩ, thay đổi thông tin bác sĩ, sửa thông tin bác sĩ,
+- sửa lại toast bằng toastify
+- sửa lại message và log từ server

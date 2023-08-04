@@ -1,5 +1,9 @@
 const db = require('../models')
-const { Op } = require('sequelize')
+const { Op, where } = require('sequelize')
+const { verifyToken } = require('../middleware/jwt-action.js')
+const bcrypt = require('bcryptjs')
+
+const salt = bcrypt.genSaltSync(parseInt(process.env.BCRYPT_SALT))
 
 const toImage = (image) => {
     if (image) {
@@ -15,6 +19,20 @@ const hiddenEmail = (email) => {
 
 const hiddenPhoneNumber = (phoneNumber) => {
     return phoneNumber.replace(/^(\d{3}).*(\d{2})$/, '$1****$2')
+}
+
+const nameToUsername = (name, id) => {
+    let normal = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D")
+    let lower = normal.toLowerCase()
+    let split = lower.split(" ")
+    let username = split[split.length - 1]
+    split.map((item, index) => {
+        if (index !== split.length - 1) {
+            username = username + item[0]
+        }
+    })
+    username = username + id
+    return username
 }
 
 let getAllDoctors = async (req, res) => {
@@ -58,7 +76,13 @@ let getAllDoctors = async (req, res) => {
                 where: find,
                 offset: skip,
                 limit: pagesize,
-                attributes: ['id', 'name', 'clinicAddress', 'email', 'phoneNumber', 'describe', 'image']
+                attributes: ['id', 'name', 'clinicAddress', 'email', 'phoneNumber', 'describe', 'image'],
+                include: [
+                    {
+                        model: db.Specialties,
+                        attributes: ['name']
+                    }
+                ]
             })
 
             data = data.map((item) => {
@@ -86,13 +110,13 @@ let getAllDoctors = async (req, res) => {
         } catch (err) {
             console.log('Cannot get data. Error:', err)
             return res.status(500).json({
-                message: 'server error',
+                message: 'server error!',
             })
         }
     } catch (err) {
         console.log('Cannot count. Error: ', err)
         return res.status(500).json({
-            message: 'server error',
+            message: 'server error!',
         })
     }
 }
@@ -140,13 +164,213 @@ let getDoctorById = async (req, res) => {
         } catch (err) {
             console.log('Cannot get data. Error:', err)
             return res.status(500).json({
-                message: 'server error',
+                message: 'server error!',
             })
         }
     } catch (err) {
         console.log('Cannot count. Error: ', err)
         return res.status(500).json({
-            message: 'server error',
+            message: 'server error!',
+        })
+    }
+}
+
+let deleteDoctorById = async (req, res) => {
+    let { id } = req.query
+    let { token } = req.body
+    token = verifyToken(token)
+    if (token === null) {
+        return res.return(500).json({
+            message: 'wrong verify',
+        })
+    }
+    try {
+        let doctor = await db.Doctors.findByPk(id, {
+            where: {
+                active: true,
+            }
+        })
+        if (doctor === null) {
+            console.log('no matching doctor.')
+            return res.return(500).json({
+                message: 'wrong id',
+            })
+        }
+        try {
+            let deactivate = await db.Account.update({ active: false }, {
+                where: {
+                    username: doctor.username,
+                    active: true,
+                }
+            })
+            if (deactivate === [0]) {
+                console.log('no matching account.')
+                return res.return(500).json({
+                    message: 'wrong username',
+                })
+            }
+            try {
+                let data = await db.Doctors.update({ active: false }, {
+                    where: {
+                        id: id,
+                        active: true,
+                    }
+                })
+                if (data === [0]) {
+                    console.log('no matching data.')
+                    res.return(500).json({
+                        message: 'wrong id',
+                    })
+                }
+                return res.status(200).json({
+                    message: 'ok',
+                })
+            } catch (error) {
+                console.log('Cannot update data. Error: ', error)
+                return res.status(500).json({
+                    message: 'server error!'
+                })
+            }
+        } catch (error) {
+            console.log('Cannot update account. Error: ', error)
+            return res.status(500).json({
+                message: 'server error!'
+            })
+        }
+
+    } catch (error) {
+        console.log('Cannot get doctor. Error: ', error)
+        return res.status(500).json({
+            message: 'server error!'
+        })
+    }
+}
+
+let updateDoctorById = async (req, res) => {
+    let { id } = req.query
+    let { name, phoneNumber, email, clinicAddress, describe, price, content, token } = req.body
+    token = verifyToken(token)
+    if (token === null) {
+        return res.status(500).json({
+            message: 'wrong verify',
+        })
+    }
+    let update = {}
+    if (name) {
+        update.name = name
+    }
+    if (phoneNumber) {
+        update.phoneNumber = phoneNumber
+    }
+    if (email) {
+        update.email = email
+    }
+    if (clinicAddress) {
+        update.clinicAddress = clinicAddress
+    }
+    if (describe) {
+        update.describe = describe
+    }
+    if (price) {
+        update.price = price
+    }
+    if (content) {
+        update.content = content
+    }
+    try {
+        let data = db.Doctors.update(update, {
+            where: {
+                id: id,
+                active: true,
+            }
+        })
+        if (data === [0]) {
+            console.log('no matching data')
+            return res.status(500).json({
+                message: 'wrong id'
+            })
+        }
+        return res.status(200).json({
+            message: 'ok'
+        })
+    } catch (error) {
+        console.log('Cannot update data. Error: ', error)
+        return res.status(500).json({
+            message: 'server error!'
+        })
+    }
+}
+
+let addNewDoctor = async (req, res) => {
+    let { name, phoneNumber, email, clinicAddress, describe, price, content, specialtyID, token } = req.body
+    token = verifyToken(token)
+    if (token === null) {
+        return res.status(500).json({
+            message: 'wrong verify',
+        })
+    }
+    try {
+        let checkEmail = await db.Doctors.findAll({
+            where: {
+                email: email
+            }
+        })
+        if (checkEmail?.length > 0) {
+            console.log('Duplicate Email')
+            return res.status(500).json({
+                message: 'duplicate email'
+            })
+        }
+        try {
+            let count = await db.Doctors.count()
+            let id = (count + 1).toString().padStart(4, "0")
+            let username = nameToUsername(name, id)
+            let password = bcrypt.hashSync(username, salt)
+            await db.Doctors.create({
+                id: id,
+                name: name,
+                image: null,
+                phoneNumber: phoneNumber,
+                email: email,
+                username: username,
+                clinicAddress: clinicAddress,
+                describe: describe,
+                price: price,
+                content: content,
+                specialtyID: specialtyID,
+                active: true,
+            }).then(async () => {
+                await db.Accounts.create({
+                    username: username,
+                    password: password,
+                    active: true,
+                    role: 2
+                }).then(() => {
+                    return res.status(200).json({
+                        message: 'ok'
+                    })
+                }).catch((error) => {
+                    console.log('Cannot create account. Error: ', error)
+                    return res.status(500).json({
+                        message: 'server error!'
+                    })
+                })
+            }).catch((error) => {
+                console.log('Cannot create doctor. Error: ', error)
+                return res.status(500).json({
+                    message: 'server error!'
+                })
+            })
+        } catch (error) {
+            console.log('Cannot count doctors. Error: ', error)
+            return res.status(500).json({
+                message: 'server error!'
+            })
+        }
+    } catch (error) {
+        console.log('Cannot check email. Error: ', error)
+        return res.status(500).json({
+            message: 'server error!'
         })
     }
 }
@@ -163,7 +387,7 @@ let getSpecialtiesName = async (req, res) => {
     } catch (error) {
         console.log('Cannot get data. Error:', error)
         return res.status(500).json({
-            message: 'Server error!'
+            message: 'server error!'
         })
     }
 }
@@ -172,4 +396,7 @@ module.exports = {
     getAllDoctors,
     getSpecialtiesName,
     getDoctorById,
+    deleteDoctorById,
+    updateDoctorById,
+    addNewDoctor,
 }

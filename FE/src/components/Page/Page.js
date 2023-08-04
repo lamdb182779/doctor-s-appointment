@@ -7,6 +7,7 @@ const Page = (props) => {
     const pagination = []
     const len = props.len || 1
     const page = props.page || 1
+    const size = props.size || "lg"
     const handlePage = (num) => {
         props.handlePage && props.handlePage(num)
     }
@@ -22,7 +23,7 @@ const Page = (props) => {
         }
         return (
             <div className="pagination">
-                <Pagination size="lg">
+                <Pagination size={size}>
                     <Pagination.First onClick={() => handlePage(1)} />
                     <Pagination.Prev onClick={() => handlePage(page <= 1 ? 1 : page - 1)} />
                     {pagination}
@@ -43,7 +44,7 @@ const Page = (props) => {
         return (
             <>
                 <div className="pagination">
-                    <Pagination size="lg">
+                    <Pagination size={size}>
                         <Pagination.First onClick={() => handlePage(1)} />
                         <Pagination.Prev onClick={() => handlePage(page <= 1 ? 1 : page - 1)} />
                         {pagination}
@@ -93,7 +94,7 @@ const Page = (props) => {
         return (
             <>
                 <div className="pagination">
-                    <Pagination size="lg">
+                    <Pagination size={size}>
                         <Pagination.First onClick={() => handlePage(1)} />
                         <Pagination.Prev onClick={() => handlePage(page <= 1 ? 1 : page - 1)} />
                         <Pagination.Item key={1} onClick={() => handlePage(1)}>{1}</Pagination.Item>
@@ -142,7 +143,7 @@ const Page = (props) => {
     return (
         <>
             <div className="pagination">
-                <Pagination size="lg">
+                <Pagination size={size}>
                     <Pagination.First onClick={() => handlePage(1)} />
                     <Pagination.Prev onClick={() => handlePage(page <= 1 ? 1 : page - 1)} />
                     <Pagination.Item key={1} onClick={() => handlePage(1)}>{1}</Pagination.Item>

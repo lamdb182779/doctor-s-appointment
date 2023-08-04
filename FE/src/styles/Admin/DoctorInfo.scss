@@ -1,5 +1,13 @@
-.doctor-add-container {
+.doctor-info-container {
     position: relative;
+
+    img {
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
 
     .detail-to-order {
         width           : 60px;
@@ -17,8 +25,14 @@
         }
     }
 
-    .doctor-add-markdown {
-        border-radius: 5px;
-        border       : 1px solid #dee2e6;
+}
+
+.popover {
+    .popover-body {
+        button {
+            &:hover {
+                background-color: whitesmoke;
+            }
+        }
     }
 }

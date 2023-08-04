@@ -1,0 +1,12 @@
+.doctor-info-field.col-12 {
+    border-radius: 5px;
+    border       : 1px solid grey;
+}
+
+.fa-pen-to-square {
+    cursor: pointer;
+
+    &:hover {
+        color: grey;
+    }
+}

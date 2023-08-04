@@ -1,4 +1,4 @@
-import { Col, Image, Row } from "react-bootstrap"
+import { Accordion, Col, Image, Row, Table } from "react-bootstrap"
 
 import welcome from "../../assets/images/welcome.png"
 
@@ -51,65 +51,85 @@ const Admin = (props) => {
                                                 <Row>
                                                     Bạn muốn làm gì đây?
                                                 </Row>
-                                                <Row className="text-start ms-2 mt-4" >
-                                                    <Row>
-                                                        <Col>
-                                                            <FontAwesomeIcon icon={faUserPen} />
-                                                            &nbsp;Quản lý nhân viên
-                                                        </Col>
-                                                        <Row className="fs-5 ms-2 mb-4 text-dark">
-                                                            <Row className="mt-2">
-                                                                <NavLink to='/admin/staff-list' className="text-dark text-decoration-none">
-                                                                    <FontAwesomeIcon icon={faTableList} size="xs" />
-                                                                    &nbsp;Xem danh sách nhân viên &gt;&gt;&gt;
-                                                                </NavLink>
-                                                            </Row>
-                                                            <Row className="mt-1">
-                                                                <NavLink to='/admin/staff-add' className="text-dark text-decoration-none">
-                                                                    <FontAwesomeIcon icon={faUserPlus} size="xs" />
-                                                                    &nbsp;Thêm nhân viên mới &gt;&gt;&gt;
-                                                                </NavLink>
-                                                            </Row>
-                                                        </Row>
-                                                    </Row>
-                                                    <Row>
-                                                        <Col>
-                                                            <FontAwesomeIcon className="me-2" icon={faUserDoctor} />
-                                                            &nbsp;Quản lý bác sĩ
-                                                        </Col>
-                                                        <Row className="fs-5 ms-2 ">
-                                                            <Row className="mt-2">
-                                                                <NavLink to='/admin/doctor-list' className="text-dark text-decoration-none">
-                                                                    <FontAwesomeIcon icon={faTableList} size="xs" />
-                                                                    &nbsp;Xem danh sách bác sĩ &gt;&gt;&gt;
-                                                                </NavLink>
-                                                            </Row>
-                                                            <Row className="mt-1">
-                                                                <NavLink to='admin/doctor-add' className="text-dark text-decoration-none">
-                                                                    <FontAwesomeIcon icon={faUserPlus} size="xs" />
-                                                                    &nbsp;Thêm bác sĩ mới &gt;&gt;&gt;
-                                                                </NavLink>
-                                                            </Row>
-                                                        </Row>
-                                                    </Row>
+                                                <Row className="text-start p-3" >
+                                                    <Accordion>
+                                                        <Accordion.Item eventKey="0">
+                                                            <Accordion.Header>
+                                                                <FontAwesomeIcon icon={faUserPen} />
+                                                                &nbsp;Quản lý nhân viên
+                                                            </Accordion.Header>
+                                                            <Accordion.Body>
+                                                                <Row className="fs-5 text-dark d-grid gap-3">
+                                                                    <Row className="">
+                                                                        <NavLink to='/admin/staff-list' className="text-dark text-decoration-none">
+                                                                            <FontAwesomeIcon icon={faTableList} size="xs" />
+                                                                            &nbsp;Xem danh sách nhân viên &gt;&gt;&gt;
+                                                                        </NavLink>
+                                                                    </Row>
+                                                                    <Row className="">
+                                                                        <NavLink to='/admin/staff-add' className="text-dark text-decoration-none">
+                                                                            <FontAwesomeIcon icon={faUserPlus} size="xs" />
+                                                                            &nbsp;Thêm nhân viên mới &gt;&gt;&gt;
+                                                                        </NavLink>
+                                                                    </Row>
+                                                                </Row>
+                                                            </Accordion.Body>
+                                                        </Accordion.Item>
+                                                        <Accordion.Item eventKey="q">
+                                                            <Accordion.Header>
+                                                                <FontAwesomeIcon className="" icon={faUserDoctor} />
+                                                                &nbsp;Quản lý bác sĩ
+                                                            </Accordion.Header>
+                                                            <Accordion.Body>
+                                                                <Row className="fs-5 text-dark d-grid gap-3 ">
+                                                                    <Row className="">
+                                                                        <NavLink to='/admin/doctor-list' className="text-dark text-decoration-none">
+                                                                            <FontAwesomeIcon icon={faTableList} size="xs" />
+                                                                            &nbsp;Xem danh sách bác sĩ &gt;&gt;&gt;
+                                                                        </NavLink>
+                                                                    </Row>
+                                                                    <Row className="">
+                                                                        <NavLink to='/admin/doctor-add' className="text-dark text-decoration-none">
+                                                                            <FontAwesomeIcon icon={faUserPlus} size="xs" />
+                                                                            &nbsp;Thêm bác sĩ mới &gt;&gt;&gt;
+                                                                        </NavLink>
+                                                                    </Row>
+                                                                </Row>
+                                                            </Accordion.Body>
+                                                        </Accordion.Item>
+                                                    </Accordion>
                                                 </Row>
                                             </Row>
                                         </div>
                                     </Col>
                                     <Col className="d-flex align-items-center">
-                                        <div className="admin-info h-50 fs-5 d-grid gap-2 text-start">
-                                            <Row>
-                                                Họ và tên: {data[0].name}
-                                            </Row>
-                                            <Row>
-                                                Số điện thoại: {data[0].phoneNumber}
-                                            </Row>
-                                            <Row>
-                                                Email: {data[0].email}
-                                            </Row>
-                                            <Row>
-                                                Address: {data[0].address}
-                                            </Row>
+                                        <div className="admin-info fs-6 text-start">
+                                            <Table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>&nbsp;</th>
+                                                        <th>&nbsp;</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Họ tên:</th>
+                                                        <th className="fw-normal">{data[0].name}</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>SĐT:</th>
+                                                        <th className="fw-normal">{data[0].phoneNumber}</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Email:</th>
+                                                        <th className="fw-normal">{data[0].email}</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Địa chỉ:</th>
+                                                        <th className="fw-normal">{data[0].address}</th>
+                                                    </tr>
+                                                </tbody>
+                                            </Table>
                                         </div>
                                     </Col>
                                 </Row>
