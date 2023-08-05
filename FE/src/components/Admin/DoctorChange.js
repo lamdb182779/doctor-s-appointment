@@ -2,10 +2,11 @@ import "../../styles/Admin/DoctorChange.scss"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
-    faPenToSquare
+    faPenToSquare,
+    faArrowDownLong
 } from "@fortawesome/free-solid-svg-icons"
 
-import { Row, Col, Modal, Form, Button } from "react-bootstrap"
+import { Row, Col, Modal, Form, Button, } from "react-bootstrap"
 
 import ReactMarkdown from "react-markdown"
 import { useEffect, useState } from "react"
@@ -14,12 +15,16 @@ import Danger from "../Dialog/Danger"
 import Warning from "../Dialog/Warning"
 
 import { connect } from "react-redux"
+import { useRef } from "react"
 
 const DoctorChange = (props) => {
     const data = props.data
+    const componentRef = useRef()
 
     const [show, setShow] = useState(false)
-    const handleShow = () => setShow(true)
+    const handleShow = () => {
+        setShow(true)
+    }
     const handleClose = () => {
         setShow(false)
         setAddressDisable(true)
@@ -58,6 +63,8 @@ const DoctorChange = (props) => {
 
     const [isAnyBlank, setIsAnyBlank] = useState(false)
 
+    const [row, setRow] = useState(0)
+
     const handleChangeName = () => {
         setNameDisable(!nameDisable)
     }
@@ -68,21 +75,25 @@ const DoctorChange = (props) => {
         setEmailDisable(!emailDisable)
     }
     const handleChangeAddress = () => {
+        setRow(address.split("\n").length)
         setAddressDisable(false)
         setSave(address)
         handleShow()
     }
     const handleChangeDescribe = () => {
+        setRow(describe.split("\n").length)
         setDescribeDisable(false)
         setSave(describe)
         handleShow()
     }
     const handleChangePrice = () => {
+        setRow(price.split("\n").length)
         setPriceDisable(false)
         setSave(price)
         handleShow()
     }
     const handleChangeContent = () => {
+        setRow(content.split("\n").length)
         setContentDisable(false)
         setSave(content)
         handleShow()
@@ -108,6 +119,7 @@ const DoctorChange = (props) => {
     const handleYes = () => {
         setChangeClick(changeClick + 1)
     }
+
     useEffect(() => {
         setUrl(changeClick === 0 ? '' : `http://localhost:8080/api/doctors?id=${data[0].id}&${changeClick}`)
         setOptions(changeClick === 0 ? {} : {
@@ -276,14 +288,24 @@ const DoctorChange = (props) => {
                 <Button variant="primary" onClick={() => handleChange()}>Thay đổi thông tin</Button>
             </Modal.Footer>
 
-            <Modal show={show} size="xl" centered>
-                <Modal.Header >
-                    <Modal.Title>
-                        Chỉnh sửa&nbsp;
-                        {!addressDisable && "địa chỉ"}
-                        {!describeDisable && "mô tả"}
-                        {!priceDisable && "giá khám bệnh"}
-                        {!contentDisable && "thông tin cụ thể"}
+            <Modal className="" show={show} size="xl" centered>
+                <Modal.Header>
+                    <Modal.Title className="w-100">
+                        <Row>
+                            <Col>
+                                Chỉnh sửa&nbsp;
+                                {!addressDisable && "địa chỉ"}
+                                {!describeDisable && "mô tả"}
+                                {!priceDisable && "giá khám bệnh"}
+                                {!contentDisable && "thông tin cụ thể"}
+                            </Col>
+                            <Col>
+                                <div onClick={() => componentRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                                    className="change-to-bottom text-end">
+                                    <FontAwesomeIcon icon={faArrowDownLong} />
+                                </div>
+                            </Col>
+                        </Row>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -299,15 +321,13 @@ const DoctorChange = (props) => {
                                         (!priceDisable && price) ||
                                         (!contentDisable && content)}
                                     as="textarea"
-                                    rows={(!addressDisable && 5) ||
-                                        (!describeDisable && 10) ||
-                                        (!priceDisable && 10) ||
-                                        (!contentDisable && 50)}
+                                    rows={row > 5 ? row : 5}
                                     onChange={(event) => {
                                         (!addressDisable && setAddress(event.target.value)) ||
                                             (!describeDisable && setDescribe(event.target.value)) ||
                                             (!priceDisable && setPrice(event.target.value)) ||
                                             (!contentDisable && setContent(event.target.value))
+                                        setRow(event.target.value.split("\n").length)
                                     }} />
                             </Row>
                         </Col>
@@ -326,7 +346,7 @@ const DoctorChange = (props) => {
                         </Col>
                     </Row>
                 </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer ref={componentRef}>
                     <Button variant="outline-secondary" onClick={() => handleLoadSave()}>Hủy thay đổi</Button>
                     <Button variant="outline-primary" onClick={() => handleClose()}>Xác nhận</Button>
                 </Modal.Footer>

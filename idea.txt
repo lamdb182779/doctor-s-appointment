@@ -3,3 +3,6 @@
 - sửa tên state đăng nhập, quên mật khẩu, đổi mật khẩu, danh sách bác sĩ, thay đổi thông tin bác sĩ, sửa thông tin bác sĩ,
 - sửa lại toast bằng toastify
 - sửa lại message và log từ server
+- sửa lại thông báo từ toast
+- sửa lại lưu trữ đăng nhập
+- sửa lại CRUD ảnh đại diện

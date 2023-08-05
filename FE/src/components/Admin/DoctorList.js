@@ -103,13 +103,13 @@ const DoctorList = (props) => {
                 show={showWarning}
                 setShow={setShowWarning}
                 handleYes={handleYes}
-                body="Bạn có chắc muốn loại bỏ bác sĩ ra khỏi hệ thống không?" />
+                body="Bạn có chắc muốn hủy kích hoạt bác sĩ này không?" />
             <Success
                 show={showSuccess}
                 setShow={setShowSuccess}
                 time={1000}
                 bodyAlign="text-center"
-                body="Đã xóa thành công!" />
+                body="Đã hủy kích hoạt bác sĩ thành công!" />
             <Danger
                 show={showDanger}
                 setShow={setShowDanger}
@@ -152,7 +152,9 @@ const DoctorList = (props) => {
                                                         <th className="fw-normal">{item.email}</th>
                                                         <th className="fw-normal">
                                                             <ReactMarkdown>
-                                                                {item.clinicAddress.match(/\*\*(.*?)\*\*/g)[0].replace(/\*\*(.*?)\*\*/g, "$1")}
+                                                                {item.clinicAddress.match(/\*\*(.*?)\*\*/g)?.length > 0 ?
+                                                                    item.clinicAddress.match(/\*\*(.*?)\*\*/g)[0].replace(/\*\*(.*?)\*\*/g, "$1")
+                                                                    : item.clinicAddress}
                                                             </ReactMarkdown>
                                                         </th>
                                                         <th className="fw-normal">

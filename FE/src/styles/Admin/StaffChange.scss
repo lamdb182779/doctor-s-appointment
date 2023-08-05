@@ -1,19 +1,9 @@
-.staff-add-container {
-    position: relative;
-
-    .staff-add-to-add {
-        width           : 60px;
-        height          : 60px;
-        border-radius   : 50%;
-        background-color: yellow;
-        position        : sticky;
-        bottom          : 5%;
-        left            : 100%;
-        cursor          : pointer;
+.modal-body {
+    img {
+        cursor: pointer;
 
         &:hover {
-            background-color: gold;
-            color           : white;
+            opacity: 0.8;
         }
     }
 
@@ -55,10 +45,6 @@
         label {
             cursor: pointer;
         }
-    }
-
-    .null.form-check {
-        margin-right: 0;
     }
 
     .react-datepicker-wrapper {

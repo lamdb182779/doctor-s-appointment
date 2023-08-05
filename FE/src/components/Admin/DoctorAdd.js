@@ -353,7 +353,7 @@ const DoctorAdd = (props) => {
             <OverlayTrigger
                 placement="auto"
                 overlay={renderAddPopover}>
-                <div onClick={() => handleAdd()} className="detail-to-order d-flex justify-content-center align-items-center">
+                <div onClick={() => handleAdd()} className="doctor-add-to-add d-flex justify-content-center align-items-center">
                     <FontAwesomeIcon icon={faUserPlus} />
                 </div>
             </OverlayTrigger>

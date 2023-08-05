@@ -20,6 +20,8 @@ import { connect } from "react-redux"
 import { useEffect, useState } from "react"
 import DoctorChange from "./DoctorChange"
 
+import nullavatar from "../../assets/images/nullavatardoctor.jpg"
+
 
 import Success from "../Dialog/Success"
 
@@ -53,7 +55,7 @@ const DoctorInfo = (props) => {
         <Popover id="avatar-popover" {...props}>
             <Popover.Body className="p-1">
                 <Button className="w-100 text-dark text-decoration-none fw-bold" variant="link" size="">
-                    <FontAwesomeIcon icon={faImages} />&nbsp;Đổi ảnh đạt diện
+                    <FontAwesomeIcon icon={faImages} />&nbsp;Đổi ảnh đại diện
                 </Button>
                 <Button className="w-100 text-dark text-decoration-none fw-bold" variant="link" size="">
                     <FontAwesomeIcon icon={faSquareFull} />&nbsp;Xoá ảnh đại diện
@@ -85,7 +87,8 @@ const DoctorInfo = (props) => {
                                         trigger="click"
                                         placement="auto"
                                         overlay={renderAvatar}>
-                                        <Image onClick={(event) => event.target.click()} className="w-50 h-auto" src={data[0].image} alt='avatar' roundedCircle />
+                                        <Image onClick={(event) => event.target.click()} className="w-50 h-auto"
+                                            src={data[0].image ? data[0].image : nullavatar} alt='avatar' roundedCircle />
                                     </OverlayTrigger>
                                 </Col>
                                 <Col>
@@ -118,7 +121,7 @@ const DoctorInfo = (props) => {
                             <OverlayTrigger
                                 placement="auto"
                                 overlay={renderChangeTooltip}>
-                                <div onClick={() => handleShow()} className="detail-to-order d-flex justify-content-center align-items-center">
+                                <div onClick={() => handleShow()} className="doctor-info-to-change d-flex justify-content-center align-items-center">
                                     <FontAwesomeIcon icon={faPenToSquare} />
                                 </div>
                             </OverlayTrigger>

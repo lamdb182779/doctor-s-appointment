@@ -7,6 +7,7 @@ const doctors = require('./doctors')
 const login = require('./login')
 const search = require('./search')
 const self = require('./self')
+const staffs = require('./staffs')
 
 const route = (app) => {
     specialties(router)
@@ -15,6 +16,7 @@ const route = (app) => {
     login(router)
     search(router)
     self(router)
+    staffs(router)
     router.get('/', getInfoApp)
     return app.use('/api', router)
 }

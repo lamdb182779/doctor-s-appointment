@@ -35,8 +35,8 @@ const nameToUsername = (name, id) => {
     return username
 }
 
-let getAllDoctors = async (req, res) => {
-    let { page, pagesize, name, specialtyID, clinicAddress } = req.query
+let getAllStaffs = async (req, res) => {
+    let { page, pagesize, name } = req.query
     page = parseInt(page)
     pagesize = parseInt(pagesize)
 
@@ -53,15 +53,7 @@ let getAllDoctors = async (req, res) => {
                 [Op.substring]: name
             }
         }
-        if (specialtyID) {
-            find.specialtyID = specialtyID
-        }
-        if (clinicAddress) {
-            find.clinicAddress = {
-                [Op.substring]: clinicAddress
-            }
-        }
-        let count = await db.Doctors.count({
+        let count = await db.Staffs.count({
             where: find,
         })
         if (page > (count - 1) / pagesize + 1) {
@@ -72,23 +64,17 @@ let getAllDoctors = async (req, res) => {
 
         //
         try {
-            let data = await db.Doctors.findAll({
+            let data = await db.Staffs.findAll({
                 where: find,
                 offset: skip,
                 limit: pagesize,
-                attributes: ['id', 'name', 'clinicAddress', 'email', 'phoneNumber', 'describe', 'image'],
-                include: [
-                    {
-                        model: db.Specialties,
-                        attributes: ['name']
-                    }
-                ]
+                attributes: ['id', 'name', 'address', 'email', 'phoneNumber', 'gender', 'doB', 'image'],
             })
 
-            data = data.map((item) => {
-                item.image = toImage(item.image)
-                return item
-            })
+            // data = data.map((item) => {
+            //     item.image = toImage(item.image)
+            //     return item
+            // })
             data = data.map((item) => {
                 if (item.phoneNumber) {
                     item.phoneNumber = hiddenPhoneNumber(item.phoneNumber)
@@ -121,10 +107,10 @@ let getAllDoctors = async (req, res) => {
     }
 }
 
-let getDoctorById = async (req, res) => {
+let getStaffById = async (req, res) => {
     let id = req.params.id
     try {
-        let count = await db.Doctors.count()
+        let count = await db.Staffs.count()
         if (id > count || id <= 0) {
             return res.status(404).json({
                 message: 'data not found',
@@ -136,7 +122,7 @@ let getDoctorById = async (req, res) => {
             })
         }
         try {
-            let data = await db.Doctors.findByPk(id)
+            let data = await db.Staffs.findByPk(id)
             if (data.image) {
                 data.image = toImage(data.image)
             }
@@ -164,7 +150,7 @@ let getDoctorById = async (req, res) => {
     }
 }
 
-let deleteDoctorById = async (req, res) => {
+let deleteStaffById = async (req, res) => {
     let { id } = req.query
     let { token } = req.body
     token = verifyToken(token)
@@ -174,13 +160,13 @@ let deleteDoctorById = async (req, res) => {
         })
     }
     try {
-        let doctor = await db.Doctors.findByPk(id, {
+        let staff = await db.Staffs.findByPk(id, {
             where: {
                 active: true,
             }
         })
-        if (doctor === null) {
-            console.log('no matching doctor.')
+        if (staff === null) {
+            console.log('no matching staff.')
             return res.return(500).json({
                 message: 'wrong id',
             })
@@ -188,7 +174,7 @@ let deleteDoctorById = async (req, res) => {
         try {
             let deactivate = await db.Account.update({ active: false }, {
                 where: {
-                    username: doctor.username,
+                    username: staff.username,
                     active: true,
                 }
             })
@@ -199,7 +185,7 @@ let deleteDoctorById = async (req, res) => {
                 })
             }
             try {
-                let data = await db.Doctors.update({ active: false }, {
+                let data = await db.Staffs.update({ active: false }, {
                     where: {
                         id: id,
                         active: true,
@@ -226,18 +212,17 @@ let deleteDoctorById = async (req, res) => {
                 message: 'server error!'
             })
         }
-
     } catch (error) {
-        console.log('Cannot get doctor. Error: ', error)
+        console.log('Cannot get staff. Error: ', error)
         return res.status(500).json({
             message: 'server error!'
         })
     }
 }
 
-let updateDoctorById = async (req, res) => {
+let updateStaffById = async (req, res) => {
     let { id } = req.query
-    let { name, phoneNumber, email, clinicAddress, describe, price, content, token } = req.body
+    let { name, phoneNumber, email, address, doB, gender, token } = req.body
     token = verifyToken(token)
     if (token === null) {
         return res.status(500).json({
@@ -246,7 +231,7 @@ let updateDoctorById = async (req, res) => {
     }
     if (email) {
         try {
-            let checkEmail = await db.Doctors.findAll({
+            let checkEmail = await db.Staffs.findAll({
                 where: {
                     email: email
                 }
@@ -264,7 +249,7 @@ let updateDoctorById = async (req, res) => {
             })
         }
     }
-    let update = {}
+    let update = { gender: gender }
     if (name) {
         update.name = name
     }
@@ -274,20 +259,14 @@ let updateDoctorById = async (req, res) => {
     if (email) {
         update.email = email
     }
-    if (clinicAddress) {
-        update.clinicAddress = clinicAddress
+    if (address) {
+        update.address = address
     }
-    if (describe) {
-        update.describe = describe
-    }
-    if (price) {
-        update.price = price
-    }
-    if (content) {
-        update.content = content
+    if (doB) {
+        update.doB = doB
     }
     try {
-        let data = db.Doctors.update(update, {
+        let data = db.Staffs.update(update, {
             where: {
                 id: id,
                 active: true,
@@ -310,8 +289,8 @@ let updateDoctorById = async (req, res) => {
     }
 }
 
-let addNewDoctor = async (req, res) => {
-    let { name, phoneNumber, email, clinicAddress, describe, price, content, specialtyID, token } = req.body
+let addNewStaff = async (req, res) => {
+    let { name, phoneNumber, email, address, doB, gender, token } = req.body
     token = verifyToken(token)
     if (token === null) {
         return res.status(500).json({
@@ -319,7 +298,7 @@ let addNewDoctor = async (req, res) => {
         })
     }
     try {
-        let checkEmail = await db.Doctors.findAll({
+        let checkEmail = await db.Staffs.findAll({
             where: {
                 email: email
             }
@@ -331,29 +310,27 @@ let addNewDoctor = async (req, res) => {
             })
         }
         try {
-            let count = await db.Doctors.count()
-            let id = (count + 1).toString().padStart(4, "0")
+            let count = await db.Staffs.count()
+            let id = (count + 1).toString().padStart(3, "0")
             let username = nameToUsername(name, id)
             let password = bcrypt.hashSync(username, salt)
-            await db.Doctors.create({
+            await db.Staffs.create({
                 id: id,
                 name: name,
                 image: null,
                 phoneNumber: phoneNumber,
                 email: email,
                 username: username,
-                clinicAddress: clinicAddress,
-                describe: describe,
-                price: price,
-                content: content,
-                specialtyID: specialtyID,
+                address: address,
+                gender: gender,
+                doB: doB,
                 active: true,
             }).then(async () => {
                 await db.Accounts.create({
                     username: username,
                     password: password,
                     active: true,
-                    role: 2
+                    role: 3
                 }).then(() => {
                     return res.status(200).json({
                         message: 'ok'
@@ -365,13 +342,13 @@ let addNewDoctor = async (req, res) => {
                     })
                 })
             }).catch((error) => {
-                console.log('Cannot create doctor. Error: ', error)
+                console.log('Cannot create staff. Error: ', error)
                 return res.status(500).json({
                     message: 'server error!'
                 })
             })
         } catch (error) {
-            console.log('Cannot count doctors. Error: ', error)
+            console.log('Cannot count staffs. Error: ', error)
             return res.status(500).json({
                 message: 'server error!'
             })
@@ -384,28 +361,11 @@ let addNewDoctor = async (req, res) => {
     }
 }
 
-let getSpecialtiesName = async (req, res) => {
-    try {
-        let data = await db.Specialties.findAll({
-            attributes: ['id', 'name']
-        })
-        return res.status(200).json({
-            message: 'ok',
-            data: data
-        })
-    } catch (error) {
-        console.log('Cannot get data. Error:', error)
-        return res.status(500).json({
-            message: 'server error!'
-        })
-    }
-}
 
 module.exports = {
-    getAllDoctors,
-    getSpecialtiesName,
-    getDoctorById,
-    deleteDoctorById,
-    updateDoctorById,
-    addNewDoctor,
+    getAllStaffs,
+    getStaffById,
+    deleteStaffById,
+    updateStaffById,
+    addNewStaff,
 }
