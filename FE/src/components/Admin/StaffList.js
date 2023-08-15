@@ -122,7 +122,7 @@ const StaffList = (props) => {
     }, [change])// eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div className="staff-list-container px-5 py-5">
-            <Modal show={show} onHide={handleClose} size="lg">
+            <Modal show={show} onHide={handleClose} size="lg" centered>
                 <StaffChange
                     setChange={setChange}
                     change={change}
@@ -152,7 +152,7 @@ const StaffList = (props) => {
                         <Button onClick={() => navigate('/admin')} variant="outline-secondary" size="sm">Quay lại</Button>
                     </Col>
                     <Col xs={8} className="d-flex align-items-center justify-content-center fw-bold">
-                        Danh sách bác sĩ cộng tác
+                        Danh sách nhân viên hệ thống
                     </Col>
                 </Row>
             </div>

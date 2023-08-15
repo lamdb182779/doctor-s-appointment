@@ -2,6 +2,7 @@ const db = require('../models')
 const { Op } = require('sequelize')
 const { verifyToken } = require('../middleware/jwt-action.js')
 const bcrypt = require('bcryptjs')
+const moment = require('moment')
 
 const salt = bcrypt.genSaltSync(parseInt(process.env.BCRYPT_SALT))
 
@@ -35,7 +36,7 @@ const nameToUsername = (name, id) => {
     return username
 }
 
-let getAllDoctors = async (req, res) => {
+const getAllDoctors = async (req, res) => {
     let { page, pagesize, name, specialtyID, clinicAddress } = req.query
     page = parseInt(page)
     pagesize = parseInt(pagesize)
@@ -121,7 +122,7 @@ let getAllDoctors = async (req, res) => {
     }
 }
 
-let getDoctorById = async (req, res) => {
+const getDoctorById = async (req, res) => {
     let id = req.params.id
     try {
         let count = await db.Doctors.count()
@@ -164,7 +165,7 @@ let getDoctorById = async (req, res) => {
     }
 }
 
-let deleteDoctorById = async (req, res) => {
+const deleteDoctorById = async (req, res) => {
     let { id } = req.query
     let { token } = req.body
     token = verifyToken(token)
@@ -186,7 +187,7 @@ let deleteDoctorById = async (req, res) => {
             })
         }
         try {
-            let deactivate = await db.Account.update({ active: false }, {
+            let deactivate = await db.Accounts.update({ active: false }, {
                 where: {
                     username: doctor.username,
                     active: true,
@@ -226,7 +227,6 @@ let deleteDoctorById = async (req, res) => {
                 message: 'server error!'
             })
         }
-
     } catch (error) {
         console.log('Cannot get doctor. Error: ', error)
         return res.status(500).json({
@@ -235,7 +235,7 @@ let deleteDoctorById = async (req, res) => {
     }
 }
 
-let updateDoctorById = async (req, res) => {
+const updateDoctorById = async (req, res) => {
     let { id } = req.query
     let { name, phoneNumber, email, clinicAddress, describe, price, content, token } = req.body
     token = verifyToken(token)
@@ -310,7 +310,7 @@ let updateDoctorById = async (req, res) => {
     }
 }
 
-let addNewDoctor = async (req, res) => {
+const addNewDoctor = async (req, res) => {
     let { name, phoneNumber, email, clinicAddress, describe, price, content, specialtyID, token } = req.body
     token = verifyToken(token)
     if (token === null) {
@@ -354,7 +354,30 @@ let addNewDoctor = async (req, res) => {
                     password: password,
                     active: true,
                     role: 2
-                }).then(() => {
+                }).then(async () => {
+                    const startOfWeekNextWeek = moment().add(1, 'weeks').startOf('isoWeek')
+                    for (let i = 0; i < 7; i++) {
+                        const date = moment(startOfWeekNextWeek).add(i, 'days')
+
+                        for (let hour = 0; hour < 16; hour++) {
+                            const time = hour.toString().padStart(2, '0')
+                            await db.Schedules.create({
+                                id: date.format('DDMMYYYY') + time + id,
+                                maxNumber: 3,
+                                currentNumber: 0,
+                                date: new Date(date.format('YYYY-MM-DD')),
+                                time: time,
+                                doctorId: id,
+                                createdAt: new Date(),
+                                updatedAt: new Date()
+                            }).catch((error) => {
+                                console.log('Cannot create schedules. Error: ', error)
+                                return res.status(500).json({
+                                    message: 'server error!'
+                                })
+                            })
+                        }
+                    }
                     return res.status(200).json({
                         message: 'ok'
                     })
@@ -384,7 +407,7 @@ let addNewDoctor = async (req, res) => {
     }
 }
 
-let getSpecialtiesName = async (req, res) => {
+const getSpecialtiesName = async (req, res) => {
     try {
         let data = await db.Specialties.findAll({
             attributes: ['id', 'name']

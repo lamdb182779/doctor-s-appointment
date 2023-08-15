@@ -1,0 +1,34 @@
+.booking-content.modal-body {
+    .form-floating {
+
+        textarea.form-control {
+            // line-height: 2;
+            height     : 7rem;
+            padding-top: 2rem;
+        }
+
+        .form-control {
+            border-top   : none;
+            border-left  : none;
+            border-right : none;
+            border-radius: 0;
+            padding-left : 0;
+
+            &:not(:placeholder-shown) {
+                padding-bottom: 0;
+            }
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        label {
+            padding-left: 0;
+
+            &:not(:placeholder-shown) {
+                transform: translate();
+            }
+        }
+    }
+}

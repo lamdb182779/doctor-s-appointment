@@ -22,7 +22,6 @@ import DoctorChange from "./DoctorChange"
 
 import nullavatar from "../../assets/images/nullavatardoctor.jpg"
 
-
 import Success from "../Dialog/Success"
 
 const DoctorInfo = (props) => {

@@ -1,10 +1,10 @@
 import "../../styles/Doctors/Detail.scss"
 
-import { Button, Col, Dropdown, Image, Row, Spinner, OverlayTrigger, Tooltip } from "react-bootstrap"
+import { Button, Col, Dropdown, Image, Row, Spinner, OverlayTrigger, Tooltip, Modal } from "react-bootstrap"
 
 import { useNavigate, useParams, useLocation } from "react-router-dom"
 
-import { useRef } from "react"
+import { useRef, useState } from "react"
 
 import { connect } from "react-redux"
 
@@ -18,12 +18,33 @@ import {
     faPenToSquare,
 } from '@fortawesome/free-solid-svg-icons'
 import DoctorNotfound from "../Notfound/DoctorNotfound"
+import Booking from "./Booking"
+
+import moment from "moment"
+import "moment/locale/vi"
 
 const Detail = (props) => {
     const navigate = useNavigate()
     const location = useLocation()
     let { id } = useParams()
     const componentRef = useRef(null)
+    const today = moment().startOf('day')
+    const [day, setDay] = useState(moment(today).add(1, 'days'))
+    const dayArray = [
+        moment(today).add(1, 'days'),
+        moment(today).add(2, 'days'),
+        moment(today).add(3, 'days'),
+        moment(today).add(4, 'days'),
+        moment(today).add(5, 'days'),
+        moment(today).add(6, 'days'),
+        moment(today).add(7, 'days'),
+    ]
+    const [schedule, setSchedule] = useState({})
+
+    const [show, setShow] = useState(false)
+    const handleShow = () => setShow(true)
+    const handleClose = () => setShow(false)
+
     if (props.route.path === '/') {
         props.setRoute({ ...props.route, path: location.pathname + location.search, preRoute: { path: '/' } })
     }
@@ -36,15 +57,46 @@ const Detail = (props) => {
         }, 250)
     }
 
-    const { data, loading } = useFetch(`http://localhost:8080/api/doctors/${id}`)
+    const { data, loading } = useFetch(`http://localhost:8080/api/doctors/${id}/1`)
+
+    const [book, setBook] = useState(0)
+
+    const { data: scheduleData, loading: scheduleLoading } = useFetch(`http://localhost:8080/api/schedules?doctorId=${id}&date=${day}&${book}`)
 
     const renderBookingTooltip = (props) => (
         <Tooltip id="booking-tooltip" {...props}>
             Đặt lịch ngay
         </Tooltip>
     )
+
+    const time = {
+        "00": "8:00 - 8:30",
+        "01": "8:30 - 9:00",
+        "02": "9:00 - 9:30",
+        "03": "9:30 - 10:00",
+        "04": "10:00 - 10:30",
+        "05": "10:30 - 11:00",
+        "06": "11:00 - 11:30",
+        "07": "11:30 - 12:00",
+        "08": "13:30 - 14:00",
+        "09": "14:00 - 14:30",
+        "10": "14:30 - 15:00",
+        "11": "15:00 - 15:30",
+        "12": "15:30 - 16:00",
+        "13": "16:00 - 16:30",
+        "14": "16:30 - 17:00",
+        "15": "17:00 - 17:30",
+    }
     return (
         <div className="detail-container">
+            <Modal centered size="lg" show={show} onHide={handleClose}>
+                <Booking
+                    schedule={schedule}
+                    doctor={data[0]}
+                    book={book}
+                    setBook={setBook}
+                    handleClose={handleClose} />
+            </Modal>
             {loading === false ?
                 <>
                     {data?.length > 0 ?
@@ -68,8 +120,16 @@ const Detail = (props) => {
                                     <div className="detail-time">
                                         <div className="detail-day">
                                             <Dropdown>
-                                                <Dropdown.Toggle variant="outline-success" size="sm"></Dropdown.Toggle>
-                                                <Dropdown.Item></Dropdown.Item>
+                                                <Dropdown.Toggle variant="outline-success" >{day.format('dd, DD/MM/YYYY')}</Dropdown.Toggle>
+                                                <Dropdown.Menu >
+                                                    {dayArray.map((item, index) => {
+                                                        return (
+                                                            <Dropdown.Item key={index}
+                                                                onClick={() => setDay(item)}>{item.format('dd, DD/MM/YYYY')}</Dropdown.Item>
+                                                        )
+                                                    })
+                                                    }
+                                                </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
                                         <div className="detail-cal">
@@ -77,62 +137,33 @@ const Detail = (props) => {
                                             &nbsp;&nbsp;LỊCH KHÁM
                                         </div>
                                         <div className="detail-timeframe">
-                                            <Row>
-                                                <Col>
-                                                    <Button variant="outline-primary">8:00 - 8:30</Button>
-                                                </Col>
-                                                <Col>
-                                                    <Button variant="outline-primary">8:30 - 9:00</Button>
-                                                </Col>
-                                                <Col>
-                                                    <Button variant="outline-primary">9:00 - 9:30</Button>
-                                                </Col>
-                                                <Col>
-                                                    <Button variant="outline-primary">9:30 - 10:00</Button>
-                                                </Col>
-                                            </Row>
-                                            <Row>
-                                                <Col>
-                                                    <Button variant="outline-primary">10:00 - 10:30</Button>
-                                                </Col>
-                                                <Col>
-                                                    <Button variant="outline-primary">10:30 - 11:00</Button>
-                                                </Col>
-                                                <Col>
-                                                    <Button variant="outline-primary">11:00 - 11:30</Button>
-                                                </Col>
-                                                <Col>
-                                                    <Button variant="outline-primary">11:30 - 12:00</Button>
-                                                </Col>
-                                            </Row>
-                                            <Row>
-                                                <Col>
-                                                    <Button variant="outline-primary">13:30 - 14:00</Button>
-                                                </Col>
-                                                <Col>
-                                                    <Button variant="outline-primary">14:00 - 14:30</Button>
-                                                </Col>
-                                                <Col>
-                                                    <Button variant="outline-primary">14:30 - 15:00</Button>
-                                                </Col>
-                                                <Col>
-                                                    <Button variant="outline-primary">15:00 - 15:30</Button>
-                                                </Col>
-                                            </Row>
-                                            <Row>
-                                                <Col>
-                                                    <Button variant="outline-primary">15:30 - 16:00</Button>
-                                                </Col>
-                                                <Col>
-                                                    <Button variant="outline-primary">16:00 - 16:30</Button>
-                                                </Col>
-                                                <Col>
-                                                    <Button variant="outline-primary">16:30 - 17:00</Button>
-                                                </Col>
-                                                <Col>
-                                                    <Button variant="outline-primary">17:00 - 17:30</Button>
-                                                </Col>
-                                            </Row>
+                                            {scheduleLoading === false ?
+                                                <>
+                                                    {scheduleData?.length > 0 ?
+                                                        <>
+                                                            <Row className="">
+                                                                {scheduleData.map((item, index) => {
+                                                                    return (
+                                                                        <Col className="mb-1" key={index} xs={3}>
+                                                                            <Button onClick={() => { setSchedule(item); handleShow() }}
+                                                                                variant="outline-primary w-100">{time[item.time]}</Button>
+                                                                        </Col>
+                                                                    )
+                                                                })
+                                                                }
+                                                            </Row>
+                                                        </>
+                                                        :
+                                                        <>
+                                                            <div className="fs-6 text-start">
+                                                                Có vẻ vào {day.format('dddd - DD/MM/YYYY')} bác sĩ khá bận, hãy hẹn bác sĩ hôm khác nhé
+                                                            </div>
+                                                        </>
+                                                    }
+                                                </>
+                                                :
+                                                <></>
+                                            }
                                         </div>
                                     </div>
                                     <div className="detail-address">

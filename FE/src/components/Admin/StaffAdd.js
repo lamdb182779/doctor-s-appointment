@@ -13,6 +13,9 @@ import {
     faUserPlus,
     faPenToSquare,
 } from "@fortawesome/free-solid-svg-icons"
+import {
+    faSquare
+} from "@fortawesome/free-regular-svg-icons"
 import useFetch from "../../custom/fetch"
 import Danger from "../Dialog/Danger"
 import Success from "../Dialog/Success"
@@ -143,64 +146,12 @@ const StaffAdd = (props) => {
             </div>
             <div className="staff-add-content fs-6 text-start d-grid gap-3 py-5">
                 <Row>
-                    <Col xs={4}>
+                    <Col xs={5}>
                         <FloatingLabel controlId="name" label="Họ và tên">
                             <Form.Control
                                 type="text"
                                 value={name}
                                 onChange={(event) => setName(event.target.value)} />
-                        </FloatingLabel>
-                    </Col>
-                    <Col xs={2} />
-                    <Col xs={4}>
-                        <Form.Label >
-                            Ngày sinh
-                        </Form.Label><br />
-                        <Form.Control
-                            size="sm"
-                            type="file"
-                            required
-                            name="file"
-                        //   onChange={handleChange}
-                        //   isInvalid={!!errors.file}
-                        />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={5}>
-                        <FloatingLabel controlId="phone" label="Điện thoại">
-                            <Form.Control
-                                type="text"
-                                value={phone}
-                                onChange={(event) => setPhone(event.target.value)} />
-                        </FloatingLabel>
-                    </Col>
-                    <Col xs={1} />
-                    <Col xs={4} className="d-flex justify-content-end">
-                        <div>
-                            <Form.Label >
-                                Ngày sinh
-                            </Form.Label><br />
-                            <DatePicker selected={doB}
-                                onChange={(date) => setDoB(date)}
-                                onSelect={(date) => setDoB(date)}
-                                disabled={!isDoB}
-                                dateFormat="dd/MM/yyyy" />
-                            <OverlayTrigger
-                                placement="auto"
-                                overlay={renderChangeDoB}>
-                                <FontAwesomeIcon icon={faPenToSquare} onClick={() => setIsDoB(!isDoB)} />
-                            </OverlayTrigger>
-                        </div>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={5}>
-                        <FloatingLabel controlId="email" label="Email">
-                            <Form.Control
-                                type="text"
-                                value={email}
-                                onChange={(event) => setEmail(event.target.value)} />
                         </FloatingLabel>
                     </Col>
                     <Col xs={1} />
@@ -234,6 +185,66 @@ const StaffAdd = (props) => {
                                 onClick={() => setGender(null)}
                             />
                         </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={5}>
+                        <FloatingLabel controlId="phone" label="Điện thoại">
+                            <Form.Control
+                                type="text"
+                                value={phone}
+                                onChange={(event) => setPhone(event.target.value)} />
+                        </FloatingLabel>
+                    </Col>
+                    <Col xs={1} />
+                    <Col xs={4} className="d-flex justify-content-end">
+                        <div>
+                            <Form.Label >
+                                Ngày sinh
+                            </Form.Label><br />
+                            <DatePicker selected={doB}
+                                onChange={(date) => setDoB(date)}
+                                onSelect={(date) => setDoB(date)}
+                                disabled={!isDoB}
+                                dateFormat="dd/MM/yyyy" />
+                            <OverlayTrigger
+                                placement="right"
+                                overlay={renderChangeDoB}>
+                                {isDoB === false ?
+                                    <>
+                                        <FontAwesomeIcon icon={faPenToSquare} onClick={() => setIsDoB(!isDoB)} />
+                                    </>
+                                    :
+                                    <>
+                                        <FontAwesomeIcon icon={faSquare} onClick={() => setIsDoB(!isDoB)} />
+                                    </>
+                                }
+                            </OverlayTrigger>
+                        </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={5}>
+                        <FloatingLabel controlId="email" label="Email">
+                            <Form.Control
+                                type="text"
+                                value={email}
+                                onChange={(event) => setEmail(event.target.value)} />
+                        </FloatingLabel>
+                    </Col>
+                    <Col xs={1} />
+                    <Col xs={4}>
+                        <Form.Label >
+                            Ảnh đại diện
+                        </Form.Label><br />
+                        <Form.Control
+                            size="sm"
+                            type="file"
+                            required
+                            name="file"
+                        //   onChange={handleChange}
+                        //   isInvalid={!!errors.file}
+                        />
                     </Col>
                 </Row>
                 <Row>

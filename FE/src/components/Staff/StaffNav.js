@@ -10,6 +10,7 @@ const StaffNav = (props) => {
     const navigate = useNavigate()
     const handleClick = () => {
         props.handleClose()
+        window.scrollTo(0, 0)
     }
     const handleChangePw = () => {
         props.handleClose()

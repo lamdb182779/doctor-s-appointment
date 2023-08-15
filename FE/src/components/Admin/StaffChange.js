@@ -143,7 +143,7 @@ const StaffChange = (props) => {
                     Thông tin chi tiết nhân viên
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body className="d-grid gap-3">
+            <Modal.Body className="staff-change-content d-grid gap-3">
                 <Row className="d-flex justify-content-center">
                     <Col xs={2}>
                         <OverlayTrigger

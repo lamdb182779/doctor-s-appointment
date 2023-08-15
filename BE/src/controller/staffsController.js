@@ -35,7 +35,7 @@ const nameToUsername = (name, id) => {
     return username
 }
 
-let getAllStaffs = async (req, res) => {
+const getAllStaffs = async (req, res) => {
     let { page, pagesize, name } = req.query
     page = parseInt(page)
     pagesize = parseInt(pagesize)
@@ -107,7 +107,7 @@ let getAllStaffs = async (req, res) => {
     }
 }
 
-let getStaffById = async (req, res) => {
+const getStaffById = async (req, res) => {
     let id = req.params.id
     try {
         let count = await db.Staffs.count()
@@ -150,7 +150,7 @@ let getStaffById = async (req, res) => {
     }
 }
 
-let deleteStaffById = async (req, res) => {
+const deleteStaffById = async (req, res) => {
     let { id } = req.query
     let { token } = req.body
     token = verifyToken(token)
@@ -220,7 +220,7 @@ let deleteStaffById = async (req, res) => {
     }
 }
 
-let updateStaffById = async (req, res) => {
+const updateStaffById = async (req, res) => {
     let { id } = req.query
     let { name, phoneNumber, email, address, doB, gender, token } = req.body
     token = verifyToken(token)
@@ -289,7 +289,7 @@ let updateStaffById = async (req, res) => {
     }
 }
 
-let addNewStaff = async (req, res) => {
+const addNewStaff = async (req, res) => {
     let { name, phoneNumber, email, address, doB, gender, token } = req.body
     token = verifyToken(token)
     if (token === null) {

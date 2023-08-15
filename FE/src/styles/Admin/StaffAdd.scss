@@ -1,6 +1,14 @@
 .staff-add-container {
     position: relative;
 
+    .fa-square {
+        cursor: pointer;
+
+        &:hover {
+            color: grey;
+        }
+    }
+
     .staff-add-to-add {
         width           : 60px;
         height          : 60px;
@@ -67,6 +75,11 @@
                 background   : none;
                 border       : none;
                 border-bottom: 1px solid #dee2e6;
+                color        : #3eaef4;
+
+                &:disabled {
+                    color: rgb(170, 170, 170);
+                }
 
                 &:focus {
                     outline      : none;

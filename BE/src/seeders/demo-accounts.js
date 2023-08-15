@@ -694,6 +694,86 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        username: 'sinhdq001',
+        password: bcrypt.hashSync('sinhdq001', salt),
+        role: 3,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'huenh002',
+        password: bcrypt.hashSync('huenh002', salt),
+        role: 3,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'ducld003',
+        password: bcrypt.hashSync('ducld003', salt),
+        role: 3,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'hoht004',
+        password: bcrypt.hashSync('hoht004', salt),
+        role: 3,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'hiepvh005',
+        password: bcrypt.hashSync('hiepvh005', salt),
+        role: 3,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'chaudm006',
+        password: bcrypt.hashSync('chaudm006', salt),
+        role: 3,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'ngoctb007',
+        password: bcrypt.hashSync('ngoctb007', salt),
+        role: 3,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'bachpt008',
+        password: bcrypt.hashSync('bachpt008', salt),
+        role: 3,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'anhbn009',
+        password: bcrypt.hashSync('anhbn009', salt),
+        role: 3,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'trungdk010',
+        password: bcrypt.hashSync('trungdk010', salt),
+        role: 3,
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ]);
   },
 

@@ -19,12 +19,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'doctorId',
         targetKey: 'id',
       })
-      Appointments.belongsTo(models.Appointments, {
-        foreignKey: 'preAppointmentsId',
-        targetKey: 'id',
-      })
-      Appointments.hasOne(models.Appointments, {
-        foreignKey: 'preAppointmentsId',
+      Appointments.belongsTo(Appointments, {
+        as: 'previous',
+        foreignKey: 'preAppointmentId',
         targetKey: 'id',
       })
     }

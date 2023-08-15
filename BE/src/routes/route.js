@@ -8,6 +8,8 @@ const login = require('./login')
 const search = require('./search')
 const self = require('./self')
 const staffs = require('./staffs')
+const schedules = require('./schedules')
+const appointments = require('./appointments')
 
 const route = (app) => {
     specialties(router)
@@ -17,6 +19,8 @@ const route = (app) => {
     search(router)
     self(router)
     staffs(router)
+    schedules(router)
+    appointments(router)
     router.get('/', getInfoApp)
     return app.use('/api', router)
 }

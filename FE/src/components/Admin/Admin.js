@@ -33,7 +33,7 @@ const Admin = (props) => {
                     <div className="admin-title">
                         <Row>
                             <Col xs={2}>
-                                <Image className="h-auto" src={welcome} alt="welcome" fluid />
+                                <Image className="h-auto w-100" src={welcome} alt="welcome" fluid />
                             </Col>
                             <Col className="text-start d-flex align-items-center fs-3">
                                 XIN CHÀO ADMIN,

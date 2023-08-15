@@ -12,11 +12,14 @@ import Search from '../Search/Search';
 import Doctor from '../Doctor/Doctor';
 import Staff from '../Staff/Staff';
 import Admin from '../Admin/Admin';
+import PrivateRoute from './PrivateRoute';
 import ChangePw from './ChangePw';
 import StaffList from '../Admin/StaffList';
 import StaffAdd from '../Admin/StaffAdd';
 import DoctorAdd from '../Admin/DoctorAdd';
 import DoctorList from '../Admin/DoctorList';
+import Appointments from '../Doctor/Appointments';
+import AppointmentList from '../Staff/AppointmentList';
 
 import '../../styles/App/App.scss';
 
@@ -37,7 +40,6 @@ import StaffNav from '../Staff/StaffNav';
 
 import { connect } from 'react-redux';
 import DoctorInfo from '../Admin/DoctorInfo';
-import StaffInfo from '../Admin/StaffInfo';
 
 const App = (props) => {
   const [showChangePw, setShowChangePw] = useState(false)
@@ -95,15 +97,16 @@ const App = (props) => {
             <Route path='/doctors' element={<Doctors />} />
             <Route path='/doctors/:id' element={<Detail />} />
             <Route path='/search' element={<Search />} />
-            <Route path='/admin' element={<Admin />} />
-            <Route path='/admin/staff-list' element={<StaffList />} />
-            <Route path='/admin/staff-add' element={<StaffAdd />} />
-            <Route path='/admin/staff-info/:id' element={<StaffInfo />} />
-            <Route path='/admin/doctor-add' element={<DoctorAdd />} />
-            <Route path='/admin/doctor-list' element={<DoctorList />} />
-            <Route path='/admin/doctor-info/:id' element={<DoctorInfo />} />
-            <Route path='/doctor' element={<Doctor />} />
-            <Route path='/staff' element={<Staff />} />
+            <Route path='/admin' element={<PrivateRoute table="Admins" element={<Admin />} />} />
+            <Route path='/admin/staff-list' element={<PrivateRoute table="Admins" element={<StaffList />} />} />
+            <Route path='/admin/staff-add' element={<PrivateRoute table="Admins" element={<StaffAdd />} />} />
+            <Route path='/admin/doctor-add' element={<PrivateRoute table="Admins" element={<DoctorAdd />} />} />
+            <Route path='/admin/doctor-list' element={<PrivateRoute table="Admins" element={<DoctorList />} />} />
+            <Route path='/admin/doctor-info/:id' element={<PrivateRoute table="Admins" element={<DoctorInfo />} />} />
+            <Route path='/doctor' element={<PrivateRoute table="Doctors" element={<Doctor />} />} />
+            <Route path='/doctor/appointments' element={<PrivateRoute table="Doctors" element={<Appointments />} />} />
+            <Route path='/staff' element={<PrivateRoute table="Staffs" element={<Staff />} />} />
+            <Route path='/staff/appointments' element={<PrivateRoute table="Staffs" element={<AppointmentList />} />} />
             <Route path='*' element={<Notfound />} />
           </Routes>
         </main>
