@@ -46,14 +46,12 @@ const AdminNav = (props) => {
 
 const mapStateToProps = (state) => {
     return ({
-        route: state.route,
         user: state.user
     })
 }
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        setRoute: (route) => dispatch({ type: 'SET_ROUTE', payload: route }),
         setUser: (user) => dispatch({ type: 'SET_USER', payload: user }),
     })
 }

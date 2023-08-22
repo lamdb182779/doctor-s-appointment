@@ -17,9 +17,9 @@ import {
     faSquare
 } from "@fortawesome/free-regular-svg-icons"
 import useFetch from "../../custom/fetch"
-import Danger from "../Dialog/Danger"
-import Success from "../Dialog/Success"
-import Warning from "../Dialog/Warning"
+import Danger from "../General/Dialog/Danger"
+import Success from "../General/Dialog/Success"
+import Warning from "../General/Dialog/Warning"
 
 import DatePicker from "react-datepicker"
 
@@ -33,9 +33,6 @@ const StaffAdd = (props) => {
     const [doB, setDoB] = useState(new Date())
     const [email, setEmail] = useState('')
     const [address, setAddress] = useState('')
-
-    const [url, setUrl] = useState('')
-    const [options, setOptions] = useState({})
 
     const [isDoB, setIsDoB] = useState(false)
 
@@ -58,7 +55,21 @@ const StaffAdd = (props) => {
         </Popover>
     )
 
-    const { message, loading } = useFetch(url, options)
+    const { message, loading } = useFetch(add === 0 ? '' : `http://localhost:8080/api/staffs?${add}`, add === 0 ? {} : {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: name.trim(),
+            phoneNumber: phone.trim(),
+            email: email.trim(),
+            address: address.trim(),
+            gender: gender,
+            doB: doB,
+            token: props.user.token,
+        })
+    })
     const handleAdd = () => {
         if ([name.trim(), phone.trim(), email.trim(), address.trim()].includes("")) {
             setIsAnyBlank(true)
@@ -71,24 +82,9 @@ const StaffAdd = (props) => {
     const handleYes = () => {
         setAdd(add + 1)
     }
-    useEffect(() => {
-        setUrl(add === 0 ? '' : `http://localhost:8080/api/staffs?${add}`)
-        setOptions(add === 0 ? {} : {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: name.trim(),
-                phoneNumber: phone.trim(),
-                email: email.trim(),
-                address: address.trim(),
-                gender: gender,
-                doB: doB,
-                token: props.user.token,
-            })
-        })
-    }, [add])// eslint-disable-line react-hooks/exhaustive-deps
+    const handleBack = () => {
+        window.history.back()
+    }
     useEffect(() => {
         if (loading === false && add !== 0) {
             if (message === 'ok') {
@@ -137,7 +133,7 @@ const StaffAdd = (props) => {
             <div className="staff-add-title">
                 <Row className="">
                     <Col xs={2} className="d-flex justify-content-start">
-                        <Button onClick={() => navigate('/admin')} variant="outline-secondary" size="sm">Quay lại</Button>
+                        <Button onClick={() => handleBack()} variant="outline-secondary" size="sm">Quay lại</Button>
                     </Col>
                     <Col xs={8} className="d-flex align-items-center justify-content-center fw-bold">
                         Thêm thông tin cho nhân viên mới

@@ -14,9 +14,9 @@ import {
     faUserPlus
 } from "@fortawesome/free-solid-svg-icons"
 import useFetch from "../../custom/fetch"
-import Danger from "../Dialog/Danger"
-import Success from "../Dialog/Success"
-import Warning from "../Dialog/Warning"
+import Danger from "../General/Dialog/Danger"
+import Success from "../General/Dialog/Success"
+import Warning from "../General/Dialog/Warning"
 
 const DoctorAdd = (props) => {
     const navigate = useNavigate()
@@ -53,7 +53,23 @@ const DoctorAdd = (props) => {
     )
 
     const { data, loading: specialtiesLoading } = useFetch('http://localhost:8080/api/doctors/specialties')
-    const { message, loading } = useFetch(url, options)
+    const { message, loading } = useFetch(add === 0 ? '' : `http://localhost:8080/api/doctors?${add}`, add === 0 ? {} : {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            token: props.user.token,
+            name: name.trim(),
+            phoneNumber: phone.trim(),
+            email: email.trim(),
+            specialtyID: specialtyID,
+            clinicAddress: address,
+            describe: describe,
+            price: price,
+            content: content,
+        })
+    })
     const handleAdd = () => {
         if ([name.trim(), phone.trim(), email.trim(), specialtyID, address.trim(), describe.trim(), price.trim()].includes("")) {
             setIsAnyBlank(true)
@@ -66,26 +82,9 @@ const DoctorAdd = (props) => {
     const handleYes = () => {
         setAdd(add + 1)
     }
-    useEffect(() => {
-        setUrl(add === 0 ? '' : `http://localhost:8080/api/doctors?${add}`)
-        setOptions(add === 0 ? {} : {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                token: props.user.token,
-                name: name.trim(),
-                phoneNumber: phone.trim(),
-                email: email.trim(),
-                specialtyID: specialtyID,
-                clinicAddress: address,
-                describe: describe,
-                price: price,
-                content: content,
-            })
-        })
-    }, [add])// eslint-disable-line react-hooks/exhaustive-deps
+    const handleBack = () => {
+        window.history.back()
+    }
     useEffect(() => {
         if (loading === false && add !== 0) {
             if (message === 'ok') {
@@ -124,7 +123,7 @@ const DoctorAdd = (props) => {
             <div className="doctor-add-title">
                 <Row className="">
                     <Col xs={2} className="d-flex justify-content-start">
-                        <Button onClick={() => navigate('/admin')} variant="outline-secondary" size="sm">Quay lại</Button>
+                        <Button onClick={() => handleBack()} variant="outline-secondary" size="sm">Quay lại</Button>
                     </Col>
                     <Col xs={8} className="d-flex align-items-center justify-content-center fw-bold">
                         Thêm thông tin cho bác sĩ mới

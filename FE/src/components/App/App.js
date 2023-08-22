@@ -3,12 +3,12 @@ import Footer from './Footer';
 import Nav from './Nav';
 import Login from './Login';
 import ForgetPw from './ForgetPw'
-import Home from '../Home/Home';
-import Specialties from '../Specialties/Specialties';
-import Doctors from '../Doctors/Doctors';
-import Detail from '../Doctors/Detail';
-import Notfound from '../Notfound/Notfound';
-import Search from '../Search/Search';
+import Home from '../Guest/Home/Home';
+import Specialties from '../Guest/Specialties/Specialties';
+import Doctors from '../Guest/Doctors/Doctors';
+import Detail from '../Guest/Doctors/Detail';
+import Notfound from '../General/Notfound/Notfound';
+import Search from '../Guest/Search/Search';
 import Doctor from '../Doctor/Doctor';
 import Staff from '../Staff/Staff';
 import Admin from '../Admin/Admin';
@@ -47,17 +47,17 @@ const App = (props) => {
   const [showLogin, setShowLogin] = useState(false)
   const [showCanvas, setShowCanvas] = useState(false)
   const [activeSendEmail, setActiveSendEmail] = useState(false)
-  const [loginClick, setLoginClick] = useState(0)
+  const [login, setLogin] = useState(0)
   const [sendVerify, setSendVerify] = useState(0)
-  const [changeClick, setChangeClick] = useState(0)
+  const [change, setChange] = useState(0)
 
   const handleCloseCanvas = (time) => setShowCanvas(false)
   const handleShowCanvas = () => setShowCanvas(true)
   const handleCloseForgetPw = (time) => setTimeout(() => { setShowForgetPw(false); setSendVerify(0) }, time || 0)
   const handleShowForgetPw = () => setShowForgetPw(true)
-  const handleCloseLogin = (time) => setTimeout(() => { setShowLogin(false); setLoginClick(0) }, time || 0)
+  const handleCloseLogin = (time) => setTimeout(() => { setShowLogin(false); setLogin(0) }, time || 0)
   const handleShowLogin = () => setShowLogin(true)
-  const handleCloseChangePw = (time) => setTimeout(() => { setShowChangePw(false); setChangeClick(0) }, time || 0)
+  const handleCloseChangePw = (time) => setTimeout(() => { setShowChangePw(false); setChange(0) }, time || 0)
   const handleShowChangePw = () => setShowChangePw(true)
 
   const renderNav = () => {
@@ -78,7 +78,7 @@ const App = (props) => {
     <BrowserRouter>
       <div className="App">
         <Offcanvas show={showCanvas} onHide={handleCloseCanvas} scroll={true} style={{ transition: 'transform 0.5s ease-in-out' }}>
-          <Offcanvas.Header closeButton>
+          <Offcanvas.Header>
             <Offcanvas.Title>
               <a href='/' className="text-decoration-none text-dark">Doctor Booking</a>
             </Offcanvas.Title>
@@ -119,13 +119,13 @@ const App = (props) => {
           <Modal.Title>Đăng nhập</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Login loginClick={loginClick} handleCloseLogin={handleCloseLogin} />
+          <Login login={login} handleCloseLogin={handleCloseLogin} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="outline-danger" onClick={() => { handleCloseLogin(); handleShowForgetPw() }}>
             Quên mật khẩu
           </Button>
-          <Button variant="primary" onClick={() => setLoginClick(loginClick + 1)}>
+          <Button variant="primary" onClick={() => setLogin(login + 1)}>
             Đăng nhập
           </Button>
         </Modal.Footer>
@@ -153,10 +153,10 @@ const App = (props) => {
           <Modal.Title>Đổi mật khẩu</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <ChangePw changeClick={changeClick} handleCloseChangePw={handleCloseChangePw} />
+          <ChangePw change={change} handleCloseChangePw={handleCloseChangePw} />
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={() => setChangeClick(changeClick + 1)} variant="primary" >
+          <Button onClick={() => setChange(change + 1)} variant="primary" >
             Đổi mật khẩu
           </Button>
         </Modal.Footer>

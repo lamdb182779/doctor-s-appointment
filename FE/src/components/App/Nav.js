@@ -3,19 +3,11 @@ import "../../styles/App/Nav.scss"
 import { NavLink, useNavigate } from "react-router-dom"
 
 import { Button, Form } from "react-bootstrap"
-import { connect } from "react-redux"
 import { useState } from "react"
 
 const Nav = (props) => {
     const navigate = useNavigate()
-    const handleClick = (path) => {
-        if (!((props.route.path === '/' && path === '/') || (props.route.path.startsWith(path) && path !== '/'))) {
-            props.setRoute({
-                preRoute: props.route,
-                path: path,
-                scrollY: window.scrollY,
-            })
-        }
+    const handleClick = () => {
         window.scrollTo(0, 0)
         props.handleClose()
     }
@@ -23,17 +15,17 @@ const Nav = (props) => {
     const [search, setSearch] = useState('')
 
     return (
-        <div className="nav-list">
-            <div className="nav-home" onClick={() => handleClick("/")}>
-                <NavLink to="/">Trang chủ</NavLink>
+        <div className="nav-list ">
+            <div className="nav-home mb-1 rounded" onClick={() => handleClick()}>
+                <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" to="/">Trang chủ</NavLink>
             </div>
-            <div className="nav-specialties" onClick={() => handleClick("/specialties")}>
-                <NavLink to="/specialties">Chuyên khoa</NavLink>
+            <div className="nav-specialties mb-1 rounded" onClick={() => handleClick()}>
+                <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" to="/specialties">Chuyên khoa</NavLink>
             </div>
-            <div className="nav-doctors" onClick={() => handleClick("/doctors")}>
-                <NavLink to="/doctors">Bác sĩ</NavLink>
+            <div className="nav-doctors mb-1 rounded" onClick={() => handleClick()}>
+                <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" to="/doctors">Bác sĩ</NavLink>
             </div>
-            <Form className="d-flex">
+            <Form className="d-flex mt-5">
                 <Form.Control
                     type="search"
                     placeholder="Nhập từ khóa"
@@ -53,17 +45,4 @@ const Nav = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        route: state.route
-    })
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return ({
-        setRoute: (route) => dispatch({ type: 'SET_ROUTE', payload: route }),
-    })
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Nav)
+export default Nav

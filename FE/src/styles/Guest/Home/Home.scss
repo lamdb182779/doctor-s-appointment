@@ -1,0 +1,47 @@
+.home-container {
+    .home-title {
+        background-image           : linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url('../../../assets/images/homepage_background.jpg');
+        //         min-height      : 30rem;
+        //         margin-top      : 5%;
+        //         border-radius   : 10px;
+
+        //         .home-search {
+        //             background-color: yellow;
+        //             height          : 3rem;
+        //             width           : 40%;
+        //             margin          : 5% auto;
+        //             border-radius   : 30px;
+        //             display         : flex;
+
+        //             .search-icon {
+        //                 margin: auto 5%;
+        //             }
+
+        input {
+            //                 margin    : auto auto;
+            //                 height    : 100%;
+            //                 width     : 80%;
+            outline                      : none;
+            //                 border    : 0px;
+            //                 background: none;
+            //                 font-size : 15px;
+        }
+
+        //         }
+
+        .home-functions {
+            //             margin-top           : 10%;
+            //             display              : grid;
+            //             grid-template-columns: auto auto auto auto auto auto auto;
+            //             font-size            : 70%;
+            //             color                : dimgray;
+
+            .col {
+                //                 margin    : 0px auto;
+                //                 text-align: center;
+                //                 width     : 70%;
+                cursor: pointer;
+            }
+        }
+    }
+}

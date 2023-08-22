@@ -19,9 +19,9 @@ import DatePicker from "react-datepicker"
 
 import "react-datepicker/dist/react-datepicker.css"
 import useFetch from "../../custom/fetch"
-import Danger from "../Dialog/Danger"
-import Success from "../Dialog/Success"
-import Warning from "../Dialog/Warning"
+import Danger from "../General/Dialog/Danger"
+import Success from "../General/Dialog/Success"
+import Warning from "../General/Dialog/Warning"
 
 import { connect } from "react-redux"
 
@@ -29,7 +29,21 @@ const StaffChange = (props) => {
     const [url, setUrl] = useState('')
     const [options, setOptions] = useState({})
 
-    const { message, loading } = useFetch(url, options)
+    const { message, loading } = useFetch(change === 0 ? '' : `http://localhost:8080/api/staffs?id=${data.id}&${change}`, change === 0 ? {} : {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: name === data.name ? null : name.trim(),
+            phoneNumber: phone === data.phoneNumber ? null : phone.trim(),
+            email: email === data.email ? null : email.trim(),
+            address: address === data.address ? null : address.trim(),
+            gender: gender,
+            doB: !isDoB ? null : doB,
+            token: props.user.token,
+        })
+    })
 
     const data = props.data
     const renderAvatar = (props) => (
@@ -76,28 +90,10 @@ const StaffChange = (props) => {
     }
 
     useEffect(() => {
-        setUrl(change === 0 ? '' : `http://localhost:8080/api/staffs?id=${data.id}&${change}`)
-        setOptions(change === 0 ? {} : {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: name === data.name ? null : name.trim(),
-                phoneNumber: phone === data.phoneNumber ? null : phone.trim(),
-                email: email === data.email ? null : email.trim(),
-                address: address === data.address ? null : address.trim(),
-                gender: gender,
-                doB: !isDoB ? null : doB,
-                token: props.user.token,
-            })
-        })
-    }, [change])// eslint-disable-line react-hooks/exhaustive-deps
-    useEffect(() => {
         if (loading === false && change !== 0) {
             if (message === 'ok') {
                 setShowSuccess(true)
-                props.setChange(props.change + 1)
+                props.setChanged(props.changed + 1)
             } else {
                 setShowDanger(true)
             }

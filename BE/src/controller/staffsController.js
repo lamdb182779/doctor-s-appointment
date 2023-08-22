@@ -172,7 +172,7 @@ const deleteStaffById = async (req, res) => {
             })
         }
         try {
-            let deactivate = await db.Account.update({ active: false }, {
+            let deactivate = await db.Accounts.update({ active: false }, {
                 where: {
                     username: staff.username,
                     active: true,

@@ -15,10 +15,12 @@ import useFetch from "../../custom/fetch"
 
 import { connect } from "react-redux"
 
-import Success from "../Dialog/Success"
-import Danger from "../Dialog/Danger"
+import Success from "../General/Dialog/Success"
+import Danger from "../General/Dialog/Danger"
 
 const ChangePw = (props) => {
+    const change = props.change
+
     const [oldpw, setOldPw] = useState('')
     const [newpw, setNewPw] = useState('')
     const [showPassword, setShowPassword] = useState(false)
@@ -45,15 +47,15 @@ const ChangePw = (props) => {
         setIsBlankNewPw(newpw === '' ? true : false)
         setIsDupPw(oldpw === newpw ? true : false)
 
-        setIsValidOldPw(props.changeClick && oldpw === '' ? false : true)
-        setIsValidNewPw(props.changeClick && (newpw === '' || oldpw === newpw) ? false : true)
-        setUrl(props.changeClick === 0
+        setIsValidOldPw(change && oldpw === '' ? false : true)
+        setIsValidNewPw(change && (newpw === '' || oldpw === newpw) ? false : true)
+        setUrl(change === 0
             || oldpw === ''
             || newpw === ''
             || oldpw === newpw
             ? ''
-            : `http://localhost:8080/api/self/changepw?${props.changeClick}`)
-        setOptions(props.changeClick === 0
+            : `http://localhost:8080/api/self/changepw?${change}`)
+        setOptions(change === 0
             || oldpw === ''
             || newpw === ''
             || oldpw === newpw
@@ -68,13 +70,13 @@ const ChangePw = (props) => {
                     token: props.user.token,
                 })
             })
-    }, [props.changeClick])// eslint-disable-line react-hooks/exhaustive-deps
+    }, [change])// eslint-disable-line react-hooks/exhaustive-deps
 
     const { message, loading } = useFetch(url, options)
 
     useEffect(() => {
         setIsValidOldPw(message === 'wrong password' ? false : true)
-        if (props.changeClick !== 0 && loading === false) {
+        if (change !== 0 && loading === false) {
             if (message === 'ok') {
                 setShowSuccess(true)
                 props.handleCloseChangePw(1000)
@@ -97,7 +99,8 @@ const ChangePw = (props) => {
                 time={1000}
                 bodyAlign="text-center"
                 body={message === 'server error!' ? "Lỗi Server"
-                    : message === 'wrong verify' ? "Lỗi xác thực" : undefined} />
+                    : message === 'wrong verify' ? "Lỗi xác thực"
+                        : message === 'wrong password' ? 'Sai mật khẩu hiện tại' : undefined} />
             <div className="changepw-title">
                 Nhập mật khẩu hiện tại và mật khẩu mới
             </div>
@@ -115,8 +118,7 @@ const ChangePw = (props) => {
                             isInvalid={!isValidOldPw}
                             placeholder="Mật khẩu hiện tại" />
                         <Form.Control.Feedback type="invalid">
-                            &nbsp;{isBlankOldPw ? 'Vui lòng điền mật khẩu hiện tại'
-                                : message === 'wrong password' ? 'Sai mật khẩu hiện tại' : ''}
+                            &nbsp;{isBlankOldPw ? 'Vui lòng điền mật khẩu hiện tại' : ''}
                         </Form.Control.Feedback>
                     </Form.Group>
 

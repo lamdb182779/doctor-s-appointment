@@ -1,19 +1,16 @@
 - validate form
-- sửa trang chuyên khoa và trang bác sĩ theo useFetch
-- sửa tên state đăng nhập, quên mật khẩu, đổi mật khẩu, danh sách bác sĩ, thay đổi thông tin bác sĩ, sửa thông tin bác sĩ,
 - sửa lại toast bằng toastify
 - sửa lại message và log từ server
 - sửa lại thông báo từ toast dựa trên message
 - sửa lại lưu trữ phiên đăng nhập
 - sửa lại CRUD ảnh đại diện
 - sửa lại kiểm tra role ở BE
-- private route
 - sửa lại render loading, notfound
-- chỉnh lại avatar trống phía người dùng
-- chỉnh lại useFetch các trang phía Admin, trang đăng nhập, đổi mật khẩu
 - thêm tự động gửi email
 - thêm tạo mới lịch tự động vào sáng thứ hai hàng tuần bằng node-cron
 - chỉnh sửa search bằng search engine
 - thêm chatbot
 - sửa lại các ảnh sử dụng 
 - thêm quản lý lịch hẹn
+- thêm mã capcha
+- single sign on

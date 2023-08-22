@@ -11,8 +11,8 @@ import { Row, Col, Modal, Form, Button, } from "react-bootstrap"
 import ReactMarkdown from "react-markdown"
 import { useEffect, useState } from "react"
 import useFetch from "../../custom/fetch"
-import Danger from "../Dialog/Danger"
-import Warning from "../Dialog/Warning"
+import Danger from "../General/Dialog/Danger"
+import Warning from "../General/Dialog/Warning"
 
 import { connect } from "react-redux"
 import { useRef } from "react"
@@ -52,14 +52,28 @@ const DoctorChange = (props) => {
 
     const [save, setSave] = useState('')
 
-    const [changeClick, setChangeClick] = useState(0)
-    const [url, setUrl] = useState('')
-    const [options, setOptions] = useState({})
+    const [change, setChange] = useState(0)
 
     const [showWarning, setShowWarning] = useState(false)
     const [showDanger, setShowDanger] = useState(false)
 
-    const { message, loading } = useFetch(url, options)
+    const { message, loading } = useFetch(change === 0 ? '' : `http://localhost:8080/api/doctors?id=${data[0].id}&${change}`,
+        change === 0 ? {} : {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name === data[0].name ? null : name.trim(),
+                phoneNumber: phone === data[0].phone ? null : phone.trim(),
+                email: email === data[0].email ? null : email.trim(),
+                clinicAddress: address === data[0].address ? null : address,
+                describe: describe === data[0].describe ? null : describe,
+                price: price === data[0].price ? null : price,
+                content: content === data[0].content ? null : content,
+                token: props.user.token,
+            })
+        })
 
     const [isAnyBlank, setIsAnyBlank] = useState(false)
 
@@ -117,33 +131,14 @@ const DoctorChange = (props) => {
         }
     }
     const handleYes = () => {
-        setChangeClick(changeClick + 1)
+        setChange(change + 1)
     }
 
     useEffect(() => {
-        setUrl(changeClick === 0 ? '' : `http://localhost:8080/api/doctors?id=${data[0].id}&${changeClick}`)
-        setOptions(changeClick === 0 ? {} : {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: nameDisable ? null : name.trim(),
-                phoneNumber: phoneDisable ? null : phone.trim(),
-                email: emailDisable ? null : email.trim(),
-                clinicAddress: address,
-                describe: describe,
-                price: price,
-                content: content,
-                token: props.user.token,
-            })
-        })
-    }, [changeClick])// eslint-disable-line react-hooks/exhaustive-deps
-    useEffect(() => {
-        if (loading === false && changeClick !== 0) {
+        if (loading === false && change !== 0) {
             if (message === 'ok') {
                 props.handleClose()
-                props.setChange(props.change + 1)
+                props.setChanged(props.changed + 1)
                 props.setShowSuccess(true)
             }
             else {
@@ -316,17 +311,17 @@ const DoctorChange = (props) => {
                             </Row>
                             <Row className="p-2">
                                 <Form.Control
-                                    value={(!addressDisable && address) ||
-                                        (!describeDisable && describe) ||
-                                        (!priceDisable && price) ||
-                                        (!contentDisable && content)}
+                                    value={!addressDisable ? address :
+                                        !describeDisable ? describe :
+                                            !priceDisable ? price :
+                                                !contentDisable ? content : ""}
                                     as="textarea"
                                     rows={row > 5 ? row : 5}
                                     onChange={(event) => {
-                                        (!addressDisable && setAddress(event.target.value)) ||
-                                            (!describeDisable && setDescribe(event.target.value)) ||
-                                            (!priceDisable && setPrice(event.target.value)) ||
-                                            (!contentDisable && setContent(event.target.value))
+                                        !addressDisable ? setAddress(event.target.value) :
+                                            !describeDisable ? setDescribe(event.target.value) :
+                                                !priceDisable ? setPrice(event.target.value) :
+                                                    !contentDisable && setContent(event.target.value)
                                         setRow(event.target.value.split("\n").length)
                                     }} />
                             </Row>

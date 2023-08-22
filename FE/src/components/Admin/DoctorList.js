@@ -5,14 +5,14 @@ import { Row, Col, Button, Table } from "react-bootstrap"
 
 import { ReactMarkdown } from "react-markdown/lib/react-markdown"
 
-import Page from "../Page/Page"
+import Page from "../General/Page/Page"
 
 import { useNavigate, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 
-import Warning from "../Dialog/Warning"
-import Success from "../Dialog/Success"
-import Danger from "../Dialog/Danger"
+import Warning from "../General/Dialog/Warning"
+import Success from "../General/Dialog/Success"
+import Danger from "../General/Dialog/Danger"
 
 import { connect } from "react-redux"
 
@@ -23,56 +23,26 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 
 const DoctorList = (props) => {
-    const [delClick, setDelClick] = useState({ confirm: false })
+    const [confirm, setConfirm] = useState(false)
+    const [delId, setDelId] = useState(-1)
+    const [deleted, setDeleted] = useState(0)
 
     const navigate = useNavigate()
-    const location = useLocation()
-
-    const [url, setUrl] = useState('')
-    const [delUrl, setDelUrl] = useState('')
-    const [options, setOptions] = useState({})
+    // const location = useLocation()
 
     const [showWarning, setShowWarning] = useState(false)
     const [showSuccess, setShowSuccess] = useState(false)
     const [showDanger, setShowDanger] = useState(false)
 
-    let { page, pagesize, name, specialtyID, clinicAddress } = Object.fromEntries(new URLSearchParams(location.search).entries())
-    page = page ? parseInt(page) : 1
+    // let { page, pagesize, name, specialtyID, clinicAddress } = Object.fromEntries(new URLSearchParams(location.search).entries())
+    const [page, setPage] = useState(1)
     // pagesize = pagesize !== undefined ? parseInt(pagesize) : 5
     // name = name !== undefined ? name : ''
     // specialtyID = specialtyID !== undefined ? specialtyID : ''
     // clinicAddress = clinicAddress !== undefined ? clinicAddress : ''
-    const { data, loading } = useFetch(url)
-    const { message, loading: delLoading } = useFetch(delUrl, options)
-    const handlePage = (page) => {
-        let path = `/admin/doctor-list?page=${page}`
-        // props.setRoute({
-        //     preRoute: props.route.preRoute,
-        //     scrollY: props.route.scrollY ? props.route.scrollY : 0,
-        //     path: path
-        // })
-        navigate(path)
-        // componentRef.current.scrollIntoView({ behavior: 'smooth' })
-        setUrl(`http://localhost:8080/api/doctors?page=${page}&pagesize=10`)
-        window.scrollTo(0, 0)
-    }
-    const handleInfo = (id) => {
-        let path = `/admin/doctor-info/${id}`
-        navigate(path)
-        window.scrollTo(0, 0)
-    }
-    const handleDelete = (id) => {
-        setDelClick({ ...delClick, id: id })
-        setShowWarning(true)
-    }
-
-    const handleYes = () => {
-        setDelClick({ ...delClick, confirm: true })
-    }
-
-    useEffect(() => {
-        setDelUrl(delClick.confirm === false ? '' : `http://localhost:8080/api/doctors?id=${delClick.id}`)
-        setOptions(delClick.confirm === false ? {} : {
+    const { data, loading } = useFetch(`http://localhost:8080/api/doctors?page=${page}&pagesize=10&${deleted}`)
+    const { message, loading: delLoading } = useFetch(confirm === false ? '' : `http://localhost:8080/api/doctors?id=${delId}`,
+        confirm === false ? {} : {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -81,20 +51,38 @@ const DoctorList = (props) => {
                 token: props.user.token,
             })
         })
-    }, [delClick])// eslint-disable-line react-hooks/exhaustive-deps
+    const handlePage = (page) => {
+        setPage(page)
+        window.scrollTo(0, 0)
+    }
+    const handleInfo = (id) => {
+        let path = `/admin/doctor-info/${id}`
+        navigate(path)
+        window.scrollTo(0, 0)
+    }
+    const handleDelete = (id) => {
+        setDelId(id)
+        setShowWarning(true)
+    }
 
+    const handleYes = () => {
+        setConfirm(true)
+    }
+    const handleBack = () => {
+        window.history.back()
+    }
     useEffect(() => {
         if (delLoading === false) {
-            if (delClick.confirm) {
+            if (confirm === true) {
                 if (message === 'ok') {
                     setShowSuccess(true)
+                    setDeleted(deleted + 1)
                 }
                 else {
                     setShowDanger(true)
                 }
+                setConfirm(false)
             }
-            setUrl(`http://localhost:8080/api/doctors?page=${page}&pagesize=10&${delClick.id}`)
-            setDelClick({ ...delClick, confirm: false })
         }
     }, [delLoading])// eslint-disable-line react-hooks/exhaustive-deps
     return (
@@ -120,7 +108,7 @@ const DoctorList = (props) => {
             <div className="doctor-list-title">
                 <Row className="">
                     <Col xs={2} className="d-flex justify-content-start">
-                        <Button onClick={() => navigate('/admin')} variant="outline-secondary" size="sm">Quay lại</Button>
+                        <Button onClick={() => handleBack()} variant="outline-secondary" size="sm">Quay lại</Button>
                     </Col>
                     <Col xs={8} className="d-flex align-items-center justify-content-center fw-bold">
                         Danh sách bác sĩ cộng tác

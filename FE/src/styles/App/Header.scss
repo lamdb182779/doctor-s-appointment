@@ -1,23 +1,17 @@
 $primary: #3eaef4;
 
 .App-home {
-    display: flex;
-    width  : 30%;
-    margin : auto 0px;
-    height : 10vh;
+    //     display: flex;
+    //     width  : 30%;
+    //     margin : auto 0px;
+    //     height : 10vh;
 
 
     .App-bar {
-        margin         : auto 10%;
-        cursor         : pointer;
-        width          : 12%;
-        height         : 60%;
-        border         : 2px solid white;
-        border-radius  : 10px;
-        display        : flex;
-        justify-content: center;
-        align-items    : center;
-        color          : white;
+        cursor       : pointer;
+        border       : 2px solid white;
+        border-radius: 10px;
+        color        : white;
 
         &:hover {
             background-color: white;
@@ -25,65 +19,64 @@ $primary: #3eaef4;
         }
     }
 
-    .App-logo {
-        margin-left: -5%;
-        cursor     : pointer;
-        display    : flex;
-        align-items: center;
-    }
-}
-
-.App-support {
-    font-size   : 70%;
-    display     : flex;
-    margin      : auto;
-    margin-right: 0%;
-    width       : 20%;
-    color       : white;
-    border-right: 3px solid white;
-    padding     : 0px;
-
-    .question-icon {
-        margin      : auto;
-        margin-right: -5%;
-    }
-
-    .phone-number {
-        margin: 0 10%;
-    }
-}
-
-.App-login {
-    padding    : 0px 2%;
-    width      : 15%;
-    color      : white;
-    display    : flex;
-    align-items: center;
-
-    button {
-        height: 70%;
-
-        &:hover {
-            color: $primary;
-        }
-
-        h6 {
-            margin-top : 5%;
-            line-height: 10%;
-        }
-
-        small {
-            font-size: 65%;
-        }
-    }
-
-    // .App-user {
-    //     padding    : 0px 2%;
-    //     width      : 15%;
-    //     color      : white;
-    //     border-left: 3px solid white;
-    //     display    : flex;
-    //     align-items: center;
+    //     .App-logo {
+    //         margin-left: -5%;
+    //         cursor     : pointer;
+    //         display    : flex;
+    //         align-items: center;
+    //     }
     // }
+
+    // .App-support {
+    //     font-size   : 70%;
+    //     display     : flex;
+    //     margin      : auto;
+    //     margin-right: 0%;
+    //     width       : 20%;
+    //     color       : white;
+    //     border-right: 3px solid white;
+    //     padding     : 0px;
+
+    //     .question-icon {
+    //         margin      : auto;
+    //         margin-right: -5%;
+    //     }
+
+    //     .phone-number {
+    //         margin: 0 10%;
+    //     }
+    // }
+
+    .App-login {
+        //     padding    : 0px 2%;
+        //     width      : 15%;
+        //     color      : white;
+        //     display    : flex;
+        //     align-items: center;
+
+        button {
+            &:hover {
+                color: $primary;
+            }
+        }
+
+        //         h6 {
+        //             margin-top : 5%;
+        //             line-height: 10%;
+        //         }
+
+        //         small {
+        //             font-size: 65%;
+        //         }
+    }
+
+    //     // .App-user {
+    //     //     padding    : 0px 2%;
+    //     //     width      : 15%;
+    //     //     color      : white;
+    //     //     border-left: 3px solid white;
+    //     //     display    : flex;
+    //     //     align-items: center;
+    //     // }
 
 }

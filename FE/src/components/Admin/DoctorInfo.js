@@ -22,7 +22,7 @@ import DoctorChange from "./DoctorChange"
 
 import nullavatar from "../../assets/images/nullavatardoctor.jpg"
 
-import Success from "../Dialog/Success"
+import Success from "../General/Dialog/Success"
 
 const DoctorInfo = (props) => {
     const navigate = useNavigate()
@@ -34,16 +34,13 @@ const DoctorInfo = (props) => {
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
 
-    const [url, setUrl] = useState('')
+    const [changed, setChanged] = useState(0)
+    const { data, loading } = useFetch(`http://localhost:8080/api/doctors/${id}/${changed}`)
 
-    const { data, loading } = useFetch(url)
-
-    const [change, setChange] = useState(0)
     const [showSuccess, setShowSuccess] = useState(false)
-    useEffect(() => {
-        setUrl(`http://localhost:8080/api/doctors/${id}/${change}`)
-    }, [change])// eslint-disable-line react-hooks/exhaustive-deps
-
+    const handleBack = () => {
+        window.history.back()
+    }
     const renderChangeTooltip = (props) => (
         <Tooltip id="change-tooltip" {...props}>
             Chỉnh sửa thông tin bác sĩ
@@ -77,7 +74,7 @@ const DoctorInfo = (props) => {
                         <>
                             <Row className="">
                                 <Col xs={2} className="d-flex justify-content-start">
-                                    <Button onClick={() => navigate('/admin/doctor-list')} variant="outline-secondary" size="sm">Quay lại</Button>
+                                    <Button onClick={() => handleBack()} variant="outline-secondary" size="sm">Quay lại</Button>
                                 </Col>
                             </Row>
                             <Row className="fs-6 text-start d-flex align-items-center">
@@ -126,8 +123,8 @@ const DoctorInfo = (props) => {
                             </OverlayTrigger>
                             <Modal show={show} onHide={handleClose} size="xl">
                                 <DoctorChange
-                                    setChange={setChange}
-                                    change={change}
+                                    setChanged={setChanged}
+                                    changed={changed}
                                     handleClose={handleClose}
                                     setShowSuccess={setShowSuccess}
                                     data={data} />

@@ -11,24 +11,24 @@ import { useState, useEffect } from "react"
 import useFetch from "../../custom/fetch"
 
 const ForgetPw = (props) => {
+    const sendVerify = props.sendVerify
     const [username, setUserName] = useState('')
 
-    const [checkClick, setCheckClick] = useState(0)
-
-    const [url, setUrl] = useState('')
-    const [options, setOptions] = useState({})
+    const [check, setCheck] = useState(0)
 
     const [isValid, setIsValid] = useState(true)
     const [isBlank, setIsBlank] = useState(true)
 
     useEffect(() => {
         setIsBlank(username.trim() === '' ? true : false)
-        setIsValid(checkClick && username.trim() === '' ? false : true)
-        setUrl(checkClick === 0
-            || username.trim() === ''
-            ? ''
-            : `http://localhost:8080/api/login/findemail?${checkClick}`)
-        setOptions(checkClick === 0
+        setIsValid(check && username.trim() === '' ? false : true)
+    }, [check])// eslint-disable-line react-hooks/exhaustive-deps
+
+    const { data, message, loading } = useFetch(check === 0
+        || username.trim() === ''
+        ? ''
+        : `http://localhost:8080/api/login/findemail?${check}`,
+        check === 0
             || username.trim() === ''
             ? {} : {
                 method: 'POST',
@@ -39,9 +39,6 @@ const ForgetPw = (props) => {
                     username: username.trim(),
                 })
             })
-    }, [checkClick])// eslint-disable-line react-hooks/exhaustive-deps
-
-    const { data, message, loading } = useFetch(url, options)
 
     useEffect(() => {
         setIsValid(message === 'wrong username' ? false : true)
@@ -54,11 +51,10 @@ const ForgetPw = (props) => {
         event.preventDefault()
         props.setSendVerify(0)
         props.setActiveSendEmail(false)
-        setCheckClick(checkClick + 1)
+        setCheck(check + 1)
     }
 
-    const verifyUrl = props.sendVerify === 0 ? '' : `http://localhost:8080/api/login/sendverify?${props.sendVerify}`
-    const { message: verifyMessage, loading: verifyLoading } = useFetch(verifyUrl, props.sendVerify === 0 ? {} : {
+    const { message: verifyMessage, loading: verifyLoading } = useFetch(sendVerify === 0 ? '' : `http://localhost:8080/api/login/sendverify?${sendVerify}`, sendVerify === 0 ? {} : {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -73,8 +69,7 @@ const ForgetPw = (props) => {
         props.setActiveSendEmail(true)
         if (verifyLoading) {
             props.setActiveSendEmail(false)
-        }
-        if (verifyMessage === 'ok') {
+        } else if (verifyMessage === 'ok') {
         }
     }, [verifyLoading])// eslint-disable-line react-hooks/exhaustive-deps
 

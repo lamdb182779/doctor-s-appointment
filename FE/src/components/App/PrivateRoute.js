@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 
-import NotFound from "../Notfound/Notfound"
+import NotFound from "../General/Notfound/Notfound"
 
 const PrivateRoute = (props) => {
     if (props.user && props.element) {

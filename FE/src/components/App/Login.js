@@ -15,18 +15,17 @@ import { useEffect, useState } from "react"
 import useFetch from "../../custom/fetch"
 
 import { useNavigate } from "react-router-dom"
-import Success from "../Dialog/Success"
-import Danger from "../Dialog/Danger"
+import Success from "../General/Dialog/Success"
+import Danger from "../General/Dialog/Danger"
 
 import { connect } from "react-redux"
 
 const Login = (props) => {
+    const login = props.login
+
     const [password, setPassword] = useState('')
     const [username, setUserName] = useState('')
     const [showPassword, setShowPassword] = useState(false)
-
-    const [url, setUrl] = useState('')
-    const [options, setOptions] = useState({})
 
     const [isBlankUsername, setIsBlankUsername] = useState(true)
     const [isBlankPassword, setIsBlankPassword] = useState(true)
@@ -42,14 +41,19 @@ const Login = (props) => {
     useEffect(() => {
         setIsBlankUsername(username === '' ? true : false)
         setIsBlankPassword(password === '' ? true : false)
-        setIsValidUsername(props.loginClick && username === '' ? false : true)
-        setIsValidPassword(props.loginClick && password === '' ? false : true)
-        setUrl(props.loginClick === 0
-            || username === ''
-            || password === ''
-            ? ''
-            : `http://localhost:8080/api/login/checklogin?${props.loginClick}`)
-        setOptions(props.loginClick === 0
+        setIsValidUsername(login && username === '' ? false : true)
+        setIsValidPassword(login && password === '' ? false : true)
+    }, [login])// eslint-disable-line react-hooks/exhaustive-deps
+
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword)
+    }
+    const { data, message, loading } = useFetch(login === 0
+        || username === ''
+        || password === ''
+        ? ''
+        : `http://localhost:8080/api/login/checklogin?${login}`,
+        login === 0
             || username === ''
             || password === ''
             ? {} : {
@@ -62,17 +66,11 @@ const Login = (props) => {
                     password: password,
                 })
             })
-    }, [props.loginClick])// eslint-disable-line react-hooks/exhaustive-deps
-
-    const handleShowPassword = () => {
-        setShowPassword(!showPassword)
-    }
-    const { data, message, loading } = useFetch(url, options)
 
     useEffect(() => {
         setIsValidUsername(message === 'wrong username' ? false : true)
         setIsValidPassword(message === 'wrong password' ? false : true)
-        if (props.loginClick !== 0 && loading === false) {
+        if (login !== 0 && loading === false) {
             if (data && data.length > 0) {
                 setShowSuccess(true)
                 props.setUser(data[0])
@@ -108,7 +106,10 @@ const Login = (props) => {
                 setShow={setShowDanger}
                 time={1000}
                 bodyAlign="text-center"
-                body={message === 'server error!' ? "Lỗi Server" : undefined} />
+                size="nm"
+                body={message === 'server error!' ? "Lỗi Server"
+                    : message === 'wrong username' ? 'Tài khoản không tồn tại, vui lòng kiểm tra lại'
+                        : message === 'wrong password' ? 'Mật khẩu không khớp, vui lòng kiểm tra lại' : undefined} />
             <div className="login-title">
                 Nhập tên tài khoản và mật khẩu
             </div>
@@ -127,8 +128,7 @@ const Login = (props) => {
                             onChange={(event) => setUserName(event.target.value)}
                         />
                         <Form.Control.Feedback type="invalid">
-                            &nbsp;{isBlankUsername ? 'Vui lòng điền tên tài khoản'
-                                : message === 'wrong username' ? 'Tài khoản không tồn tại, vui lòng kiểm tra lại' : ''}
+                            &nbsp;{isBlankUsername ? 'Vui lòng điền tên tài khoản' : ''}
                         </Form.Control.Feedback>
                     </Form.Group>
 
@@ -145,8 +145,7 @@ const Login = (props) => {
                             onChange={(event) => setPassword(event.target.value)}
                         />
                         <Form.Control.Feedback type="invalid">
-                            &nbsp;{isBlankPassword ? 'Vui lòng điền mật khẩu'
-                                : message === 'wrong password' ? 'Mật khẩu không khớp, vui lòng kiểm tra lại' : ''}
+                            &nbsp;{isBlankPassword ? 'Vui lòng điền mật khẩu' : ''}
                         </Form.Control.Feedback>
                         <Form.Group onClick={() => handleShowPassword()} className="mt-1" controlId="formBasicCheckbox" style={{ cursor: "pointer" }} >
                             {showPassword === false ?

@@ -5,14 +5,14 @@ import { Row, Col, Button, Table, Modal } from "react-bootstrap"
 
 // import { ReactMarkdown } from "react-markdown/lib/react-markdown"
 
-import Page from "../Page/Page"
+import Page from "../General/Page/Page"
 
 import { useNavigate, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 
-import Warning from "../Dialog/Warning"
-import Success from "../Dialog/Success"
-import Danger from "../Dialog/Danger"
+import Warning from "../General/Dialog/Warning"
+import Success from "../General/Dialog/Success"
+import Danger from "../General/Dialog/Danger"
 
 import { connect } from "react-redux"
 
@@ -24,16 +24,18 @@ import {
 
 import StaffChange from "../Admin/StaffChange"
 
+import moment from "moment"
+import "moment/locale/vi"
+
 const StaffList = (props) => {
-    const [del, setDel] = useState({ confirm: false })
-    const [change, setChange] = useState(0)
+    const [confirm, setConfirm] = useState(false)
+    const [delId, setDelId] = useState(-1)
+    const [deleted, setDeleted] = useState(0)
+    const [changed, setChanged] = useState(0)
+    const [changeId, setChangeId] = useState(0)
 
     const navigate = useNavigate()
-    const location = useLocation()
-
-    const [url, setUrl] = useState('')
-    const [delUrl, setDelUrl] = useState('')
-    const [options, setOptions] = useState({})
+    // const location = useLocation()
 
     const [showWarning, setShowWarning] = useState(false)
     const [showSuccess, setShowSuccess] = useState(false)
@@ -43,55 +45,15 @@ const StaffList = (props) => {
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
 
-    let { page, pagesize, name } = Object.fromEntries(new URLSearchParams(location.search).entries())
-    page = page ? parseInt(page) : 1
+    // let { page, pagesize, name } = Object.fromEntries(new URLSearchParams(location.search).entries())
+    const [page, setPage] = useState(1)
     // pagesize = pagesize !== undefined ? parseInt(pagesize) : 5
     // name = name !== undefined ? name : ''
     // specialtyID = specialtyID !== undefined ? specialtyID : ''
     // clinicAddress = clinicAddress !== undefined ? clinicAddress : ''
-    const { data, loading } = useFetch(url)
-    const { message, loading: delLoading } = useFetch(delUrl, options)
-    const handlePage = (page) => {
-        let path = `/admin/staff-list?page=${page}`
-        // props.setRoute({
-        //     preRoute: props.route.preRoute,
-        //     scrollY: props.route.scrollY ? props.route.scrollY : 0,
-        //     path: path
-        // })
-        navigate(path)
-        // componentRef.current.scrollIntoView({ behavior: 'smooth' })
-        setUrl(`http://localhost:8080/api/staffs?page=${page}&pagesize=10`)
-        window.scrollTo(0, 0)
-    }
-    const [id, setId] = useState(0)
-    const handleInfo = (id) => {
-        // let path = `/admin/staff-info/${id}`
-        // navigate(path)
-        // window.scrollTo(0, 0)
-        setId(id)
-        handleShow()
-    }
-    const handleDelete = (id) => {
-        setDel({ ...del, id: id })
-        setShowWarning(true)
-    }
-
-    const handleYes = () => {
-        setDel({ ...del, confirm: true })
-    }
-
-    const formatDate = (date) => {
-        if (date) {
-            date = new Date(date)
-            let format = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()
-            return format
-        }
-        return null
-    }
-
-    useEffect(() => {
-        setDelUrl(del.confirm === false ? '' : `http://localhost:8080/api/staffs?id=${del.id}`)
-        setOptions(del.confirm === false ? {} : {
+    const { data, loading } = useFetch(`http://localhost:8080/api/staffs?page=${page}&pagesize=10&${deleted}&${changed}`)
+    const { message, loading: delLoading } = useFetch(confirm === false ? '' : `http://localhost:8080/api/staffs?id=${delId}`,
+        confirm === false ? {} : {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -100,33 +62,60 @@ const StaffList = (props) => {
                 token: props.user.token,
             })
         })
-    }, [del])// eslint-disable-line react-hooks/exhaustive-deps
+    const handlePage = (page) => {
+        // let path = `/admin/staff-list?page=${page}`
+        // props.setRoute({
+        //     preRoute: props.route.preRoute,
+        //     scrollY: props.route.scrollY ? props.route.scrollY : 0,
+        //     path: path
+        // })
+        // navigate(path)
+        // componentRef.current.scrollIntoView({ behavior: 'smooth' })
+        setPage(page)
+        window.scrollTo(0, 0)
+    }
+    const handleInfo = (id) => {
+        // let path = `/admin/staff-info/${id}`
+        // navigate(path)
+        // window.scrollTo(0, 0)
+        setChangeId(id)
+        handleShow()
+    }
+    const handleDelete = (id) => {
+        setDelId(id)
+        setShowWarning(true)
+    }
+
+    const handleYes = () => {
+        setConfirm(true)
+    }
+
+    const handleBack = () => {
+        window.history.back()
+    }
 
     useEffect(() => {
         if (delLoading === false) {
-            if (del.confirm) {
+            if (confirm === true) {
                 if (message === 'ok') {
                     setShowSuccess(true)
+                    setDeleted(deleted + 1)
                 }
                 else {
                     setShowDanger(true)
                 }
+                setConfirm(false)
             }
-            setUrl(`http://localhost:8080/api/staffs?page=${page}&pagesize=10&del=${del.id}`)
-            setDel({ ...del, confirm: false })
         }
     }, [delLoading])// eslint-disable-line react-hooks/exhaustive-deps
 
-    useEffect(() => {
-        setUrl(`http://localhost:8080/api/staffs?page=${page}&pagesize=10&change=${change}`)
-    }, [change])// eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div className="staff-list-container px-5 py-5">
             <Modal show={show} onHide={handleClose} size="lg" centered>
                 <StaffChange
-                    setChange={setChange}
-                    change={change}
-                    data={data[id]} />
+                    setChanged={setChanged}
+                    changed={changed}
+                    data={data[changeId]} />
             </Modal>
             <Warning
                 show={showWarning}
@@ -149,7 +138,7 @@ const StaffList = (props) => {
             <div className="staff-list-title">
                 <Row className="">
                     <Col xs={2} className="d-flex justify-content-start">
-                        <Button onClick={() => navigate('/admin')} variant="outline-secondary" size="sm">Quay lại</Button>
+                        <Button onClick={() => handleBack()} variant="outline-secondary" size="sm">Quay lại</Button>
                     </Col>
                     <Col xs={8} className="d-flex align-items-center justify-content-center fw-bold">
                         Danh sách nhân viên hệ thống
@@ -181,7 +170,7 @@ const StaffList = (props) => {
                                                         <th className="fw-normal">{item.id}</th>
                                                         <th className="fw-normal">{item.name}</th>
                                                         <th className="fw-normal">{item.gender === true && "Nam"}{item.gender === false && "Nữ"}</th>
-                                                        <th className="fw-normal">{formatDate(item.doB)}</th>
+                                                        <th className="fw-normal">{moment(item.doB).format("DD/MM/YYYY")}</th>
                                                         <th className="fw-normal">{item.email}</th>
                                                         <th className="fw-normal">{item.address}</th>
                                                         <th className="fw-normal">
@@ -190,7 +179,7 @@ const StaffList = (props) => {
                                                                     <Button
                                                                         className=""
                                                                         onClick={() => handleInfo(index)}
-                                                                        variant="outline-info"
+                                                                        variant="outline-primary"
                                                                         size="sm">
                                                                         <FontAwesomeIcon icon={faCircleInfo} />&nbsp;Sửa
                                                                     </Button>
