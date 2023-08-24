@@ -12,30 +12,30 @@ const toImage = (image) => {
 
 const getHomeSpecialties = async (req, res) => {
     try {
-        let data = await db.Specialties.findAll({
+        let specialties = await db.Specialties.findAll({
             order: sequelize.random(),
             limit: 10,
             attributes: ['id', 'name', 'image']
         })
-        data = data.map((item) => {
+        specialties = specialties.map((item) => {
             item.image = toImage(item.image)
             return item
         })
         return res.status(200).json({
             message: 'ok',
-            data: data
+            data: specialties
         })
     } catch (error) {
-        console.log('Cannot get data. Error:', error)
+        console.log('Cannot get specialties. Error:', error)
         return res.status(500).json({
-            message: 'Server error!'
+            message: 'server error!'
         })
     }
 }
 
 const getHomeDoctors = async (req, res) => {
     try {
-        let data = await db.Doctors.findAll({
+        let doctors = await db.Doctors.findAll({
             where: {
                 active: true
             },
@@ -49,18 +49,18 @@ const getHomeDoctors = async (req, res) => {
                 }
             ]
         })
-        data = data.map((item) => {
+        doctors = doctors.map((item) => {
             item.image = toImage(item.image)
             return item
         })
         return res.status(200).json({
             message: 'ok',
-            data: data
+            data: doctors
         })
     } catch (error) {
-        console.log('Cannot get data. Error:', error)
+        console.log('Cannot get doctors. Error:', error)
         return res.status(500).json({
-            message: 'Server error!'
+            message: 'server error!'
         })
     }
 }

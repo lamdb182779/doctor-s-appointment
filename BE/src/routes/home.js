@@ -1,7 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
-const { getHomeSpecialties, getHomeDoctors } = require('../controller/homeController')
+const {
+    getHomeSpecialties,
+    getHomeDoctors
+} = require('../controller/homeController')
 
 const home = (route) => {
     router.get('/specialties', getHomeSpecialties)

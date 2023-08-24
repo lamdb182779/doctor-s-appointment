@@ -9,7 +9,7 @@ const useFetch = (url, options) => {
         if (url !== '') {
             setLoading(true)
             try {
-                let res = await (await fetch(url, options)).json()
+                let res = await (await fetch(url, { ...options, credentials: 'include' })).json()
                 console.log(res)
                 setData(res?.data ? res.data : [])
                 setMessage(res?.message ? res.message : '')

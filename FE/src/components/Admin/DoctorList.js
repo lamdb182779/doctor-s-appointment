@@ -41,7 +41,7 @@ const DoctorList = (props) => {
     // specialtyID = specialtyID !== undefined ? specialtyID : ''
     // clinicAddress = clinicAddress !== undefined ? clinicAddress : ''
     const { data, loading } = useFetch(`http://localhost:8080/api/doctors?page=${page}&pagesize=10&${deleted}`)
-    const { message, loading: delLoading } = useFetch(confirm === false ? '' : `http://localhost:8080/api/doctors?id=${delId}`,
+    const { message, loading: delLoading } = useFetch(confirm === false ? '' : `http://localhost:8080/api/doctors/${delId}/${deleted}`,
         confirm === false ? {} : {
             method: 'DELETE',
             headers: {

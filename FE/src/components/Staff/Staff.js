@@ -12,30 +12,15 @@ import { NavLink } from "react-router-dom"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
-    faUserDoctor,
     faUserPen,
-    faUserPlus,
     faTableList,
 } from "@fortawesome/free-solid-svg-icons"
 
+import moment from "moment"
+import "moment/locale/vi"
+
 const Staff = (props) => {
-    const formatDate = (date) => {
-        if (date) {
-            date = new Date(date)
-            let format = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()
-            return format
-        }
-        return null
-    }
-    const { data, loading } = useFetch('http://localhost:8080/api/self', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            token: props.user.token,
-        })
-    })
+    const { data, loading } = useFetch('http://localhost:8080/api/self')
     return (
         <div className="staff-container px-5 py-5">
             {loading === false ?
@@ -111,7 +96,7 @@ const Staff = (props) => {
                                                     </tr>
                                                     <tr>
                                                         <th>Ngày sinh:</th>
-                                                        <th className="fw-normal">{data[0].doB ? formatDate(data[0].doB) : "Trống"}</th>
+                                                        <th className="fw-normal">{data[0].doB ? moment(data[0].doB).format("DD/MM/YYYY") : "Trống"}</th>
                                                     </tr>
                                                 </tbody>
                                             </Table>

@@ -7,20 +7,12 @@ import { connect } from "react-redux"
 
 import ReactMarkdown from "react-markdown"
 
-import { Row, Col, Image, Button } from "react-bootstrap"
+import { Row, Col, Image, } from "react-bootstrap"
 
 import { useNavigate } from "react-router-dom"
 
 const Doctor = (props) => {
-    const { data, loading } = useFetch('http://localhost:8080/api/self', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            token: props.user.token,
-        })
-    })
+    const { data, loading } = useFetch('http://localhost:8080/api/self')
 
     return (
         <div className="doctor-user-container px-5 py-5 d-grid gap-5">

@@ -1,7 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
-const { addNewAppointment, getAllAppointments } = require('../controller/appoitmentsController')
+const {
+    addNewAppointment,
+    getAllAppointments
+} = require('../controller/appoitmentsController')
 
 const home = (route) => {
     router.post('/', addNewAppointment)

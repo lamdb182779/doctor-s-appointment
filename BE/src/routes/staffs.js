@@ -1,18 +1,27 @@
 const express = require('express')
 const router = express.Router()
 
-const { getAllStaffs,
+const {
+    findStaffById,
+    checkDupEmail,
+    getAllStaffs,
     getStaffById,
     deleteStaffById,
     updateStaffById,
-    addNewStaff } = require('../controller/staffsController')
+    addNewStaff
+} = require('../controller/staffsController')
+const {
+    deactivateAccount,
+    createAccount
+} = require('../middleware/account-action')
+const { findDoctorById } = require('../controller/doctorsController')
 
 const staffs = (route) => {
     router.get('/', getAllStaffs)
-    router.delete('/', deleteStaffById)
-    router.put('/', updateStaffById)
-    router.post('/', addNewStaff)
-    router.get('/:id/:time', getStaffById)
+    router.delete('/:id/:time', findStaffById, deactivateAccount, deleteStaffById)
+    router.put('/:id/:time', checkDupEmail, updateStaffById)
+    router.post('/', checkDupEmail, addNewStaff, createAccount)
+    router.get('/:id/:time', findDoctorById, getStaffById)
     return route.use('/staffs', router)
 }
 

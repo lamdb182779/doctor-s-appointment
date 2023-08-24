@@ -26,25 +26,6 @@ import Warning from "../General/Dialog/Warning"
 import { connect } from "react-redux"
 
 const StaffChange = (props) => {
-    const [url, setUrl] = useState('')
-    const [options, setOptions] = useState({})
-
-    const { message, loading } = useFetch(change === 0 ? '' : `http://localhost:8080/api/staffs?id=${data.id}&${change}`, change === 0 ? {} : {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            name: name === data.name ? null : name.trim(),
-            phoneNumber: phone === data.phoneNumber ? null : phone.trim(),
-            email: email === data.email ? null : email.trim(),
-            address: address === data.address ? null : address.trim(),
-            gender: gender,
-            doB: !isDoB ? null : doB,
-            token: props.user.token,
-        })
-    })
-
     const data = props.data
     const renderAvatar = (props) => (
         <Popover id="avatar-popover" {...props}>
@@ -74,6 +55,21 @@ const StaffChange = (props) => {
     const [showDanger, setShowDanger] = useState(false)
 
     const [isAnyBlank, setIsAnyBlank] = useState(true)
+
+    const { message, loading } = useFetch(change === 0 ? '' : `http://localhost:8080/api/staffs/${data.id}/${change}`, change === 0 ? {} : {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: name === data.name ? null : name.trim(),
+            phoneNumber: phone === data.phoneNumber ? null : phone.trim(),
+            email: email === data.email ? null : email.trim(),
+            address: address === data.address ? null : address.trim(),
+            gender: gender,
+            doB: !isDoB ? null : doB,
+        })
+    })
 
     const handleChange = () => {
         if ([name.trim(), phone.trim(), email.trim(), address.trim()].includes("")) {

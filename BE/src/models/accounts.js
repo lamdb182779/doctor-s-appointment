@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'username',
         targetKey: 'username',
       })
+      Accounts.belongsTo(models.Roles, {
+        foreignKey: 'role',
+        targetKey: 'role',
+      })
     }
   }
   Accounts.init({

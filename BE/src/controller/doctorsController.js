@@ -1,6 +1,5 @@
 const db = require('../models')
 const { Op } = require('sequelize')
-const { verifyToken } = require('../middleware/jwt-action.js')
 const bcrypt = require('bcryptjs')
 const moment = require('moment')
 
@@ -34,6 +33,59 @@ const nameToUsername = (name, id) => {
     })
     username = username + id
     return username
+}
+
+const findDoctorById = async (req, res, next) => {
+    let id = req.params.id.toString()
+    try {
+        let doctor = await db.Doctors.findByPk(id, {
+            where: {
+                active: true,
+            }
+        })
+        if (doctor === null) {
+            console.log('No matching doctor.')
+            return res.status(500).json({
+                message: 'wrong id',
+            })
+        } else {
+            req.person = doctor
+            next()
+        }
+    } catch (error) {
+        console.log('Cannot get doctor. Error: ', error)
+        return res.status(500).json({
+            message: 'server error!'
+        })
+    }
+}
+
+const checkDupEmail = async (req, res, next) => {
+    let email = req.body.email
+    if (email) {
+        try {
+            let user = await db["Doctors"].findAll({
+                where: {
+                    email: email
+                }
+            })
+            if (user?.length > 0) {
+                console.log('Duplicate Email')
+                return res.status(500).json({
+                    message: 'duplicate email'
+                })
+            } else {
+                next()
+            }
+        } catch (error) {
+            console.log('Cannot check duplicate email. Error: ', error)
+            return res.status(500).json({
+                message: 'server error!'
+            })
+        }
+    } else {
+        next()
+    }
 }
 
 const getAllDoctors = async (req, res) => {
@@ -123,112 +175,44 @@ const getAllDoctors = async (req, res) => {
 }
 
 const getDoctorById = async (req, res) => {
-    let id = req.params.id
-    try {
-        let count = await db.Doctors.count()
-        if (id > count || id <= 0) {
-            return res.status(404).json({
-                message: 'data not found',
-            })
+    let doctor = req.person
+    if (doctor) {
+        if (doctor.image) {
+            doctor.image = toImage(doctor.image)
         }
-        if (!id) {
-            return res.status(400).json({
-                message: 'missing required param'
-            })
+        if (doctor.phoneNumber) {
+            doctor.phoneNumber = hiddenPhoneNumber(doctor.phoneNumber)
         }
-        try {
-            let data = await db.Doctors.findByPk(id)
-            if (data.image) {
-                data.image = toImage(data.image)
-            }
-            if (data.phoneNumber) {
-                data.phoneNumber = hiddenPhoneNumber(data.phoneNumber)
-            }
-            if (data.email) {
-                data.email = hiddenEmail(data.email)
-            }
-            return res.status(200).json({
-                message: 'ok',
-                data: [data]
-            })
-        } catch (err) {
-            console.log('Cannot get data. Error:', err)
-            return res.status(500).json({
-                message: 'server error!',
-            })
+        if (doctor.email) {
+            doctor.email = hiddenEmail(doctor.email)
         }
-    } catch (err) {
-        console.log('Cannot count. Error: ', err)
-        return res.status(500).json({
-            message: 'server error!',
+        return res.status(200).json({
+            message: 'ok',
+            data: [doctor]
         })
     }
 }
 
 const deleteDoctorById = async (req, res) => {
-    let { id } = req.query
-    let { token } = req.body
-    token = verifyToken(token)
-    if (token === null) {
-        return res.return(500).json({
-            message: 'wrong verify',
-        })
-    }
+    let id = req.params.id.toString()
     try {
-        let doctor = await db.Doctors.findByPk(id, {
+        let deactivate = await db.Doctors.update({ active: false }, {
             where: {
+                id: id,
                 active: true,
             }
         })
-        if (doctor === null) {
-            console.log('no matching doctor.')
-            return res.return(500).json({
-                message: 'wrong id',
-            })
-        }
-        try {
-            let deactivate = await db.Accounts.update({ active: false }, {
-                where: {
-                    username: doctor.username,
-                    active: true,
-                }
-            })
-            if (deactivate === [0]) {
-                console.log('no matching account.')
-                return res.return(500).json({
-                    message: 'wrong username',
-                })
-            }
-            try {
-                let data = await db.Doctors.update({ active: false }, {
-                    where: {
-                        id: id,
-                        active: true,
-                    }
-                })
-                if (data === [0]) {
-                    console.log('no matching data.')
-                    res.return(500).json({
-                        message: 'wrong id',
-                    })
-                }
-                return res.status(200).json({
-                    message: 'ok',
-                })
-            } catch (error) {
-                console.log('Cannot update data. Error: ', error)
-                return res.status(500).json({
-                    message: 'server error!'
-                })
-            }
-        } catch (error) {
-            console.log('Cannot update account. Error: ', error)
+        if (deactivate === [0]) {
+            console.log('No matching doctor.')
             return res.status(500).json({
-                message: 'server error!'
+                message: 'server error',
             })
         }
+        return res.status(200).json({
+            message: 'ok',
+        })
     } catch (error) {
-        console.log('Cannot get doctor. Error: ', error)
+        console.log('Cannot deactivate doctor. Error: ', error)
         return res.status(500).json({
             message: 'server error!'
         })
@@ -236,34 +220,8 @@ const deleteDoctorById = async (req, res) => {
 }
 
 const updateDoctorById = async (req, res) => {
-    let { id } = req.query
-    let { name, phoneNumber, email, clinicAddress, describe, price, content, token } = req.body
-    token = verifyToken(token)
-    if (token === null) {
-        return res.status(500).json({
-            message: 'wrong verify',
-        })
-    }
-    if (email) {
-        try {
-            let checkEmail = await db.Doctors.findAll({
-                where: {
-                    email: email
-                }
-            })
-            if (checkEmail?.length > 0) {
-                console.log('Duplicate Email')
-                return res.status(500).json({
-                    message: 'duplicate email'
-                })
-            }
-        } catch (error) {
-            console.log('Cannot check email. Error: ', error)
-            return res.status(500).json({
-                message: 'server error!'
-            })
-        }
-    }
+    let id = req.params.id.toString()
+    let { name, phoneNumber, email, clinicAddress, describe, price, content } = req.body
     let update = {}
     if (name) {
         update.name = name
@@ -287,14 +245,14 @@ const updateDoctorById = async (req, res) => {
         update.content = content
     }
     try {
-        let data = db.Doctors.update(update, {
+        let doctor = db.Doctors.update(update, {
             where: {
                 id: id,
                 active: true,
             }
         })
-        if (data === [0]) {
-            console.log('no matching data')
+        if (doctor === [0]) {
+            console.log('No matching doctor')
             return res.status(500).json({
                 message: 'wrong id'
             })
@@ -303,7 +261,7 @@ const updateDoctorById = async (req, res) => {
             message: 'ok'
         })
     } catch (error) {
-        console.log('Cannot update data. Error: ', error)
+        console.log('Cannot update doctor. Error: ', error)
         return res.status(500).json({
             message: 'server error!'
         })
@@ -311,100 +269,70 @@ const updateDoctorById = async (req, res) => {
 }
 
 const addNewDoctor = async (req, res) => {
-    let { name, phoneNumber, email, clinicAddress, describe, price, content, specialtyID, token } = req.body
-    token = verifyToken(token)
-    if (token === null) {
-        return res.status(500).json({
-            message: 'wrong verify',
-        })
-    }
+    let { name, phoneNumber, email, clinicAddress, describe, price, content, specialtyID } = req.body
     try {
-        let checkEmail = await db.Doctors.findAll({
-            where: {
-                email: email
-            }
-        })
-        if (checkEmail?.length > 0) {
-            console.log('Duplicate Email')
-            return res.status(500).json({
-                message: 'duplicate email'
-            })
-        }
-        try {
-            let count = await db.Doctors.count()
-            let id = (count + 1).toString().padStart(4, "0")
-            let username = nameToUsername(name, id)
-            let password = bcrypt.hashSync(username, salt)
-            await db.Doctors.create({
-                id: id,
-                name: name,
-                image: null,
-                phoneNumber: phoneNumber,
-                email: email,
-                username: username,
-                clinicAddress: clinicAddress,
-                describe: describe,
-                price: price,
-                content: content,
-                specialtyID: specialtyID,
-                active: true,
-            }).then(async () => {
-                await db.Accounts.create({
-                    username: username,
-                    password: password,
-                    active: true,
-                    role: 2
-                }).then(async () => {
-                    const startOfWeekNextWeek = moment().add(1, 'weeks').startOf('isoWeek')
-                    for (let i = 0; i < 7; i++) {
-                        const date = moment(startOfWeekNextWeek).add(i, 'days')
+        let count = await db.Doctors.count()
+        let id = (count + 1).toString().padStart(4, "0")
+        let username = nameToUsername(name, id)
+        let password = bcrypt.hashSync(username, salt)
+        await db.Doctors.create({
+            id: id,
+            name: name,
+            image: null,
+            phoneNumber: phoneNumber,
+            email: email,
+            username: username,
+            clinicAddress: clinicAddress,
+            describe: describe,
+            price: price,
+            content: content,
+            specialtyID: specialtyID,
+            active: true,
+        }).then(async () => {
+            const startOfWeekNextWeek = moment().add(1, 'weeks').startOf('isoWeek')
+            for (let i = 0; i < 7; i++) {
+                const date = moment(startOfWeekNextWeek).add(i, 'days')
 
-                        for (let hour = 0; hour < 16; hour++) {
-                            const time = hour.toString().padStart(2, '0')
-                            await db.Schedules.create({
-                                id: date.format('DDMMYYYY') + time + id,
-                                maxNumber: 3,
-                                currentNumber: 0,
-                                date: new Date(date.format('YYYY-MM-DD')),
-                                time: time,
-                                doctorId: id,
-                                createdAt: new Date(),
-                                updatedAt: new Date()
-                            }).catch((error) => {
-                                console.log('Cannot create schedules. Error: ', error)
-                                return res.status(500).json({
-                                    message: 'server error!'
-                                })
-                            })
+                for (let hour = 0; hour < 16; hour++) {
+                    const time = hour.toString().padStart(2, '0')
+                    await db.Schedules.create({
+                        id: date.format('DDMMYYYY') + time + id,
+                        maxNumber: 3,
+                        currentNumber: 0,
+                        date: new Date(date.format('YYYY-MM-DD')),
+                        time: time,
+                        doctorId: id,
+                        createdAt: new Date(),
+                        updatedAt: new Date()
+                    }).then(() => {
+                        req.account = {
+                            username: username,
+                            password: password,
+                            role: 2,
+                            active: true,
                         }
-                    }
-                    return res.status(200).json({
-                        message: 'ok'
+                        next()
+                    }).catch((error) => {
+                        console.log('Cannot create schedules. Error: ', error)
+                        return res.status(500).json({
+                            message: 'server error!'
+                        })
                     })
-                }).catch((error) => {
-                    console.log('Cannot create account. Error: ', error)
-                    return res.status(500).json({
-                        message: 'server error!'
-                    })
-                })
-            }).catch((error) => {
-                console.log('Cannot create doctor. Error: ', error)
-                return res.status(500).json({
-                    message: 'server error!'
-                })
-            })
-        } catch (error) {
-            console.log('Cannot count doctors. Error: ', error)
+                }
+            }
+        }).catch((error) => {
+            console.log('Cannot create doctor. Error: ', error)
             return res.status(500).json({
                 message: 'server error!'
             })
-        }
+        })
     } catch (error) {
-        console.log('Cannot check email. Error: ', error)
+        console.log('Cannot count doctors. Error: ', error)
         return res.status(500).json({
             message: 'server error!'
         })
     }
+
 }
 
 const getSpecialtiesName = async (req, res) => {
@@ -425,6 +353,8 @@ const getSpecialtiesName = async (req, res) => {
 }
 
 module.exports = {
+    findDoctorById,
+    checkDupEmail,
     getAllDoctors,
     getSpecialtiesName,
     getDoctorById,

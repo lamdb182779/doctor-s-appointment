@@ -6,25 +6,24 @@ const createJWT = (payload) => {
     let expires = {
         // expiresIn: process.env.JWT_EXPIRES
     }
-    let token = null
     try {
-        token = jwt.sign(payload, key, expires)
+        let token = jwt.sign(payload, key, expires)
+        return token
     } catch (error) {
-        console.log('createJWT Error: ', error)
+        console.log('CreateJWT Error: ', error)
+        return null
     }
-    return token
 }
 
 const verifyToken = (token) => {
     let key = process.env.JWT_SECRET
-    let data = null
     try {
         let decoded = jwt.verify(token, key)
-        data = decoded
+        return decoded
     } catch (error) {
-        console.log('verifyToken Error: ', error)
+        console.log('VerifyToken Error: ', error)
+        return null
     }
-    return data
 }
 
 module.exports = {

@@ -35,6 +35,59 @@ const nameToUsername = (name, id) => {
     return username
 }
 
+const findStaffById = async (req, res, next) => {
+    let id = req.params.id.toString()
+    try {
+        let staff = await db.Staffs.findByPk(id, {
+            where: {
+                active: true,
+            }
+        })
+        if (staff === null) {
+            console.log('No matching staff.')
+            return res.status(500).json({
+                message: 'wrong id',
+            })
+        } else {
+            req.person = staff
+            next()
+        }
+    } catch (error) {
+        console.log('Cannot get doctor. Error: ', error)
+        return res.status(500).json({
+            message: 'server error!'
+        })
+    }
+}
+
+const checkDupEmail = async (req, res, next) => {
+    let email = req.body.email
+    if (email) {
+        try {
+            let user = await db["Staffs"].findAll({
+                where: {
+                    email: email
+                }
+            })
+            if (user?.length > 0) {
+                console.log('Duplicate Email')
+                return res.status(500).json({
+                    message: 'duplicate email'
+                })
+            } else {
+                next()
+            }
+        } catch (error) {
+            console.log('Cannot check duplicate email. Error: ', error)
+            return res.status(500).json({
+                message: 'server error!'
+            })
+        }
+    } else {
+        next()
+    }
+}
+
 const getAllStaffs = async (req, res) => {
     let { page, pagesize, name } = req.query
     page = parseInt(page)
@@ -108,112 +161,44 @@ const getAllStaffs = async (req, res) => {
 }
 
 const getStaffById = async (req, res) => {
-    let id = req.params.id
-    try {
-        let count = await db.Staffs.count()
-        if (id > count || id <= 0) {
-            return res.status(404).json({
-                message: 'data not found',
-            })
+    let staff = req.person
+    if (staff) {
+        if (staff.image) {
+            staff.image = toImage(staff.image)
         }
-        if (!id) {
-            return res.status(400).json({
-                message: 'missing required param'
-            })
+        if (staff.phoneNumber) {
+            staff.phoneNumber = hiddenPhoneNumber(staff.phoneNumber)
         }
-        try {
-            let data = await db.Staffs.findByPk(id)
-            if (data.image) {
-                data.image = toImage(data.image)
-            }
-            if (data.phoneNumber) {
-                data.phoneNumber = hiddenPhoneNumber(data.phoneNumber)
-            }
-            if (data.email) {
-                data.email = hiddenEmail(data.email)
-            }
-            return res.status(200).json({
-                message: 'ok',
-                data: [data]
-            })
-        } catch (err) {
-            console.log('Cannot get data. Error:', err)
-            return res.status(500).json({
-                message: 'server error!',
-            })
+        if (staff.email) {
+            staff.email = hiddenEmail(staff.email)
         }
-    } catch (err) {
-        console.log('Cannot count. Error: ', err)
-        return res.status(500).json({
-            message: 'server error!',
+        return res.status(200).json({
+            message: 'ok',
+            data: [staff]
         })
     }
 }
 
 const deleteStaffById = async (req, res) => {
-    let { id } = req.query
-    let { token } = req.body
-    token = verifyToken(token)
-    if (token === null) {
-        return res.return(500).json({
-            message: 'wrong verify',
-        })
-    }
+    let id = req.params.id.toString()
     try {
-        let staff = await db.Staffs.findByPk(id, {
+        let deactivate = await db.Staffs.update({ active: false }, {
             where: {
+                id: id,
                 active: true,
             }
         })
-        if (staff === null) {
-            console.log('no matching staff.')
-            return res.return(500).json({
+        if (deactivate === [0]) {
+            console.log('No matching staff.')
+            res.return(500).json({
                 message: 'wrong id',
             })
         }
-        try {
-            let deactivate = await db.Accounts.update({ active: false }, {
-                where: {
-                    username: staff.username,
-                    active: true,
-                }
-            })
-            if (deactivate === [0]) {
-                console.log('no matching account.')
-                return res.return(500).json({
-                    message: 'wrong username',
-                })
-            }
-            try {
-                let data = await db.Staffs.update({ active: false }, {
-                    where: {
-                        id: id,
-                        active: true,
-                    }
-                })
-                if (data === [0]) {
-                    console.log('no matching data.')
-                    res.return(500).json({
-                        message: 'wrong id',
-                    })
-                }
-                return res.status(200).json({
-                    message: 'ok',
-                })
-            } catch (error) {
-                console.log('Cannot update data. Error: ', error)
-                return res.status(500).json({
-                    message: 'server error!'
-                })
-            }
-        } catch (error) {
-            console.log('Cannot update account. Error: ', error)
-            return res.status(500).json({
-                message: 'server error!'
-            })
-        }
+        return res.status(200).json({
+            message: 'ok',
+        })
     } catch (error) {
-        console.log('Cannot get staff. Error: ', error)
+        console.log('Cannot deactive staff. Error: ', error)
         return res.status(500).json({
             message: 'server error!'
         })
@@ -221,34 +206,8 @@ const deleteStaffById = async (req, res) => {
 }
 
 const updateStaffById = async (req, res) => {
-    let { id } = req.query
-    let { name, phoneNumber, email, address, doB, gender, token } = req.body
-    token = verifyToken(token)
-    if (token === null) {
-        return res.status(500).json({
-            message: 'wrong verify',
-        })
-    }
-    if (email) {
-        try {
-            let checkEmail = await db.Staffs.findAll({
-                where: {
-                    email: email
-                }
-            })
-            if (checkEmail?.length > 0) {
-                console.log('Duplicate Email')
-                return res.status(500).json({
-                    message: 'duplicate email'
-                })
-            }
-        } catch (error) {
-            console.log('Cannot check email. Error: ', error)
-            return res.status(500).json({
-                message: 'server error!'
-            })
-        }
-    }
+    let id = req.params.id.toString()
+    let { name, phoneNumber, email, address, doB, gender } = req.body
     let update = { gender: gender }
     if (name) {
         update.name = name
@@ -266,14 +225,14 @@ const updateStaffById = async (req, res) => {
         update.doB = doB
     }
     try {
-        let data = db.Staffs.update(update, {
+        let staff = db.Staffs.update(update, {
             where: {
                 id: id,
                 active: true,
             }
         })
-        if (data === [0]) {
-            console.log('no matching data')
+        if (staff === [0]) {
+            console.log('no matching staff')
             return res.status(500).json({
                 message: 'wrong id'
             })
@@ -282,7 +241,7 @@ const updateStaffById = async (req, res) => {
             message: 'ok'
         })
     } catch (error) {
-        console.log('Cannot update data. Error: ', error)
+        console.log('Cannot update staff. Error: ', error)
         return res.status(500).json({
             message: 'server error!'
         })
@@ -290,79 +249,47 @@ const updateStaffById = async (req, res) => {
 }
 
 const addNewStaff = async (req, res) => {
-    let { name, phoneNumber, email, address, doB, gender, token } = req.body
-    token = verifyToken(token)
-    if (token === null) {
-        return res.status(500).json({
-            message: 'wrong verify',
-        })
-    }
+    let { name, phoneNumber, email, address, doB, gender } = req.body
     try {
-        let checkEmail = await db.Staffs.findAll({
-            where: {
-                email: email
-            }
-        })
-        if (checkEmail?.length > 0) {
-            console.log('Duplicate Email')
-            return res.status(500).json({
-                message: 'duplicate email'
-            })
-        }
-        try {
-            let count = await db.Staffs.count()
-            let id = (count + 1).toString().padStart(3, "0")
-            let username = nameToUsername(name, id)
-            let password = bcrypt.hashSync(username, salt)
-            await db.Staffs.create({
-                id: id,
-                name: name,
-                image: null,
-                phoneNumber: phoneNumber,
-                email: email,
+        let count = await db.Staffs.count()
+        let id = (count + 1).toString().padStart(3, "0")
+        let username = nameToUsername(name, id)
+        let password = bcrypt.hashSync(username, salt)
+        await db.Staffs.create({
+            id: id,
+            name: name,
+            image: null,
+            phoneNumber: phoneNumber,
+            email: email,
+            username: username,
+            address: address,
+            gender: gender,
+            doB: doB,
+            active: true,
+        }).then(() => {
+            req.account = {
                 username: username,
-                address: address,
-                gender: gender,
-                doB: doB,
+                password: password,
+                role: 3,
                 active: true,
-            }).then(async () => {
-                await db.Accounts.create({
-                    username: username,
-                    password: password,
-                    active: true,
-                    role: 3
-                }).then(() => {
-                    return res.status(200).json({
-                        message: 'ok'
-                    })
-                }).catch((error) => {
-                    console.log('Cannot create account. Error: ', error)
-                    return res.status(500).json({
-                        message: 'server error!'
-                    })
-                })
-            }).catch((error) => {
-                console.log('Cannot create staff. Error: ', error)
-                return res.status(500).json({
-                    message: 'server error!'
-                })
-            })
-        } catch (error) {
-            console.log('Cannot count staffs. Error: ', error)
+            }
+        }).catch((error) => {
+            console.log('Cannot create staff. Error: ', error)
             return res.status(500).json({
                 message: 'server error!'
             })
-        }
+        })
     } catch (error) {
-        console.log('Cannot check email. Error: ', error)
+        console.log('Cannot count staffs. Error: ', error)
         return res.status(500).json({
             message: 'server error!'
         })
     }
 }
 
-
 module.exports = {
+    findStaffById,
+    checkDupEmail,
     getAllStaffs,
     getStaffById,
     deleteStaffById,

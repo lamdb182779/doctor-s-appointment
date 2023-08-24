@@ -8,7 +8,7 @@ const addNewAppointment = async (req, res) => {
             attributes: ['currentNumber']
         })
         if (current.currentNumber >= 3) {
-            console.log('no slot left')
+            console.log('No slot left')
             return res.status(500).json({
                 message: 'full slot',
             })
@@ -44,7 +44,7 @@ const addNewAppointment = async (req, res) => {
                         }
                     })
                     if (schedule === [0]) {
-                        console.log('no matching schedule');
+                        console.log('No matching schedule');
                     }
                     return res.status(200).json({
                         message: 'ok',
@@ -104,7 +104,6 @@ const getAllAppointments = async (req, res) => {
                 }
             ]
         })
-
         return res.status(200).json({
             message: 'ok',
             data: data

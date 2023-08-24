@@ -20,6 +20,8 @@ import Danger from "../General/Dialog/Danger"
 
 import { connect } from "react-redux"
 
+import jwt_decode from "jwt-decode"
+
 const Login = (props) => {
     const login = props.login
 
@@ -73,8 +75,8 @@ const Login = (props) => {
         if (login !== 0 && loading === false) {
             if (data && data.length > 0) {
                 setShowSuccess(true)
-                props.setUser(data[0])
-                switch (data[0].table) {
+                props.setUser({ ...jwt_decode(data[0]), token: data[0] })
+                switch (jwt_decode(data[0]).table) {
                     case 'Admins':
                         navigate('/admin/')
                         break

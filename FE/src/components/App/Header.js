@@ -27,23 +27,12 @@ const Header = (props) => {
                 </Row>
             </div>
             <div className="w-50 d-flex justify-content-end align-items-center">
-                <Row className="w-100 h-100">
-                    <Col className="d-flex justify-content-end">
-                        <div className='App-support d-flex align-items-center text-white fs-6'>
-                            <div className='question-icon me-2'>
-                                <FontAwesomeIcon icon={faCircleQuestion} size='lg' />
-                            </div>
-                            <div className='phone-number'>
-                                Hỗ trợ <br />
-                                033xxxxx33
-                            </div>
-                        </div>
-                    </Col>
-                    <Col className="h-100" xs={3}>
+                <Row className="w-100 h-100 justify-content-end align-items-center">
+                    <Col xs={3} className="d-flex justify-content-end">
                         {Object.keys(props.user).length === 0 ?
                             <>
                                 <div className="App-login h-100 d-flex justify-content-center align-items-center" >
-                                    <Button size="" className="w-75" variant="outline-light" onClick={() => props.handleShowLogin()}>
+                                    <Button size="" className="w-100" variant="outline-light" onClick={() => props.handleShowLogin()}>
                                         Đăng nhập<br />
                                     </Button>
                                 </div>
@@ -53,6 +42,21 @@ const Header = (props) => {
                                 <div className="App-user fs-6 text-white h-100 d-flex justify-content-center align-items-center">
                                     Chào mừng,<br />
                                     {props.user.name}
+                                </div>
+                            </>
+                        }
+                    </Col>
+                    <Col className="d-flex justify-content-start" xs={Object.keys(props.user).length === 0 ? 3 : 1}>
+                        {Object.keys(props.user).length === 0 &&
+                            <>
+                                <div className='App-support d-flex align-items-center text-white fs-6'>
+                                    <div className='question-icon me-2'>
+                                        <FontAwesomeIcon icon={faCircleQuestion} size='lg' />
+                                    </div>
+                                    <div className='phone-number'>
+                                        Hỗ trợ <br />
+                                        033xxxxx33
+                                    </div>
                                 </div>
                             </>
                         }

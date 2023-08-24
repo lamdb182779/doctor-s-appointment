@@ -106,11 +106,15 @@ const Home = (props) => {
                 </Row>
             </div>
             <div className="home-content">
-                <div ref={componentRef}>
+                <Row ref={componentRef}>
                     <Introduce index={index} setIndex={setIndex} showMore={handleShowMore} />
-                </div>
-                <Slide showMore={handleShowMore} show={'/specialties'} />
-                <Slide showMore={handleShowMore} show={'/doctors'} />
+                </Row>
+                <Row className="mt-5">
+                    <Slide showMore={handleShowMore} show={'/specialties'} />
+                </Row>
+                <Row className="mt-5">
+                    <Slide showMore={handleShowMore} show={'/doctors'} />
+                </Row>
             </div>
         </div>
     )

@@ -1,6 +1,9 @@
+
+
 const initState = {
     user: {},
 }
+
 const rootReducer = (state = initState, action) => {
     switch (action.type) {
         case ('SET_USER'):

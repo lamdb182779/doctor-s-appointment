@@ -57,7 +57,7 @@ const DoctorChange = (props) => {
     const [showWarning, setShowWarning] = useState(false)
     const [showDanger, setShowDanger] = useState(false)
 
-    const { message, loading } = useFetch(change === 0 ? '' : `http://localhost:8080/api/doctors?id=${data[0].id}&${change}`,
+    const { message, loading } = useFetch(change === 0 ? '' : `http://localhost:8080/api/doctors/${data[0].id}/${change}`,
         change === 0 ? {} : {
             method: 'PUT',
             headers: {
