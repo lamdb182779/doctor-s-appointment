@@ -4,9 +4,14 @@ import { NavLink, useNavigate } from "react-router-dom"
 
 import { Button } from "react-bootstrap"
 
+import { useState, useEffect } from "react"
+
+import useFetch from "../../custom/fetch"
+
 import { connect } from "react-redux"
-import { useState } from "react"
 const DoctorNav = (props) => {
+    const [isLogout, setIsLogout] = useState(false)
+    const { loading } = useFetch(isLogout ? 'http://localhost:8080/api/deletetoken' : '')
     const navigate = useNavigate()
     const handleClick = () => {
         props.handleClose()
@@ -17,18 +22,23 @@ const DoctorNav = (props) => {
         props.handleShowChangePw(true)
     }
     const handleLogout = () => {
-        props.setUser({})
-        props.handleClose()
-        navigate('/')
+        setIsLogout(true)
     }
+    useEffect(() => {
+        if (loading === false && isLogout === true) {
+            props.setUser({})
+            navigate('/')
+            props.handleClose()
+        }
+    }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div className="h-100">
             <div className="doctor-nav-list h-50">
-                <div className="doctor-nav-home" onClick={() => handleClick("/")}>
-                    <NavLink to="/doctor/" >Trang chủ</NavLink>
+                <div className="doctor-nav-home mb-1 rounded" onClick={() => handleClick("/")}>
+                    <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" end to="/doctor" >Trang chủ</NavLink>
                 </div>
-                <div className="doctor-nav-staffs" onClick={() => handleClick("/specialties")}>
-                    <NavLink to="/doctor/appointments">Kiểm tra lịch hẹn</NavLink>
+                <div className="doctor-nav-staffs mb-1 rounded" onClick={() => handleClick("/specialties")}>
+                    <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" to="/doctor/appointments">Kiểm tra lịch hẹn</NavLink>
                 </div>
             </div >
 

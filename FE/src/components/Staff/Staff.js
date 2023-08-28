@@ -12,15 +12,19 @@ import { NavLink } from "react-router-dom"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
-    faUserPen,
+    // faUserPen,
     faTableList,
 } from "@fortawesome/free-solid-svg-icons"
+import {
+    // faUserPen,
+    faCalendarDays,
+} from "@fortawesome/free-regular-svg-icons"
 
 import moment from "moment"
 import "moment/locale/vi"
 
 const Staff = (props) => {
-    const { data, loading } = useFetch('http://localhost:8080/api/self')
+    const { data, loading } = useFetch('http://localhost:8080/api/self/info')
     return (
         <div className="staff-container px-5 py-5">
             {loading === false ?
@@ -51,7 +55,7 @@ const Staff = (props) => {
                                                     <Accordion>
                                                         <Accordion.Item eventKey="0">
                                                             <Accordion.Header>
-                                                                <FontAwesomeIcon icon={faUserPen} />
+                                                                <FontAwesomeIcon icon={faCalendarDays} />
                                                                 &nbsp;Quản lý lịch hẹn
                                                             </Accordion.Header>
                                                             <Accordion.Body>

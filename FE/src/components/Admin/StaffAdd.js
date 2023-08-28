@@ -83,7 +83,7 @@ const StaffAdd = (props) => {
         setAdd(add + 1)
     }
     const handleBack = () => {
-        window.history.back()
+        navigate(-1)
     }
     useEffect(() => {
         if (loading === false && add !== 0) {

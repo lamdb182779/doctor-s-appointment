@@ -5,8 +5,13 @@ import { NavLink, useNavigate } from "react-router-dom"
 import { Button } from "react-bootstrap"
 
 import { connect } from "react-redux"
-import { useState } from "react"
+
+import { useEffect, useState } from "react"
+
+import useFetch from "../../custom/fetch"
 const StaffNav = (props) => {
+    const [isLogout, setIsLogout] = useState(false)
+    const { loading } = useFetch(isLogout ? 'http://localhost:8080/api/deletetoken' : '')
     const navigate = useNavigate()
     const handleClick = () => {
         props.handleClose()
@@ -17,18 +22,23 @@ const StaffNav = (props) => {
         props.handleShowChangePw(true)
     }
     const handleLogout = () => {
-        props.setUser({})
-        props.handleClose()
-        navigate('/')
+        setIsLogout(true)
     }
+    useEffect(() => {
+        if (loading === false && isLogout === true) {
+            props.setUser({})
+            navigate('/')
+            props.handleClose()
+        }
+    }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div className="h-100">
             <div className="staff-nav-list h-50">
-                <div className="staff-nav-home" onClick={() => handleClick("/")}>
-                    <NavLink to="/staff/" >Trang chủ</NavLink>
+                <div className="staff-nav-home mb-1 rounded" onClick={() => handleClick()}>
+                    <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" end to="/staff" >Trang chủ</NavLink>
                 </div>
-                <div className="staff-nav-staffs" onClick={() => handleClick("/specialties")}>
-                    <NavLink to="/staff/appointments">Quản lý lịch hẹn</NavLink>
+                <div className="staff-nav-staffs mb-1 rounded" onClick={() => handleClick()}>
+                    <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" to="/staff/appointments">Quản lý lịch hẹn</NavLink>
                 </div>
             </div >
 

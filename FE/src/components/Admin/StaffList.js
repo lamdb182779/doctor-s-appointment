@@ -91,7 +91,7 @@ const StaffList = (props) => {
     }
 
     const handleBack = () => {
-        window.history.back()
+        navigate(-1)
     }
 
     useEffect(() => {

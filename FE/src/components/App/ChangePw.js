@@ -25,9 +25,6 @@ const ChangePw = (props) => {
     const [newpw, setNewPw] = useState('')
     const [showPassword, setShowPassword] = useState(false)
 
-    const [url, setUrl] = useState('')
-    const [options, setOptions] = useState({})
-
     const [isBlankOldPw, setIsBlankOldPw] = useState(true)
     const [isBlankNewPw, setIsBlankNewPw] = useState(true)
     const [isDupPw, setIsDupPw] = useState(true)
@@ -49,13 +46,15 @@ const ChangePw = (props) => {
 
         setIsValidOldPw(change && oldpw === '' ? false : true)
         setIsValidNewPw(change && (newpw === '' || oldpw === newpw) ? false : true)
-        setUrl(change === 0
-            || oldpw === ''
-            || newpw === ''
-            || oldpw === newpw
-            ? ''
-            : `http://localhost:8080/api/self/changepw?${change}`)
-        setOptions(change === 0
+    }, [change])// eslint-disable-line react-hooks/exhaustive-deps
+
+    const { message, loading } = useFetch(change === 0
+        || oldpw === ''
+        || newpw === ''
+        || oldpw === newpw
+        ? ''
+        : `http://localhost:8080/api/self/changepw?${change}`,
+        change === 0
             || oldpw === ''
             || newpw === ''
             || oldpw === newpw
@@ -70,9 +69,6 @@ const ChangePw = (props) => {
                     token: props.user.token,
                 })
             })
-    }, [change])// eslint-disable-line react-hooks/exhaustive-deps
-
-    const { message, loading } = useFetch(url, options)
 
     useEffect(() => {
         setIsValidOldPw(message === 'wrong password' ? false : true)

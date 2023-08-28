@@ -4,7 +4,7 @@ const router = express.Router()
 const {
     addNewAppointment,
     getAllAppointments
-} = require('../controller/appoitmentsController')
+} = require('../controller/appointmentsController')
 
 const home = (route) => {
     router.post('/', addNewAppointment)

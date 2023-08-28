@@ -12,7 +12,7 @@ import { Row, Col, Image, } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 
 const Doctor = (props) => {
-    const { data, loading } = useFetch('http://localhost:8080/api/self')
+    const { data, loading } = useFetch('http://localhost:8080/api/self/info')
 
     return (
         <div className="doctor-user-container px-5 py-5 d-grid gap-5">

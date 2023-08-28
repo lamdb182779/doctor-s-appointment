@@ -1,13 +1,13 @@
 const db = require('../models')
 const { Op } = require('sequelize')
 
-const addNewAppointment = async (req, res) => {
+const addNewAppointment = async (req, res, next) => {
     let { patientName, patientPhoneNumber, patientEmail, description, date, time, scheduleId, doctorId, currentNumber } = req.body
     try {
-        let current = await db.Schedules.findByPk(scheduleId, {
-            attributes: ['currentNumber']
+        let schedule = await db.Schedules.findByPk(scheduleId, {
+            attributes: ['currentNumber', 'maxNumber']
         })
-        if (current.currentNumber >= 3) {
+        if (schedule.currentNumber >= schedule.maxNumber) {
             console.log('No slot left')
             return res.status(500).json({
                 message: 'full slot',
@@ -75,7 +75,7 @@ const addNewAppointment = async (req, res) => {
     }
 }
 
-const getAllAppointments = async (req, res) => {
+const getAllAppointments = async (req, res, next) => {
     let { doctorId, date, time, status } = req.query
     //Structure data need to find
     let find = {};

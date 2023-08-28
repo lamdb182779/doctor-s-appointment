@@ -30,9 +30,6 @@ const DoctorAdd = (props) => {
     const [price, setPrice] = useState('')
     const [content, setContent] = useState('')
 
-    const [url, setUrl] = useState('')
-    const [options, setOptions] = useState({})
-
     const [showDanger, setShowDanger] = useState(false)
     const [showSuccess, setShowSuccess] = useState(false)
     const [showWarning, setShowWarning] = useState(false)
@@ -83,7 +80,7 @@ const DoctorAdd = (props) => {
         setAdd(add + 1)
     }
     const handleBack = () => {
-        window.history.back()
+        navigate(-1)
     }
     useEffect(() => {
         if (loading === false && add !== 0) {

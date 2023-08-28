@@ -7,7 +7,7 @@ import Home from '../Guest/Home/Home';
 import Specialties from '../Guest/Specialties/Specialties';
 import Doctors from '../Guest/Doctors/Doctors';
 import Detail from '../Guest/Doctors/Detail';
-import Notfound from '../General/Notfound/Notfound';
+// import Notfound from '../General/Notfound/Notfound';
 import Search from '../Guest/Search/Search';
 import Doctor from '../Doctor/Doctor';
 import Staff from '../Staff/Staff';
@@ -27,7 +27,7 @@ import logo from '../../assets/images/logo.png'
 
 import { Offcanvas, Button, Modal } from 'react-bootstrap';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import {
   BrowserRouter,
@@ -41,6 +41,10 @@ import StaffNav from '../Staff/StaffNav';
 import { connect } from 'react-redux';
 import DoctorInfo from '../Admin/DoctorInfo';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
+import cookies from "js-cookie"
 const App = (props) => {
   const [showChangePw, setShowChangePw] = useState(false)
   const [showForgetPw, setShowForgetPw] = useState(false)
@@ -68,11 +72,16 @@ const App = (props) => {
         return <DoctorNav handleClose={handleCloseCanvas} handleShowChangePw={handleShowChangePw} />
       case 'Staffs':
         return <StaffNav handleClose={handleCloseCanvas} handleShowChangePw={handleShowChangePw} />
-      case undefined:
+      default:
         return <Nav handleClose={handleCloseCanvas} />
-      default: break
     }
   }
+
+  // console.log("hello", cookies.get("token"))
+
+  // useEffect(() => {
+
+  // }, [cookies.get("token")])
 
   return (
     <BrowserRouter>
@@ -92,28 +101,42 @@ const App = (props) => {
         </header>
         <main className='App-main'>
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/specialties' element={<Specialties />} />
-            <Route path='/doctors' element={<Doctors />} />
-            <Route path='/doctors/:id' element={<Detail />} />
-            <Route path='/search' element={<Search />} />
-            <Route path='/admin' element={<PrivateRoute table="Admins" element={<Admin />} />} />
-            <Route path='/admin/staff-list' element={<PrivateRoute table="Admins" element={<StaffList />} />} />
-            <Route path='/admin/staff-add' element={<PrivateRoute table="Admins" element={<StaffAdd />} />} />
-            <Route path='/admin/doctor-add' element={<PrivateRoute table="Admins" element={<DoctorAdd />} />} />
-            <Route path='/admin/doctor-list' element={<PrivateRoute table="Admins" element={<DoctorList />} />} />
-            <Route path='/admin/doctor-info/:id' element={<PrivateRoute table="Admins" element={<DoctorInfo />} />} />
-            <Route path='/doctor' element={<PrivateRoute table="Doctors" element={<Doctor />} />} />
-            <Route path='/doctor/appointments' element={<PrivateRoute table="Doctors" element={<Appointments />} />} />
-            <Route path='/staff' element={<PrivateRoute table="Staffs" element={<Staff />} />} />
-            <Route path='/staff/appointments' element={<PrivateRoute table="Staffs" element={<AppointmentList />} />} />
-            <Route path='*' element={<Notfound />} />
+            <Route path='/' element={<PrivateRoute element={<Home />} />} />
+            <Route path='/specialties' element={<PrivateRoute element={<Specialties />} />} />
+            <Route path='/doctors' element={<PrivateRoute element={<Doctors />} />} />
+            <Route path='/doctors/:id' element={<PrivateRoute element={<Detail />} />} />
+            <Route path='/search' element={<PrivateRoute element={<Search />} />} />
+            <Route path='/admin' element={<PrivateRoute table={["Admins"]} element={<Admin />} exact />} />
+            <Route path='/admin/staff-list' element={<PrivateRoute table={["Admins"]} element={<StaffList />} />} />
+            <Route path='/admin/staff-add' element={<PrivateRoute table={["Admins"]} element={<StaffAdd />} />} />
+            <Route path='/admin/doctor-add' element={<PrivateRoute table={["Admins"]} element={<DoctorAdd />} />} />
+            <Route path='/admin/doctor-list' element={<PrivateRoute table={["Admins"]} element={<DoctorList />} />} />
+            <Route path='/admin/doctor-info/:id' element={<PrivateRoute table={["Admins"]} element={<DoctorInfo />} />} />
+            <Route path='/doctor' element={<PrivateRoute table={["Doctors"]} element={<Doctor />} />} />
+            <Route path='/doctor/appointments' element={<PrivateRoute table={["Doctors"]} element={<Appointments />} />} />
+            <Route path='/staff' element={<PrivateRoute table={["Staffs"]} element={<Staff />} />} />
+            <Route path='/staff/appointments' element={<PrivateRoute table={["Staffs"]} element={<AppointmentList />} />} />
+            <Route path='*' element={<PrivateRoute />} />
           </Routes>
         </main>
         <footer className='App-footer'>
           <Footer logo={logo} />
         </footer>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      {/* Same as */}
+      <ToastContainer />
       <Modal show={showLogin} onHide={handleCloseLogin} centered>
         <Modal.Header closeButton>
           <Modal.Title>Đăng nhập</Modal.Title>

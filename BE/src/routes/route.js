@@ -23,6 +23,12 @@ const route = (app) => {
     staffs(router)
     schedules(router)
     appointments(router)
+    router.get('/deletetoken', (req, res, next) => {
+        res.clearCookie('token')
+        return res.status(200).json({
+            message: 'ok'
+        })
+    })
     router.get('/', getInfoApp)
     return app.use('/api', router)
 }

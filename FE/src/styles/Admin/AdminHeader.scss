@@ -1,0 +1,25 @@
+.admin-header-container {
+
+    .admin-header-home,
+    .admin-header-staff,
+    .admin-header-doctor {
+
+        .active {
+            >div {
+                &:hover {
+                    background: none;
+                }
+            }
+
+            border-bottom: 4px solid gray;
+        }
+
+        a {
+            >div {
+                &:hover {
+                    background-color: whitesmoke;
+                }
+            }
+        }
+    }
+}

@@ -9,7 +9,7 @@ const toImage = (item) => {
     return ""
 }
 
-const getAllResult = async (req, res) => {
+const getAllResult = async (req, res, next) => {
     let search = req.params.search
     search = search.split(' ')
     let findSpecialties = []

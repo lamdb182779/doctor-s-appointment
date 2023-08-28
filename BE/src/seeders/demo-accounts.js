@@ -17,7 +17,7 @@ module.exports = {
       {
         username: 'admin',
         password: bcrypt.hashSync('admin', salt),
-        role: 1,
+        roleId: 1,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -25,7 +25,7 @@ module.exports = {
       {
         username: 'loanntk0001',
         password: bcrypt.hashSync('loanntk0001', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -33,7 +33,7 @@ module.exports = {
       {
         username: 'ngocnv0002',
         password: bcrypt.hashSync('ngocnv0002', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -41,7 +41,7 @@ module.exports = {
       {
         username: 'tridm0003',
         password: bcrypt.hashSync('tridm0003', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -49,7 +49,7 @@ module.exports = {
       {
         username: 'nghiapt0004',
         password: bcrypt.hashSync('nghiapt0004', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -57,7 +57,7 @@ module.exports = {
       {
         username: 'hunghq0005',
         password: bcrypt.hashSync('hunghq0005', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -65,7 +65,7 @@ module.exports = {
       {
         username: 'doanhnv0006',
         password: bcrypt.hashSync('doanhnv0006', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -73,7 +73,7 @@ module.exports = {
       {
         username: 'hungnt0007',
         password: bcrypt.hashSync('hungnt0007', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -81,7 +81,7 @@ module.exports = {
       {
         username: 'hungkd0008',
         password: bcrypt.hashSync('hungkd0008', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -89,7 +89,7 @@ module.exports = {
       {
         username: 'lieunv0009',
         password: bcrypt.hashSync('lieunv0009', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -97,7 +97,7 @@ module.exports = {
       {
         username: 'thyttm0010',
         password: bcrypt.hashSync('thyttm0010', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -105,7 +105,7 @@ module.exports = {
       {
         username: 'quyethv',
         password: bcrypt.hashSync('quyethv', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -113,7 +113,7 @@ module.exports = {
       {
         username: 'anhlt0012',
         password: bcrypt.hashSync('anhlt0012', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -121,7 +121,7 @@ module.exports = {
       {
         username: 'thongnv0013',
         password: bcrypt.hashSync('thongnv0013', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -129,7 +129,7 @@ module.exports = {
       {
         username: 'vanntt0014',
         password: bcrypt.hashSync('vanntt0014', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -137,7 +137,7 @@ module.exports = {
       {
         username: 'lieuntb',
         password: bcrypt.hashSync('lieuntb', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -145,7 +145,7 @@ module.exports = {
       {
         username: 'tuocnn0016',
         password: bcrypt.hashSync('tuocnn0016', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -153,7 +153,7 @@ module.exports = {
       {
         username: 'quynhnv0017',
         password: bcrypt.hashSync('quynhnv0017', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -161,7 +161,7 @@ module.exports = {
       {
         username: 'vietnl0018',
         password: bcrypt.hashSync('vietnl0018', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -169,7 +169,7 @@ module.exports = {
       {
         username: 'maiptb0019',
         password: bcrypt.hashSync('maiptb0019', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -177,7 +177,7 @@ module.exports = {
       {
         username: 'tuyetntt0020',
         password: bcrypt.hashSync('tuyetntt0020', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -185,7 +185,7 @@ module.exports = {
       {
         username: 'anntt0021',
         password: bcrypt.hashSync('anntt0021', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -193,7 +193,7 @@ module.exports = {
       {
         username: 'lynv0022',
         password: bcrypt.hashSync('lynv0022', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -201,7 +201,7 @@ module.exports = {
       {
         username: 'phannn0023',
         password: bcrypt.hashSync('phannn0023', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -209,7 +209,7 @@ module.exports = {
       {
         username: 'nhanvtt0024',
         password: bcrypt.hashSync('nhanvtt0024', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -217,7 +217,7 @@ module.exports = {
       {
         username: 'duonglh0025',
         password: bcrypt.hashSync('duonglh0025', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -225,7 +225,7 @@ module.exports = {
       {
         username: 'truongbp0026',
         password: bcrypt.hashSync('truongbp0026', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -233,7 +233,7 @@ module.exports = {
       {
         username: 'tungpq0027',
         password: bcrypt.hashSync('tungpq0027', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -241,7 +241,7 @@ module.exports = {
       {
         username: 'hungnp0028',
         password: bcrypt.hashSync('hungnp0028', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -249,7 +249,7 @@ module.exports = {
       {
         username: 'phuongvtt0029',
         password: bcrypt.hashSync('phuongvtt0029', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -257,7 +257,7 @@ module.exports = {
       {
         username: 'chuongld0030',
         password: bcrypt.hashSync('chuongld0030', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -265,7 +265,7 @@ module.exports = {
       {
         username: 'minhnt0031',
         password: bcrypt.hashSync('minhnt0031', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -273,7 +273,7 @@ module.exports = {
       {
         username: 'dungltn0032',
         password: bcrypt.hashSync('dungltn0032', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -281,7 +281,7 @@ module.exports = {
       {
         username: 'anhntm0033',
         password: bcrypt.hashSync('anhntm0033', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -289,7 +289,7 @@ module.exports = {
       {
         username: 'chaubtk0034',
         password: bcrypt.hashSync('chaubtk0034', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -297,7 +297,7 @@ module.exports = {
       {
         username: 'hieult0035',
         password: bcrypt.hashSync('hieult0035', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -305,7 +305,7 @@ module.exports = {
       {
         username: 'tamtth0036',
         password: bcrypt.hashSync('tamtth0036', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -313,7 +313,7 @@ module.exports = {
       {
         username: 'phuocpv0037',
         password: bcrypt.hashSync('phuocpv0037', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -321,7 +321,7 @@ module.exports = {
       {
         username: 'huenb0038',
         password: bcrypt.hashSync('huenb0038', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -329,7 +329,7 @@ module.exports = {
       {
         username: 'tainx0039',
         password: bcrypt.hashSync('tainx0039', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -337,7 +337,7 @@ module.exports = {
       {
         username: 'lieuntl0040',
         password: bcrypt.hashSync('lieuntl0040', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -345,7 +345,7 @@ module.exports = {
       {
         username: 'havt0041',
         password: bcrypt.hashSync('havt0041', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -353,7 +353,7 @@ module.exports = {
       {
         username: 'thanhnt0042',
         password: bcrypt.hashSync('thanhnt0042', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -361,7 +361,7 @@ module.exports = {
       {
         username: 'hongdtt0043',
         password: bcrypt.hashSync('hongdtt0043', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -369,7 +369,7 @@ module.exports = {
       {
         username: 'linhnt0044',
         password: bcrypt.hashSync('linhnt0044', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -377,7 +377,7 @@ module.exports = {
       {
         username: 'tamhv0045',
         password: bcrypt.hashSync('tamhv0045', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -385,7 +385,7 @@ module.exports = {
       {
         username: 'binhth0046',
         password: bcrypt.hashSync('binhth0046', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -393,7 +393,7 @@ module.exports = {
       {
         username: 'chungnv0047',
         password: bcrypt.hashSync('chungnv0047', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -401,7 +401,7 @@ module.exports = {
       {
         username: 'tuannt0048',
         password: bcrypt.hashSync('tuannt0048', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -409,7 +409,7 @@ module.exports = {
       {
         username: 'hiennt0049',
         password: bcrypt.hashSync('hiennt0049', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -417,7 +417,7 @@ module.exports = {
       {
         username: 'phinv0050',
         password: bcrypt.hashSync('phinv0050', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -425,7 +425,7 @@ module.exports = {
       {
         username: 'khanhbv0051',
         password: bcrypt.hashSync('khanhbv0051', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -433,7 +433,7 @@ module.exports = {
       {
         username: 'landtt0052',
         password: bcrypt.hashSync('landtt0052', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -441,7 +441,7 @@ module.exports = {
       {
         username: 'anhlh0053',
         password: bcrypt.hashSync('anhlh0053', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -449,7 +449,7 @@ module.exports = {
       {
         username: 'phuongda0054',
         password: bcrypt.hashSync('phuongda0054', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -457,7 +457,7 @@ module.exports = {
       {
         username: 'hongntd0055',
         password: bcrypt.hashSync('hongntd0055', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -465,7 +465,7 @@ module.exports = {
       {
         username: 'hungdk0056',
         password: bcrypt.hashSync('hungdk0056', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -473,7 +473,7 @@ module.exports = {
       {
         username: 'loanptb0057',
         password: bcrypt.hashSync('loanptb0057', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -481,7 +481,7 @@ module.exports = {
       {
         username: 'tanpv0058',
         password: bcrypt.hashSync('tanpv0058', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -489,7 +489,7 @@ module.exports = {
       {
         username: 'hungbv0059',
         password: bcrypt.hashSync('hungbv0059', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -497,7 +497,7 @@ module.exports = {
       {
         username: 'hondv0060',
         password: bcrypt.hashSync('hondv0060', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -505,7 +505,7 @@ module.exports = {
       {
         username: 'phonght0061',
         password: bcrypt.hashSync('phonght0061', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -513,7 +513,7 @@ module.exports = {
       {
         username: 'hanhnth0062',
         password: bcrypt.hashSync('hanhnth0062', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -521,7 +521,7 @@ module.exports = {
       {
         username: 'huyenph0063',
         password: bcrypt.hashSync('huyenph0063', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -529,7 +529,7 @@ module.exports = {
       {
         username: 'hieuld0064',
         password: bcrypt.hashSync('hieuld0064', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -537,7 +537,7 @@ module.exports = {
       {
         username: 'phuongtll0066',
         password: bcrypt.hashSync('phuongtll0066', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -545,7 +545,7 @@ module.exports = {
       {
         username: 'baont0067',
         password: bcrypt.hashSync('baont0067', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -553,7 +553,7 @@ module.exports = {
       {
         username: 'quynhnn0068',
         password: bcrypt.hashSync('quynhnn0068', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -561,7 +561,7 @@ module.exports = {
       {
         username: 'tuphm0069',
         password: bcrypt.hashSync('tuphm0069', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -569,7 +569,7 @@ module.exports = {
       {
         username: 'trangdt0070',
         password: bcrypt.hashSync('trangdt0070', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -577,7 +577,7 @@ module.exports = {
       {
         username: 'tungdt0071',
         password: bcrypt.hashSync('tungdt0071', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -585,7 +585,7 @@ module.exports = {
       {
         username: 'hienntt0072',
         password: bcrypt.hashSync('hienntt0072', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -593,7 +593,7 @@ module.exports = {
       {
         username: 'ngocnh0073',
         password: bcrypt.hashSync('ngocnh0073', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -601,7 +601,7 @@ module.exports = {
       {
         username: 'xuanntm0074',
         password: bcrypt.hashSync('xuanntm0074', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -609,7 +609,7 @@ module.exports = {
       {
         username: 'langnt0075',
         password: bcrypt.hashSync('langnt0075', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -617,7 +617,7 @@ module.exports = {
       {
         username: 'huunv0076',
         password: bcrypt.hashSync('huunv0076', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -625,7 +625,7 @@ module.exports = {
       {
         username: 'phongdd0077',
         password: bcrypt.hashSync('phongdd0077', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -633,7 +633,7 @@ module.exports = {
       {
         username: 'thaohb0078',
         password: bcrypt.hashSync('thaohb0078', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -641,7 +641,7 @@ module.exports = {
       {
         username: 'harrisonmb0079',
         password: bcrypt.hashSync('harrisonmb0079', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -649,7 +649,7 @@ module.exports = {
       {
         username: 'hanhvtb0080',
         password: bcrypt.hashSync('hanhvtb0080', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -657,7 +657,7 @@ module.exports = {
       {
         username: 'chinhvd0081',
         password: bcrypt.hashSync('chinhvd0081', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -665,7 +665,7 @@ module.exports = {
       {
         username: 'chienlh0082',
         password: bcrypt.hashSync('chienlh0082', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -673,7 +673,7 @@ module.exports = {
       {
         username: 'tuannq0083',
         password: bcrypt.hashSync('tuannq0083', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -681,7 +681,7 @@ module.exports = {
       {
         username: 'cuongdd0084',
         password: bcrypt.hashSync('cuongdd0084', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -689,7 +689,7 @@ module.exports = {
       {
         username: 'mautq0085',
         password: bcrypt.hashSync('mautq0085', salt),
-        role: 2,
+        roleId: 2,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -697,7 +697,7 @@ module.exports = {
       {
         username: 'sinhdq001',
         password: bcrypt.hashSync('sinhdq001', salt),
-        role: 3,
+        roleId: 3,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -705,7 +705,7 @@ module.exports = {
       {
         username: 'huenh002',
         password: bcrypt.hashSync('huenh002', salt),
-        role: 3,
+        roleId: 3,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -713,7 +713,7 @@ module.exports = {
       {
         username: 'ducld003',
         password: bcrypt.hashSync('ducld003', salt),
-        role: 3,
+        roleId: 3,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -721,7 +721,7 @@ module.exports = {
       {
         username: 'hoht004',
         password: bcrypt.hashSync('hoht004', salt),
-        role: 3,
+        roleId: 3,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -729,7 +729,7 @@ module.exports = {
       {
         username: 'hiepvh005',
         password: bcrypt.hashSync('hiepvh005', salt),
-        role: 3,
+        roleId: 3,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -737,7 +737,7 @@ module.exports = {
       {
         username: 'chaudm006',
         password: bcrypt.hashSync('chaudm006', salt),
-        role: 3,
+        roleId: 3,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -745,7 +745,7 @@ module.exports = {
       {
         username: 'ngoctb007',
         password: bcrypt.hashSync('ngoctb007', salt),
-        role: 3,
+        roleId: 3,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -753,7 +753,7 @@ module.exports = {
       {
         username: 'bachpt008',
         password: bcrypt.hashSync('bachpt008', salt),
-        role: 3,
+        roleId: 3,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -761,7 +761,7 @@ module.exports = {
       {
         username: 'anhbn009',
         password: bcrypt.hashSync('anhbn009', salt),
-        role: 3,
+        roleId: 3,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -769,7 +769,7 @@ module.exports = {
       {
         username: 'trungdk010',
         password: bcrypt.hashSync('trungdk010', salt),
-        role: 3,
+        roleId: 3,
         active: true,
         createdAt: new Date(),
         updatedAt: new Date()

@@ -46,7 +46,7 @@ const Specialties = (props) => {
     }
 
     const handleBack = () => {
-        window.history.back()
+        navigate(-1)
     }
 
     return (

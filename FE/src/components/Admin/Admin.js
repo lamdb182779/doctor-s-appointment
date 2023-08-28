@@ -17,7 +17,7 @@ import {
 
 import { NavLink } from "react-router-dom"
 const Admin = (props) => {
-    const { data, loading } = useFetch('http://localhost:8080/api/self')
+    const { data, loading } = useFetch('http://localhost:8080/api/self/info')
     return (
         <div className="admin-container px-5 py-5">
             {loading === false ?

@@ -27,7 +27,7 @@ const DoctorNotfound = (props) => {
                 </Row>
                 <Row>
                     <Col className=" d-flex justify-content-center">
-                        <Button variant="outline-link" onClick={() => window.history.back()}>Quay lại trang trước</Button>
+                        <Button variant="outline-link" onClick={() => navigate(-1)}>Quay lại trang trước</Button>
                     </Col>
                 </Row>
             </Row>

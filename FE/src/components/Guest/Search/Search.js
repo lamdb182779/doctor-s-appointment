@@ -24,7 +24,7 @@ const Search = (props) => {
     }
 
     const handleBack = () => {
-        window.history.back()
+        navigate(-1)
     }
 
     const handleSpecialtyDoctors = (id) => {

@@ -9,9 +9,11 @@ import { useEffect, useState } from "react"
 
 import useFetch from "../../../custom/fetch"
 
-import Success from "../../General/Dialog/Success"
-import Danger from "../../General/Dialog/Danger"
 import Warning from "../../General/Dialog/Warning"
+
+import nullavatar from "../../../assets/images/nullavatardoctor.jpg"
+
+import { toast } from "react-toastify"
 const Booking = (props) => {
     const schedule = props.schedule || {}
     const doctor = props.doctor || {}
@@ -40,8 +42,6 @@ const Booking = (props) => {
     const [description, setDescription] = useState('')
 
     const [showWarning, setShowWarning] = useState(false)
-    const [showSuccess, setShowSuccess] = useState(false)
-    const [showDanger, setShowDanger] = useState(false)
 
     const { message, loading } = useFetch(book === 0 ? '' : `http://localhost:8080/api/appointments?${book}`, book === 0 ? {} : {
         method: 'POST',
@@ -62,7 +62,8 @@ const Booking = (props) => {
     })
     const handleBook = () => {
         if ((name.trim() === '') || (phone.trim() === '') || (schedule.maxNumber - schedule.currentNumber === 0)) {
-            setShowDanger(true)
+            toast.error(((name.trim() === '') || (phone.trim() === '')) ? "Có thông tin cần thiết bị bỏ trống" :
+                schedule.maxNumber - schedule.currentNumber === 0 ? "Đã hết chỗ trống trong khung giờ này" : "Có lỗi xảy ra")
         }
         else {
             setShowWarning(true)
@@ -74,33 +75,17 @@ const Booking = (props) => {
     useEffect(() => {
         if (loading === false && book !== 0) {
             if (message === 'ok') {
-                setShowSuccess(true)
+                toast.success("Đặt lịch thành công")
                 props.setBook(props.book + 1)
                 setBook(0)
             } else {
-                setShowDanger(true)
+                toast.error(message === 'server error!' ? "Lỗi Server" :
+                    message === 'full slot' ? "Đã hết chỗ trống khung giờ này" : "Có lỗi xảy ra")
             }
         }
     }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
     return (
         <>
-            <Danger
-                show={showDanger}
-                setShow={setShowDanger}
-                // size={isAnyBlank ? "nm" : "sm"}
-                time={1000}
-                bodyAlign="text-center"
-                body={((name.trim() === '') || (phone.trim() === '')) ? "Có thông tin cần thiết bị bỏ trống" :
-                    schedule.maxNumber - schedule.currentNumber === 0 ? "Đã hết chỗ trống trong khung giờ này" :
-                        message === 'server error!' ? "Lỗi Server" :
-                            message === 'full slot' ? "Đã hết chỗ trống khung giờ này" : undefined} />
-            <Success
-                show={showSuccess}
-                setShow={setShowSuccess}
-                time={1000}
-                bodyAlign="text-center"
-                size="sm"
-                body="Đặt lịch thành công!" />
             <Warning
                 show={showWarning}
                 setShow={setShowWarning}
@@ -114,11 +99,12 @@ const Booking = (props) => {
             <Modal.Body className="booking-content d-grid gap-3">
                 <Row className="d-flex align-items-center">
                     <Col xs={2}>
-                        <Image src={doctor.image} alt='avatar' roundedCircle className="w-100 h-auto" />
+                        <Image src={doctor.image ? doctor.image : nullavatar} alt='avatar' roundedCircle className="w-100 h-auto" />
                     </Col>
                     <Col>
                         <b>Bác sĩ {doctor.name}</b><br />
                         {time[schedule.time]} - {moment(schedule.date).format('dddd - DD/MM/YYYY')}<br />
+                        Hiện tại còn {schedule.maxNumber - schedule.currentNumber} chỗ tại khung giờ này<br />
                         Đặt lịch miễn phí
                     </Col>
                 </Row>

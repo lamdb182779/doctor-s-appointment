@@ -1,7 +1,7 @@
 const db = require('../models')
 const { Op } = require('sequelize')
 
-const getSchedule = async (req, res) => {
+const getSchedule = async (req, res, next) => {
     let { doctorId, date } = req.query
     if ((!doctorId) || (!date)) {
         return res.status(500).json({

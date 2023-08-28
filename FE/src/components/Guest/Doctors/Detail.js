@@ -2,7 +2,7 @@ import "../../../styles/Guest/Doctors/Detail.scss"
 
 import { Button, Col, Dropdown, Image, Row, Spinner, OverlayTrigger, Tooltip, Modal } from "react-bootstrap"
 
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 
 import { useRef, useState } from "react"
 
@@ -26,6 +26,7 @@ import "moment/locale/vi"
 const Detail = (props) => {
     let { id } = useParams()
     const componentRef = useRef(null)
+    const navigate = useNavigate()
     const today = moment().startOf('day')
     const [day, setDay] = useState(moment(today).add(1, 'days'))
     const dayArray = [
@@ -44,7 +45,7 @@ const Detail = (props) => {
     const handleClose = () => setShow(false)
 
     const handleBack = () => {
-        window.history.back()
+        navigate(-1)
     }
 
     const { data, loading } = useFetch(`http://localhost:8080/api/doctors/${id}/1`)

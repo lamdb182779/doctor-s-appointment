@@ -88,7 +88,7 @@ const checkDupEmail = async (req, res, next) => {
     }
 }
 
-const getAllDoctors = async (req, res) => {
+const getAllDoctors = async (req, res, next) => {
     let { page, pagesize, name, specialtyID, clinicAddress } = req.query
     page = parseInt(page)
     pagesize = parseInt(pagesize)
@@ -174,7 +174,7 @@ const getAllDoctors = async (req, res) => {
     }
 }
 
-const getDoctorById = async (req, res) => {
+const getDoctorById = async (req, res, next) => {
     let doctor = req.person
     if (doctor) {
         if (doctor.image) {
@@ -191,9 +191,13 @@ const getDoctorById = async (req, res) => {
             data: [doctor]
         })
     }
+    // console.log("Something wrong. Please check the previous step")
+    // return res.status(200).json({
+    //     message: "ok"
+    // })
 }
 
-const deleteDoctorById = async (req, res) => {
+const deleteDoctorById = async (req, res, next) => {
     let id = req.params.id.toString()
     try {
         let deactivate = await db.Doctors.update({ active: false }, {
@@ -219,7 +223,7 @@ const deleteDoctorById = async (req, res) => {
     }
 }
 
-const updateDoctorById = async (req, res) => {
+const updateDoctorById = async (req, res, next) => {
     let id = req.params.id.toString()
     let { name, phoneNumber, email, clinicAddress, describe, price, content } = req.body
     let update = {}
@@ -268,7 +272,7 @@ const updateDoctorById = async (req, res) => {
     }
 }
 
-const addNewDoctor = async (req, res) => {
+const addNewDoctor = async (req, res, next) => {
     let { name, phoneNumber, email, clinicAddress, describe, price, content, specialtyID } = req.body
     try {
         let count = await db.Doctors.count()
@@ -335,7 +339,7 @@ const addNewDoctor = async (req, res) => {
 
 }
 
-const getSpecialtiesName = async (req, res) => {
+const getSpecialtiesName = async (req, res, next) => {
     try {
         let data = await db.Specialties.findAll({
             attributes: ['id', 'name']

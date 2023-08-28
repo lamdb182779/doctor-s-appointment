@@ -1,11 +1,6 @@
 const { createJWT, verifyToken } = require('../middleware/jwt-action.js')
 const db = require('../models')
 
-const roles = {
-    1: "Admins",
-    2: "Doctors",
-    3: "Staffs",
-}
 
 const hiddenEmail = (email) => {
     return email.replace(/^(.{3}).*(\d{2}@.*$)/, '$1****$2')
@@ -15,7 +10,7 @@ const findUserByUsername = async (req, res, next) => {
     let account = req.account
     if (account) {
         try {
-            let user = await db[roles[account.role]].findOne({
+            let user = await db[account.Role.role].findOne({
                 where: {
                     active: true,
                     username: account.username,
@@ -38,7 +33,7 @@ const findUserByUsername = async (req, res, next) => {
     }
 }
 
-const checkLogin = async (req, res) => {
+const checkLogin = async (req, res, next) => {
     let user = req.user
     if (user) {
         let token = createJWT({
@@ -54,12 +49,16 @@ const checkLogin = async (req, res) => {
         res.cookie("token", token, { httpOnly: true, maxAge: 2 * 60 * 60 * 1000 })
         return res.status(200).json({
             message: 'ok',
-            data: [token]
+            data: [{
+                id: user.id,
+                table: user.table,
+                name: user.name
+            }]
         })
     }
 }
 
-const findEmail = async (req, res) => {
+const findEmail = async (req, res, next) => {
     let user = req.user
     if (user) {
         if (user.email) {
@@ -76,7 +75,7 @@ const findEmail = async (req, res) => {
     }
 }
 
-const sendVerify = async (req, res) => {
+const sendVerify = async (req, res, next) => {
     let { id, table } = req.body
     try {
         let email = await db[table].findByPk(id, {

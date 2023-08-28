@@ -10,7 +10,7 @@ const toImage = (image) => {
     return ""
 }
 
-const getHomeSpecialties = async (req, res) => {
+const getHomeSpecialties = async (req, res, next) => {
     try {
         let specialties = await db.Specialties.findAll({
             order: sequelize.random(),
@@ -33,7 +33,7 @@ const getHomeSpecialties = async (req, res) => {
     }
 }
 
-const getHomeDoctors = async (req, res) => {
+const getHomeDoctors = async (req, res, next) => {
     try {
         let doctors = await db.Doctors.findAll({
             where: {

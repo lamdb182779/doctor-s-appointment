@@ -39,7 +39,7 @@ const DoctorInfo = (props) => {
 
     const [showSuccess, setShowSuccess] = useState(false)
     const handleBack = () => {
-        window.history.back()
+        navigate(-1)
     }
     const renderChangeTooltip = (props) => (
         <Tooltip id="change-tooltip" {...props}>

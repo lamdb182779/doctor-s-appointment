@@ -53,14 +53,12 @@ const publicActions = [
     {
         url: '/appointments',
         method: 'POST'
-    }
+    },
+    {
+        url: '/deletetoken',
+        method: 'GET'
+    },
 ]
-
-const tables = {
-    "Admins": 1,
-    "Doctors": 2,
-    "Staffs": 3,
-}
 
 const checkAction = (path, method, permission) => {
     path = path.replace(/\/{2,}/g, '/')
@@ -102,13 +100,13 @@ const checkToken = (req, res, next) => {
             } else {
                 console.log("Cannot decode token")
                 return res.status(500).json({
-                    message: "wrong verify"
+                    message: "wrong token"
                 })
             }
         } else {
             console.log("Cannot get token from cookies")
             return res.status(500).json({
-                message: "wrong verify"
+                message: "missing token"
             })
         }
     }
@@ -119,12 +117,23 @@ const checkUserPermission = async (req, res, next) => {
         next()
     } else {
         let user = req.user
-        if (user) {
-            if (user.table) {
+        if (user?.table) {
+            try {
+                let role = await db.Roles.findOne({
+                    where: {
+                        role: user.table
+                    }
+                })
+                if (role === null) {
+                    console.log("No role matching")
+                    return res.status(500).json({
+                        message: "wrong table"
+                    })
+                }
                 try {
-                    let permission = await db.Roles.findAll({
+                    let permission = await db.Permissions.findAll({
                         where: {
-                            role: tables[user.table]
+                            roleId: role.id
                         },
                         attributes: ['url', 'method']
                     })
@@ -143,14 +152,14 @@ const checkUserPermission = async (req, res, next) => {
                         message: "server error!"
                     })
                 }
-            } else {
-                console.log("No permission corresponding")
+            } catch (error) {
+                console.log("Cannot get role of this user. Error: ", error)
                 return res.status(500).json({
-                    message: "wrong verify"
+                    message: "server error!"
                 })
             }
         } else {
-            console.log("No user available")
+            console.log("No user role available")
             return res.status(500).json({
                 message: "wrong verify"
             })

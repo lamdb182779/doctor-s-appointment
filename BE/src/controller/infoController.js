@@ -1,6 +1,6 @@
 const db = require('../models')
 
-const getInfoApp = async (req, res) => {
+const getInfoApp = async (req, res, next) => {
     try {
         let info = await db.Admins.findByPk('01')
         return res.status(200).json({

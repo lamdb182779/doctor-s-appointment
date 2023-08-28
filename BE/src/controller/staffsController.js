@@ -88,7 +88,7 @@ const checkDupEmail = async (req, res, next) => {
     }
 }
 
-const getAllStaffs = async (req, res) => {
+const getAllStaffs = async (req, res, next) => {
     let { page, pagesize, name } = req.query
     page = parseInt(page)
     pagesize = parseInt(pagesize)
@@ -160,7 +160,7 @@ const getAllStaffs = async (req, res) => {
     }
 }
 
-const getStaffById = async (req, res) => {
+const getStaffById = async (req, res, next) => {
     let staff = req.person
     if (staff) {
         if (staff.image) {
@@ -179,7 +179,7 @@ const getStaffById = async (req, res) => {
     }
 }
 
-const deleteStaffById = async (req, res) => {
+const deleteStaffById = async (req, res, next) => {
     let id = req.params.id.toString()
     try {
         let deactivate = await db.Staffs.update({ active: false }, {
@@ -205,7 +205,7 @@ const deleteStaffById = async (req, res) => {
     }
 }
 
-const updateStaffById = async (req, res) => {
+const updateStaffById = async (req, res, next) => {
     let id = req.params.id.toString()
     let { name, phoneNumber, email, address, doB, gender } = req.body
     let update = { gender: gender }
@@ -248,7 +248,7 @@ const updateStaffById = async (req, res) => {
     }
 }
 
-const addNewStaff = async (req, res) => {
+const addNewStaff = async (req, res, next) => {
     let { name, phoneNumber, email, address, doB, gender } = req.body
     try {
         let count = await db.Staffs.count()

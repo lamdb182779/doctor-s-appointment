@@ -17,7 +17,7 @@ const Nav = (props) => {
     return (
         <div className="nav-list ">
             <div className="nav-home mb-1 rounded" onClick={() => handleClick()}>
-                <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" to="/">Trang chủ</NavLink>
+                <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" end to="/">Trang chủ</NavLink>
             </div>
             <div className="nav-specialties mb-1 rounded" onClick={() => handleClick()}>
                 <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" to="/specialties">Chuyên khoa</NavLink>

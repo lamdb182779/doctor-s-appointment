@@ -24,8 +24,8 @@ module.exports = (sequelize, DataTypes) => {
         targetKey: 'username',
       })
       Accounts.belongsTo(models.Roles, {
-        foreignKey: 'role',
-        targetKey: 'role',
+        foreignKey: 'roleId',
+        targetKey: 'id',
       })
     }
   }
@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
     },
     password: DataTypes.STRING,
-    role: DataTypes.INTEGER,
+    roleId: DataTypes.INTEGER,
     active: DataTypes.BOOLEAN
   }, {
     sequelize,

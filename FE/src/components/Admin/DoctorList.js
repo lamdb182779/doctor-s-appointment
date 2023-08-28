@@ -69,7 +69,7 @@ const DoctorList = (props) => {
         setConfirm(true)
     }
     const handleBack = () => {
-        window.history.back()
+        navigate(-1)
     }
     useEffect(() => {
         if (delLoading === false) {

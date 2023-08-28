@@ -1,0 +1,24 @@
+.staff-header-container {
+
+    .staff-header-home,
+    .staff-header-appointment {
+
+        .active {
+            >div {
+                &:hover {
+                    background: none;
+                }
+            }
+
+            border-bottom: 4px solid gray;
+        }
+
+        a {
+            >div {
+                &:hover {
+                    background-color: whitesmoke;
+                }
+            }
+        }
+    }
+}

@@ -53,7 +53,12 @@ const checkUsername = async (req, res, next) => {
         let account = await db.Accounts.findByPk(username, {
             where: {
                 active: true,
-            }
+            }, include: [
+                {
+                    model: db.Roles,
+                    attributes: ['role']
+                }
+            ]
         })
         if (account === null) {
             console.log('Username donot exist')

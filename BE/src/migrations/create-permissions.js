@@ -2,23 +2,21 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Accounts', {
-      username: {
-        allowNull: false,
-        primaryKey: true,
-        type: Sequelize.STRING
-      },
-      password: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
+    await queryInterface.createTable('Permissions', {
       roleId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        primaryKey: true
       },
-      active: {
+      url: {
+        primaryKey: true,
         allowNull: false,
-        type: Sequelize.BOOLEAN
+        type: Sequelize.STRING,
+      },
+      method: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        primaryKey: true
       },
       createdAt: {
         allowNull: false,
@@ -31,6 +29,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Accounts');
+    await queryInterface.dropTable('Permissions');
   }
 };
