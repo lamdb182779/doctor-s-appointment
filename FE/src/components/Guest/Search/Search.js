@@ -14,7 +14,7 @@ const Search = (props) => {
     const location = useLocation()
     const componentRef = useRef(null)
 
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState("")
 
     const { data, loading } = useFetch(`http://localhost:8080/api/search/${location.search.substring(1)}`)
 
@@ -42,7 +42,7 @@ const Search = (props) => {
     const handlePage = (page) => {
         let path = `/search?${location.search.substring(1)}`
         navigate(path)
-        componentRef.current.scrollIntoView({ behavior: 'smooth' })
+        componentRef.current.scrollIntoView({ behavior: "smooth" })
     }
 
     return (
@@ -83,7 +83,7 @@ const Search = (props) => {
                                                     <Col className="text-start fs-4" xs={12}>{item}</Col>
                                                 )
                                             }
-                                            if (item.table === 'Specialties') {
+                                            if (item.table === "Specialties") {
                                                 return (
                                                     <Col className="mt-2" xs={3} key={index}>
                                                         <Card onClick={() => handleSpecialtyDoctors(item.id)}>
@@ -95,7 +95,7 @@ const Search = (props) => {
                                                     </Col>
                                                 )
                                             }
-                                            if (item.table === 'Doctors')
+                                            if (item.table === "Doctors")
                                                 return (
                                                     <Col className="mt-2" xs={4} key={index}>
                                                         <Card className="h-100" onClick={() => handleDoctor(item.id)}>

@@ -1,9 +1,9 @@
-const db = require('../models')
-const { Buffer } = require('buffer')
+const db = require("../models")
+const { Buffer } = require("buffer")
 
 const toImage = (image) => {
     if (image) {
-        const imgBuffer = Buffer.from(image).toString('binary')
+        const imgBuffer = Buffer.from(image).toString("binary")
         return `specialties:image/png;base64,${imgBuffer}`
     }
     return ""
@@ -27,13 +27,13 @@ const getSpecialties = async (req, res, next) => {
             return item
         })
         return res.status(200).json({
-            message: 'ok',
+            message: "ok",
             data: specialties
         })
     } catch (error) {
-        console.log('Cannot get specialties. Error:', error)
+        console.log("Cannot get specialties. Error:", error)
         return res.status(500).json({
-            message: 'Server error!'
+            message: "Server error!"
         })
     }
 }

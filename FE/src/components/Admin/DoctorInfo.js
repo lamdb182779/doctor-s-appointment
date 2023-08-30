@@ -15,14 +15,10 @@ import {
     faSquareFull
 } from "@fortawesome/free-regular-svg-icons"
 
-import { connect } from "react-redux"
-
 import { useEffect, useState } from "react"
 import DoctorChange from "./DoctorChange"
 
 import nullavatar from "../../assets/images/nullavatardoctor.jpg"
-
-import Success from "../General/Dialog/Success"
 
 const DoctorInfo = (props) => {
     const navigate = useNavigate()
@@ -36,8 +32,6 @@ const DoctorInfo = (props) => {
 
     const [changed, setChanged] = useState(0)
     const { data, loading } = useFetch(`http://localhost:8080/api/doctors/${id}/${changed}`)
-
-    const [showSuccess, setShowSuccess] = useState(false)
     const handleBack = () => {
         navigate(-1)
     }
@@ -61,13 +55,6 @@ const DoctorInfo = (props) => {
     )
     return (
         <div className="doctor-info-container px-5 py-5 d-grid gap-5">
-            <Success
-                show={showSuccess}
-                setShow={setShowSuccess}
-                time={1000}
-                bodyAlign="text-center"
-                size="nm"
-                body="Thay đổi thông tin bác sĩ thành công!" />
             {loading === false ?
                 <>
                     {data?.length > 0 ?
@@ -84,7 +71,7 @@ const DoctorInfo = (props) => {
                                         placement="auto"
                                         overlay={renderAvatar}>
                                         <Image onClick={(event) => event.target.click()} className="w-50 h-auto"
-                                            src={data[0].image ? data[0].image : nullavatar} alt='avatar' roundedCircle />
+                                            src={data[0].image ? data[0].image : nullavatar} alt="avatar" roundedCircle />
                                     </OverlayTrigger>
                                 </Col>
                                 <Col>
@@ -126,7 +113,6 @@ const DoctorInfo = (props) => {
                                     setChanged={setChanged}
                                     changed={changed}
                                     handleClose={handleClose}
-                                    setShowSuccess={setShowSuccess}
                                     data={data} />
                             </Modal>
                         </>
@@ -140,10 +126,4 @@ const DoctorInfo = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user,
-    })
-}
-
-export default connect(mapStateToProps)(DoctorInfo)
+export default DoctorInfo

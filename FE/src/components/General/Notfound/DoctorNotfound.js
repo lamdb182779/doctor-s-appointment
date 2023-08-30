@@ -22,7 +22,7 @@ const DoctorNotfound = (props) => {
             <Row className="doctor-notfound-button">
                 <Row>
                     <Col className=" d-flex justify-content-center">
-                        <Button variant="primary" onClick={() => navigate('/')}>Trở về trang chủ</Button>
+                        <Button variant="primary" onClick={() => navigate("/")}>Trở về trang chủ</Button>
                     </Col>
                 </Row>
                 <Row>

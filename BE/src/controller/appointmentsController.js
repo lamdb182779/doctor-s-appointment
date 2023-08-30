@@ -1,16 +1,16 @@
-const db = require('../models')
-const { Op } = require('sequelize')
+const db = require("../models")
+const { Op } = require("sequelize")
 
 const addNewAppointment = async (req, res, next) => {
     let { patientName, patientPhoneNumber, patientEmail, description, date, time, scheduleId, doctorId, currentNumber } = req.body
     try {
         let schedule = await db.Schedules.findByPk(scheduleId, {
-            attributes: ['currentNumber', 'maxNumber']
+            attributes: ["currentNumber", "maxNumber"]
         })
         if (schedule.currentNumber >= schedule.maxNumber) {
-            console.log('No slot left')
+            console.log("No slot left")
             return res.status(500).json({
-                message: 'full slot',
+                message: "full slot",
             })
         }
         try {
@@ -44,33 +44,33 @@ const addNewAppointment = async (req, res, next) => {
                         }
                     })
                     if (schedule === [0]) {
-                        console.log('No matching schedule');
+                        console.log("No matching schedule");
                     }
                     return res.status(200).json({
-                        message: 'ok',
+                        message: "ok",
                     })
                 } catch (error) {
                     console.log("Cannot update schedule. Error: ", error);
                     return res.status(500).json({
-                        message: 'server error!',
+                        message: "server error!",
                     })
                 }
             }).catch((error) => {
                 console.log("Cannot create appointment. Error: ", error);
                 return res.status(500).json({
-                    message: 'server error!',
+                    message: "server error!",
                 })
             })
         } catch (error) {
             console.log("Cannot count appointment. Error: ", error);
             return res.status(500).json({
-                message: 'server error!',
+                message: "server error!",
             })
         }
     } catch (error) {
         console.log("Cannot check current slot. Error: ", error);
         return res.status(500).json({
-            message: 'server error!',
+            message: "server error!",
         })
     }
 }
@@ -100,18 +100,18 @@ const getAllAppointments = async (req, res, next) => {
             include: [
                 {
                     model: db.Doctors,
-                    attributes: ['name']
+                    attributes: ["name"]
                 }
             ]
         })
         return res.status(200).json({
-            message: 'ok',
+            message: "ok",
             data: data
         })
     } catch (err) {
-        console.log('Cannot get data. Error:', err)
+        console.log("Cannot get data. Error:", err)
         return res.status(500).json({
-            message: 'server error!',
+            message: "server error!",
         })
     }
 }

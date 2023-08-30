@@ -1,11 +1,12 @@
-const bodyParser = require('body-parser')
-const express = require('express')
+require("dotenv").config()
+const bodyParser = require("body-parser")
+const express = require("express")
 const app = express()
-const cors = require('cors')
-const cookieParser = require('cookie-parser')
+const cors = require("cors")
+const cookieParser = require("cookie-parser")
 const port = 8080
-const route = require('./routes/route.js')
-const { conn } = require('./config/connect.js')
+const route = require("./routes/route.js")
+const { conn } = require("./config/connect.js")
 
 app.use(cors({
   credentials: true,

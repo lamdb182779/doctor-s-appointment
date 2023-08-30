@@ -1,51 +1,58 @@
-import Header from './Header'
-import Footer from './Footer';
-import Nav from './Nav';
-import Login from './Login';
-import ForgetPw from './ForgetPw'
-import Home from '../Guest/Home/Home';
-import Specialties from '../Guest/Specialties/Specialties';
-import Doctors from '../Guest/Doctors/Doctors';
-import Detail from '../Guest/Doctors/Detail';
-// import Notfound from '../General/Notfound/Notfound';
-import Search from '../Guest/Search/Search';
-import Doctor from '../Doctor/Doctor';
-import Staff from '../Staff/Staff';
-import Admin from '../Admin/Admin';
-import PrivateRoute from './PrivateRoute';
-import ChangePw from './ChangePw';
-import StaffList from '../Admin/StaffList';
-import StaffAdd from '../Admin/StaffAdd';
-import DoctorAdd from '../Admin/DoctorAdd';
-import DoctorList from '../Admin/DoctorList';
-import Appointments from '../Doctor/Appointments';
-import AppointmentList from '../Staff/AppointmentList';
+import Header from "./Header"
+import Footer from "./Footer";
+import Nav from "./Nav";
+import Login from "./Login";
+import ForgetPw from "./ForgetPw"
+import Home from "../Guest/Home/Home";
+import Specialties from "../Guest/Specialties/Specialties";
+import Doctors from "../Guest/Doctors/Doctors";
+import Detail from "../Guest/Doctors/Detail";
+// import Notfound from "../General/Notfound/Notfound";
+import Search from "../Guest/Search/Search";
+import Doctor from "../Doctor/Doctor";
+import Staff from "../Staff/Staff";
+import Admin from "../Admin/Admin";
+import PrivateRoute from "./PrivateRoute";
+import ChangePw from "./ChangePw";
+import StaffList from "../Admin/StaffList";
+import StaffAdd from "../Admin/StaffAdd";
+import DoctorAdd from "../Admin/DoctorAdd";
+import DoctorList from "../Admin/DoctorList";
+import Appointments from "../Doctor/Appointments";
+import AppointmentList from "../Staff/AppointmentList";
 
-import '../../styles/App/App.scss';
+import "../../styles/App/App.scss";
 
-import logo from '../../assets/images/logo.png'
+import logo from "../../assets/images/logo.png"
 
-import { Offcanvas, Button, Modal } from 'react-bootstrap';
+import { Offcanvas, Button, Modal } from "react-bootstrap";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 import {
   BrowserRouter,
   Route,
   Routes,
 } from "react-router-dom"
-import AdminNav from '../Admin/AdminNav';
-import DoctorNav from '../Doctor/DoctorNav';
-import StaffNav from '../Staff/StaffNav';
+import AdminNav from "../Admin/AdminNav";
+import DoctorNav from "../Doctor/DoctorNav";
+import StaffNav from "../Staff/StaffNav";
 
-import { connect } from 'react-redux';
-import DoctorInfo from '../Admin/DoctorInfo';
+import { useSelector } from "react-redux";
 
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import DoctorInfo from "../Admin/DoctorInfo";
 
-import cookies from "js-cookie"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"
+
+// import cookies from "js-cookie"
+
+import useFetch from "../../custom/fetch";
+import useUser from "../../custom/user";
 const App = (props) => {
+  const user = useSelector(state => state.user)
+  const { setUser, clearUser } = useUser()
+
   const [showChangePw, setShowChangePw] = useState(false)
   const [showForgetPw, setShowForgetPw] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
@@ -55,76 +62,99 @@ const App = (props) => {
   const [sendVerify, setSendVerify] = useState(0)
   const [change, setChange] = useState(0)
 
-  const handleCloseCanvas = (time) => setShowCanvas(false)
+  const handleCloseCanvas = () => setShowCanvas(false)
   const handleShowCanvas = () => setShowCanvas(true)
-  const handleCloseForgetPw = (time) => setTimeout(() => { setShowForgetPw(false); setSendVerify(0) }, time || 0)
+  const handleCloseForgetPw = () => setTimeout(() => { setShowForgetPw(false); setSendVerify(0) })
   const handleShowForgetPw = () => setShowForgetPw(true)
-  const handleCloseLogin = (time) => setTimeout(() => { setShowLogin(false); setLogin(0) }, time || 0)
+  const handleCloseLogin = () => setTimeout(() => { setShowLogin(false); setLogin(0) })
   const handleShowLogin = () => setShowLogin(true)
-  const handleCloseChangePw = (time) => setTimeout(() => { setShowChangePw(false); setChange(0) }, time || 0)
+  const handleCloseChangePw = () => setTimeout(() => { setShowChangePw(false); setChange(0) })
   const handleShowChangePw = () => setShowChangePw(true)
 
   const renderNav = () => {
-    switch (props.user.table) {
-      case 'Admins':
+    switch (user.table) {
+      case "Admins":
         return <AdminNav handleClose={handleCloseCanvas} handleShowChangePw={handleShowChangePw} />
-      case 'Doctors':
+      case "Doctors":
         return <DoctorNav handleClose={handleCloseCanvas} handleShowChangePw={handleShowChangePw} />
-      case 'Staffs':
+      case "Staffs":
         return <StaffNav handleClose={handleCloseCanvas} handleShowChangePw={handleShowChangePw} />
       default:
         return <Nav handleClose={handleCloseCanvas} />
     }
   }
 
-  // console.log("hello", cookies.get("token"))
+  useEffect(() => {
 
-  // useEffect(() => {
+  }, [])// eslint-disable-line react-hooks/exhaustive-deps
 
-  // }, [cookies.get("token")])
-
+  const { data, loading, message } = useFetch("http://localhost:8080/api/self")
+  useEffect(() => {
+    if (loading === false && message !== "") {
+      switch (message) {
+        case "ok":
+          setUser(data[0])
+          break
+        case "missing token":
+          clearUser()
+          break
+        case "wrong token":
+          clearUser()
+          break
+        case "wrong table":
+          clearUser()
+          break
+        case "access denied":
+          break
+        default: break
+      }
+    }
+  }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
+  if (loading === true) {
+    return <></>
+  }
   return (
     <BrowserRouter>
       <div className="App">
-        <Offcanvas show={showCanvas} onHide={handleCloseCanvas} scroll={true} style={{ transition: 'transform 0.5s ease-in-out' }}>
+        <Offcanvas show={showCanvas} onHide={handleCloseCanvas} scroll={true} style={{ transition: "transform 0.5s ease-in-out" }}>
           <Offcanvas.Header>
             <Offcanvas.Title>
-              <a href='/' className="text-decoration-none text-dark">Doctor Booking</a>
+              <a href="/" className="text-decoration-none text-dark">Doctor Booking</a>
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
             {renderNav()}
           </Offcanvas.Body>
         </Offcanvas>
-        <header className="App-header">
+        <header className="App-header shadow">
           <Header logo={logo} handleShowCanvas={handleShowCanvas} handleShowLogin={handleShowLogin} />
         </header>
-        <main className='App-main'>
+        <main className="App-main shadow">
           <Routes>
-            <Route path='/' element={<PrivateRoute element={<Home />} />} />
-            <Route path='/specialties' element={<PrivateRoute element={<Specialties />} />} />
-            <Route path='/doctors' element={<PrivateRoute element={<Doctors />} />} />
-            <Route path='/doctors/:id' element={<PrivateRoute element={<Detail />} />} />
-            <Route path='/search' element={<PrivateRoute element={<Search />} />} />
-            <Route path='/admin' element={<PrivateRoute table={["Admins"]} element={<Admin />} exact />} />
-            <Route path='/admin/staff-list' element={<PrivateRoute table={["Admins"]} element={<StaffList />} />} />
-            <Route path='/admin/staff-add' element={<PrivateRoute table={["Admins"]} element={<StaffAdd />} />} />
-            <Route path='/admin/doctor-add' element={<PrivateRoute table={["Admins"]} element={<DoctorAdd />} />} />
-            <Route path='/admin/doctor-list' element={<PrivateRoute table={["Admins"]} element={<DoctorList />} />} />
-            <Route path='/admin/doctor-info/:id' element={<PrivateRoute table={["Admins"]} element={<DoctorInfo />} />} />
-            <Route path='/doctor' element={<PrivateRoute table={["Doctors"]} element={<Doctor />} />} />
-            <Route path='/doctor/appointments' element={<PrivateRoute table={["Doctors"]} element={<Appointments />} />} />
-            <Route path='/staff' element={<PrivateRoute table={["Staffs"]} element={<Staff />} />} />
-            <Route path='/staff/appointments' element={<PrivateRoute table={["Staffs"]} element={<AppointmentList />} />} />
-            <Route path='*' element={<PrivateRoute />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/specialties" element={<Specialties />} />
+            <Route path="/doctors" element={<Doctors />} />
+            <Route path="/doctors/:id" element={<Detail />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/admin" element={<PrivateRoute table={["Admins"]} element={<Admin />} />} />
+            <Route path="/admin/staff" element={<PrivateRoute table={["Admins"]} element={<StaffList />} />} />
+            <Route path="/admin/staff/add" element={<PrivateRoute table={["Admins"]} element={<StaffAdd />} />} />
+            <Route path="/admin/doctor/add" element={<PrivateRoute table={["Admins"]} element={<DoctorAdd />} />} />
+            <Route path="/admin/doctor" element={<PrivateRoute table={["Admins"]} element={<DoctorList />} />} />
+            <Route path="/admin/doctor/info/:id" element={<PrivateRoute table={["Admins"]} element={<DoctorInfo />} />} />
+            <Route path="/doctor" element={<PrivateRoute table={["Doctors"]} element={<Doctor />} />} />
+            <Route path="/doctor/appointments" element={<PrivateRoute table={["Doctors"]} element={<Appointments />} />} />
+            <Route path="/staff" element={<PrivateRoute table={["Staffs"]} element={<Staff />} />} />
+            <Route path="/staff/appointments" element={<PrivateRoute table={["Staffs"]} element={<AppointmentList />} />} />
+            <Route path="*" element={<PrivateRoute />} />
           </Routes>
         </main>
-        <footer className='App-footer'>
+        <footer className="App-footer shadow">
           <Footer logo={logo} />
         </footer>
       </div>
       <ToastContainer
-        position="top-center"
+        position="top-left"
         autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -135,8 +165,6 @@ const App = (props) => {
         pauseOnHover
         theme="light"
       />
-      {/* Same as */}
-      <ToastContainer />
       <Modal show={showLogin} onHide={handleCloseLogin} centered>
         <Modal.Header closeButton>
           <Modal.Title>Đăng nhập</Modal.Title>
@@ -188,10 +216,4 @@ const App = (props) => {
   );
 }
 
-const mapStateToProps = (state) => {
-  return ({
-    user: state.user
-  })
-}
-
-export default connect(mapStateToProps)(App);
+export default App;

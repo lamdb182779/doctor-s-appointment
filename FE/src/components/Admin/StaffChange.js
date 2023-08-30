@@ -19,11 +19,9 @@ import DatePicker from "react-datepicker"
 
 import "react-datepicker/dist/react-datepicker.css"
 import useFetch from "../../custom/fetch"
-import Danger from "../General/Dialog/Danger"
-import Success from "../General/Dialog/Success"
-import Warning from "../General/Dialog/Warning"
 
-import { connect } from "react-redux"
+import Warning from "../General/Dialog/Warning"
+import { toast } from "react-toastify"
 
 const StaffChange = (props) => {
     const data = props.data
@@ -51,15 +49,11 @@ const StaffChange = (props) => {
     const [change, setChange] = useState(0)
 
     const [showWarning, setShowWarning] = useState(false)
-    const [showSuccess, setShowSuccess] = useState(false)
-    const [showDanger, setShowDanger] = useState(false)
 
-    const [isAnyBlank, setIsAnyBlank] = useState(true)
-
-    const { message, loading } = useFetch(change === 0 ? '' : `http://localhost:8080/api/staffs/${data.id}/${change}`, change === 0 ? {} : {
-        method: 'PUT',
+    const { message, loading } = useFetch(change === 0 ? "" : `http://localhost:8080/api/staffs/${data.id}/${change}`, change === 0 ? {} : {
+        method: "PUT",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
             name: name === data.name ? null : name.trim(),
@@ -73,10 +67,8 @@ const StaffChange = (props) => {
 
     const handleChange = () => {
         if ([name.trim(), phone.trim(), email.trim(), address.trim()].includes("")) {
-            setIsAnyBlank(true)
-            setShowDanger(true)
+            toast.warning("Có thông tin cần thiết bị bỏ trống")
         } else {
-            setIsAnyBlank(false)
             setShowWarning(true)
         }
     }
@@ -87,11 +79,13 @@ const StaffChange = (props) => {
 
     useEffect(() => {
         if (loading === false && change !== 0) {
-            if (message === 'ok') {
-                setShowSuccess(true)
+            if (message === "ok") {
+                toast.success("Thay đổi thông tin nhân viên thành công!")
                 props.setChanged(props.changed + 1)
             } else {
-                setShowDanger(true)
+                toast.error(message === "server error!" ? "Lỗi Server"
+                    : message === "wrong verify" ? "Lỗi xác thực"
+                        : "Có lỗi xảy ra")
             }
         }
     }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
@@ -107,23 +101,6 @@ const StaffChange = (props) => {
     )
     return (
         <>
-            <Danger
-                show={showDanger}
-                setShow={setShowDanger}
-                // size={isAnyBlank ? "nm" : "sm"}
-                time={1000}
-                bodyAlign="text-center"
-                body={isAnyBlank ? "Có thông tin cần thiết bị bỏ trống" :
-                    message === 'server error!' ? "Lỗi Server"
-                        : message === 'wrong verify' ? "Lỗi xác thực"
-                            : undefined} />
-            <Success
-                show={showSuccess}
-                setShow={setShowSuccess}
-                time={1000}
-                bodyAlign="text-center"
-                size="nm"
-                body="Thay đổi thông tin nhân viên thành công!" />
             <Warning
                 show={showWarning}
                 setShow={setShowWarning}
@@ -142,7 +119,7 @@ const StaffChange = (props) => {
                             trigger="click"
                             placement="auto"
                             overlay={renderAvatar}>
-                            <Image onClick={(event) => event.target.click()} className="w-100 h-auto" src={data.image ? data.image : nullavatar} alt='avatar' roundedCircle />
+                            <Image onClick={(event) => event.target.click()} className="w-100 h-auto" src={data.image ? data.image : nullavatar} alt="avatar" roundedCircle />
                         </OverlayTrigger>
                     </Col>
                 </Row>
@@ -236,10 +213,4 @@ const StaffChange = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user
-    })
-}
-
-export default connect(mapStateToProps)(StaffChange)
+export default StaffChange

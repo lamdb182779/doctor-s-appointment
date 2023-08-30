@@ -11,10 +11,6 @@ import { useNavigate, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 
 import Warning from "../General/Dialog/Warning"
-import Success from "../General/Dialog/Success"
-import Danger from "../General/Dialog/Danger"
-
-import { connect } from "react-redux"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -27,7 +23,10 @@ import StaffChange from "../Admin/StaffChange"
 import moment from "moment"
 import "moment/locale/vi"
 
+import { toast } from "react-toastify"
+
 const StaffList = (props) => {
+
     const [confirm, setConfirm] = useState(false)
     const [delId, setDelId] = useState(-1)
     const [deleted, setDeleted] = useState(0)
@@ -38,8 +37,6 @@ const StaffList = (props) => {
     // const location = useLocation()
 
     const [showWarning, setShowWarning] = useState(false)
-    const [showSuccess, setShowSuccess] = useState(false)
-    const [showDanger, setShowDanger] = useState(false)
 
     const [show, setShow] = useState(false)
     const handleClose = () => setShow(false)
@@ -48,19 +45,16 @@ const StaffList = (props) => {
     // let { page, pagesize, name } = Object.fromEntries(new URLSearchParams(location.search).entries())
     const [page, setPage] = useState(1)
     // pagesize = pagesize !== undefined ? parseInt(pagesize) : 5
-    // name = name !== undefined ? name : ''
-    // specialtyID = specialtyID !== undefined ? specialtyID : ''
-    // clinicAddress = clinicAddress !== undefined ? clinicAddress : ''
+    // name = name !== undefined ? name : ""
+    // specialtyID = specialtyID !== undefined ? specialtyID : ""
+    // clinicAddress = clinicAddress !== undefined ? clinicAddress : ""
     const { data, loading } = useFetch(`http://localhost:8080/api/staffs?page=${page}&pagesize=10&${deleted}&${changed}`)
-    const { message, loading: delLoading } = useFetch(confirm === false ? '' : `http://localhost:8080/api/staffs/${delId}/${deleted}`,
+    const { message, loading: delLoading } = useFetch(confirm === false ? "" : `http://localhost:8080/api/staffs/${delId}/${deleted}`,
         confirm === false ? {} : {
-            method: 'DELETE',
+            method: "DELETE",
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                token: props.user.token,
-            })
         })
     const handlePage = (page) => {
         // let path = `/admin/staff-list?page=${page}`
@@ -70,7 +64,7 @@ const StaffList = (props) => {
         //     path: path
         // })
         // navigate(path)
-        // componentRef.current.scrollIntoView({ behavior: 'smooth' })
+        // componentRef.current.scrollIntoView({ behavior: "smooth" })
         setPage(page)
         window.scrollTo(0, 0)
     }
@@ -97,12 +91,14 @@ const StaffList = (props) => {
     useEffect(() => {
         if (delLoading === false) {
             if (confirm === true) {
-                if (message === 'ok') {
-                    setShowSuccess(true)
+                if (message === "ok") {
+                    toast.success("Đã hủy kích hoạt nhân viên thành công!")
                     setDeleted(deleted + 1)
                 }
                 else {
-                    setShowDanger(true)
+                    toast.error(message === "server error!" ? "Lỗi Server"
+                        : message === "wrong verify" ? "Lỗi xác thực"
+                            : "Có lỗi xảy ra")
                 }
                 setConfirm(false)
             }
@@ -122,19 +118,7 @@ const StaffList = (props) => {
                 setShow={setShowWarning}
                 handleYes={handleYes}
                 body="Bạn có chắc muốn hủy kích hoạt nhân viên này không?" />
-            <Success
-                show={showSuccess}
-                setShow={setShowSuccess}
-                time={1000}
-                bodyAlign="text-center"
-                body="Đã hủy kích hoạt nhân viên thành công!" />
-            <Danger
-                show={showDanger}
-                setShow={setShowDanger}
-                time={1000}
-                bodyAlign="text-center"
-                body={message === 'server error!' ? "Lỗi Server"
-                    : message === 'wrong verify' ? "Lỗi xác thực" : undefined} />
+
             <div className="staff-list-title">
                 <Row className="">
                     <Col xs={2} className="d-flex justify-content-start">
@@ -216,11 +200,4 @@ const StaffList = (props) => {
         </div>
     )
 }
-
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user,
-    })
-}
-
-export default connect(mapStateToProps)(StaffList)
+export default StaffList

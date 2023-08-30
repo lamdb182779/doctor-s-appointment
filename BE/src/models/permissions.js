@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 const {
     Model
-} = require('sequelize');
+} = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
     class Permissions extends Model {
         /**
@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             // define association here
             Permissions.belongsTo(models.Roles, {
-                foreignKey: 'roleId',
-                targetKey: 'id'
+                foreignKey: "roleId",
+                targetKey: "id"
             })
         }
     }
@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     }, {
         sequelize,
-        modelName: 'Permissions',
+        modelName: "Permissions",
     });
     return Permissions;
 };

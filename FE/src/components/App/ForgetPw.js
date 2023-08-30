@@ -2,17 +2,17 @@ import "../../styles/App/ForgetPw.scss"
 
 import { Button, Form, Row, Col, Spinner } from "react-bootstrap"
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faUser,
-} from '@fortawesome/free-solid-svg-icons'
+} from "@fortawesome/free-solid-svg-icons"
 
 import { useState, useEffect } from "react"
 import useFetch from "../../custom/fetch"
 
 const ForgetPw = (props) => {
     const sendVerify = props.sendVerify
-    const [username, setUserName] = useState('')
+    const [username, setUserName] = useState("")
 
     const [check, setCheck] = useState(0)
 
@@ -20,20 +20,20 @@ const ForgetPw = (props) => {
     const [isBlank, setIsBlank] = useState(true)
 
     useEffect(() => {
-        setIsBlank(username.trim() === '' ? true : false)
-        setIsValid(check && username.trim() === '' ? false : true)
+        setIsBlank(username.trim() === "" ? true : false)
+        setIsValid(check && username.trim() === "" ? false : true)
     }, [check])// eslint-disable-line react-hooks/exhaustive-deps
 
     const { data, message, loading } = useFetch(check === 0
-        || username.trim() === ''
-        ? ''
+        || username.trim() === ""
+        ? ""
         : `http://localhost:8080/api/login/findemail?${check}`,
         check === 0
-            || username.trim() === ''
+            || username.trim() === ""
             ? {} : {
-                method: 'POST',
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json'
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
                     username: username.trim(),
@@ -41,7 +41,7 @@ const ForgetPw = (props) => {
             })
 
     useEffect(() => {
-        setIsValid(message === 'wrong username' ? false : true)
+        setIsValid(message === "wrong username" ? false : true)
         if (data && data.length > 0 && loading === false) {
             props.setActiveSendEmail(true)
         }
@@ -54,10 +54,10 @@ const ForgetPw = (props) => {
         setCheck(check + 1)
     }
 
-    const { message: verifyMessage, loading: verifyLoading } = useFetch(sendVerify === 0 ? '' : `http://localhost:8080/api/login/sendverify?${sendVerify}`, sendVerify === 0 ? {} : {
-        method: 'POST',
+    const { message: verifyMessage, loading: verifyLoading } = useFetch(sendVerify === 0 ? "" : `http://localhost:8080/api/login/sendverify?${sendVerify}`, sendVerify === 0 ? {} : {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
             id: data[0].id,
@@ -69,7 +69,7 @@ const ForgetPw = (props) => {
         props.setActiveSendEmail(true)
         if (verifyLoading) {
             props.setActiveSendEmail(false)
-        } else if (verifyMessage === 'ok') {
+        } else if (verifyMessage === "ok") {
         }
     }, [verifyLoading])// eslint-disable-line react-hooks/exhaustive-deps
 
@@ -79,7 +79,7 @@ const ForgetPw = (props) => {
                 Nhập vào tên tài khoản của bạn
             </div>
             <div className="forgetpw-content">
-                <Form onKeyDown={(event) => { if (event.key === 'Enter') event.preventDefault() }}>
+                <Form onKeyDown={(event) => { if (event.key === "Enter") event.preventDefault() }}>
                     <Form.Group controlId="formBasicUsername">
                         <Form.Label>
                             <FontAwesomeIcon icon={faUser} size="sm" />
@@ -94,8 +94,8 @@ const ForgetPw = (props) => {
                                     isInvalid={!isValid}
                                 />
                                 <Form.Control.Feedback type="invalid">
-                                    &nbsp;{isBlank ? 'Vui lòng điền tên tài khoản!'
-                                        : message === 'wrong username' ? 'Tài khoản không tồn tại, vui lòng kiểm tra lại!' : ''}
+                                    &nbsp;{isBlank ? "Vui lòng điền tên tài khoản!"
+                                        : message === "wrong username" ? "Tài khoản không tồn tại, vui lòng kiểm tra lại!" : ""}
                                 </Form.Control.Feedback>
                             </Col>
                             <Col>

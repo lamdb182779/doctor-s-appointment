@@ -12,7 +12,7 @@ const Nav = (props) => {
         props.handleClose()
     }
 
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState("")
 
     return (
         <div className="nav-list ">
@@ -35,7 +35,7 @@ const Nav = (props) => {
                     onChange={(event) => setSearch(event.target.value)}
                 />
                 <Button onClick={() => {
-                    if (search.trim() !== '') {
+                    if (search.trim() !== "") {
                         handleClick(`/search?${search.trim()}`)
                         navigate(`/search?${search.trim()}`)
                     }

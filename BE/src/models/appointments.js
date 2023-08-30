@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 const {
   Model
-} = require('sequelize');
+} = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Appointments extends Model {
     /**
@@ -12,17 +12,17 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Appointments.belongsTo(models.Schedules, {
-        foreignKey: 'scheduleId',
-        targetKey: 'id',
+        foreignKey: "scheduleId",
+        targetKey: "id",
       })
       Appointments.belongsTo(models.Doctors, {
-        foreignKey: 'doctorId',
-        targetKey: 'id',
+        foreignKey: "doctorId",
+        targetKey: "id",
       })
       Appointments.belongsTo(Appointments, {
-        as: 'previous',
-        foreignKey: 'preAppointmentId',
-        targetKey: 'id',
+        as: "previous",
+        foreignKey: "preAppointmentId",
+        targetKey: "id",
       })
     }
   }
@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
     scheduleId: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'Appointments',
+    modelName: "Appointments",
   });
   return Appointments;
 };

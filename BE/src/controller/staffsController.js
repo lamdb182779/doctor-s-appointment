@@ -1,24 +1,24 @@
-const db = require('../models')
-const { Op } = require('sequelize')
-const { verifyToken } = require('../middleware/jwt-action.js')
-const bcrypt = require('bcryptjs')
+const db = require("../models")
+const { Op } = require("sequelize")
+const { verifyToken } = require("../middleware/jwt-action.js")
+const bcrypt = require("bcryptjs")
 
 const salt = bcrypt.genSaltSync(parseInt(process.env.BCRYPT_SALT))
 
 const toImage = (image) => {
     if (image) {
-        const imgBuffer = Buffer.from(image).toString('binary')
+        const imgBuffer = Buffer.from(image).toString("binary")
         return `data:image/jpg;base64,${imgBuffer}`
     }
     return ""
 }
 
 const hiddenEmail = (email) => {
-    return email.replace(/^(.{3}).*(\d{2}@.*$)/, '$1****$2')
+    return email.replace(/^(.{3}).*(\d{2}@.*$)/, "$1****$2")
 }
 
 const hiddenPhoneNumber = (phoneNumber) => {
-    return phoneNumber.replace(/^(\d{3}).*(\d{2})$/, '$1****$2')
+    return phoneNumber.replace(/^(\d{3}).*(\d{2})$/, "$1****$2")
 }
 
 const nameToUsername = (name, id) => {
@@ -44,18 +44,18 @@ const findStaffById = async (req, res, next) => {
             }
         })
         if (staff === null) {
-            console.log('No matching staff.')
+            console.log("No matching staff.")
             return res.status(500).json({
-                message: 'wrong id',
+                message: "wrong id",
             })
         } else {
             req.person = staff
             next()
         }
     } catch (error) {
-        console.log('Cannot get doctor. Error: ', error)
+        console.log("Cannot get doctor. Error: ", error)
         return res.status(500).json({
-            message: 'server error!'
+            message: "server error!"
         })
     }
 }
@@ -70,17 +70,17 @@ const checkDupEmail = async (req, res, next) => {
                 }
             })
             if (user?.length > 0) {
-                console.log('Duplicate Email')
+                console.log("Duplicate Email")
                 return res.status(500).json({
-                    message: 'duplicate email'
+                    message: "duplicate email"
                 })
             } else {
                 next()
             }
         } catch (error) {
-            console.log('Cannot check duplicate email. Error: ', error)
+            console.log("Cannot check duplicate email. Error: ", error)
             return res.status(500).json({
-                message: 'server error!'
+                message: "server error!"
             })
         }
     } else {
@@ -121,7 +121,7 @@ const getAllStaffs = async (req, res, next) => {
                 where: find,
                 offset: skip,
                 limit: pagesize,
-                attributes: ['id', 'name', 'address', 'email', 'phoneNumber', 'gender', 'doB', 'image'],
+                attributes: ["id", "name", "address", "email", "phoneNumber", "gender", "doB", "image"],
             })
 
             // data = data.map((item) => {
@@ -143,19 +143,19 @@ const getAllStaffs = async (req, res, next) => {
             data.push(count)
 
             return res.status(200).json({
-                message: 'ok',
+                message: "ok",
                 data: data
             })
         } catch (err) {
-            console.log('Cannot get data. Error:', err)
+            console.log("Cannot get data. Error:", err)
             return res.status(500).json({
-                message: 'server error!',
+                message: "server error!",
             })
         }
     } catch (err) {
-        console.log('Cannot count. Error: ', err)
+        console.log("Cannot count. Error: ", err)
         return res.status(500).json({
-            message: 'server error!',
+            message: "server error!",
         })
     }
 }
@@ -173,7 +173,7 @@ const getStaffById = async (req, res, next) => {
             staff.email = hiddenEmail(staff.email)
         }
         return res.status(200).json({
-            message: 'ok',
+            message: "ok",
             data: [staff]
         })
     }
@@ -189,18 +189,18 @@ const deleteStaffById = async (req, res, next) => {
             }
         })
         if (deactivate === [0]) {
-            console.log('No matching staff.')
+            console.log("No matching staff.")
             res.return(500).json({
-                message: 'wrong id',
+                message: "wrong id",
             })
         }
         return res.status(200).json({
-            message: 'ok',
+            message: "ok",
         })
     } catch (error) {
-        console.log('Cannot deactive staff. Error: ', error)
+        console.log("Cannot deactive staff. Error: ", error)
         return res.status(500).json({
-            message: 'server error!'
+            message: "server error!"
         })
     }
 }
@@ -232,18 +232,18 @@ const updateStaffById = async (req, res, next) => {
             }
         })
         if (staff === [0]) {
-            console.log('no matching staff')
+            console.log("no matching staff")
             return res.status(500).json({
-                message: 'wrong id'
+                message: "wrong id"
             })
         }
         return res.status(200).json({
-            message: 'ok'
+            message: "ok"
         })
     } catch (error) {
-        console.log('Cannot update staff. Error: ', error)
+        console.log("Cannot update staff. Error: ", error)
         return res.status(500).json({
-            message: 'server error!'
+            message: "server error!"
         })
     }
 }
@@ -274,15 +274,15 @@ const addNewStaff = async (req, res, next) => {
                 active: true,
             }
         }).catch((error) => {
-            console.log('Cannot create staff. Error: ', error)
+            console.log("Cannot create staff. Error: ", error)
             return res.status(500).json({
-                message: 'server error!'
+                message: "server error!"
             })
         })
     } catch (error) {
-        console.log('Cannot count staffs. Error: ', error)
+        console.log("Cannot count staffs. Error: ", error)
         return res.status(500).json({
-            message: 'server error!'
+            message: "server error!"
         })
     }
 }

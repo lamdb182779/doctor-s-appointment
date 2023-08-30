@@ -18,14 +18,14 @@ const Doctors = (props) => {
 
     const [page, setPage] = useState(1)
     const [pagesize, setPagesize] = useState(5)
-    const [name, setName] = useState('')
-    const [specialty, setSpecialty] = useState(specialtyID !== undefined ? specialtyID : '')
-    const [clinicAddress, setClinicAddress] = useState('')
+    const [name, setName] = useState("")
+    const [specialty, setSpecialty] = useState(specialtyID !== undefined ? specialtyID : "")
+    const [clinicAddress, setClinicAddress] = useState("")
 
-    const { data: specialtiesData, loading: specialtiesLoading } = useFetch('http://localhost:8080/api/doctors/specialties')
+    const { data: specialtiesData, loading: specialtiesLoading } = useFetch("http://localhost:8080/api/doctors/specialties")
     const { data, loading } = useFetch(`http://localhost:8080/api/doctors?page=${page}&pagesize=${pagesize}&specialtyID=${specialty}&name=${name}&clinicAddress=${clinicAddress}`)
-    const [searchName, setSearchName] = useState(name ? name : '')
-    const [searchAddress, setSearchAddress] = useState(clinicAddress ? clinicAddress : '')
+    const [searchName, setSearchName] = useState(name ? name : "")
+    const [searchAddress, setSearchAddress] = useState(clinicAddress ? clinicAddress : "")
 
     const handleSearch = () => {
         setName(searchName)
@@ -35,7 +35,7 @@ const Doctors = (props) => {
 
     const handlePage = (page) => {
         setPage(page)
-        componentRef.current.scrollIntoView({ behavior: 'smooth' })
+        componentRef.current.scrollIntoView({ behavior: "smooth" })
     }
 
     const handlePagesize = (pagesize) => {
@@ -80,8 +80,8 @@ const Doctors = (props) => {
                                                 <Dropdown.Toggle variant="outline-dark" size="sm">
                                                     {specialtiesData.find(item => item.id === specialty)?.name}
                                                 </Dropdown.Toggle>
-                                                <Dropdown.Menu style={{ height: '50vh', overflowY: 'scroll' }} >
-                                                    <Dropdown.Item onClick={() => handleSpecialty('')}>Tất cả</Dropdown.Item>
+                                                <Dropdown.Menu style={{ height: "50vh", overflowY: "scroll" }} >
+                                                    <Dropdown.Item onClick={() => handleSpecialty("")}>Tất cả</Dropdown.Item>
                                                     {specialtiesData?.length > 0 ?
                                                         <>
                                                             {specialtiesData.map((item, index) => {

@@ -1,9 +1,10 @@
-const { createJWT, verifyToken } = require('../middleware/jwt-action.js')
-const db = require('../models')
+require("dotenv").config()
+const { createJWT, verifyToken } = require("../middleware/jwt-action.js")
+const db = require("../models")
 
 
 const hiddenEmail = (email) => {
-    return email.replace(/^(.{3}).*(\d{2}@.*$)/, '$1****$2')
+    return email.replace(/^(.{3}).*(\d{2}@.*$)/, "$1****$2")
 }
 
 const findUserByUsername = async (req, res, next) => {
@@ -17,17 +18,17 @@ const findUserByUsername = async (req, res, next) => {
                 }
             })
             if (user === null) {
-                console.log('Username isnot match to any user.')
+                console.log("Username isnot match to any user.")
                 return res.status(500).json({
-                    message: 'server error!'
+                    message: "server error!"
                 })
             }
             req.user = user
             next()
         } catch (error) {
-            console.log('Cannot get user by username. Error: ', error)
+            console.log("Cannot get user by username. Error: ", error)
             return res.status(500).json({
-                message: 'server error!'
+                message: "server error!"
             })
         }
     }
@@ -43,12 +44,12 @@ const checkLogin = async (req, res, next) => {
         })
         if (token === null) {
             return res.status(500).json({
-                message: 'server error!'
+                message: "server error!"
             })
         }
-        res.cookie("token", token, { httpOnly: true, maxAge: 2 * 60 * 60 * 1000 })
+        res.cookie("token", token, { httpOnly: true, maxAge: process.env.COOKIE_MAX_AGE })
         return res.status(200).json({
-            message: 'ok',
+            message: "ok",
             data: [{
                 id: user.id,
                 table: user.table,
@@ -65,7 +66,7 @@ const findEmail = async (req, res, next) => {
             user.email = hiddenEmail(user.email)
         }
         return res.status(200).json({
-            message: 'ok',
+            message: "ok",
             data: [{
                 id: user.id,
                 email: user.email,
@@ -82,21 +83,21 @@ const sendVerify = async (req, res, next) => {
             where: {
                 active: true
             },
-            attributes: ['email']
+            attributes: ["email"]
         })
         if (email !== null) {
             return res.status(200).json({
-                message: 'ok'
+                message: "ok"
             })
         }
-        console.log('Cannot get email by id. Error:', error)
+        console.log("Cannot get email by id. Error:", error)
         return res.status(500).json({
-            message: 'server error!'
+            message: "server error!"
         })
     } catch (error) {
-        console.log('Cannot get email. Error:', error)
+        console.log("Cannot get email. Error:", error)
         return res.status(500).json({
-            message: 'server error!'
+            message: "server error!"
         })
     }
 }

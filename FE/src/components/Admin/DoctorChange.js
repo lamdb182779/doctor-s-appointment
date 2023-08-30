@@ -11,11 +11,11 @@ import { Row, Col, Modal, Form, Button, } from "react-bootstrap"
 import ReactMarkdown from "react-markdown"
 import { useEffect, useState } from "react"
 import useFetch from "../../custom/fetch"
-import Danger from "../General/Dialog/Danger"
 import Warning from "../General/Dialog/Warning"
 
-import { connect } from "react-redux"
 import { useRef } from "react"
+
+import { toast } from "react-toastify"
 
 const DoctorChange = (props) => {
     const data = props.data
@@ -31,7 +31,7 @@ const DoctorChange = (props) => {
         setDescribeDisable(true)
         setPriceDisable(true)
         setContentDisable(true)
-        setSave('')
+        setSave("")
     }
 
     const [name, setName] = useState(data[0].name)
@@ -50,18 +50,17 @@ const DoctorChange = (props) => {
     const [priceDisable, setPriceDisable] = useState(true)
     const [contentDisable, setContentDisable] = useState(true)
 
-    const [save, setSave] = useState('')
+    const [save, setSave] = useState("")
 
     const [change, setChange] = useState(0)
 
     const [showWarning, setShowWarning] = useState(false)
-    const [showDanger, setShowDanger] = useState(false)
 
-    const { message, loading } = useFetch(change === 0 ? '' : `http://localhost:8080/api/doctors/${data[0].id}/${change}`,
+    const { message, loading } = useFetch(change === 0 ? "" : `http://localhost:8080/api/doctors/${data[0].id}/${change}`,
         change === 0 ? {} : {
-            method: 'PUT',
+            method: "PUT",
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 name: name === data[0].name ? null : name.trim(),
@@ -71,11 +70,8 @@ const DoctorChange = (props) => {
                 describe: describe === data[0].describe ? null : describe,
                 price: price === data[0].price ? null : price,
                 content: content === data[0].content ? null : content,
-                token: props.user.token,
             })
         })
-
-    const [isAnyBlank, setIsAnyBlank] = useState(false)
 
     const [row, setRow] = useState(0)
 
@@ -122,11 +118,9 @@ const DoctorChange = (props) => {
 
     const handleChange = () => {
         if ([name.trim(), phone.trim(), email.trim(), address.trim(), describe.trim(), price.trim()].includes("")) {
-            setIsAnyBlank(true)
-            setShowDanger(true)
+            toast.warning("Có thông tin cần thiết bị bỏ trống")
         }
         else {
-            setIsAnyBlank(false)
             setShowWarning(true)
         }
     }
@@ -136,13 +130,15 @@ const DoctorChange = (props) => {
 
     useEffect(() => {
         if (loading === false && change !== 0) {
-            if (message === 'ok') {
+            if (message === "ok") {
                 props.handleClose()
                 props.setChanged(props.changed + 1)
-                props.setShowSuccess(true)
+                toast.success("Thay đổi thông tin bác sĩ thành công")
             }
             else {
-                setShowDanger(true)
+                toast.error(message === "server error!" ? "Lỗi Server"
+                    : message === "wrong verify" ? "Lỗi xác thực"
+                        : "Có lỗi xảy ra")
             }
         }
     }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
@@ -153,16 +149,6 @@ const DoctorChange = (props) => {
                 setShow={setShowWarning}
                 handleYes={handleYes}
                 body="Bạn có chắc muốn thực hiện những thay đổi này không?" />
-            <Danger
-                show={showDanger}
-                setShow={setShowDanger}
-                // size={isAnyBlank ? "nm" : "sm"}
-                time={1000}
-                bodyAlign="text-center"
-                body={isAnyBlank ? "Có thông tin cần thiết bị bỏ trống" :
-                    message === 'server error!' ? "Lỗi Server"
-                        : message === 'wrong verify' ? "Lỗi xác thực"
-                            : undefined} />
             <Modal.Header closeButton>
                 <Modal.Title>
                     Thay đổi thông tin bác sĩ
@@ -295,7 +281,7 @@ const DoctorChange = (props) => {
                                 {!contentDisable && "thông tin cụ thể"}
                             </Col>
                             <Col>
-                                <div onClick={() => componentRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                                <div onClick={() => componentRef.current.scrollIntoView({ behavior: "smooth", block: "center" })}
                                     className="change-to-bottom text-end">
                                     <FontAwesomeIcon icon={faArrowDownLong} />
                                 </div>
@@ -350,10 +336,4 @@ const DoctorChange = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user
-    })
-}
-
-export default connect(mapStateToProps)(DoctorChange)
+export default DoctorChange

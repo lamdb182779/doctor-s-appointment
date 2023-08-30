@@ -33,12 +33,12 @@ const Danger = (props) => {
             <Modal.Header className="py-2 border-danger border-0" >
                 <Modal.Title className="text-danger h5">
                     <FontAwesomeIcon icon={faCircleExclamation} />
-                    &nbsp;{props.title || 'Thất bại'}
+                    &nbsp;{props.title || "Thất bại"}
                 </Modal.Title>
             </Modal.Header>
             <ProgressBar variant="danger" now={progress} />
             <Modal.Body className={`${props.bodyFs} ${props.bodyAlign}`}>
-                {props.body || 'Đã xảy ra lỗi!'}
+                {props.body || "Đã xảy ra lỗi!"}
             </Modal.Body>
         </Modal>
     )

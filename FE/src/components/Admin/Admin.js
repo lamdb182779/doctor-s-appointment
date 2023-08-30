@@ -5,8 +5,6 @@ import welcome from "../../assets/images/welcome.png"
 import "../../styles/Admin/Admin.scss"
 import useFetch from "../../custom/fetch"
 
-import { connect } from "react-redux"
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faUserDoctor,
@@ -17,7 +15,7 @@ import {
 
 import { NavLink } from "react-router-dom"
 const Admin = (props) => {
-    const { data, loading } = useFetch('http://localhost:8080/api/self/info')
+    const { data, loading } = useFetch("http://localhost:8080/api/self/info")
     return (
         <div className="admin-container px-5 py-5">
             {loading === false ?
@@ -44,7 +42,7 @@ const Admin = (props) => {
                                                     Bạn muốn làm gì đây?
                                                 </Row>
                                                 <Row className="text-start p-3" >
-                                                    <Accordion>
+                                                    <Accordion >
                                                         <Accordion.Item eventKey="0">
                                                             <Accordion.Header>
                                                                 <FontAwesomeIcon icon={faUserPen} />
@@ -53,13 +51,13 @@ const Admin = (props) => {
                                                             <Accordion.Body>
                                                                 <Row className="fs-5 text-dark d-grid gap-3">
                                                                     <Row className="">
-                                                                        <NavLink to='/admin/staff-list' className="text-dark text-decoration-none">
+                                                                        <NavLink to="/admin/staff/list" className="text-dark text-decoration-none">
                                                                             <FontAwesomeIcon icon={faTableList} size="xs" />
                                                                             &nbsp;Xem danh sách nhân viên &gt;&gt;&gt;
                                                                         </NavLink>
                                                                     </Row>
                                                                     <Row className="">
-                                                                        <NavLink to='/admin/staff-add' className="text-dark text-decoration-none">
+                                                                        <NavLink to="/admin/staff/add" className="text-dark text-decoration-none">
                                                                             <FontAwesomeIcon icon={faUserPlus} size="xs" />
                                                                             &nbsp;Thêm nhân viên mới &gt;&gt;&gt;
                                                                         </NavLink>
@@ -75,13 +73,13 @@ const Admin = (props) => {
                                                             <Accordion.Body>
                                                                 <Row className="fs-5 text-dark d-grid gap-3 ">
                                                                     <Row className="">
-                                                                        <NavLink to='/admin/doctor-list' className="text-dark text-decoration-none">
+                                                                        <NavLink to="/admin/doctor/list" className="text-dark text-decoration-none">
                                                                             <FontAwesomeIcon icon={faTableList} size="xs" />
                                                                             &nbsp;Xem danh sách bác sĩ &gt;&gt;&gt;
                                                                         </NavLink>
                                                                     </Row>
                                                                     <Row className="">
-                                                                        <NavLink to='/admin/doctor-add' className="text-dark text-decoration-none">
+                                                                        <NavLink to="/admin/doctor/add" className="text-dark text-decoration-none">
                                                                             <FontAwesomeIcon icon={faUserPlus} size="xs" />
                                                                             &nbsp;Thêm bác sĩ mới &gt;&gt;&gt;
                                                                         </NavLink>
@@ -139,10 +137,4 @@ const Admin = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user,
-    })
-}
-
-export default connect(mapStateToProps)(Admin)
+export default Admin

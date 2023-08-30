@@ -1,13 +1,13 @@
 import "../../../styles/Guest/Doctors/Doctor.scss"
 import { Image, Row, Col } from "react-bootstrap"
 import ReactMarkdown from "react-markdown"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faBook,
     faPhone,
     faEnvelope,
     faLocationDot
-} from '@fortawesome/free-solid-svg-icons'
+} from "@fortawesome/free-solid-svg-icons"
 import nullavatar from "../../../assets/images/nullavatardoctor.jpg"
 
 const Doctor = (props) => {

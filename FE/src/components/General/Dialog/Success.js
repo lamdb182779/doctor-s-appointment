@@ -33,12 +33,12 @@ const Success = (props) => {
             <Modal.Header className="py-2 border-success border-0" >
                 <Modal.Title className="text-success h5">
                     <FontAwesomeIcon icon={faCircleCheck} />
-                    &nbsp;{props.title || 'Thành công'}
+                    &nbsp;{props.title || "Thành công"}
                 </Modal.Title>
             </Modal.Header>
             <ProgressBar variant="success" now={progress} />
             <Modal.Body className={`${props.bodyFs || ""} ${props.bodyAlign || ""}`}>
-                {props.body || 'Nhiệm vụ hoàn thành!'}
+                {props.body || "Nhiệm vụ hoàn thành!"}
             </Modal.Body>
         </Modal>
     )

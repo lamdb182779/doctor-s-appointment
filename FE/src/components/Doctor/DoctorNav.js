@@ -7,11 +7,11 @@ import { Button } from "react-bootstrap"
 import { useState, useEffect } from "react"
 
 import useFetch from "../../custom/fetch"
-
-import { connect } from "react-redux"
+import useUser from "../../custom/user"
 const DoctorNav = (props) => {
+    const { clearUser } = useUser()
     const [isLogout, setIsLogout] = useState(false)
-    const { loading } = useFetch(isLogout ? 'http://localhost:8080/api/deletetoken' : '')
+    const { loading } = useFetch(isLogout ? "http://localhost:8080/api/deletetoken" : "")
     const navigate = useNavigate()
     const handleClick = () => {
         props.handleClose()
@@ -26,8 +26,8 @@ const DoctorNav = (props) => {
     }
     useEffect(() => {
         if (loading === false && isLogout === true) {
-            props.setUser({})
-            navigate('/')
+            clearUser()
+            navigate("/")
             props.handleClose()
         }
     }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
@@ -52,16 +52,4 @@ const DoctorNav = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user
-    })
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return ({
-        setUser: (user) => dispatch({ type: 'SET_USER', payload: user }),
-    })
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DoctorNav)
+export default DoctorNav

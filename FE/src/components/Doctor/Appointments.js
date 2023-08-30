@@ -8,24 +8,24 @@ import { useState } from "react"
 
 import useFetch from "../../custom/fetch"
 
-import { connect } from "react-redux"
+import { useSelector } from "react-redux"
 
 import moment from "moment"
 import "moment/locale/vi"
 
 const Appointments = (props) => {
     const navigate = useNavigate()
-
-    const today = moment().startOf('day')
-    const [day, setDay] = useState(moment(today).add(1, 'days'))
+    const user = useSelector(state => state.user)
+    const today = moment().startOf("day")
+    const [day, setDay] = useState(moment(today).add(1, "days"))
     const dayArray = [
-        moment(today).add(1, 'days'),
-        moment(today).add(2, 'days'),
-        moment(today).add(3, 'days'),
-        moment(today).add(4, 'days'),
-        moment(today).add(5, 'days'),
-        moment(today).add(6, 'days'),
-        moment(today).add(7, 'days'),
+        moment(today).add(1, "days"),
+        moment(today).add(2, "days"),
+        moment(today).add(3, "days"),
+        moment(today).add(4, "days"),
+        moment(today).add(5, "days"),
+        moment(today).add(6, "days"),
+        moment(today).add(7, "days"),
     ]
     const time = {
         "00": "8:00 - 8:30",
@@ -46,13 +46,13 @@ const Appointments = (props) => {
         "15": "17:00 - 17:30",
     }
 
-    const { data, loading } = useFetch(`http://localhost:8080/api/appointments?doctorId=${props.user.id}&date=${day}`)
+    const { data, loading } = useFetch(`http://localhost:8080/api/appointments?doctorId=${user.id}&date=${day}`)
     return (
         <div className="appointments-container p-5">
             <div className="apponitments-title">
                 <Row className="">
                     <Col xs={2} className="d-flex justify-content-start">
-                        <Button onClick={() => navigate('/doctor')} variant="outline-secondary" size="sm">Quay lại</Button>
+                        <Button onClick={() => navigate("/doctor")} variant="outline-secondary" size="sm">Quay lại</Button>
                     </Col>
                     <Col xs={8} className="d-flex align-items-center justify-content-center fw-bold">
                         Danh sách lịch hẹn
@@ -65,12 +65,12 @@ const Appointments = (props) => {
                         <div className="appointments-day d-flex justify-content-start align-items-center fs-6 mb-3">
                             <b>Ngày làm việc:</b> &nbsp;
                             <Dropdown>
-                                <Dropdown.Toggle variant="outline-primary" size="sm">{day.format('dd, DD/MM/YYYY')}</Dropdown.Toggle>
+                                <Dropdown.Toggle variant="outline-primary" size="sm">{day.format("dd, DD/MM/YYYY")}</Dropdown.Toggle>
                                 <Dropdown.Menu>
                                     {dayArray.map((item, index) => {
                                         return (
                                             <Dropdown.Item onClick={() => setDay(item)}
-                                                key={index}>{item.format('dd, DD/MM/YYYY')}</Dropdown.Item>
+                                                key={index}>{item.format("dd, DD/MM/YYYY")}</Dropdown.Item>
                                         )
                                     })}
                                 </Dropdown.Menu>
@@ -122,10 +122,4 @@ const Appointments = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user
-    })
-}
-
-export default connect(mapStateToProps)(Appointments)
+export default Appointments

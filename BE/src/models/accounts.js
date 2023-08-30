@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 const {
   Model
-} = require('sequelize');
+} = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Accounts extends Model {
     /**
@@ -12,20 +12,20 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Accounts.hasOne(models.Staffs, {
-        foreignKey: 'username',
-        targetKey: 'username',
+        foreignKey: "username",
+        targetKey: "username",
       })
       Accounts.hasOne(models.Doctors, {
-        foreignKey: 'username',
-        targetKey: 'username',
+        foreignKey: "username",
+        targetKey: "username",
       })
       Accounts.hasOne(models.Admins, {
-        foreignKey: 'username',
-        targetKey: 'username',
+        foreignKey: "username",
+        targetKey: "username",
       })
       Accounts.belongsTo(models.Roles, {
-        foreignKey: 'roleId',
-        targetKey: 'id',
+        foreignKey: "roleId",
+        targetKey: "id",
       })
     }
   }
@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
     active: DataTypes.BOOLEAN
   }, {
     sequelize,
-    modelName: 'Accounts',
+    modelName: "Accounts",
   });
   return Accounts;
 };

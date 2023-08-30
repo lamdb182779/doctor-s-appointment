@@ -2,24 +2,24 @@ import "../../styles/App/Footer.scss"
 
 import useFetch from "../../custom/fetch"
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faPhone,
     faEnvelope,
     faLocationDot
-} from '@fortawesome/free-solid-svg-icons'
+} from "@fortawesome/free-solid-svg-icons"
 
 import { Image, Spinner, Row, Col } from "react-bootstrap"
 
 const Footer = (props) => {
-    const { data, loading } = useFetch('http://localhost:8080/api')
+    const { data, loading } = useFetch("http://localhost:8080/api")
     return (
         <>
             <Row className="w-100 p-5 fs-6">
-                <Col xs={6} className='d-grid gap-3 App-info px-5'>
-                    <Row className='App-logo' >
+                <Col xs={6} className="d-grid gap-3 App-info px-5">
+                    <Row className="App-logo" >
                         <Col>
-                            <a href='/'><Image src={props.logo} alt='logo' fluid /></a>
+                            <a href="/"><Image src={props.logo} alt="logo" fluid /></a>
                             <br />
                             Doctor Booking - Nền tảng đặt lịch hẹn khám trực tuyến
                         </Col>
@@ -28,14 +28,14 @@ const Footer = (props) => {
                         <>
                             {data?.length > 0 ?
                                 <>
-                                    <Row className='App-address'>
+                                    <Row className="App-address">
                                         <Col>
                                             <FontAwesomeIcon icon={faLocationDot} size="sm" />
                                             <b>Địa chỉ</b><br />
                                             {data[0].address}
                                         </Col>
                                     </Row>
-                                    <Row className='App-email'>
+                                    <Row className="App-email">
                                         <Col>
                                             <FontAwesomeIcon icon={faEnvelope} size="sm" />
                                             <b>Email</b><br />
@@ -44,7 +44,7 @@ const Footer = (props) => {
                                             </a>
                                         </Col>
                                     </Row>
-                                    <Row className='App-phone'>
+                                    <Row className="App-phone">
                                         <Col>
                                             <FontAwesomeIcon icon={faPhone} size="sm" />
                                             <b>Điện thoại</b><br />
@@ -54,7 +54,7 @@ const Footer = (props) => {
                                 </>
                                 :
                                 <>
-                                    <div className='App-nodata'>
+                                    <div className="App-nodata">
                                         Không tải được dữ liệu
                                     </div>
                                 </>
@@ -62,14 +62,14 @@ const Footer = (props) => {
                         </>
                         :
                         <>
-                            <div className='App-loading'>
+                            <div className="App-loading">
                                 <Spinner animation="border" variant="light" />
                                 Đang tải dữ liệu...
                             </div>
                         </>
                     }
                 </Col>
-                <Col xs={6} className='App-rules d-flex align-items-center justify-content-end'>
+                <Col xs={6} className="App-rules d-flex align-items-center justify-content-end">
                     <Row className="w-50 d-grid gap-1">
                         <Row>Liên hệ hợp tác</Row>
                         <Row>Danh bạ y tế</Row>

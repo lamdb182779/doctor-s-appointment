@@ -15,6 +15,7 @@ import nullavatar from "../../../assets/images/nullavatardoctor.jpg"
 
 import { toast } from "react-toastify"
 const Booking = (props) => {
+
     const schedule = props.schedule || {}
     const doctor = props.doctor || {}
     const [book, setBook] = useState(0)
@@ -36,17 +37,17 @@ const Booking = (props) => {
         "14": "16:30 - 17:00",
         "15": "17:00 - 17:30",
     }
-    const [name, setName] = useState('')
-    const [phone, setPhone] = useState('')
-    const [email, setEmail] = useState('')
-    const [description, setDescription] = useState('')
+    const [name, setName] = useState("")
+    const [phone, setPhone] = useState("")
+    const [email, setEmail] = useState("")
+    const [description, setDescription] = useState("")
 
     const [showWarning, setShowWarning] = useState(false)
 
-    const { message, loading } = useFetch(book === 0 ? '' : `http://localhost:8080/api/appointments?${book}`, book === 0 ? {} : {
-        method: 'POST',
+    const { message, loading } = useFetch(book === 0 ? "" : `http://localhost:8080/api/appointments?${book}`, book === 0 ? {} : {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
             patientName: name.trim(),
@@ -61,9 +62,10 @@ const Booking = (props) => {
         })
     })
     const handleBook = () => {
-        if ((name.trim() === '') || (phone.trim() === '') || (schedule.maxNumber - schedule.currentNumber === 0)) {
-            toast.error(((name.trim() === '') || (phone.trim() === '')) ? "Có thông tin cần thiết bị bỏ trống" :
-                schedule.maxNumber - schedule.currentNumber === 0 ? "Đã hết chỗ trống trong khung giờ này" : "Có lỗi xảy ra")
+        if ((name.trim() === "") || (phone.trim() === "") || (schedule.maxNumber - schedule.currentNumber === 0)) {
+            toast.warning(((name.trim() === "") || (phone.trim() === "")) ? "Có thông tin cần thiết bị bỏ trống" :
+                schedule.maxNumber - schedule.currentNumber === 0 ? "Đã hết chỗ trống trong khung giờ này" :
+                    "Có lỗi xảy ra")
         }
         else {
             setShowWarning(true)
@@ -74,13 +76,14 @@ const Booking = (props) => {
     }
     useEffect(() => {
         if (loading === false && book !== 0) {
-            if (message === 'ok') {
+            if (message === "ok") {
                 toast.success("Đặt lịch thành công")
                 props.setBook(props.book + 1)
                 setBook(0)
             } else {
-                toast.error(message === 'server error!' ? "Lỗi Server" :
-                    message === 'full slot' ? "Đã hết chỗ trống khung giờ này" : "Có lỗi xảy ra")
+                toast.error(message === "server error!" ? "Lỗi Server" :
+                    message === "full slot" ? "Đã hết chỗ trống khung giờ này" :
+                        "Có lỗi xảy ra")
             }
         }
     }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
@@ -99,11 +102,11 @@ const Booking = (props) => {
             <Modal.Body className="booking-content d-grid gap-3">
                 <Row className="d-flex align-items-center">
                     <Col xs={2}>
-                        <Image src={doctor.image ? doctor.image : nullavatar} alt='avatar' roundedCircle className="w-100 h-auto" />
+                        <Image src={doctor.image ? doctor.image : nullavatar} alt="avatar" roundedCircle className="w-100 h-auto" />
                     </Col>
                     <Col>
                         <b>Bác sĩ {doctor.name}</b><br />
-                        {time[schedule.time]} - {moment(schedule.date).format('dddd - DD/MM/YYYY')}<br />
+                        {time[schedule.time]} - {moment(schedule.date).format("dddd - DD/MM/YYYY")}<br />
                         Hiện tại còn {schedule.maxNumber - schedule.currentNumber} chỗ tại khung giờ này<br />
                         Đặt lịch miễn phí
                     </Col>

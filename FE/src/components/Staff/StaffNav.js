@@ -4,14 +4,15 @@ import { NavLink, useNavigate } from "react-router-dom"
 
 import { Button } from "react-bootstrap"
 
-import { connect } from "react-redux"
-
 import { useEffect, useState } from "react"
 
 import useFetch from "../../custom/fetch"
+import useUser from "../../custom/user"
 const StaffNav = (props) => {
+    const { clearUser } = useUser()
+
     const [isLogout, setIsLogout] = useState(false)
-    const { loading } = useFetch(isLogout ? 'http://localhost:8080/api/deletetoken' : '')
+    const { loading } = useFetch(isLogout ? "http://localhost:8080/api/deletetoken" : "")
     const navigate = useNavigate()
     const handleClick = () => {
         props.handleClose()
@@ -26,8 +27,8 @@ const StaffNav = (props) => {
     }
     useEffect(() => {
         if (loading === false && isLogout === true) {
-            props.setUser({})
-            navigate('/')
+            clearUser()
+            navigate("/")
             props.handleClose()
         }
     }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
@@ -52,16 +53,4 @@ const StaffNav = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user
-    })
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return ({
-        setUser: (user) => dispatch({ type: 'SET_USER', payload: user }),
-    })
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(StaffNav)
+export default StaffNav

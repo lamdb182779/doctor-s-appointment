@@ -3,8 +3,6 @@ import "../../styles/Doctor/Doctor.scss"
 import nullavatar from "../../assets/images/nullavatardoctor.jpg"
 import useFetch from "../../custom/fetch"
 
-import { connect } from "react-redux"
-
 import ReactMarkdown from "react-markdown"
 
 import { Row, Col, Image, } from "react-bootstrap"
@@ -12,7 +10,7 @@ import { Row, Col, Image, } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 
 const Doctor = (props) => {
-    const { data, loading } = useFetch('http://localhost:8080/api/self/info')
+    const { data, loading } = useFetch("http://localhost:8080/api/self/info")
 
     return (
         <div className="doctor-user-container px-5 py-5 d-grid gap-5">
@@ -31,7 +29,7 @@ const Doctor = (props) => {
                             <Row className="fs-6 text-start d-flex align-items-center">
                                 <Col xs={4}>
                                     <Image onClick={(event) => event.target.click()} className="w-50 h-auto"
-                                        src={data[0].image ? data[0].image : nullavatar} alt='avatar' roundedCircle />
+                                        src={data[0].image ? data[0].image : nullavatar} alt="avatar" roundedCircle />
                                 </Col>
                                 <Col>
                                     <Row>
@@ -71,10 +69,4 @@ const Doctor = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user
-    })
-}
-
-export default connect(mapStateToProps)(Doctor)
+export default Doctor

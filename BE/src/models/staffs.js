@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 const {
   Model
-} = require('sequelize');
+} = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Staffs extends Model {
     /**
@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Staffs.belongsTo(models.Accounts, {
-        foreignKey: 'username',
-        targetKey: 'username',
+        foreignKey: "username",
+        targetKey: "username",
       })
     }
   }
@@ -29,17 +29,17 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     address: DataTypes.STRING,
     username: DataTypes.STRING,
-    image: DataTypes.BLOB('long'),
+    image: DataTypes.BLOB("long"),
     active: DataTypes.BOOLEAN,
     table: {
       type: DataTypes.VIRTUAL,
       get() {
-        return 'Staffs';
+        return "Staffs";
       }
     },
   }, {
     sequelize,
-    modelName: 'Staffs',
+    modelName: "Staffs",
   });
   return Staffs;
 };

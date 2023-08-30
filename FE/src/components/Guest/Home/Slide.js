@@ -40,10 +40,10 @@ const Slide = (props) => {
     const handleClick = (id) => {
         if (isDragging === false) {
             switch (props.show) {
-                case '/specialties':
+                case "/specialties":
                     handleSpecialtyDoctors(id)
                     break
-                case '/doctors':
+                case "/doctors":
                     handleDoctorDetail(id)
                     break
                 default: break
@@ -77,7 +77,7 @@ const Slide = (props) => {
         <div className="slide-container px-5" onMouseDown={() => handleMouseDown()} onMouseUp={() => handleMouseUp()}>
             <div className="slide-title text-start d-flex align-items-center justify-content-between fs-5">
                 <b>
-                    {props.show === '/doctors' ? 'Một số bác sĩ trong hệ thống' : 'Một số chuyên khoa'}
+                    {props.show === "/doctors" ? "Một số bác sĩ trong hệ thống" : "Một số chuyên khoa"}
                 </b>
                 <Button className="mt-1" variant="outline-primary" size="sm" onClick={() => props.showMore(props.show)}>Xem thêm</Button>
             </div>
@@ -94,7 +94,7 @@ const Slide = (props) => {
                                         {data.map((item, index) => {
                                             return (
                                                 <div className="" key={index} onClick={() => handleClick(item.id)}>
-                                                    {props.show === '/doctors' ?
+                                                    {props.show === "/doctors" ?
                                                         <>
                                                             <div className="slide-doctors fs-6 text-secondary m-auto">
                                                                 <Image className="mx-auto" src={item.image ? item.image : nullavatar} alt={item.name} roundedCircle />

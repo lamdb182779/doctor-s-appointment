@@ -24,11 +24,11 @@ const Warning = (props) => {
             <Modal.Header className="border-warning border-2" >
                 <Modal.Title className="text-warning h5">
                     <FontAwesomeIcon icon={faTriangleExclamation} />
-                    &nbsp;{props.title || 'Cảnh báo'}
+                    &nbsp;{props.title || "Cảnh báo"}
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className={`${props.bodyFs || ""} ${props.bodyAlign || ""}`}>
-                {props.body || 'Bạn có chắc thực hiện hành động này?'}
+                {props.body || "Bạn có chắc thực hiện hành động này?"}
             </Modal.Body>
             <Modal.Footer className="border-0">
                 <Button variant="outline-secondary" size="sm" onClick={() => { handleNo(); handleClose() }}>Không</Button>

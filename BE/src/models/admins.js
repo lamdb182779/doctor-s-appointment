@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 const {
   Model
-} = require('sequelize');
+} = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Admins extends Model {
     /**
@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Admins.belongsTo(models.Accounts, {
-        foreignKey: 'username',
-        targetKey: 'username',
+        foreignKey: "username",
+        targetKey: "username",
       })
     }
   }
@@ -31,12 +31,12 @@ module.exports = (sequelize, DataTypes) => {
     table: {
       type: DataTypes.VIRTUAL,
       get() {
-        return 'Admins';
+        return "Admins";
       }
     },
   }, {
     sequelize,
-    modelName: 'Admins',
+    modelName: "Admins",
   });
   return Admins;
 };

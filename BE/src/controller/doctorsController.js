@@ -1,24 +1,24 @@
-const db = require('../models')
-const { Op } = require('sequelize')
-const bcrypt = require('bcryptjs')
-const moment = require('moment')
+const db = require("../models")
+const { Op } = require("sequelize")
+const bcrypt = require("bcryptjs")
+const moment = require("moment")
 
 const salt = bcrypt.genSaltSync(parseInt(process.env.BCRYPT_SALT))
 
 const toImage = (image) => {
     if (image) {
-        const imgBuffer = Buffer.from(image).toString('binary')
+        const imgBuffer = Buffer.from(image).toString("binary")
         return `data:image/jpg;base64,${imgBuffer}`
     }
     return ""
 }
 
 const hiddenEmail = (email) => {
-    return email.replace(/^(.{3}).*(\d{2}@.*$)/, '$1****$2')
+    return email.replace(/^(.{3}).*(\d{2}@.*$)/, "$1****$2")
 }
 
 const hiddenPhoneNumber = (phoneNumber) => {
-    return phoneNumber.replace(/^(\d{3}).*(\d{2})$/, '$1****$2')
+    return phoneNumber.replace(/^(\d{3}).*(\d{2})$/, "$1****$2")
 }
 
 const nameToUsername = (name, id) => {
@@ -44,18 +44,18 @@ const findDoctorById = async (req, res, next) => {
             }
         })
         if (doctor === null) {
-            console.log('No matching doctor.')
+            console.log("No matching doctor.")
             return res.status(500).json({
-                message: 'wrong id',
+                message: "wrong id",
             })
         } else {
             req.person = doctor
             next()
         }
     } catch (error) {
-        console.log('Cannot get doctor. Error: ', error)
+        console.log("Cannot get doctor. Error: ", error)
         return res.status(500).json({
-            message: 'server error!'
+            message: "server error!"
         })
     }
 }
@@ -70,17 +70,17 @@ const checkDupEmail = async (req, res, next) => {
                 }
             })
             if (user?.length > 0) {
-                console.log('Duplicate Email')
+                console.log("Duplicate Email")
                 return res.status(500).json({
-                    message: 'duplicate email'
+                    message: "duplicate email"
                 })
             } else {
                 next()
             }
         } catch (error) {
-            console.log('Cannot check duplicate email. Error: ', error)
+            console.log("Cannot check duplicate email. Error: ", error)
             return res.status(500).json({
-                message: 'server error!'
+                message: "server error!"
             })
         }
     } else {
@@ -129,11 +129,11 @@ const getAllDoctors = async (req, res, next) => {
                 where: find,
                 offset: skip,
                 limit: pagesize,
-                attributes: ['id', 'name', 'clinicAddress', 'email', 'phoneNumber', 'describe', 'image'],
+                attributes: ["id", "name", "clinicAddress", "email", "phoneNumber", "describe", "image"],
                 include: [
                     {
                         model: db.Specialties,
-                        attributes: ['name']
+                        attributes: ["name"]
                     }
                 ]
             })
@@ -157,19 +157,19 @@ const getAllDoctors = async (req, res, next) => {
             data.push(count)
 
             return res.status(200).json({
-                message: 'ok',
+                message: "ok",
                 data: data
             })
         } catch (err) {
-            console.log('Cannot get data. Error:', err)
+            console.log("Cannot get data. Error:", err)
             return res.status(500).json({
-                message: 'server error!',
+                message: "server error!",
             })
         }
     } catch (err) {
-        console.log('Cannot count. Error: ', err)
+        console.log("Cannot count. Error: ", err)
         return res.status(500).json({
-            message: 'server error!',
+            message: "server error!",
         })
     }
 }
@@ -187,7 +187,7 @@ const getDoctorById = async (req, res, next) => {
             doctor.email = hiddenEmail(doctor.email)
         }
         return res.status(200).json({
-            message: 'ok',
+            message: "ok",
             data: [doctor]
         })
     }
@@ -207,18 +207,18 @@ const deleteDoctorById = async (req, res, next) => {
             }
         })
         if (deactivate === [0]) {
-            console.log('No matching doctor.')
+            console.log("No matching doctor.")
             return res.status(500).json({
-                message: 'server error',
+                message: "server error",
             })
         }
         return res.status(200).json({
-            message: 'ok',
+            message: "ok",
         })
     } catch (error) {
-        console.log('Cannot deactivate doctor. Error: ', error)
+        console.log("Cannot deactivate doctor. Error: ", error)
         return res.status(500).json({
-            message: 'server error!'
+            message: "server error!"
         })
     }
 }
@@ -256,18 +256,18 @@ const updateDoctorById = async (req, res, next) => {
             }
         })
         if (doctor === [0]) {
-            console.log('No matching doctor')
+            console.log("No matching doctor")
             return res.status(500).json({
-                message: 'wrong id'
+                message: "wrong id"
             })
         }
         return res.status(200).json({
-            message: 'ok'
+            message: "ok"
         })
     } catch (error) {
-        console.log('Cannot update doctor. Error: ', error)
+        console.log("Cannot update doctor. Error: ", error)
         return res.status(500).json({
-            message: 'server error!'
+            message: "server error!"
         })
     }
 }
@@ -293,17 +293,17 @@ const addNewDoctor = async (req, res, next) => {
             specialtyID: specialtyID,
             active: true,
         }).then(async () => {
-            const startOfWeekNextWeek = moment().add(1, 'weeks').startOf('isoWeek')
+            const startOfWeekNextWeek = moment().add(1, "weeks").startOf("isoWeek")
             for (let i = 0; i < 7; i++) {
-                const date = moment(startOfWeekNextWeek).add(i, 'days')
+                const date = moment(startOfWeekNextWeek).add(i, "days")
 
                 for (let hour = 0; hour < 16; hour++) {
-                    const time = hour.toString().padStart(2, '0')
+                    const time = hour.toString().padStart(2, "0")
                     await db.Schedules.create({
-                        id: date.format('DDMMYYYY') + time + id,
+                        id: date.format("DDMMYYYY") + time + id,
                         maxNumber: 3,
                         currentNumber: 0,
-                        date: new Date(date.format('YYYY-MM-DD')),
+                        date: new Date(date.format("YYYY-MM-DD")),
                         time: time,
                         doctorId: id,
                         createdAt: new Date(),
@@ -317,23 +317,23 @@ const addNewDoctor = async (req, res, next) => {
                         }
                         next()
                     }).catch((error) => {
-                        console.log('Cannot create schedules. Error: ', error)
+                        console.log("Cannot create schedules. Error: ", error)
                         return res.status(500).json({
-                            message: 'server error!'
+                            message: "server error!"
                         })
                     })
                 }
             }
         }).catch((error) => {
-            console.log('Cannot create doctor. Error: ', error)
+            console.log("Cannot create doctor. Error: ", error)
             return res.status(500).json({
-                message: 'server error!'
+                message: "server error!"
             })
         })
     } catch (error) {
-        console.log('Cannot count doctors. Error: ', error)
+        console.log("Cannot count doctors. Error: ", error)
         return res.status(500).json({
-            message: 'server error!'
+            message: "server error!"
         })
     }
 
@@ -342,16 +342,16 @@ const addNewDoctor = async (req, res, next) => {
 const getSpecialtiesName = async (req, res, next) => {
     try {
         let data = await db.Specialties.findAll({
-            attributes: ['id', 'name']
+            attributes: ["id", "name"]
         })
         return res.status(200).json({
-            message: 'ok',
+            message: "ok",
             data: data
         })
     } catch (error) {
-        console.log('Cannot get data. Error:', error)
+        console.log("Cannot get data. Error:", error)
         return res.status(500).json({
-            message: 'server error!'
+            message: "server error!"
         })
     }
 }

@@ -1,4 +1,5 @@
 import useFetch from "../../custom/fetch"
+
 import "../../styles/Admin/DoctorList.scss"
 
 import { Row, Col, Button, Table } from "react-bootstrap"
@@ -11,16 +12,13 @@ import { useNavigate, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 
 import Warning from "../General/Dialog/Warning"
-import Success from "../General/Dialog/Success"
-import Danger from "../General/Dialog/Danger"
-
-import { connect } from "react-redux"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faCircleInfo,
     faTrash,
 } from "@fortawesome/free-solid-svg-icons"
+import { toast } from "react-toastify"
 
 const DoctorList = (props) => {
     const [confirm, setConfirm] = useState(false)
@@ -31,25 +29,20 @@ const DoctorList = (props) => {
     // const location = useLocation()
 
     const [showWarning, setShowWarning] = useState(false)
-    const [showSuccess, setShowSuccess] = useState(false)
-    const [showDanger, setShowDanger] = useState(false)
 
     // let { page, pagesize, name, specialtyID, clinicAddress } = Object.fromEntries(new URLSearchParams(location.search).entries())
     const [page, setPage] = useState(1)
     // pagesize = pagesize !== undefined ? parseInt(pagesize) : 5
-    // name = name !== undefined ? name : ''
-    // specialtyID = specialtyID !== undefined ? specialtyID : ''
-    // clinicAddress = clinicAddress !== undefined ? clinicAddress : ''
+    // name = name !== undefined ? name : ""
+    // specialtyID = specialtyID !== undefined ? specialtyID : ""
+    // clinicAddress = clinicAddress !== undefined ? clinicAddress : ""
     const { data, loading } = useFetch(`http://localhost:8080/api/doctors?page=${page}&pagesize=10&${deleted}`)
-    const { message, loading: delLoading } = useFetch(confirm === false ? '' : `http://localhost:8080/api/doctors/${delId}/${deleted}`,
+    const { message, loading: delLoading } = useFetch(confirm === false ? "" : `http://localhost:8080/api/doctors/${delId}/${deleted}`,
         confirm === false ? {} : {
-            method: 'DELETE',
+            method: "DELETE",
             headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                token: props.user.token,
-            })
+                "Content-Type": "application/json"
+            }
         })
     const handlePage = (page) => {
         setPage(page)
@@ -74,12 +67,14 @@ const DoctorList = (props) => {
     useEffect(() => {
         if (delLoading === false) {
             if (confirm === true) {
-                if (message === 'ok') {
-                    setShowSuccess(true)
+                if (message === "ok") {
+                    toast.success("Đã hủy kích hoạt bác sĩ thành công")
                     setDeleted(deleted + 1)
                 }
                 else {
-                    setShowDanger(true)
+                    toast.error(message === "server error!" ? "Lỗi Server"
+                        : message === "wrong verify" ? "Lỗi xác thực"
+                            : "Có lỗi xảy ra")
                 }
                 setConfirm(false)
             }
@@ -92,19 +87,6 @@ const DoctorList = (props) => {
                 setShow={setShowWarning}
                 handleYes={handleYes}
                 body="Bạn có chắc muốn hủy kích hoạt bác sĩ này không?" />
-            <Success
-                show={showSuccess}
-                setShow={setShowSuccess}
-                time={1000}
-                bodyAlign="text-center"
-                body="Đã hủy kích hoạt bác sĩ thành công!" />
-            <Danger
-                show={showDanger}
-                setShow={setShowDanger}
-                time={1000}
-                bodyAlign="text-center"
-                body={message === 'server error!' ? "Lỗi Server"
-                    : message === 'wrong verify' ? "Lỗi xác thực" : undefined} />
             <div className="doctor-list-title">
                 <Row className="">
                     <Col xs={2} className="d-flex justify-content-start">
@@ -189,10 +171,4 @@ const DoctorList = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user,
-    })
-}
-
-export default connect(mapStateToProps)(DoctorList)
+export default DoctorList

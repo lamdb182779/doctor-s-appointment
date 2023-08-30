@@ -6,11 +6,13 @@ import { Image, Button, Row, Col } from "react-bootstrap"
 
 import { useNavigate } from "react-router-dom"
 
-import { connect } from "react-redux"
+import { useSelector } from "react-redux"
 const NotPermission = (props) => {
     const navigate = useNavigate()
+
+    const user = useSelector(state => state.user)
     const handleHome = () => {
-        if (Object.keys(props.user).length === 0) {
+        if (Object.keys(user).length === 0) {
             navigate("/")
         } else {
             switch (props.user.table) {
@@ -55,10 +57,4 @@ const NotPermission = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user
-    })
-}
-
-export default connect(mapStateToProps)(NotPermission)
+export default NotPermission

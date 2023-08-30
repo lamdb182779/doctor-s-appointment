@@ -6,15 +6,16 @@ import notfound from "../../../assets/images/notfound.png"
 
 import { useNavigate } from "react-router-dom"
 
-import { connect } from "react-redux"
+import { useSelector } from "react-redux"
 
 const Notfound = (props) => {
+    const user = useSelector(state => state.user)
     const navigate = useNavigate()
     const handleHome = () => {
-        if (Object.keys(props.user).length === 0) {
+        if (Object.keys(user).length === 0) {
             navigate("/")
         } else {
-            switch (props.user.table) {
+            switch (user.table) {
                 case "Admins":
                     navigate("/admin")
                     break
@@ -34,7 +35,7 @@ const Notfound = (props) => {
     return (
         <div className="notfound-container d-grid gap-4">
             <Row className="notfound-image d-flex justify-content-center mt-5">
-                <Image className="h-auto w-25" src={notfound} alt='notfound' />
+                <Image className="h-auto w-25" src={notfound} alt="notfound" />
             </Row>
             <Row className="notfound-text fs-6 d-flex justify-content-center">
                 <b className="fs-5">Điều bạn cần tìm có lẽ không ở quanh đây</b>
@@ -51,10 +52,4 @@ const Notfound = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user
-    })
-}
-
-export default connect(mapStateToProps)(Notfound)
+export default Notfound

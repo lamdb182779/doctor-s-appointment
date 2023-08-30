@@ -10,11 +10,11 @@ import useFetch from "../../../custom/fetch"
 
 import ReactMarkdown from "react-markdown"
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faCalendarDays,
     faPenToSquare,
-} from '@fortawesome/free-solid-svg-icons'
+} from "@fortawesome/free-solid-svg-icons"
 import DoctorNotfound from "../../General/Notfound/DoctorNotfound"
 import Booking from "./Booking"
 
@@ -27,18 +27,18 @@ const Detail = (props) => {
     let { id } = useParams()
     const componentRef = useRef(null)
     const navigate = useNavigate()
-    const today = moment().startOf('day')
-    const [day, setDay] = useState(moment(today).add(1, 'days'))
+    const today = moment().startOf("day")
+    const [day, setDay] = useState(moment(today).add(1, "days"))
     const dayArray = [
-        moment(today).add(1, 'days'),
-        moment(today).add(2, 'days'),
-        moment(today).add(3, 'days'),
-        moment(today).add(4, 'days'),
-        moment(today).add(5, 'days'),
-        moment(today).add(6, 'days'),
-        moment(today).add(7, 'days'),
+        moment(today).add(1, "days"),
+        moment(today).add(2, "days"),
+        moment(today).add(3, "days"),
+        moment(today).add(4, "days"),
+        moment(today).add(5, "days"),
+        moment(today).add(6, "days"),
+        moment(today).add(7, "days"),
     ]
-    const [schedule, setSchedule] = useState({})
+    const [scheduleIndex, setScheduleIndex] = useState(-1)
 
     const [show, setShow] = useState(false)
     const handleShow = () => setShow(true)
@@ -82,7 +82,7 @@ const Detail = (props) => {
         <div className="detail-container p-5 fs-6 text-start">
             <Modal centered size="lg" show={show} onHide={handleClose}>
                 <Booking
-                    schedule={schedule}
+                    schedule={scheduleData[scheduleIndex]}
                     doctor={data[0]}
                     book={book}
                     setBook={setBook}
@@ -100,7 +100,7 @@ const Detail = (props) => {
                                 </Row>
                                 <Row className="detail-summary d-flex align-items-center">
                                     <Col xs={3}>
-                                        <Image src={data[0].image ? data[0].image : nullavatar} alt='avatar' roundedCircle width="250" height="250" />
+                                        <Image src={data[0].image ? data[0].image : nullavatar} alt="avatar" roundedCircle width="250" height="250" />
                                     </Col>
                                     <Col className="detail-describe">
                                         <b>Bác sĩ {data[0].name}</b>
@@ -116,12 +116,12 @@ const Detail = (props) => {
                                 <div className="detail-booking d-grid gap-3" ref={componentRef}>
                                     <Row className="detail-day">
                                         <Dropdown>
-                                            <Dropdown.Toggle variant="outline-success" >{day.format('dd, DD/MM/YYYY')}</Dropdown.Toggle>
+                                            <Dropdown.Toggle variant="outline-success" >{day.format("dd, DD/MM/YYYY")}</Dropdown.Toggle>
                                             <Dropdown.Menu >
                                                 {dayArray.map((item, index) => {
                                                     return (
                                                         <Dropdown.Item key={index}
-                                                            onClick={() => setDay(item)}>{item.format('dd, DD/MM/YYYY')}</Dropdown.Item>
+                                                            onClick={() => setDay(item)}>{item.format("dd, DD/MM/YYYY")}</Dropdown.Item>
                                                     )
                                                 })
                                                 }
@@ -145,7 +145,7 @@ const Detail = (props) => {
                                                                     {scheduleData.map((item, index) => {
                                                                         return (
                                                                             <Col className="mb-1" key={index} xs={3}>
-                                                                                <Button onClick={() => { setSchedule(item); handleShow() }}
+                                                                                <Button onClick={() => { setScheduleIndex(index); handleShow() }}
                                                                                     variant="outline-primary w-100">{time[item.time]}</Button>
                                                                             </Col>
                                                                         )
@@ -156,7 +156,7 @@ const Detail = (props) => {
                                                             :
                                                             <>
                                                                 <div className="fs-6 text-start">
-                                                                    Có vẻ vào {day.format('dddd - DD/MM/YYYY')} bác sĩ khá bận, hãy hẹn bác sĩ hôm khác nhé
+                                                                    Có vẻ vào {day.format("dddd - DD/MM/YYYY")} bác sĩ khá bận, hãy hẹn bác sĩ hôm khác nhé
                                                                 </div>
                                                             </>
                                                         }
@@ -181,7 +181,7 @@ const Detail = (props) => {
                             <OverlayTrigger
                                 placement="auto"
                                 overlay={renderBookingTooltip}>
-                                <div className="detail-to-order rounded-circle fs-4" onClick={() => componentRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
+                                <div className="detail-to-order rounded-circle fs-4" onClick={() => componentRef.current.scrollIntoView({ behavior: "smooth", block: "center" })}>
                                     <FontAwesomeIcon icon={faPenToSquare} />
                                 </div>
                             </OverlayTrigger>

@@ -1,5 +1,5 @@
 import "../../../styles/Guest/Home/Home.scss"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faMagnifyingGlass,
     faCalendarDays,
@@ -9,7 +9,7 @@ import {
     faHospital,
     faUserNurse,
     faTruckArrowRight
-} from '@fortawesome/free-solid-svg-icons'
+} from "@fortawesome/free-solid-svg-icons"
 
 import { useNavigate } from "react-router-dom"
 
@@ -31,11 +31,11 @@ const Home = (props) => {
 
     const handleClick = (id) => {
         setIndex(id)
-        componentRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        componentRef.current.scrollIntoView({ behavior: "smooth", block: "center" })
     }
 
     const handleSearch = (event) => {
-        if (search.trim() !== '' && event.key === 'Enter') {
+        if (search.trim() !== "" && event.key === "Enter") {
             let path = `/search?${search.trim()}`
             navigate(path)
             window.scrollTo(0, 0)
@@ -43,7 +43,7 @@ const Home = (props) => {
     }
 
     const [index, setIndex] = useState(0)
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState("")
     return (
         <div className="home-container">
             <div className="home-title p-5">
@@ -110,10 +110,10 @@ const Home = (props) => {
                     <Introduce index={index} setIndex={setIndex} showMore={handleShowMore} />
                 </Row>
                 <Row className="mt-5">
-                    <Slide showMore={handleShowMore} show={'/specialties'} />
+                    <Slide showMore={handleShowMore} show={"/specialties"} />
                 </Row>
                 <Row className="mt-5">
-                    <Slide showMore={handleShowMore} show={'/doctors'} />
+                    <Slide showMore={handleShowMore} show={"/doctors"} />
                 </Row>
             </div>
         </div>

@@ -3,8 +3,6 @@ import "../../styles/Admin/StaffAdd.scss"
 
 import { Row, Col, Form, Button, OverlayTrigger, Popover, FloatingLabel } from "react-bootstrap"
 
-import { connect } from "react-redux"
-
 import { useNavigate } from "react-router-dom"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -17,32 +15,28 @@ import {
     faSquare
 } from "@fortawesome/free-regular-svg-icons"
 import useFetch from "../../custom/fetch"
-import Danger from "../General/Dialog/Danger"
-import Success from "../General/Dialog/Success"
+
 import Warning from "../General/Dialog/Warning"
 
 import DatePicker from "react-datepicker"
 
 import "react-datepicker/dist/react-datepicker.css"
+import { toast } from "react-toastify"
 const StaffAdd = (props) => {
     const navigate = useNavigate()
 
-    const [name, setName] = useState('')
-    const [phone, setPhone] = useState('')
+    const [name, setName] = useState("")
+    const [phone, setPhone] = useState("")
     const [gender, setGender] = useState(null)
     const [doB, setDoB] = useState(new Date())
-    const [email, setEmail] = useState('')
-    const [address, setAddress] = useState('')
+    const [email, setEmail] = useState("")
+    const [address, setAddress] = useState("")
 
     const [isDoB, setIsDoB] = useState(false)
 
-    const [showDanger, setShowDanger] = useState(false)
-    const [showSuccess, setShowSuccess] = useState(false)
     const [showWarning, setShowWarning] = useState(false)
 
     const [add, setAdd] = useState(0)
-
-    const [isAnyBlank, setIsAnyBlank] = useState(null)
 
     const renderAddPopover = (props) => (
         <Popover id="change-popover" {...props}>
@@ -55,10 +49,10 @@ const StaffAdd = (props) => {
         </Popover>
     )
 
-    const { message, loading } = useFetch(add === 0 ? '' : `http://localhost:8080/api/staffs?${add}`, add === 0 ? {} : {
-        method: 'POST',
+    const { message, loading } = useFetch(add === 0 ? "" : `http://localhost:8080/api/staffs?${add}`, add === 0 ? {} : {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
             name: name.trim(),
@@ -67,15 +61,12 @@ const StaffAdd = (props) => {
             address: address.trim(),
             gender: gender,
             doB: doB,
-            token: props.user.token,
         })
     })
     const handleAdd = () => {
         if ([name.trim(), phone.trim(), email.trim(), address.trim()].includes("")) {
-            setIsAnyBlank(true)
-            setShowDanger(true)
+            toast.warning("Có thông tin cần thiết bị bỏ trống")
         } else {
-            setIsAnyBlank(false)
             setShowWarning(true)
         }
     }
@@ -87,11 +78,14 @@ const StaffAdd = (props) => {
     }
     useEffect(() => {
         if (loading === false && add !== 0) {
-            if (message === 'ok') {
-                setShowSuccess(true)
+            if (message === "ok") {
+                toast.success("Đã thêm thông tin nhân viên mới thành công!")
             }
             else {
-                setShowDanger(true)
+                toast.error(message === "server error!" ? "Lỗi Server"
+                    : message === "wrong verify" ? "Lỗi xác thực"
+                        : message === "duplicate email" ? "Email này đã tồn tại, vui lòng sử dụng email khác"
+                            : "Có lỗi xảy ra")
             }
         }
     }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
@@ -107,24 +101,6 @@ const StaffAdd = (props) => {
     )
     return (
         <div className="staff-add-container p-5">
-            <Danger
-                show={showDanger}
-                setShow={setShowDanger}
-                time={1000}
-                bodyAlign="text-center"
-                size={message === 'duplicate email' ? "nm" : "sm"}
-                body={
-                    isAnyBlank ? "Có thông tin cần thiết bị bỏ trống"
-                        : message === 'server error!' ? "Lỗi Server"
-                            : message === 'wrong verify' ? "Lỗi xác thực"
-                                : message === 'duplicate email' ? "Email này đã tồn tại, vui lòng sử dụng email khác" : undefined} />
-            <Success
-                show={showSuccess}
-                setShow={setShowSuccess}
-                time={1000}
-                size="nm"
-                bodyAlign="text-center"
-                body="Đã thêm thông tin nhân viên mới thành công!" />
             <Warning
                 show={showWarning}
                 setShow={setShowWarning}
@@ -264,10 +240,5 @@ const StaffAdd = (props) => {
         </div>
     )
 }
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user
-    })
-}
 
-export default connect(mapStateToProps)(StaffAdd)
+export default StaffAdd

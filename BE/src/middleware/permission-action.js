@@ -1,78 +1,87 @@
-const db = require('../models')
-const { verifyToken } = require('./jwt-action')
+const db = require("../models")
+const { verifyToken } = require("./jwt-action")
 
 const publicActions = [
     {
-        url: '/',
-        method: 'GET'
+        url: "/sse-endpoint",
+        method: "GET",
     },
     {
-        url: '/specialties',
-        method: 'GET'
+        url: "/",
+        method: "GET"
     },
     {
-        url: '/doctors/specialties',
-        method: 'GET'
+        url: "/specialties",
+        method: "GET"
     },
     {
-        url: '/doctors',
-        method: 'GET'
+        url: "/doctors/specialties",
+        method: "GET"
     },
     {
-        url: '/doctors/:id/:time',
-        method: 'GET'
+        url: "/doctors",
+        method: "GET"
     },
     {
-        url: '/home/doctors',
-        method: 'GET'
+        url: "/doctors/:id/:time",
+        method: "GET"
     },
     {
-        url: '/home/specialties',
-        method: 'GET'
+        url: "/home/doctors",
+        method: "GET"
     },
     {
-        url: '/login/checklogin',
-        method: 'POST'
+        url: "/home/specialties",
+        method: "GET"
     },
     {
-        url: '/login/findemail',
-        method: 'POST'
+        url: "/login/checklogin",
+        method: "POST"
     },
     {
-        url: '/login/sendverify',
-        method: 'POST'
+        url: "/login/findemail",
+        method: "POST"
     },
     {
-        url: '/search/:search',
-        method: 'GET'
+        url: "/login/sendverify",
+        method: "POST"
     },
     {
-        url: '/schedules',
-        method: 'GET'
+        url: "/search/:search",
+        method: "GET"
     },
     {
-        url: '/appointments',
-        method: 'POST'
+        url: "/schedules",
+        method: "GET"
     },
     {
-        url: '/deletetoken',
-        method: 'GET'
+        url: "/appointments",
+        method: "POST"
+    },
+    {
+        url: "/deletetoken",
+        method: "GET"
     },
 ]
-
+const guestActions = [
+    {
+        url: "/self",
+        method: "GET"
+    },
+]
 const checkAction = (path, method, permission) => {
-    path = path.replace(/\/{2,}/g, '/')
-    const pathSegments = path.split('/')
+    path = path.replace(/\/{2,}/g, "/")
+    const pathSegments = path.split("/")
     return permission.some((item) => {
         if (item.method === method) {
-            const patternSegments = item.url.split('/')
+            const patternSegments = item.url.split("/")
             if (patternSegments.length === pathSegments.length) {
                 let sameSegment = 0
                 for (let i = 0; i < patternSegments.length; i++) {
                     const patternSegment = patternSegments[i]
                     const pathSegment = pathSegments[i]
 
-                    if (patternSegment.startsWith(':')) {
+                    if (patternSegment.startsWith(":")) {
                         sameSegment++
                         continue
                     }
@@ -103,6 +112,8 @@ const checkToken = (req, res, next) => {
                     message: "wrong token"
                 })
             }
+        } else if (checkAction(req.path, req.method, guestActions)) {
+            next()
         } else {
             console.log("Cannot get token from cookies")
             return res.status(500).json({
@@ -135,7 +146,7 @@ const checkUserPermission = async (req, res, next) => {
                         where: {
                             roleId: role.id
                         },
-                        attributes: ['url', 'method']
+                        attributes: ["url", "method"]
                     })
                     permission = permission.map(item => item.dataValues)
                     if (checkAction(req.path, req.method, permission)) {
@@ -158,6 +169,8 @@ const checkUserPermission = async (req, res, next) => {
                     message: "server error!"
                 })
             }
+        } else if (checkAction(req.path, req.method, guestActions)) {
+            next()
         } else {
             console.log("No user role available")
             return res.status(500).json({

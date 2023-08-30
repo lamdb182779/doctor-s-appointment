@@ -3,40 +3,33 @@ import "../../styles/Admin/DoctorAdd.scss"
 
 import { Row, Col, Form, Button, OverlayTrigger, Popover } from "react-bootstrap"
 
-import { connect } from "react-redux"
-
 import ReactMarkdown from "react-markdown"
 import { useNavigate } from "react-router-dom"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-
 import {
     faUserPlus
 } from "@fortawesome/free-solid-svg-icons"
+
 import useFetch from "../../custom/fetch"
-import Danger from "../General/Dialog/Danger"
-import Success from "../General/Dialog/Success"
+
 import Warning from "../General/Dialog/Warning"
+import { toast } from "react-toastify"
 
 const DoctorAdd = (props) => {
     const navigate = useNavigate()
 
-    const [name, setName] = useState('')
-    const [phone, setPhone] = useState('')
-    const [email, setEmail] = useState('')
-    const [specialtyID, setSpecialtyID] = useState('')
-    const [address, setAddress] = useState('')
-    const [describe, setDescribe] = useState('')
-    const [price, setPrice] = useState('')
-    const [content, setContent] = useState('')
-
-    const [showDanger, setShowDanger] = useState(false)
-    const [showSuccess, setShowSuccess] = useState(false)
+    const [name, setName] = useState("")
+    const [phone, setPhone] = useState("")
+    const [email, setEmail] = useState("")
+    const [specialtyID, setSpecialtyID] = useState("")
+    const [address, setAddress] = useState("")
+    const [describe, setDescribe] = useState("")
+    const [price, setPrice] = useState("")
+    const [content, setContent] = useState("")
     const [showWarning, setShowWarning] = useState(false)
 
     const [add, setAdd] = useState(0)
-
-    const [isAnyBlank, setIsAnyBlank] = useState(null)
 
     const renderAddPopover = (props) => (
         <Popover id="change-popover" {...props}>
@@ -49,14 +42,13 @@ const DoctorAdd = (props) => {
         </Popover>
     )
 
-    const { data, loading: specialtiesLoading } = useFetch('http://localhost:8080/api/doctors/specialties')
-    const { message, loading } = useFetch(add === 0 ? '' : `http://localhost:8080/api/doctors?${add}`, add === 0 ? {} : {
-        method: 'POST',
+    const { data, loading: specialtiesLoading } = useFetch("http://localhost:8080/api/doctors/specialties")
+    const { message, loading } = useFetch(add === 0 ? "" : `http://localhost:8080/api/doctors?${add}`, add === 0 ? {} : {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            token: props.user.token,
             name: name.trim(),
             phoneNumber: phone.trim(),
             email: email.trim(),
@@ -69,10 +61,8 @@ const DoctorAdd = (props) => {
     })
     const handleAdd = () => {
         if ([name.trim(), phone.trim(), email.trim(), specialtyID, address.trim(), describe.trim(), price.trim()].includes("")) {
-            setIsAnyBlank(true)
-            setShowDanger(true)
+            toast.warning("Có thông tin cần thiết bị bỏ trống")
         } else {
-            setIsAnyBlank(false)
             setShowWarning(true)
         }
     }
@@ -84,34 +74,19 @@ const DoctorAdd = (props) => {
     }
     useEffect(() => {
         if (loading === false && add !== 0) {
-            if (message === 'ok') {
-                setShowSuccess(true)
+            if (message === "ok") {
+                toast.success("Đã thêm thông tin bác sĩ mới thành công!")
             }
             else {
-                setShowDanger(true)
+                toast.error(message === "server error!" ? "Lỗi Server"
+                    : message === "wrong verify" ? "Lỗi xác thực"
+                        : message === "duplicate email" ? "Email này đã tồn tại, vui lòng sử dụng email khác"
+                            : "Có lỗi xảy ra")
             }
         }
     }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div className="doctor-add-container p-5">
-            <Danger
-                show={showDanger}
-                setShow={setShowDanger}
-                time={1000}
-                bodyAlign="text-center"
-                size={message === 'duplicate email' ? "nm" : "sm"}
-                body={
-                    isAnyBlank ? "Có thông tin cần thiết bị bỏ trống"
-                        : message === 'server error!' ? "Lỗi Server"
-                            : message === 'wrong verify' ? "Lỗi xác thực"
-                                : message === 'duplicate email' ? "Email này đã tồn tại, vui lòng sử dụng email khác" : undefined} />
-            <Success
-                show={showSuccess}
-                setShow={setShowSuccess}
-                time={1000}
-                size="nm"
-                bodyAlign="text-center"
-                body="Đã thêm thông tin bác sĩ mới thành công!" />
             <Warning
                 show={showWarning}
                 setShow={setShowWarning}
@@ -356,10 +331,5 @@ const DoctorAdd = (props) => {
         </div>
     )
 }
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user
-    })
-}
 
-export default connect(mapStateToProps)(DoctorAdd)
+export default DoctorAdd

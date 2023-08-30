@@ -2,8 +2,6 @@ import "../../styles/Staff/Staff.scss"
 
 import useFetch from "../../custom/fetch"
 
-import { connect } from "react-redux"
-
 import nullavatar from "../../assets/images/nullavatarstaff.jpg"
 
 import { Row, Col, Image, Accordion, Table } from "react-bootstrap"
@@ -24,7 +22,7 @@ import moment from "moment"
 import "moment/locale/vi"
 
 const Staff = (props) => {
-    const { data, loading } = useFetch('http://localhost:8080/api/self/info')
+    const { data, loading } = useFetch("http://localhost:8080/api/self/info")
     return (
         <div className="staff-container px-5 py-5">
             {loading === false ?
@@ -61,7 +59,7 @@ const Staff = (props) => {
                                                             <Accordion.Body>
                                                                 <Row className="fs-5 text-dark d-grid gap-3">
                                                                     <Row className="">
-                                                                        <NavLink to='/staff/appointments' className="text-dark text-decoration-none">
+                                                                        <NavLink to="/staff/appointments" className="text-dark text-decoration-none">
                                                                             <FontAwesomeIcon icon={faTableList} size="xs" />
                                                                             &nbsp;Xem danh sách lịch hẹn &gt;&gt;&gt;
                                                                         </NavLink>
@@ -147,10 +145,4 @@ const Staff = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user,
-    })
-}
-
-export default connect(mapStateToProps)(Staff)
+export default Staff

@@ -1,20 +1,20 @@
-require('dotenv').config()
-const db = require('../models')
+require("dotenv").config()
+const db = require("../models")
 
-const bcrypt = require('bcryptjs')
+const bcrypt = require("bcryptjs")
 const salt = bcrypt.genSaltSync(parseInt(process.env.BCRYPT_SALT))
 
 const hiddenEmail = (email) => {
-    return email.replace(/^(.{3}).*(\d{2}@.*$)/, '$1****$2')
+    return email.replace(/^(.{3}).*(\d{2}@.*$)/, "$1****$2")
 }
 
 const hiddenPhoneNumber = (phoneNumber) => {
-    return phoneNumber.replace(/^(\d{3}).*(\d{2})$/, '$1****$2')
+    return phoneNumber.replace(/^(\d{3}).*(\d{2})$/, "$1****$2")
 }
 
 const toImage = (image) => {
     if (image) {
-        const imgBuffer = Buffer.from(image).toString('binary')
+        const imgBuffer = Buffer.from(image).toString("binary")
         return `data:image/jpg;base64,${imgBuffer}`
     }
     return ""
@@ -29,12 +29,12 @@ const changePw = async (req, res, next) => {
                 where: {
                     active: true
                 },
-                attributes: ['username']
+                attributes: ["username"]
             })
             if (info === null) {
-                console.log('Cannot get info')
+                console.log("Cannot get info")
                 res.return(500).json({
-                    message: 'server error!',
+                    message: "server error!",
                 })
             }
             let account = await db.Accounts.findByPk(info.username, {
@@ -43,9 +43,9 @@ const changePw = async (req, res, next) => {
                 }
             })
             if (account === null) {
-                console.log('Cannot get account')
+                console.log("Cannot get account")
                 res.return(500).json({
-                    message: 'server error!',
+                    message: "server error!",
                 })
             }
             try {
@@ -61,36 +61,35 @@ const changePw = async (req, res, next) => {
                             }
                         })
                         if (data === [0]) {
-                            console.log('no matching data.')
+                            console.log("no matching data.")
                             res.return(500).json({
-                                message: 'wrong verify',
+                                message: "wrong verify",
                             })
                         }
-                        console.log(data)
                         return res.status(200).json({
-                            message: 'ok',
+                            message: "ok",
                         })
                     } catch (error) {
-                        console.log('Cannot update data. Error: ', error)
+                        console.log("Cannot update data. Error: ", error)
                         return res.status(500).json({
-                            message: 'server error!'
+                            message: "server error!"
                         })
                     }
                 }
-                console.log('Password isnot match')
+                console.log("Password isnot match")
                 return res.status(500).json({
-                    message: 'wrong password'
+                    message: "wrong password"
                 })
             } catch (error) {
-                console.log('bcrypt compare password error: ', error)
+                console.log("bcrypt compare password error: ", error)
                 return res.status(500).json({
-                    message: 'server error!'
+                    message: "server error!"
                 })
             }
         } catch (error) {
-            console.log('Cannot get data, Error:', error)
+            console.log("Cannot get data, Error:", error)
             return res.status(500).json({
-                message: 'server error!'
+                message: "server error!"
             })
         }
     }
@@ -105,7 +104,7 @@ const getInfo = async (req, res, next) => {
                     active: true
                 },
                 attributes: {
-                    exclude: ['id', 'table', 'createdAt', 'updatedAt', 'username', 'active']
+                    exclude: ["id", "table", "createdAt", "updatedAt", "username", "active"]
                 }
             })
             if (info.image) {
@@ -118,13 +117,13 @@ const getInfo = async (req, res, next) => {
                 info.email = hiddenEmail(info.email)
             }
             return res.status(200).json({
-                message: 'ok',
+                message: "ok",
                 data: [info]
             })
         } catch (error) {
-            console.log('Cannot get info user. Error: ', error)
+            console.log("Cannot get info user. Error: ", error)
             return res.status(500).json({
-                message: 'server error!'
+                message: "server error!"
             })
         }
     }
@@ -138,10 +137,10 @@ const getQI = async (req, res, next) => {
                 where: {
                     active: true
                 },
-                attributes: ['id', 'table', 'name']
+                attributes: ["id", "table", "name"]
             })
             return res.status(200).json({
-                message: 'ok',
+                message: "ok",
                 data: [{
                     id: info.id,
                     table: info.table,
@@ -149,9 +148,9 @@ const getQI = async (req, res, next) => {
                 }]
             })
         } catch (error) {
-            console.log('Cannot get query info. Error: ', error)
+            console.log("Cannot get query info. Error: ", error)
             return res.status(500).json({
-                message: 'server error!'
+                message: "server error!"
             })
         }
     }

@@ -1,18 +1,18 @@
 import "../../../styles/Guest/Home/Introduce.scss"
 
-import { Carousel, Col, Row } from 'react-bootstrap'
+import { Carousel, Col, Row } from "react-bootstrap"
 
-import appointment from '../../../assets/images/appointment.jpg'
-import takecare from '../../../assets/images/take-care.jpg'
-import specialties from '../../../assets/images/specialties.jpg'
-import nowinfor from '../../../assets/images/now-infor.jpg'
-import contact from '../../../assets/images/contact.jpg'
-import online from '../../../assets/images/online.jpg'
-import coop from '../../../assets/images/cooperation.jpg'
+import appointment from "../../../assets/images/appointment.jpg"
+import takecare from "../../../assets/images/take-care.jpg"
+import specialties from "../../../assets/images/specialties.jpg"
+import nowinfor from "../../../assets/images/now-infor.jpg"
+import contact from "../../../assets/images/contact.jpg"
+import online from "../../../assets/images/online.jpg"
+import coop from "../../../assets/images/cooperation.jpg"
 
 const Introduce = (props) => {
     return (
-        <div className='intro-container' >
+        <div className="intro-container" >
             <div className="intro-title">
                 <b>Về chúng tôi</b>
             </div>
@@ -76,7 +76,7 @@ const Introduce = (props) => {
                             <p>Với Doctor Booking, việc thao tác cực kỳ đơn giản.</p>
                             <p>Đặt lịch khám bệnh nhanh chóng, tiện lợi với trang web của chúng tôi.</p>
                             <p>Mau chóng chọn bác sĩ phù hợp và hẹn trước.</p>
-                            <p style={{ cursor: "pointer" }} onClick={() => props.showMore('/doctors')}>Đặt lịch ngay &gt;&gt;&gt;</p>
+                            <p style={{ cursor: "pointer" }} onClick={() => props.showMore("/doctors")}>Đặt lịch ngay &gt;&gt;&gt;</p>
                         </Carousel.Item>
                         <Carousel.Item>
                             <p>Doctor Booking cung cấp cho bạn nhiều tiện ích với sự chăm sóc tận tình.</p>
@@ -87,7 +87,7 @@ const Introduce = (props) => {
                         <Carousel.Item >
                             <p>Quy tụ rất nhiều bác sĩ hàng đầu thuộc đầy đủ các chuyên khoa.</p>
                             <p>Cung cấp đầy đủ các chuyên khoa bệnh khác nhau.</p>
-                            <p style={{ cursor: "pointer" }} onClick={() => props.showMore('/specialties')}>Tìm hiểu ngay các chuyên khoa &gt;&gt;&gt;</p>
+                            <p style={{ cursor: "pointer" }} onClick={() => props.showMore("/specialties")}>Tìm hiểu ngay các chuyên khoa &gt;&gt;&gt;</p>
                         </Carousel.Item>
                         <Carousel.Item >
                             <p>Lịch hẹn liên tục cập nhật.</p>

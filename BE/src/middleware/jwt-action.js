@@ -1,5 +1,5 @@
-require('dotenv').config()
-const jwt = require('jsonwebtoken')
+require("dotenv").config()
+const jwt = require("jsonwebtoken")
 
 const createJWT = (payload) => {
     let key = process.env.JWT_SECRET
@@ -10,7 +10,7 @@ const createJWT = (payload) => {
         let token = jwt.sign(payload, key, expires)
         return token
     } catch (error) {
-        console.log('CreateJWT Error: ', error)
+        console.log("CreateJWT Error: ", error)
         return null
     }
 }
@@ -21,7 +21,7 @@ const verifyToken = (token) => {
         let decoded = jwt.verify(token, key)
         return decoded
     } catch (error) {
-        console.log('VerifyToken Error: ', error)
+        console.log("VerifyToken Error: ", error)
         return null
     }
 }

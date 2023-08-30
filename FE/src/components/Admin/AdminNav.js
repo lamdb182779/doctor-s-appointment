@@ -4,12 +4,15 @@ import { NavLink, useNavigate } from "react-router-dom"
 
 import { Button } from "react-bootstrap"
 
-import { connect } from "react-redux"
 import useFetch from "../../custom/fetch"
+import useUser from "../../custom/user"
+
 import { useEffect, useState } from "react"
+
 const AdminNav = (props) => {
+    const { clearUser } = useUser()
     const [isLogout, setIsLogout] = useState(false)
-    const { loading } = useFetch(isLogout ? 'http://localhost:8080/api/deletetoken' : '')
+    const { loading } = useFetch(isLogout ? "http://localhost:8080/api/deletetoken" : "")
     const navigate = useNavigate()
     const handleClick = () => {
         props.handleClose()
@@ -24,8 +27,8 @@ const AdminNav = (props) => {
     }
     useEffect(() => {
         if (loading === false && isLogout === true) {
-            props.setUser({})
-            navigate('/')
+            clearUser()
+            navigate("/")
             props.handleClose()
         }
     }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
@@ -36,10 +39,10 @@ const AdminNav = (props) => {
                     <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" end to="/admin">Trang chủ</NavLink>
                 </div>
                 <div className="admin-nav-staffs mb-1 rounded" onClick={() => handleClick("/specialties")}>
-                    <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" to="/admin/staff-list" exact>Quản lý nhân viên</NavLink>
+                    <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" to="/admin/staff" >Quản lý nhân viên</NavLink>
                 </div>
                 <div className="admin-nav-doctors mb-1 rounded" onClick={() => handleClick("/doctors")}>
-                    <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" to="/admin/doctor-list" exact>Quản lý bác sĩ</NavLink>
+                    <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" to="/admin/doctor" >Quản lý bác sĩ</NavLink>
                 </div>
             </div >
 
@@ -53,16 +56,4 @@ const AdminNav = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        user: state.user
-    })
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return ({
-        setUser: (user) => dispatch({ type: 'SET_USER', payload: user }),
-    })
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AdminNav)
+export default AdminNav

@@ -1,8 +1,8 @@
-const db = require('../models')
+const db = require("../models")
 
-require('dotenv').config()
+require("dotenv").config()
 
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
 
 const deactivateAccount = async (req, res, next) => {
     let user = req.person
@@ -15,17 +15,17 @@ const deactivateAccount = async (req, res, next) => {
                 }
             })
             if (deactivate === [0]) {
-                console.log('No matching account.')
+                console.log("No matching account.")
                 return res.status(500).json({
-                    message: 'wrong username',
+                    message: "wrong username",
                 })
             } else {
                 next()
             }
         } catch (error) {
-            console.log('Cannot deactivate account. Error: ', error)
+            console.log("Cannot deactivate account. Error: ", error)
             return res.status(500).json({
-                message: 'server error!'
+                message: "server error!"
             })
         }
     }
@@ -36,12 +36,12 @@ const createAccount = async (req, res, next) => {
     if (account) {
         await db.Accounts.create(account).then(() => {
             return res.status(200).json({
-                message: 'ok'
+                message: "ok"
             })
         }).catch((error) => {
-            console.log('Cannot create account. Error: ', error)
+            console.log("Cannot create account. Error: ", error)
             return res.status(500).json({
-                message: 'server error!'
+                message: "server error!"
             })
         })
     }
@@ -56,14 +56,14 @@ const checkUsername = async (req, res, next) => {
             }, include: [
                 {
                     model: db.Roles,
-                    attributes: ['role']
+                    attributes: ["role"]
                 }
             ]
         })
         if (account === null) {
-            console.log('Username donot exist')
+            console.log("Username donot exist")
             return res.status(500).json({
-                message: 'wrong username'
+                message: "wrong username"
             })
         } else {
             req.account = account
@@ -72,7 +72,7 @@ const checkUsername = async (req, res, next) => {
     } catch (error) {
         console.log("Cannot check username. Error: ", error)
         return res.status(500).json({
-            message: 'server error!'
+            message: "server error!"
         })
     }
 }
@@ -86,15 +86,15 @@ const checkPassword = async (req, res, next) => {
             if (compare) {
                 next()
             } else {
-                console.log('Password isnot match')
+                console.log("Password isnot match")
                 return res.status(500).json({
-                    message: 'wrong password'
+                    message: "wrong password"
                 })
             }
         } catch (error) {
-            console.log('Bcrypt compare password error: ', error)
+            console.log("Bcrypt compare password error: ", error)
             return res.status(500).json({
-                message: 'server error!'
+                message: "server error!"
             })
         }
     }

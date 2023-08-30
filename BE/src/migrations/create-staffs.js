@@ -1,8 +1,8 @@
-'use strict';
-/** @type {import('sequelize-cli').Migration} */
+"use strict";
+/** @type {import("sequelize-cli").Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Staffs', {
+    await queryInterface.createTable("Staffs", {
       id: {
         allowNull: false,
         primaryKey: true,
@@ -35,7 +35,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       image: {
-        type: Sequelize.BLOB('long')
+        type: Sequelize.BLOB("long")
       },
       active: {
         allowNull: false,
@@ -52,6 +52,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Staffs');
+    await queryInterface.dropTable("Staffs");
   }
 };
