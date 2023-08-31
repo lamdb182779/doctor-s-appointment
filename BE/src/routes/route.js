@@ -31,6 +31,18 @@ const route = (app) => {
             message: "ok"
         })
     })
+    router.get("/checktoken", (req, res, next) => {
+        let cookies = req.cookies
+        if (cookies?.token) {
+            return res.status(200).json({
+                message: "token exist"
+            })
+        } else {
+            return res.status(200).json({
+                message: "no token"
+            })
+        }
+    })
     router.get("/", getInfoApp)
     return app.use("/api", router)
 }

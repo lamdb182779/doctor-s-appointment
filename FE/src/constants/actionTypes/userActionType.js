@@ -1,2 +1,3 @@
 export const SET_USER = "SET_USER"
 export const CLEAR_USER = "CLEAR_USER"
+export const LOAD_USER_FROM_STORAGE = "UPDATE_USER_FROM_STORAGE"

@@ -49,6 +49,7 @@ import "react-toastify/dist/ReactToastify.css"
 
 import useFetch from "../../custom/fetch";
 import useUser from "../../custom/user";
+import NavigateRoles from "./NavigateRoles";
 const App = (props) => {
   const user = useSelector(state => state.user)
   const { setUser, clearUser } = useUser()
@@ -84,38 +85,35 @@ const App = (props) => {
     }
   }
 
-  useEffect(() => {
-
-  }, [])// eslint-disable-line react-hooks/exhaustive-deps
-
-  const { data, loading, message } = useFetch("http://localhost:8080/api/self")
-  useEffect(() => {
-    if (loading === false && message !== "") {
-      switch (message) {
-        case "ok":
-          setUser(data[0])
-          break
-        case "missing token":
-          clearUser()
-          break
-        case "wrong token":
-          clearUser()
-          break
-        case "wrong table":
-          clearUser()
-          break
-        case "access denied":
-          break
-        default: break
-      }
-    }
-  }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
-  if (loading === true) {
-    return <></>
-  }
+  // const { data, loading, message } = useFetch("http://localhost:8080/api/self")
+  // useEffect(() => {
+  //   if (loading === false && message !== "") {
+  //     switch (message) {
+  //       case "ok":
+  //         setUser(data[0])
+  //         break
+  //       case "missing token":
+  //         clearUser()
+  //         break
+  //       case "wrong token":
+  //         clearUser()
+  //         break
+  //       case "wrong table":
+  //         clearUser()
+  //         break
+  //       case "access denied":
+  //         break
+  //       default: break
+  //     }
+  //   }
+  // }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
+  // if (loading === true) {
+  //   return <></>
+  // }
   return (
     <BrowserRouter>
       <div className="App">
+        <NavigateRoles />
         <Offcanvas show={showCanvas} onHide={handleCloseCanvas} scroll={true} style={{ transition: "transform 0.5s ease-in-out" }}>
           <Offcanvas.Header>
             <Offcanvas.Title>

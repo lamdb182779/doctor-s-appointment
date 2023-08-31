@@ -62,12 +62,12 @@ const publicActions = [
         url: "/deletetoken",
         method: "GET"
     },
-]
-const guestActions = [
     {
-        url: "/self",
+        url: "/checktoken",
         method: "GET"
     },
+]
+const guestActions = [
 ]
 const checkAction = (path, method, permission) => {
     path = path.replace(/\/{2,}/g, "/")

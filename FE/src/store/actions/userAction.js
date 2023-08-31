@@ -1,4 +1,8 @@
-import { SET_USER, CLEAR_USER } from "../../constants/actionTypes/userActionType"
+import {
+    SET_USER,
+    CLEAR_USER,
+    LOAD_USER_FROM_STORAGE
+} from "../../constants/actionTypes/userActionType"
 
 export const setUserState = (user) => {
     return {
@@ -10,5 +14,11 @@ export const setUserState = (user) => {
 export const clearUserState = () => {
     return {
         type: CLEAR_USER,
+    }
+}
+
+export const loadUserFromStorage = () => {
+    return {
+        type: LOAD_USER_FROM_STORAGE,
     }
 }

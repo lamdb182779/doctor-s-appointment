@@ -129,39 +129,7 @@ const getInfo = async (req, res, next) => {
     }
 }
 
-const getQI = async (req, res, next) => {
-    let user = req.user
-    if (user) {
-        try {
-            let info = await db[user.table].findByPk(user.id, {
-                where: {
-                    active: true
-                },
-                attributes: ["id", "table", "name"]
-            })
-            return res.status(200).json({
-                message: "ok",
-                data: [{
-                    id: info.id,
-                    table: info.table,
-                    name: info.name
-                }]
-            })
-        } catch (error) {
-            console.log("Cannot get query info. Error: ", error)
-            return res.status(500).json({
-                message: "server error!"
-            })
-        }
-    }
-    // console.log("Something wrong. Please check the previous step")
-    return res.status(200).json({
-        message: ""
-    })
-}
-
 module.exports = {
     changePw,
     getInfo,
-    getQI
 }

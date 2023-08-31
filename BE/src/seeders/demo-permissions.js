@@ -36,13 +36,6 @@ module.exports = {
             },
             {
                 roleId: 1,
-                url: "/self",
-                method: "GET",
-                createdAt: new Date(),
-                updatedAt: new Date()
-            },
-            {
-                roleId: 1,
                 url: "/self/changepw",
                 method: "POST",
                 createdAt: new Date(),
@@ -127,22 +120,8 @@ module.exports = {
             },
             {
                 roleId: 2,
-                url: "/self",
-                method: "GET",
-                createdAt: new Date(),
-                updatedAt: new Date()
-            },
-            {
-                roleId: 2,
                 url: "/self/changepw",
                 method: "POST",
-                createdAt: new Date(),
-                updatedAt: new Date()
-            },
-            {
-                roleId: 3,
-                url: "/self",
-                method: "GET",
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
