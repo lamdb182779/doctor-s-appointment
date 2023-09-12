@@ -34,7 +34,7 @@
 
     // box-shadow                : 0 2px 4px rgba(0, 0, 0, 0.2)
     .left-nav,
-    .right-nav,
+    .right-content,
     .main-element {
       border-radius: 10px;
       margin-inline: 1rem;
@@ -53,6 +53,13 @@
 
     .main-element {
       background-color: rgba(255, 255, 255, 0.97);
+    }
+
+    .right-content {
+      background-color: rgba(255, 255, 255, 0.97);
+      position        : sticky;
+      top             : 7rem;
+      right           : 0;
     }
   }
 
