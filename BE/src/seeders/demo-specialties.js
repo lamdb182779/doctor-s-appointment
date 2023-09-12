@@ -1,22 +1,28 @@
 "use strict";
+require("dotenv").config()
 const path = require("path")
 const fs = require("fs");
 
-const folderPath = path.join(__dirname, "../../../image_seeders/Specialties")
+// const folderPath = path.join(__dirname, "../../../image_seeders/Specialties")
 
-const toBase64 = (img) => {
-  return new Promise((resolve, reject) => {
-    const imagePath = path.join(folderPath, img)
-    const imageBuffer = fs.readFileSync(imagePath)
-    const imageBase64 = imageBuffer.toString("base64")
-    if (imageBase64) {
-      resolve(imageBase64)
-    } else {
-      reject("Error: Failed to convert image to base64")
-    }
-  })
+// const toBase64 = (img) => {
+//   return new Promise((resolve, reject) => {
+//     const imagePath = path.join(folderPath, img)
+//     const imageBuffer = fs.readFileSync(imagePath)
+//     const imageBase64 = imageBuffer.toString("base64")
+//     if (imageBase64) {
+//       resolve(imageBase64)
+//     } else {
+//       reject("Error: Failed to convert image to base64")
+//     }
+//   })
+// }
+
+const url = process.env.CLOUDINARY_PATH + "/Specialties/"
+
+const toUrl = (img) => {
+  return (url + img + ".png")
 }
-
 
 /** @type {import("sequelize-cli").Migration} */
 module.exports = {
@@ -42,7 +48,7 @@ module.exports = {
 -   Viêm cơ, teo cơ, chứng đau mỏi cơ, yếu cơ, Loạn dưỡng cơ
 -   Các chấn thương về cơ, xương, khớp
 -   ...`,
-        image: await toBase64("01Musculoskeletal.png"),
+        image: toUrl("01Musculoskeletal.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -56,7 +62,7 @@ module.exports = {
 -   Bị tê bì nửa mặt, chèn dây thần kinh, bồn chồn, lo lắng, hồi hộp, chân tay run
 -   Có dấu hiệu tăng động, co rút cổ, đau đầu với mặt, chân tay, vã mồ hôi
 -   ...`,
-        image: await toBase64("02Neurology.png"),
+        image: toUrl("02Neurology.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -72,7 +78,7 @@ module.exports = {
 -   Viêm đại tràng, dạ dày, tá tràng, ung thư dạ dày, u nang tuyến tụy
 -   Bệnh lý về gan, mật
 -   ...`,
-        image: await toBase64("03Digestion.png"),
+        image: toUrl("03Digestion.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -86,7 +92,7 @@ module.exports = {
 -   Cảm giác hồi hộp, tim đập nhanh
 -   Tim bẩm sinh, có tiền sử bệnh tim to, tiền sử tai biến, đã đặt stent tim, nong động mạch vành
 -   ...`,
-        image: await toBase64("04Heart.png"),
+        image: toUrl("04Heart.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -100,7 +106,7 @@ module.exports = {
 -   Đau cổ họng, khó nuốt, ho kéo dài
 -   Ngủ ngáy
 -   ...`,
-        image: await toBase64("05Otolaryngologist.png"),
+        image: toUrl("05Otolaryngologist.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -113,7 +119,7 @@ module.exports = {
 -   Bệnh lý tim mạch: Tăng huyết áp, huyết áp thấp, đau thắt ngực...
 -   Bệnh lý đường tiêu hóa: đau bụng, rối loạn chức năng tiêu hóa...
 -   ...`,
-        image: await toBase64("06Traditional medicine.png"),
+        image: toUrl("06Traditional medicine.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -130,7 +136,7 @@ module.exports = {
 -   Loạn dưỡng vú, rong kinh kéo dài, u xơ tử cung, viêm lộ tuyến
 -   Thai lưu
 -   ...`,
-        image: await toBase64("07Obstetrics and Gynecology.png"),
+        image: toUrl("07Obstetrics and Gynecology.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -148,7 +154,7 @@ module.exports = {
 -   Bệnh ngoài da
 -   Bệnh xương khớp
 -   ...`,
-        image: await toBase64("08Pediatrics.png"),
+        image: toUrl("08Pediatrics.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -164,7 +170,7 @@ module.exports = {
 -   Viêm da dị ứng, Viêm da tiếp xúc, Viêm da tiết bã, viêm nang lông, xơ cứng bì
 -   Zona thần kinh
 -   ...`,
-        image: await toBase64("09Dermatology.png"),
+        image: toUrl("09Dermatology.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -187,7 +193,7 @@ module.exports = {
 -   Rối loạn giấc ngủ
 -   Sợ hãi, Sợ một mình, Sợ nơi đông người
 -   Xa lánh mọi người, Ý nghĩ kì lạ`,
-        image: await toBase64("10Mental Health.png"),
+        image: toUrl("10Mental Health.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -205,7 +211,7 @@ module.exports = {
 -   Viêm da cơ, viêm đa cơ, Bệnh mô liên kết hỗn hợp
 -   Hội chứng kháng Phospholipid
 -   Viêm mạch Schoenlein-Henoch, Viêm gan tự miễn`,
-        image: await toBase64("11Allergy Immunity.png"),
+        image: toUrl("11Allergy Immunity.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -219,7 +225,7 @@ module.exports = {
 -   COPD
 -   Các bệnh Phổi nghề nghiệp
 -   Các bệnh hô hấp`,
-        image: await toBase64("12Respiratory.png"),
+        image: toUrl("12Respiratory.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -247,7 +253,7 @@ module.exports = {
 -   Dịch kính võng mạc
 -   Bong võng mạc
 -   Bệnh thoái hóa hoàng điểm tuổi già`,
-        image: await toBase64("13Ophthalmology.png"),
+        image: toUrl("13Ophthalmology.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -263,7 +269,7 @@ module.exports = {
 -   Ung thư bàng quang 
 -   Sỏi bàng quang, sỏi thận
 -   Vôi hóa tuyến tiền liệt`,
-        image: await toBase64("14Nephrology.png"),
+        image: toUrl("14Nephrology.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -277,7 +283,7 @@ module.exports = {
 -   Bọc răng sứ, dán sứ Veneer
 -   Làm răng giả
 -   Niềng răng (nắn chỉnh răng)`,
-        image: await toBase64("15Dentist.png"),
+        image: toUrl("15Dentist.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -291,7 +297,7 @@ module.exports = {
 -   Tăng đường huyết bệnh tiểu đường
 -   Tiền tiểu đường, tiểu đường, tiểu đường tuýp 1, 2
 -   Ung thư tuyến giáp`,
-        image: await toBase64("16Endocrinology.png"),
+        image: toUrl("16Endocrinology.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -309,7 +315,7 @@ module.exports = {
 -   Điều trị trật khớp háng, điều trị trẻ vẹo cổ, thắt lưng
 -   Mất giọng, khàn tiếng sau cắt, phẫu thuật thanh quản, giọng nhi hoá, rối loạn giọng, thất ngôn sau tai biến mạch máu não
 -   Điều trị trẻ mắc Down, chữa trẻ chậm phát triển trí tuệ `,
-        image: await toBase64("17Recovery.png"),
+        image: toUrl("17Recovery.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -323,7 +329,7 @@ module.exports = {
 -   Sẹo lõm: Tổn thương lõm sâu xuống dưới bề mặt da, màu đậm hoặc cùng màu da, không đau. Sẹo đáy nhọn, sẹo đáy hộp, sẹo đáy tròn
 -   Sẹo lồi: Tổn thương nổi gồ trên bề mặt da, không đau, màu trùng màu da hoặc đậm hơn
 -   Lão hóa da: Da bị chảy xệ, trùng nhão không được săn chắc. Nhiều nếp nhăn vùng trán, đuôi mắt, rãnh mũi má`,
-        image: await toBase64("18Cosmetic surgery.png"),
+        image: toUrl("18Cosmetic surgery.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -339,7 +345,7 @@ module.exports = {
 -   Giang mai, lậu 
 -   Sởi, tả, thủy đậu, tay chân miệng, tiêu chảy cấp
 -   Uốn ván, viêm màng não mô cầu`,
-        image: await toBase64("19Infectious disease.png"),
+        image: toUrl("19Infectious disease.png"),
         createdAt: new Date(),
         updatedAt: new Date()
       }

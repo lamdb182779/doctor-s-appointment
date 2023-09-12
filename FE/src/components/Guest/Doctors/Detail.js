@@ -7,6 +7,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { useRef, useState } from "react"
 
 import useFetch from "../../../custom/fetch"
+import useUtil from "../../../custom/utils"
 
 import ReactMarkdown from "react-markdown"
 
@@ -26,7 +27,7 @@ import "moment/locale/vi"
 const Detail = (props) => {
     let { id } = useParams()
     const componentRef = useRef(null)
-    const navigate = useNavigate()
+    const { handleNavigate } = useUtil()
     const today = moment().startOf("day")
     const [day, setDay] = useState(moment(today).add(1, "days"))
     const dayArray = [
@@ -45,7 +46,7 @@ const Detail = (props) => {
     const handleClose = () => setShow(false)
 
     const handleBack = () => {
-        navigate(-1)
+        handleNavigate(-1)
     }
 
     const { data, loading } = useFetch(`http://localhost:8080/api/doctors/${id}/1`)

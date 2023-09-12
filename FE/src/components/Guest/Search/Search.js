@@ -6,11 +6,12 @@ import { Button, Col, Form, Row, Spinner, Card } from "react-bootstrap"
 import { useNavigate, useLocation } from "react-router-dom"
 
 import useFetch from "../../../custom/fetch"
+import useUtil from "../../../custom/utils"
 import { ReactMarkdown } from "react-markdown/lib/react-markdown"
 import Page from "../../General/Page/Page"
 
 const Search = (props) => {
-    const navigate = useNavigate()
+    const { handleNavigate } = useUtil()
     const location = useLocation()
     const componentRef = useRef(null)
 
@@ -20,28 +21,26 @@ const Search = (props) => {
 
     const handleSearch = () => {
         let path = `/search?${search.trim()}`
-        navigate(path)
+        handleNavigate(path)
     }
 
     const handleBack = () => {
-        navigate(-1)
+        handleNavigate(-1)
     }
 
     const handleSpecialtyDoctors = (id) => {
         let path = `/doctors?specialtyID=${id}`
-        navigate(path)
-        window.scrollTo(0, 0);
+        handleNavigate(path)
     }
 
     const handleDoctor = (id) => {
         let path = `/doctors/${id}`
-        navigate(path)
-        window.scrollTo(0, 0);
+        handleNavigate(path)
     }
 
     const handlePage = (page) => {
         let path = `/search?${location.search.substring(1)}`
-        navigate(path)
+        handleNavigate(path)
         componentRef.current.scrollIntoView({ behavior: "smooth" })
     }
 
@@ -63,7 +62,7 @@ const Search = (props) => {
                                     aria-label="Search"
                                     value={search}
                                     placeholder="Nhập từ khóa (ngắn gọn). Ví dụ: lưng, Thu Hà, Ba Đình, ..."
-                                    onChange={(event) => setSearch(event.target.value)} />
+                                    onChange={event => setSearch(event.target.value)} />
                             </Col>
                             <Col xs={2}>
                                 <Button onClick={() => handleSearch()} className="w-100" variant="success">Tìm kiếm</Button>

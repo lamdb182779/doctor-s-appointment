@@ -1,16 +1,5 @@
 .login-container {
-    .login-title {
-        margin-top : -2%;
-        font-weight: 500;
-    }
-
-    .login-content {
-        margin-top: 3%;
-
-        form {
-            >div {
-                margin-top: 3%;
-            }
-        }
+    .form-check-input {
+        border: 2px solid gray;
     }
 }

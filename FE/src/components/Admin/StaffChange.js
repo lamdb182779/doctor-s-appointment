@@ -119,7 +119,7 @@ const StaffChange = (props) => {
                             trigger="click"
                             placement="auto"
                             overlay={renderAvatar}>
-                            <Image onClick={(event) => event.target.click()} className="w-100 h-auto" src={data.image ? data.image : nullavatar} alt="avatar" roundedCircle />
+                            <Image onClick={event => event.target.click()} className="w-100 h-auto" src={data.image ? data.image : nullavatar} alt="avatar" roundedCircle />
                         </OverlayTrigger>
                     </Col>
                 </Row>
@@ -129,7 +129,7 @@ const StaffChange = (props) => {
                             <Form.Control
                                 type="text"
                                 value={name}
-                                onChange={(event) => setName(event.target.value)} />
+                                onChange={event => setName(event.target.value)} />
                         </FloatingLabel>
                     </Col>
                     <Col xs={4}>
@@ -183,7 +183,7 @@ const StaffChange = (props) => {
                             <Form.Control
                                 type="text"
                                 value={phone}
-                                onChange={(event) => setPhone(event.target.value)} />
+                                onChange={event => setPhone(event.target.value)} />
                         </FloatingLabel>
                     </Col>
                     <Col xs={6}>
@@ -191,7 +191,7 @@ const StaffChange = (props) => {
                             <Form.Control
                                 type="text"
                                 value={email}
-                                onChange={(event) => setEmail(event.target.value)} />
+                                onChange={event => setEmail(event.target.value)} />
                         </FloatingLabel>
                     </Col>
                 </Row>
@@ -201,7 +201,7 @@ const StaffChange = (props) => {
                             <Form.Control
                                 type="text"
                                 value={address}
-                                onChange={(event) => setAddress(event.target.value)} />
+                                onChange={event => setAddress(event.target.value)} />
                         </FloatingLabel>
                     </Col>
                 </Row>

@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     address: DataTypes.STRING,
     username: DataTypes.STRING,
-    image: DataTypes.BLOB("long"),
+    image: DataTypes.STRING,
     active: DataTypes.BOOLEAN,
     table: {
       type: DataTypes.VIRTUAL,

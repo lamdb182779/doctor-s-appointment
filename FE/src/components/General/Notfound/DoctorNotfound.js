@@ -5,9 +5,10 @@ import notfound from "../../../assets/images/doctor-notfound.png"
 import { Image, Button, Row, Col } from "react-bootstrap"
 
 import { useNavigate } from "react-router-dom"
+import useUtil from "../../../custom/utils"
 
 const DoctorNotfound = (props) => {
-    const navigate = useNavigate()
+    const { handleNavigate } = useUtil()
 
     return (
         <Col className="doctor-notfound-container d-grid gap-4">
@@ -22,12 +23,12 @@ const DoctorNotfound = (props) => {
             <Row className="doctor-notfound-button">
                 <Row>
                     <Col className=" d-flex justify-content-center">
-                        <Button variant="primary" onClick={() => navigate("/")}>Trở về trang chủ</Button>
+                        <Button variant="primary" onClick={() => handleNavigate("/")}>Trở về trang chủ</Button>
                     </Col>
                 </Row>
                 <Row>
                     <Col className=" d-flex justify-content-center">
-                        <Button variant="outline-link" onClick={() => navigate(-1)}>Quay lại trang trước</Button>
+                        <Button variant="outline-link" onClick={() => handleNavigate(-1)}>Quay lại trang trước</Button>
                     </Col>
                 </Row>
             </Row>

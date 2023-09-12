@@ -5,7 +5,7 @@ import {
 } from "../../constants/actionTypes/userActionType";
 
 const storage = localStorage.getItem("user")
-const initialState = storage === undefined ? {} : JSON.parse(storage)
+const initialState = !storage ? {} : JSON.parse(storage)
 
 const userReducer = (state = initialState, action) => {
     switch (action.type) {

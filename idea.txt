@@ -1,5 +1,4 @@
 - validate form
-- sửa lại toast bằng toastify
 - sửa lại message và log từ server
 - sửa lại thông báo từ toast dựa trên message
 - sửa lại lưu trữ phiên đăng nhập

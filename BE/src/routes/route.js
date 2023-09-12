@@ -14,7 +14,6 @@ const appointments = require("./appointments")
 const { checkToken, checkUserPermission } = require("../middleware/permission-action")
 
 const route = (app) => {
-
     router.all("*", checkToken, checkUserPermission)
     specialties(router)
     doctors(router)

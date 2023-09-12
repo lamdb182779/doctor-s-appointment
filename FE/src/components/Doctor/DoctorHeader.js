@@ -10,8 +10,10 @@ import {
     faCircleUser,
     faCalendarDays,
 } from "@fortawesome/free-regular-svg-icons"
+import useUtil from "../../custom/utils"
 
 const DoctorHeader = (props) => {
+    const { handleLink } = useUtil()
     const renderHomeTooltip = (props) => {
         return (
             <Tooltip id="home-tooltip" {...props}>
@@ -32,7 +34,7 @@ const DoctorHeader = (props) => {
                 placement="bottom"
                 overlay={renderHomeTooltip}>
                 <Col xs={4} className="doctor-header-home d-flex align-items-center justify-content-center">
-                    <NavLink end to="/doctor" className="w-100 h-100 text-secondary text-decoration-none p-2">
+                    <NavLink onClick={event => handleLink(event)} end to="/doctor" className="w-100 h-100 text-secondary text-decoration-none p-2">
                         <div className="h-100 w-100 rounded-3 d-flex align-items-center justify-content-center">
                             <FontAwesomeIcon size="lg" icon={faCircleUser} />
                         </div>
@@ -43,7 +45,7 @@ const DoctorHeader = (props) => {
                 placement="bottom"
                 overlay={renderAppointmentTooltip}>
                 <Col xs={4} className="doctor-header-appointment d-flex align-items-center justify-content-center">
-                    <NavLink to="/doctor/appointments" className="w-100 h-100 text-secondary text-decoration-none p-2">
+                    <NavLink onClick={event => handleLink(event)} to="/doctor/appointments" className="w-100 h-100 text-secondary text-decoration-none p-2">
                         <div className="h-100 w-100 rounded-3 d-flex align-items-center justify-content-center">
                             <FontAwesomeIcon size="lg" icon={faCalendarDays} />
                         </div>
@@ -51,7 +53,7 @@ const DoctorHeader = (props) => {
                 </Col>
             </OverlayTrigger>
             {/* <Col xs={4} className="doctor-header-staff d-flex align-items-center justify-content-center">
-                <NavLink to="/doctor/doctor-list" className="w-100 h-100 text-secondary text-decoration-none p-2">
+                <NavLink onClick={event => handleLink(event)} to="/doctor/doctor-list" className="w-100 h-100 text-secondary text-decoration-none p-2">
                     <div className="h-100 w-100 rounded-3 d-flex align-items-center justify-content-center">
                         <FontAwesomeIcon size="nm" icon={faUserDoctor} />
                     </div>

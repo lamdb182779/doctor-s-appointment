@@ -1,4 +1,5 @@
 import useFetch from "../../custom/fetch"
+import useUtil from "../../custom/utils"
 
 import "../../styles/Admin/DoctorList.scss"
 
@@ -25,7 +26,7 @@ const DoctorList = (props) => {
     const [delId, setDelId] = useState(-1)
     const [deleted, setDeleted] = useState(0)
 
-    const navigate = useNavigate()
+    const { handleNavigate } = useUtil()
     // const location = useLocation()
 
     const [showWarning, setShowWarning] = useState(false)
@@ -46,12 +47,10 @@ const DoctorList = (props) => {
         })
     const handlePage = (page) => {
         setPage(page)
-        window.scrollTo(0, 0)
     }
     const handleInfo = (id) => {
         let path = `/admin/doctor-info/${id}`
-        navigate(path)
-        window.scrollTo(0, 0)
+        handleNavigate(path)
     }
     const handleDelete = (id) => {
         setDelId(id)
@@ -62,7 +61,7 @@ const DoctorList = (props) => {
         setConfirm(true)
     }
     const handleBack = () => {
-        navigate(-1)
+        handleNavigate(-1)
     }
     useEffect(() => {
         if (delLoading === false) {

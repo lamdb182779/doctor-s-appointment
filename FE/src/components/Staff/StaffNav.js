@@ -8,15 +8,15 @@ import { useEffect, useState } from "react"
 
 import useFetch from "../../custom/fetch"
 import useUser from "../../custom/user"
+import useUtil from "../../custom/utils"
 const StaffNav = (props) => {
     const { clearUser } = useUser()
 
     const [isLogout, setIsLogout] = useState(false)
     const { loading } = useFetch(isLogout ? "http://localhost:8080/api/deletetoken" : "")
-    const navigate = useNavigate()
+    const { handleNavigate, handleLink } = useUtil()
     const handleClick = () => {
         props.handleClose()
-        window.scrollTo(0, 0)
     }
     const handleChangePw = () => {
         props.handleClose()
@@ -28,7 +28,7 @@ const StaffNav = (props) => {
     useEffect(() => {
         if (loading === false && isLogout === true) {
             clearUser()
-            navigate("/")
+            handleNavigate("/")
             props.handleClose()
         }
     }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
@@ -36,10 +36,10 @@ const StaffNav = (props) => {
         <div className="h-100">
             <div className="staff-nav-list h-50">
                 <div className="staff-nav-home mb-1 rounded" onClick={() => handleClick()}>
-                    <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" end to="/staff" >Trang chủ</NavLink>
+                    <NavLink onClick={event => handleLink(event)} className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" end to="/staff" >Trang chủ</NavLink>
                 </div>
                 <div className="staff-nav-staffs mb-1 rounded" onClick={() => handleClick()}>
-                    <NavLink className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" to="/staff/appointments">Quản lý lịch hẹn</NavLink>
+                    <NavLink onClick={event => handleLink(event)} className="text-decoration-none text-dark d-flex align-items-center ps-2 h-100 w-100 rounded" to="/staff/appointments">Quản lý lịch hẹn</NavLink>
                 </div>
             </div >
 

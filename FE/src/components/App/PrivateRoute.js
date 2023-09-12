@@ -1,17 +1,14 @@
 import { useSelector } from "react-redux"
-import { useEffect, useState } from "react"
-// import { setUserState, clearUserState } from "../../store/actions/userAction"
-// import { showToastState } from "../../store/actions/toastAction"
+import { useEffect } from "react"
 
 import NotFound from "../General/Notfound/Notfound"
 import NotPermission from "../General/Notfound/NotPermission"
 import useFetch from "../../custom/fetch"
 import useUser from "../../custom/user"
-import { useNavigate, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import { toast } from "react-toastify"
 
 const PrivateRoute = (props) => {
-    const navigate = useNavigate()
     const user = useSelector(state => state.user)
     const location = useLocation()
     const { clearUser } = useUser()
@@ -21,7 +18,7 @@ const PrivateRoute = (props) => {
             switch (message) {
                 case "no token":
                     clearUser()
-                    toast.warning("Không thể xác thực, tài nguyên cần đăng nhập để tiếp tục truy cập")
+                    toast.warning("Không thể xác thực người dùng, đăng nhập để tiếp tục")
                     break
                 default: break
             }

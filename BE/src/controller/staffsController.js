@@ -5,13 +5,13 @@ const bcrypt = require("bcryptjs")
 
 const salt = bcrypt.genSaltSync(parseInt(process.env.BCRYPT_SALT))
 
-const toImage = (image) => {
-    if (image) {
-        const imgBuffer = Buffer.from(image).toString("binary")
-        return `data:image/jpg;base64,${imgBuffer}`
-    }
-    return ""
-}
+// const toImage = (image) => {
+//     if (image) {
+//         const imgBuffer = Buffer.from(image).toString("binary")
+//         return `data:image/jpg;base64,${imgBuffer}`
+//     }
+//     return ""
+// }
 
 const hiddenEmail = (email) => {
     return email.replace(/^(.{3}).*(\d{2}@.*$)/, "$1****$2")
@@ -123,11 +123,6 @@ const getAllStaffs = async (req, res, next) => {
                 limit: pagesize,
                 attributes: ["id", "name", "address", "email", "phoneNumber", "gender", "doB", "image"],
             })
-
-            // data = data.map((item) => {
-            //     item.image = toImage(item.image)
-            //     return item
-            // })
             data = data.map((item) => {
                 if (item.phoneNumber) {
                     item.phoneNumber = hiddenPhoneNumber(item.phoneNumber)
@@ -163,9 +158,6 @@ const getAllStaffs = async (req, res, next) => {
 const getStaffById = async (req, res, next) => {
     let staff = req.person
     if (staff) {
-        if (staff.image) {
-            staff.image = toImage(staff.image)
-        }
         if (staff.phoneNumber) {
             staff.phoneNumber = hiddenPhoneNumber(staff.phoneNumber)
         }

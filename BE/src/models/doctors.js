@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     clinicAddress: DataTypes.STRING,
     email: DataTypes.STRING,
     username: DataTypes.STRING,
-    image: DataTypes.BLOB("long"),
+    image: DataTypes.STRING,
     describe: DataTypes.TEXT,
     price: DataTypes.TEXT,
     content: DataTypes.TEXT,

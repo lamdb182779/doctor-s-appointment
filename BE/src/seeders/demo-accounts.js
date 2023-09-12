@@ -16,7 +16,7 @@ module.exports = {
     return queryInterface.bulkInsert("Accounts", [
       {
         username: "admin",
-        password: bcrypt.hashSync("admin", salt),
+        password: bcrypt.hashSync("lam.db183779", salt),
         roleId: 1,
         active: true,
         createdAt: new Date(),

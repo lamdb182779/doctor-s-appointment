@@ -1,0 +1,11 @@
+.statistic-container {
+    .col {
+        cursor          : pointer;
+        background-color: white;
+        transition      : scale 200ms ease-in-out;
+
+        &:hover {
+            scale: 1.2
+        }
+    }
+}

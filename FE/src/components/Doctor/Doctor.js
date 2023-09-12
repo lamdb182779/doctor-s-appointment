@@ -28,7 +28,7 @@ const Doctor = (props) => {
                         <>
                             <Row className="fs-6 text-start d-flex align-items-center">
                                 <Col xs={4}>
-                                    <Image onClick={(event) => event.target.click()} className="w-50 h-auto"
+                                    <Image onClick={event => event.target.click()} className="w-50 h-auto"
                                         src={data[0].image ? data[0].image : nullavatar} alt="avatar" roundedCircle />
                                 </Col>
                                 <Col>

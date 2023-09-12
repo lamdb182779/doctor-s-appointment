@@ -1,59 +1,48 @@
-import { Form } from "react-bootstrap"
+import { Row, Col, FloatingLabel, Form, Button } from "react-bootstrap"
 
 import "../../styles/App/Login.scss"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-    faUser,
-    faLock,
-    faEye,
-    faEyeSlash,
-} from "@fortawesome/free-solid-svg-icons"
+import LoginNav from "./LoginNav"
 
 import { useEffect, useState } from "react"
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+    faEye,
+    faEyeSlash,
+    faLock,
+} from "@fortawesome/free-solid-svg-icons"
 import useFetch from "../../custom/fetch"
-
-import { useNavigate } from "react-router-dom"
-
-import useUser from "../../custom/user"
 import { toast } from "react-toastify"
+import useUser from "../../custom/user"
+import useUtil from "../../custom/utils"
 
 const Login = (props) => {
+    const { handleNavigate } = useUtil()
     const { setUser } = useUser()
 
-    const login = props.login
+    const [count, setCount] = useState(0)
 
-    const [password, setPassword] = useState("")
-    const [username, setUserName] = useState("")
-    const [showPassword, setShowPassword] = useState(false)
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
 
-    const [isBlankUsername, setIsBlankUsername] = useState(true)
-    const [isBlankPassword, setIsBlankPassword] = useState(true)
-
-    const [isValidUsername, setIsValidUsername] = useState(true)
-    const [isValidPassword, setIsValidPassword] = useState(true)
-
-    const navigate = useNavigate()
-
-    useEffect(() => {
-        setIsBlankUsername(username === "" ? true : false)
-        setIsBlankPassword(password === "" ? true : false)
-        setIsValidUsername(login && username === "" ? false : true)
-        setIsValidPassword(login && password === "" ? false : true)
-    }, [login])// eslint-disable-line react-hooks/exhaustive-deps
-
-    const handleShowPassword = () => {
-        setShowPassword(!showPassword)
+    const validateInput = () => {
+        if (username === "" && password === "") {
+            toast.warning("Cần nhập đầy đủ tên đăng nhập và mật khẩu")
+            return false
+        }
+        return true
     }
-    const { data, message, loading } = useFetch(login === 0
-        || username === ""
-        || password === ""
+
+    const handleLogin = () => {
+        if (validateInput) {
+            setCount(count + 1)
+        }
+    }
+
+    const { data, message, loading } = useFetch(count === 0
         ? ""
-        : `http://localhost:8080/api/login/checklogin?${login}`,
-        login === 0
-            || username === ""
-            || password === ""
+        : `http://localhost:8080/api/login/checklogin?${count}`,
+        count === 0
             ? {} : {
                 method: "POST",
                 headers: {
@@ -65,27 +54,25 @@ const Login = (props) => {
                 })
             })
 
+    const [showPassword, setShowPassword] = useState(false)
+
     useEffect(() => {
-        setIsValidUsername(message === "wrong username" ? false : true)
-        setIsValidPassword(message === "wrong password" ? false : true)
-        if (login !== 0 && loading === false) {
+        if (loading === false && count !== 0) {
             if (data && data.length > 0) {
                 toast.success("Đăng nhập thành công")
                 setUser(data[0])
                 switch (data[0].table) {
                     case "Admins":
-                        navigate("/admin")
+                        handleNavigate("/admin")
                         break
                     case "Doctors":
-                        navigate("/doctor")
+                        handleNavigate("/doctor")
                         break
                     case "Staffs":
-                        navigate("/staff")
+                        handleNavigate("/staff")
                         break
                     default: break
                 }
-                window.scrollTo(0, 0)
-                props.handleCloseLogin()
             } else {
                 toast.error(message === "server error!" ? "Lỗi Server"
                     : message === "wrong username" ? "Tài khoản không tồn tại, vui lòng kiểm tra lại"
@@ -96,60 +83,77 @@ const Login = (props) => {
     }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div className="login-container">
-            <div className="login-title">
-                Nhập tên tài khoản và mật khẩu
-            </div>
-            <div className="login-content">
-                <Form onKeyDown={(event) => { if (event.key === "Enter") event.preventDefault() }}>
-                    <Form.Group controlId="formBasicUsername">
-                        <Form.Label>
-                            <FontAwesomeIcon icon={faUser} size="sm" />
-                            &nbsp;Tài khoản
-                        </Form.Label>
-                        <Form.Control
-                            value={username}
-                            type="search"
-                            placeholder="Nhập tên tài khoản"
-                            isInvalid={!isValidUsername}
-                            onChange={(event) => setUserName(event.target.value)}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                            &nbsp;{isBlankUsername ? "Vui lòng điền tên tài khoản" : ""}
-                        </Form.Control.Feedback>
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>
-                            <FontAwesomeIcon icon={faLock} size="sm" />
-                            &nbsp;Mật khẩu
-                        </Form.Label>
-                        <Form.Control
-                            type={showPassword ? "text" : "password"}
-                            placeholder="Mật khẩu"
-                            value={password}
-                            isInvalid={!isValidPassword}
-                            onChange={(event) => setPassword(event.target.value)}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                            &nbsp;{isBlankPassword ? "Vui lòng điền mật khẩu" : ""}
-                        </Form.Control.Feedback>
-                        <Form.Group onClick={() => handleShowPassword()} className="mt-1" controlId="formBasicCheckbox" style={{ cursor: "pointer" }} >
-                            {showPassword === false ?
-                                <>
-                                    <FontAwesomeIcon icon={faEye} />
-                                    &nbsp;Hiện mật khẩu
-                                </>
-                                :
-                                <>
-                                    <FontAwesomeIcon icon={faEyeSlash} />
-                                    &nbsp;Ẩn mật khẩu
-                                </>
-                            }
-                        </Form.Group>
-                    </Form.Group>
-                </Form>
-            </div>
-        </div>
+            <Row className="d-flex justify-content-center">
+                <Col xs={2} className="p-0">
+                    <div className="left-nav px-2 w-100 m-0">
+                        <LoginNav />
+                    </div>
+                </Col>
+                <Col xs={4} className="main-element fs-6">
+                    <Row className="d-flex align-items-center h-100">
+                        <Col className="p-5 d-grid gap-5" xs={12}>
+                            <Row className="">
+                                <div className="d-flex justify-content-center">
+                                    <div className="mb-2 p-3 rounded-circle text-white bg-danger d-flex justify-content-center align-items-center">
+                                        <FontAwesomeIcon size="lg" icon={faLock} />
+                                    </div>
+                                </div>
+                                <h4 >Đăng nhập</h4>
+                                <Col className="p-0">
+                                    <FloatingLabel controlId="username" label="Tên đăng nhập">
+                                        <Form.Control
+                                            placeholder=""
+                                            type="text"
+                                            value={username}
+                                            onChange={event => setUsername(event.target.value)} />
+                                    </FloatingLabel>
+                                </Col>
+                            </Row>
+                            <Row className="">
+                                <Col xs={10} className="p-0">
+                                    <FloatingLabel controlId="password" label="Mật khẩu">
+                                        <Form.Control
+                                            placeholder=""
+                                            type={showPassword ? "text" : "password"}
+                                            value={password}
+                                            onChange={event => setPassword(event.target.value)} />
+                                    </FloatingLabel>
+                                </Col>
+                                <Col className="d-flex align-items-center py-2">
+                                    <div onClick={() => setShowPassword(!showPassword)} className=" text-center mt-3 pw-hidden w-100">
+                                        {showPassword === false ?
+                                            <>
+                                                <FontAwesomeIcon size="" icon={faEye} />
+                                            </>
+                                            :
+                                            <>
+                                                <FontAwesomeIcon size="" icon={faEyeSlash} />
+                                            </>
+                                        }
+                                    </div>
+                                </Col>
+                                <Form.Check
+                                    className="mt-3 text-start"
+                                    label="Lưu đăng nhập"
+                                    type="checkbox" />
+                            </Row>
+                            <Row>
+                                <Button onClick={() => handleLogin()} className="mb-2">Đăng nhập</Button>
+                                <Col className="text-start p-0">
+                                    <a href="/forgetpassword">Quên mật khẩu</a>
+                                </Col>
+                                <Col className="text-end p-0">
+                                    <a href="/register">Đăng ký ngay</a>
+                                </Col>
+                            </Row>
+                            <span className="text-secondary">
+                                Copyright © <a href="/" className="text-secondary">Doctor Booking</a> 2023.
+                            </span>
+                        </Col>
+                    </Row>
+                </Col>
+            </Row>
+        </div >
     )
 }
 

@@ -1,20 +1,27 @@
 "use strict";
+require("dotenv").config()
 const path = require("path");
 const fs = require("fs");
 
-const folderPath = path.join(__dirname, "../../../image_seeders/Doctors")
+// const folderPath = path.join(__dirname, "../../../image_seeders/Doctors")
 
-const toBase64 = (img) => {
-    return new Promise((resolve, reject) => {
-        const imagePath = path.join(folderPath, img)
-        const imageBuffer = fs.readFileSync(imagePath)
-        const imageBase64 = imageBuffer.toString("base64")
-        if (imageBase64) {
-            resolve(imageBase64)
-        } else {
-            reject("Error: Failed to convert image to base64")
-        }
-    })
+// const toBase64 = (img) => {
+//     return new Promise((resolve, reject) => {
+//         const imagePath = path.join(folderPath, img)
+//         const imageBuffer = fs.readFileSync(imagePath)
+//         const imageBase64 = imageBuffer.toString("base64")
+//         if (imageBase64) {
+//             resolve(imageBase64)
+//         } else {
+//             reject("Error: Failed to convert image to base64")
+//         }
+//     })
+// }
+
+const url = process.env.CLOUDINARY_PATH + "/Doctors/"
+
+const toUrl = (img) => {
+    return (url + img + ".png")
 }
 
 const randomPhoneNumber = () => {
@@ -49,7 +56,7 @@ module.exports = {
 286 Thụy Khuê, quận Tây Hồ, Hà Nội`,
                 email: "loanntk0001@gmail.com",
                 username: "loanntk0001",
-                image: await toBase64("01nguyen-thi-kim-loan.jpg"),
+                image: toUrl("01nguyen-thi-kim-loan.jpg"),
                 describe: `Nguyên Trưởng khoa Cơ xương khớp, Bệnh viện E Hà Nội       
 Được phong tặng Danh hiệu Thầy thuốc Ưu tú       
 Bác sĩ khám cho người bệnh từ 16 tuổi trở lên`,
@@ -135,7 +142,7 @@ Khám và điều trị
 Số 73 ngõ 109 Hoàng Ngân - Thanh Xuân - Hà Nội`,
                 email: "ngocnv0002@gmail.com",
                 username: "ngocnv0002",
-                image: await toBase64("02pgs-nguyen-vinh-ngoc.jpg"),
+                image: toUrl("02pgs-nguyen-vinh-ngoc.jpg"),
                 describe: `Trưởng phân môn khớp, Đại học Y Hà Nội       
 Nguyên Bác sĩ điều trị khoa Cơ xương khớp, Bệnh viện Bạch Mai       
 Hiện đang là Phó Chủ tịch Hội khớp học Hà Nội`,
@@ -263,7 +270,7 @@ Khám & điều trị các bệnh
 101 Trần Hữu Trang, Phường 10, Quận Phú Nhuận, Thành phố Hồ Chí Minh`,
                 email: "tridm0003@gmail.com",
                 username: "tridm0003",
-                image: await toBase64("03duong-minh-tri.jpg"),
+                image: toUrl("03duong-minh-tri.jpg"),
                 describe: `Phó Trưởng khoa Hô hấp - Cơ xương khớp, Bệnh viện Nhân dân Gia Định       
 Nhiều năm kinh nghiệm trong khám và điều trị bệnh lý về Nội Cơ xương khớp       
 Bác sĩ nhận khám cho bệnh nhân từ 16 tuổi trở lên`,
@@ -325,7 +332,7 @@ Bác sĩ khám và điều trị các mặt bệnh:
 522-524 Nguyễn Chí Thanh, Phường 7, Quận 10, Thành phố Hồ Chí Minh`,
                 email: "nghiapt0004@gmail.com",
                 username: "nghiapt0004",
-                image: await toBase64("04bs-pham-trong-nghia.jpg"),
+                image: toUrl("04bs-pham-trong-nghia.jpg"),
                 describe: `Bác sĩ đang công tác tại Phòng khám Đa khoa Quốc tế Nhân Hậu       
 Bác sĩ điều trị cơ xương khớp bằng các phương pháp kết hợp y học hiện đại và y học cổ truyền`,
                 price: `-   Chưa bao gồm chi phí chụp chiếu, xét nghiệm: 150.000đ
@@ -369,7 +376,7 @@ Khám và điều trị
 Số 1A Phương Mai, Đống Đa, Hà Nội`,
                 email: "hunghq0005@gmail.com",
                 username: "hunghq0005",
-                image: await toBase64("05thac-si-bac-si-ha-quoc-hung.jpg"),
+                image: toUrl("05thac-si-bac-si-ha-quoc-hung.jpg"),
                 describe: `Gần 30 năm kinh nghiệm khám và điều trị chuyên sâu về các bệnh lý Nội khoa - Cơ xương khớp cho người cao tuổi       
 Hiện đang là Trưởng khoa Khám Theo yêu cầu và Quốc tế, Bệnh viện Lão khoa Trung ương       
 Nguyên giảng viên bộ môn Lão khoa, Đại học Y Hà Nội       
@@ -429,7 +436,7 @@ Bác sĩ khám và điều trị chuyên sâu về các bệnh lý nội khoa ch
 286 Thụy Khuê, quận Tây Hồ, Hà Nội`,
                 email: "doanhvn0006@gmail.com",
                 username: "doanhnv0006",
-                image: await toBase64("06nguyen-van-doanh.jpg"),
+                image: toUrl("06nguyen-van-doanh.jpg"),
                 describe: `Trưởng khoa Khám bệnh, Bệnh viện Đa khoa Quốc tế Thu Cúc       
 Nguyên chủ nhiệm khoa thần kinh, Bệnh viện Hữu Nghị Việt Xô       
 Bác sĩ có 40 năm kinh nghiệm làm việc chuyên khoa Nội Thần kinh
@@ -475,7 +482,7 @@ Khám và điều trị
 52 Bà Triệu - Hoàn Kiếm - Hà Nội`,
                 email: "hungnt0007@gmail.com",
                 username: "hungnt0007",
-                image: await toBase64("07pgs-nguyen-trong-hung.jpg"),
+                image: toUrl("07pgs-nguyen-trong-hung.jpg"),
                 describe: `Nguyên Trưởng khoa Tâm Thần kinh -- Bệnh viện Lão Khoa Trung ương       
 Nguyên Bác sỹ Khoa Thần kinh - Bệnh viện Bạch Mai       
 Bác sĩ khám cho người bệnh từ 3 tuổi trở lên`,
@@ -564,7 +571,7 @@ Khám & điều trị các bệnh
 14 Trần Bình Trọng - Hoàn Kiếm - Hà Nội`,
                 email: "hungkd0008@gmail.com",
                 username: "hungkd0008",
-                image: await toBase64("08pgskd-hung.jpg"),
+                image: toUrl("08pgskd-hung.jpg"),
                 describe: `Trưởng khoa Ngoại, Bệnh viện Đại học Y Hà Nội       
 Trên 20 năm kinh nghiệm công tác ở khoa Phẫu thuật thần kinh - Bệnh viện Việt Đức       
 Bác sĩ nhận khám từ 15 tuổi trở lên (dưới 15 tuổi hỏi ý kiến bác sĩ)`,
@@ -621,7 +628,7 @@ Khám & điều trị
 Số 219 Lê Duẩn - Hai Bà Trưng - Hà Nội`,
                 email: "lieunv0009@gmail.com",
                 username: "lieunv0009",
-                image: await toBase64("09pho-giao-su-nguyen-van-lieu.jpg"),
+                image: toUrl("09pho-giao-su-nguyen-van-lieu.jpg"),
                 describe: `Phó Trưởng khoa Thần kinh, Bệnh viện Bạch Mai       
 Phó Chủ nhiệm Bộ môn Thần kinh, Đại học Y khoa Hà Nội       
 Bác sĩ với hơn 30 năm kinh nghiệm trong nghề`,
@@ -697,7 +704,7 @@ Phó Giáo sư khám, điều trị các bệnh lý chuyên khoa Nội Thần ki
 3 Đường Số 17A, Bình Trị Đông B, Bình Tân, Thành phố Hồ Chí Minh`,
                 email: "thyttm0010@gmail.com",
                 username: "thyttm0010",
-                image: await toBase64("10drtranthimaithy.jpg"),
+                image: toUrl("10drtranthimaithy.jpg"),
                 describe: `20 năm kinh nghiệm trong khám và điều trị bệnh lý về Nội Thần kinh       
 Từng công tác nhiều năm tại khoa Nội Thần kinh, Bệnh viện Nhân dân 115`,
                 price: `-   Giá khámChưa bao gồm chi phí chụp chiếu, xét nghiệm: 150.000đ
@@ -747,7 +754,7 @@ Khám và điều trị
 34 Đại Cồ Việt, Hai Bà Trưng, Hà Nội`,
                 email: "quyethv@gmail.com",
                 username: "quyethv",
-                image: await toBase64("11gs-ha-van-quyet.jpg"),
+                image: toUrl("11gs-ha-van-quyet.jpg"),
                 describe: `Chuyên gia trên 35 năm kinh nghiệm trong lĩnh vực bệnh lý Tiêu hóa       
 Chuyên gia đầu ngành trong lĩnh vực bệnh lý Tiêu hóa       
 Nguyên Giám đốc Bệnh viện Đại học Y Hà Nội
@@ -879,7 +886,7 @@ Bệnh lý đại tràng, trực tràng, hậu môn 
 14 Trần Bình Trọng - Hoàn Kiếm - Hà Nội`,
                 email: "anhlt0012@gmail.com",
                 username: "anhlt0012",
-                image: await toBase64("12bsckii-le-tuyet-anh.jpg"),
+                image: toUrl("12bsckii-le-tuyet-anh.jpg"),
                 describe: `Nguyên bác sĩ Chuyên khoa II chuyên ngành Tiêu hóa, Bệnh viện Bạch Mai       
 Hiện tại bác sĩ có lịch khám tại Phòng khám Vietlife       
 Bác sĩ khám cho người bệnh từ 16 tuổi trở lên`,
@@ -920,7 +927,7 @@ Khám & điều trị
 20-22 Dương Quang Trung, Phường 12, Quận 10, Tp. HCM`,
                 email: "thongnv0013@gmail.com",
                 username: "thongnv0013",
-                image: await toBase64("13-bs-nguyen-van-thong.jpg"),
+                image: toUrl("13-bs-nguyen-van-thong.jpg"),
                 describe: `Gần 40 năm kinh nghiệm lĩnh vực Tiêu hóa - Gan - Mật       
 Bác sĩ điều trị Tiêu hóa - Gan - Mật - Bệnh viện Nhân Dân Gia Định, Bệnh viện Đại học Y Dược TP. HCM       
 Giảng viên bộ môn Ngoại Tổng quát Trường Đại học Y Dược TP. HCM       
@@ -979,7 +986,7 @@ Khám và điều trị
 52 Bà Triệu - Hoàn Kiếm - Hà Nội`,
                 email: "vanntt0014@gmail.com",
                 username: "vanntt0014",
-                image: await toBase64("14bs-tuyet-van-meditec-1.jpg"),
+                image: toUrl("14bs-tuyet-van-meditec-1.jpg"),
                 describe: `Bác sĩ từng công tác tại Khoa Khám bệnh, Bệnh viện Bạch Mai       
 Gần 30 năm kinh nghiệm trong lĩnh vực tiêu hóa       
 Bác sĩ nhận khám cho trẻ từ 15 tuổi trở lên`,
@@ -1055,7 +1062,7 @@ Khám và điều trị 
 33 Nguyễn Hoàng, Nam Từ Liêm, Hà Nội`,
                 email: "lieuntb@gmail.com",
                 username: "lieuntb",
-                image: await toBase64("15-bs-lieu.jpg"),
+                image: toUrl("15-bs-lieu.jpg"),
                 describe: `Hơn 30 năm kinh nghiệm trong khám và điều trị các bệnh lý Tiêu hóa       
 Từng công tác nhiều năm tại Bệnh viện Quân Y 103       
 Nguyên giảng viên Học viện Quân Y`,
@@ -1111,7 +1118,7 @@ Bác sĩ khám và điều trị các bệnh lý vể Tiêu hóa:
 Số 106 Lê Thanh Nghị - Hai Bà Trưng - Hà Nội`,
                 email: "tuocnn0016@gmail.com",
                 username: "tuocnn0016",
-                image: await toBase64("16pgs-nguyen-ngoc-tuoc.jpg"),
+                image: toUrl("16pgs-nguyen-ngoc-tuoc.jpg"),
                 describe: `Nguyên Phó viện trưởng Viện Tim mạch Việt Nam       
 Chuyên gia đầu ngành về bệnh lý Nội tim mạch`,
                 price: `-   Giá khám chưa bao gồm chi phí chụp chiếu, xét nghiệm: 350.000đ
@@ -1190,7 +1197,7 @@ Tại bệnh viện có thanh toán bằng hình thức tiền mặt`,
 216 Trần Duy Hưng, Cầu Giấy, Hà Nội`,
                 email: "quynhnv0017@gmail.com",
                 username: "quynhnv0017",
-                image: await toBase64("17nguyen-van-quynh-pgs.jpg"),
+                image: toUrl("17nguyen-van-quynh-pgs.jpg"),
                 describe: `Nguyên Phó Chủ nhiệm Bộ môn Nội tim mạch, Bệnh viện Trung ương Quân đội 108       
 Chuyên gia hàng đầu về nội tim mạch với hơn 30 năm kinh nghiệm       
 Bác sĩ khám cho người bệnh từ 18 tuổi trở lên`,
@@ -1279,7 +1286,7 @@ Khám và điều trị
 Tòa nhà số 154 Nguyễn Thái Học, phường Kim Mã, Quận Ba Đình, Hà Nội`,
                 email: "vietnl0018@gmail.com",
                 username: "vietnl0018",
-                image: await toBase64("18gs-ts-nguyen-lan-viet.jpg"),
+                image: toUrl("18gs-ts-nguyen-lan-viet.jpg"),
                 describe: `Nguyên Viện trưởng Viện Tim Mạch Quốc Gia       
 Nguyên Hiệu trưởng trường Đại học Y Hà Nội       
 Chủ tịch Hội Tim mạch Việt Nam`,
@@ -1369,7 +1376,7 @@ Khám và điều trị
 166 Nguyễn Văn Thủ, Phường Đa Kao, Quận 1, TP. HCM`,
                 email: "maiptb0019@gmail.com",
                 username: "maiptb0019",
-                image: await toBase64("19bach-mai.jpg"),
+                image: toUrl("19bach-mai.jpg"),
                 describe: `Hơn 25 năm kinh nghiệm khám và điều trị về Nội khoa - Nội Tim mạch       
 Nguyên Trưởng khoa Nội - Bệnh viện Củ Chi       
 Hiện là Giám đốc Phòng khám kiêm Trưởng khoa Nội Phòng khám Đa khoa Việt Gia`,
@@ -1422,7 +1429,7 @@ Khám và điều trị
 Số 38A Trần Phú, Ba Đình, Hà Nội`,
                 email: "tuyetntt0020@gmail.com",
                 username: "tuyetntt0020",
-                image: await toBase64("20bs-nguyen-thi-thong-tuyet.jpg"),
+                image: toUrl("20bs-nguyen-thi-thong-tuyet.jpg"),
                 describe: `Nguyên Phó Giám đốc Bệnh viện Quân y 354.       
 Bác sĩ Chuyên khoa II Nội Tim mạch, Phòng khám 28B Điện Biên Phủ.       
 Bác sĩ khám cho người bệnh từ trên 10 tuổi`,
@@ -1488,7 +1495,7 @@ Bác sĩ khám và điều trị bệnh lý nội khoa nói chung và bệnh lý
 Số 1E Trường Chinh - Thanh Xuân - Hà Nội`,
                 email: "anntt0021@gmail.com",
                 username: "anntt0021",
-                image: await toBase64("21pgs-nguyen-thi-hoai-an.jpg"),
+                image: toUrl("21pgs-nguyen-thi-hoai-an.jpg"),
                 describe: `Nguyên Trưởng khoa Tai mũi họng trẻ em, Bệnh viện Tai Mũi Họng Trung ương       
 Trên 25 năm công tác tại Bệnh viện Tai mũi họng Trung ương       
 Chuyên khám và điều trị các bệnh lý Tai Mũi Họng người lớn và trẻ em`,
@@ -1555,7 +1562,7 @@ Khám & điều trị
 Số 52 Nguyễn Chí Thanh - Đống Đa - Hà Nội`,
                 email: "lynv0022@gmail.com",
                 username: "lynv0022",
-                image: await toBase64("22-bs-nguyen-van-ly.jpg"),
+                image: toUrl("22-bs-nguyen-van-ly.jpg"),
                 describe: `Nguyên Trưởng khoa Tai mũi họng, Bệnh viện Trung ương quân đội 108       
 Ủy viên Ban chấp hành Hội Tai Mũi Họng Việt Nam       
 Bác sĩ khám từ 14 tuổi trở lên`,
@@ -1626,7 +1633,7 @@ Khám chuyên khoa Tai Mũi Họng
 116H2 phố Thành Công, Tập thể Thành Công Bắc, quận Ba Đình, Hà Nội`,
                 email: "phannn0023@gmail.com",
                 username: `phannn0023`,
-                image: await toBase64("23bs-nguyen-ngoc-phan.jpg"),
+                image: toUrl("23bs-nguyen-ngoc-phan.jpg"),
                 describe: `Nguyên bác sĩ Tai Mũi Họng Bệnh viện Đa khoa Hồng Ngọc       
 Hiện đang công tác tại Bệnh viện Đại học Y Hà Nội`,
                 price: `-   Khám & Nội soi Tai Mũi họngĐã bao gồm nội soi Tai Mũi họng: 400.000đ
@@ -1717,7 +1724,7 @@ Khám và điều trị
 20-22 Dương Quang Trung, Phường 12, Quận 10, Tp. HCM`,
                 email: "nhanvtt0024@gmail.com",
                 username: "nhanvtt0024",
-                image: await toBase64("24-bs-vo-tran-thanh-nhan.jpg"),
+                image: toUrl("24-bs-vo-tran-thanh-nhan.jpg"),
                 describe: `10 năm kinh nghiệm lĩnh vực Tai mũi họng       
 Hiện đang công tác tại Phòng khám Bệnh viện Đại học Y Dược 1       
 Bác sĩ nhận khám từ 15 tuổi trở lên`,
@@ -1775,7 +1782,7 @@ Khám và điều trị
 221-221 Bis Nguyễn Thị Minh Khai, P Nguyễn Cư Trinh, Quận 1, Thành phố Hồ Chí Minh`,
                 email: "duonglh0025@gmail.com",
                 username: "duonglh0025",
-                image: await toBase64("25bs-huu-duong.jpg"),
+                image: toUrl("25bs-huu-duong.jpg"),
                 describe: `Bác sĩ chuyên khoa Tai Mũi Họng, Phòng khám Đa khoa DHA Healthcare       
 Nhiều năm kinh nghiệm trong khám và điều trị chuyên khoa Tai Mũi Họng`,
                 price: `-   Khám & Nội soi Tai Mũi họngĐã bao gồm nội soi Tai Mũi họng: 400.000đ
@@ -1836,7 +1843,7 @@ Bác sĩ khám và điều trị:
 Số 53, Ngõ 2, Hoàng Sâm, Nghĩa Đô, Cầu Giấy, Hà Nội`,
                 email: "truongbp0026@gmail.com",
                 username: "truongbp0026",
-                image: await toBase64("26anh-bsi-truong.jpg"),
+                image: toUrl("26anh-bsi-truong.jpg"),
                 describe: `Có thế mạnh khám và điều trị Y học cổ truyền, Chấn thương thể thao       
 Hiện đang công tác tại Trung tâm điều trị kĩ thuật cao -- Viện y sinh nhiệt đới Việt Nga       
 Bác sĩ nhận điều trị cho bệnh nhân từ 6 tuổi trở lên`,
@@ -1878,7 +1885,7 @@ Khám và điều trị
 Số 53, Ngõ 2, Hoàng Sâm, Nghĩa Đô, Cầu Giấy, Hà Nội`,
                 email: "tungpq0027@gmail.com",
                 username: "tungpq0027",
-                image: await toBase64("27anh-bsi-tung.jpg"),
+                image: toUrl("27anh-bsi-tung.jpg"),
                 describe: `Hơn 10 năm kinh nghiệm lĩnh vực Y học cổ truyền       
 Từng công tác tại Bệnh viện Trung ương Quân đội 108       
 Bác sĩ nhận khám cho bệnh nhân từ 06 tuổi trở lên`,
@@ -1926,7 +1933,7 @@ Khám và điều trị
 Số 53, Ngõ 2, Hoàng Sâm, Nghĩa Đô, Cầu Giấy, Hà Nội`,
                 email: "hungnp0028@gmail.com",
                 username: "hungnp0028",
-                image: await toBase64("28anh-bbsi-hung.jpg"),
+                image: toUrl("28anh-bbsi-hung.jpg"),
                 describe: `Có thế mạnh chuyên môn trong khám và điều trị Y học cổ truyền, Phục hồi chức năng       
 Hiện đang công tác tại Trung tâm nhiệt đới Việt -- Nga, Bộ quốc phòng       
 Bác sĩ nhận khám bệnh nhân từ 10 tuổi trở lên`,
@@ -1970,7 +1977,7 @@ Bác sĩ nhận khám bệnh nhân từ 10 tuổi trở lên`,
 32/2 Thống Nhất, Phường 10, Q. Gò Vấp, Tp Hồ Chí Minh`,
                 email: "phuongvtt0029@gmail.com",
                 username: `phuongvtt0029`,
-                image: await toBase64("29dongy-ths-bsvothitrucphuong.jpg"),
+                image: toUrl("29dongy-ths-bsvothitrucphuong.jpg"),
                 describe: `Bác sĩ có nhiều năm kinh nghiệm khám và điều trị về lĩnh vực Y học Cổ truyền       
 Trưởng khoa Y học Cổ truyền, Bệnh viện Hồng Đức III`,
                 price: `Giá khám: 100.000đ`,
@@ -2031,7 +2038,7 @@ Khám và điều trị
 138 Đường Khương Đình, Hạ Đình, Thanh Xuân, Hà Nội`,
                 email: "chuongld0030@gmail.com",
                 username: "chuongld0030",
-                image: await toBase64("30bac-si-luong-duc-chuong1660813040.jpg"),
+                image: toUrl("30bac-si-luong-duc-chuong1660813040.jpg"),
                 describe: `Gần 40 năm kinh nghiệm lĩnh vực Y học cổ truyền       
 Từng công tác tại Viện Y học cổ truyền Quân đội       
 Bác sĩ nhận thăm khám cho bệnh nhân từ 6 tuổi trở lên`,
@@ -2084,7 +2091,7 @@ Khám và điều trị
 Quận Tây Hồ, Hà Nội`,
                 email: "minhnt0031@gmail.com",
                 username: "minhnt0031",
-                image: await toBase64("31nguyen-tuan-minh.jpg"),
+                image: toUrl("31nguyen-tuan-minh.jpg"),
                 describe: `Nguyên Trưởng khoa Sản bệnh, Bệnh viện Phụ sản Hà Nội.       
 Nguyên Phó Trường khoa phụ trách phòng Đẻ, Bệnh viện Phụ sản Hà Nội       
 Bác sĩ chỉ khám và tư vấn thai, không siêu âm thai, không khám phụ khoa`,
@@ -2162,7 +2169,7 @@ Khám và điều trị
 23 Nguyễn Văn Trỗi, Phương Liệt, Thanh Xuân, Hà Nội`,
                 email: "dungltn0032@gmail.com",
                 username: "dungltn0032",
-                image: await toBase64("32bac-si-luyen-thi-ngoc.jpg"),
+                image: toUrl("32bac-si-luyen-thi-ngoc.jpg"),
                 describe: `Hiện là bác sĩ khoa Sản phụ khoa - Hiếm muộn, Bệnh viện Nam học - Hiếm muộn Việt Bỉ       
 Thành viên Hội Nội tiết sinh sản và Vô sinh Thành phố Hồ Chí Minh`,
                 price: `-    Giá khámChưa bao gồm chi phí chụp chiếu, xét nghiệm: 200.000đ
@@ -2226,7 +2233,7 @@ Khám và điều trị 
 260-262 Cầu Giấy - Hà Nội`,
                 email: "anhntm0033@gmail.com",
                 username: "anhntm0033",
-                image: await toBase64("33bac-si-nguyen-thi-mong-anh.jpg"),
+                image: toUrl("33bac-si-nguyen-thi-mong-anh.jpg"),
                 describe: `Thành viên Hội Sản phụ khoa Việt Nam       
 Thường xuyên tham gia các Hội thảo về Sản phụ khoa trong và ngoài nước`,
                 price: `-    Giá khámChưa bao gồm chi phí chụp chiếu, xét nghiệm: 200.000đ
@@ -2294,7 +2301,7 @@ Khám và điều trị 
 102A Trương Định, Phường 9, Quận 3, Thành phố Hồ Chí Minh`,
                 email: "chaubtk0034@gmail.com",
                 username: "chaubtk0034",
-                image: await toBase64("34bac-si-chuyen-khoa-ii-bui-thi-kim-chau-san-phu-khoa.jpg"),
+                image: toUrl("34bac-si-chuyen-khoa-ii-bui-thi-kim-chau-san-phu-khoa.jpg"),
                 describe: `Hơn 30 năm kinh nghiệm trong khám và điều trị bệnh lý Sản phụ khoa       
 Hiện đang có lịch khám Phòng khám Đa khoa Vigor Health`,
                 price: `-    Giá khámChưa bao gồm chi phí chụp chiếu, xét nghiệm: 200.000đ
@@ -2354,7 +2361,7 @@ Khám và điều trị
 23 Nguyễn Văn Trỗi, Phương Liệt, Thanh Xuân, Hà Nội`,
                 email: "hieult0035@gmail.com",
                 username: "hieult0035",
-                image: await toBase64("35bs-le-thi-hieu1.jpg"),
+                image: toUrl("35bs-le-thi-hieu1.jpg"),
                 describe: `Hơn 35 năm kinh nghiệm với các thế mạnh trong khám điều trị bệnh lý sản phụ khoa       
 Phó giám đốc thường trực Bệnh viện Chuyên khoa Nam học & Hiếm muộn Việt -- Bỉ       
 Nguyên Trưởng khoa Phụ sản và Phó Giám đốc Trung tâm Kế hoạch hóa gia đình, Bệnh viện Giao thông vận tải`,
@@ -2422,7 +2429,7 @@ Khám và điều trị
 Số 1E Trường Chinh - Thanh Xuân - Hà Nội`,
                 email: "tamtth0036@gmail.com",
                 username: "tamtth0036",
-                image: await toBase64("36ts-tong-thi-hieu-tam1.jpg"),
+                image: toUrl("36ts-tong-thi-hieu-tam1.jpg"),
                 describe: `Gần 35 năm kinh nghiệm trong lĩnh vực Nhi khoa       
 Hiện đang là chủ nhiệm khoa Nhi, Bệnh viện Trung ương Quận Đội 108       
 Bác sĩ nhận khám cho mọi độ tuổi`,
@@ -2472,7 +2479,7 @@ Nhận khám và điều trị 
 171 Đường Trường Chinh, Phường Tân Thới Nhất, Quận 12, TP. Hồ Chí Minh`,
                 email: "phuocpv0037@gmail.com",
                 username: "phuocpv0037",
-                image: await toBase64(`37bsi-phuoc-tamtri.jpg`),
+                image: toUrl(`37bsi-phuoc-tamtri.jpg`),
                 describe: `Nhiều năm kinh nghiệm trong lĩnh vực Chuyên khoa Nhi       
 Hiện là Trưởng khoa Nhi - Bệnh viện Đa khoa Tâm Trí Sài Gòn`,
                 price: `-    Giá khám đã bao gồm phí nhân viên hướng dẫn: 220.000đ`,
@@ -2526,7 +2533,7 @@ Khám và điều trị
 3 Đường Số 17A, Bình Trị Đông B, Bình Tân, Thành phố Hồ Chí Minh`,
                 email: "huenb0038@gmail.com",
                 username: "huenb0038",
-                image: await toBase64("38bac-si-ckii-nguyen-bach-hue.jpg"),
+                image: toUrl("38bac-si-ckii-nguyen-bach-hue.jpg"),
                 describe: `Trưởng khoa Nhi & Hồi sức tích cực Sơ sinh, Bệnh viện Quốc tế City       
 Hơn 30 năm công tác tại Bệnh viện Nhi đồng 1`,
                 price: `-    Giá khám đã bao gồm phí nhân viên hướng dẫn: 220.000đ`,
@@ -2575,7 +2582,7 @@ Bác sĩ khám và điều trị:
 3 Đường Số 17A, Bình Trị Đông B, Bình Tân, Thành phố Hồ Chí Minh`,
                 email: "tainx0039@gmail.com",
                 username: "tainx0039",
-                image: await toBase64("39bsck1-nguyen-xuan-tai.jpg"),
+                image: toUrl("39bsck1-nguyen-xuan-tai.jpg"),
                 describe: `Bác sĩ từng công tác tại Bệnh viện Nhi đồng 1, Bệnh viện Nhi đồng Thành phố       
 Hiện là Bác sĩ Nhi khoa tại Bệnh viện Quốc tế City`,
                 price: `-    Giá khám đã bao gồm phí nhân viên hướng dẫn: 220.000đ`,
@@ -2621,7 +2628,7 @@ Bác sĩ nhận khám và điều trị bệnh lý Nhi khoa:
 3 Đường Số 17A, Bình Trị Đông B, Bình Tân, Thành phố Hồ Chí Minh`,
                 email: "lieuntl0040@gmail.com",
                 username: "lieuntl0040",
-                image: await toBase64("40bac-si-cki-nguyen-thi-le-lieu.jpg"),
+                image: toUrl("40bac-si-cki-nguyen-thi-le-lieu.jpg"),
                 describe: `35 năm kinh nghiệm trong lĩnh vực Nhi khoa       
 Từng công tác nhiều năm tại Bệnh viện Nhi đồng 1`,
                 price: `-    Giá khám đã bao gồm phí nhân viên hướng dẫn: 220.000đ`,
@@ -2668,7 +2675,7 @@ Khám và điều trị
 Số 8 ngõ 26 Hoàng Cầu cũ (gần Ô Chợ Dừa), Đống Đa, Hà Nội`,
                 email: "havt0041@gmail.com",
                 username: "havt0041",
-                image: await toBase64("41bac-si-vu-thai-ha.jpg"),
+                image: toUrl("41bac-si-vu-thai-ha.jpg"),
                 describe: `Trưởng khoa Khoa nghiên cứu và ứng dụng công nghệ tế bào gốc - Bệnh viện Da liễu Trung ương`,
                 price: `-    Giá khám đã bao gồm soi da: 450.000đ`,
                 content: `Tiến sĩ, Bác sĩ Vũ Thái Hà
@@ -2742,7 +2749,7 @@ Khám và điều trị
 21 Hoàng Cầu, phường Ô Chợ Dừa, quận Đống Đa, Hà Nội`,
                 email: "thanhnt0042@gmail.com",
                 username: "thanhnt0042",
-                image: await toBase64("42bs-thanh.jpg"),
+                image: toUrl("42bs-thanh.jpg"),
                 describe: `Hơn 15 năm kinh nghiệm trong chuyên khoa Da liễu và thế mạnh chính về Laser sắc tố da       
 Phó Trưởng phòng Quản lý chất lượng, Bệnh viện Da liễu Trung ương       
 Bác sĩ khoa Laser và săn sóc da, Bệnh viện Da liễu Trung ương`,
@@ -2825,7 +2832,7 @@ Khám và điều trị
 1B, phố Thanh Nhàn, phường Quỳnh Mai, quận Hai Bà Trưng, Hà Nội`,
                 email: "hongdtt0043@gmail.com",
                 username: "hongdtt0043",
-                image: await toBase64("43anh-bs-thuy-hong-hm.jpg"),
+                image: toUrl("43anh-bs-thuy-hong-hm.jpg"),
                 describe: `Hơn 20 năm kinh nghiệm trong điều trị da liễu và thẩm mỹ da       
 Nguyên trưởng khoa Phẫu thuật - Laser - VLTL - CSD - Bệnh viện Da liễu Hà Nội       
 Bác sĩ Chuyên khoa II chuyên ngành Da liễu - Đại học Y Hà Nội`,
@@ -2971,7 +2978,7 @@ Khám và điều trị
 224 Đường Nguyễn Lân, Phường Phương Liệt, Quận Thanh Xuân, Hà Nội`,
                 email: "linhnt0044@gmail.com",
                 username: "linhnt0044",
-                image: await toBase64("44bs-linh.jpg"),
+                image: toUrl("44bs-linh.jpg"),
                 describe: `Gần 15 năm kinh nghiệm trong khám và điều trị về Da liễu       
 Phó Trưởng khoa Điều trị bệnh da phụ nữ và trẻ em Bệnh viện Da liễu Trung ương       
 Bác sĩ nhận bệnh nhân ở mọi độ tuổi`,
@@ -3035,7 +3042,7 @@ Khám và điều trị
 TT 03 khu liền kề, 609 Trương Định, Phường Thịnh Liệt, Quận Hoàng Mai, TP. Hà Nội`,
                 email: "tamhv0045@gmail.com",
                 username: "tamhv0045",
-                image: await toBase64("45bs-hoang-van-tam.jpg"),
+                image: toUrl("45bs-hoang-van-tam.jpg"),
                 describe: `Gần 10 năm kinh nghiệm trong Chuyên khoa Da liễu       
 Phó khoa điều trị nội trú ban ngày, Bệnh viện Da liễu Trung Ương       
 Phó chủ tịch hội bác sĩ Da liễu trẻ Việt Nam`,
@@ -3099,7 +3106,7 @@ Bác sĩ nhận khám và điều trị:
 số 11 i4, ngõ 37 Trần Kim Xuyến, khu Đô Thị Mới Yên Hoà, Yên Hoà, Cầu Giấy, Hà Nội`,
                 email: "binhth0046@gmail.com",
                 username: "binhth0046",
-                image: await toBase64("46bs-tran-huu-binh.jpg"),
+                image: toUrl("46bs-tran-huu-binh.jpg"),
                 describe: `Bác sĩ đầu ngành chuyên khoa Tâm thần, tâm bệnh        
 Nguyên Viện trưởng Viện Sức khỏe Tâm thần quốc gia, Bệnh viện Bạch Mai        
 Nguyên Phó Chủ nhiệm Bộ môn Tâm thần trường Đại học Y Hà Nội        
@@ -3187,7 +3194,7 @@ Khám và điều trị
 Số 5, Ngách 4, Ngõ 95, Hoàng Cầu, Đống Đa, Hà Nội`,
                 email: "chungnv0047@gmail.com",
                 username: "chungnv0047",
-                image: await toBase64("47bs-nguyen-viet-chung.jpg"),
+                image: toUrl("47bs-nguyen-viet-chung.jpg"),
                 describe: `Bác sĩ khám và điều trị tại Khoa Sức khoẻ Tâm thần, Bệnh viện E        
 Giảng viên Bộ môn Tâm thần và Tâm lý lâm sàng, Trường Đại học Y Dược - Đại học Quốc Gia Hà Nội        
 Bác sĩ nhận khám cho bệnh nhân từ 7 tuổi trở lên`,
@@ -3241,7 +3248,7 @@ Khám và điều trị
 152/6 Thành Thái, phường 12, quận 10, TP.HCM`,
                 email: "tuannt0048@gmail.com",
                 username: "tuannt0048",
-                image: await toBase64("48bs-tuan.jpg"),
+                image: toUrl("48bs-tuan.jpg"),
                 describe: `Gần 20 năm kinh nghiệm khám, chẩn đoán và chữa trị các bệnh lý về Tâm thần        
 Hiện đang công tác tại Bệnh viện Tâm thần TP. HCM        
 Thực tập chương trình FFI chuyên ngành Tâm thần tại Bệnh viện TENON, Cộng hòa Pháp        
@@ -3306,7 +3313,7 @@ Các nghiên cứu khoa học đã tham gia:
 Số 1A Phương Mai, Đống Đa, Hà Nội`,
                 email: "hiennt0049@gmail.com",
                 username: "hiennt0049",
-                image: await toBase64("49thac-si-nguyen-trong-hien.jpg"),
+                image: toUrl("49thac-si-nguyen-trong-hien.jpg"),
                 describe: `Bác sĩ khoa Sức khỏe Tâm thần, Bệnh viện Lão khoa Trung ương        
 Từng là giảng viên bộ môn Tâm thần, Đại học Y Hà Nội        
 Từng công tác tại Bệnh viện Đa khoa Quốc tế Vinmec Hà Nội`,
@@ -3363,7 +3370,7 @@ Khám & điều trị các bệnh
 Số 1A Phương Mai, Đống Đa, Hà Nội`,
                 email: "phinv0050@gmail.com",
                 username: "phinv0050",
-                image: await toBase64("50thac-si-nguyen-van-phi.jpg"),
+                image: toUrl("50thac-si-nguyen-van-phi.jpg"),
                 describe: `Nhiều năm kinh nghiệm trong lĩnh vực Tâm thần        
 Hiện đang là Phụ trách khoa Sức khỏe tâm thần, Bệnh viện Lão khoa        
 Giảng viên - Giáo vụ Đại học bộ môn Tâm thần, Đại học Y Hà Nội        
@@ -3476,7 +3483,7 @@ Bác sĩ có thế mạnh về tư vấn và trị liệu tâm lý, cũng như �
 Phòng 401, Tầng 4, Tòa nhà An Bình, số 3 đường Trần Nguyên Đán, khu đô thị mới Định Công, quận Hoàng Mai, Hà Nội.`,
                 email: "khanhbv0051@gmail.com",
                 username: "khanhbv0051",
-                image: await toBase64("51ths-bui-van-khanh.jpg"),
+                image: toUrl("51ths-bui-van-khanh.jpg"),
                 describe: `Hiện đang công tác tại khoa Dị ứng miễn dịch, Bệnh viện Bạch Mai        
 Tham gia tư vấn các bệnh lý Dị ứng miễn dịch trên Báo sức khỏe đời sống, VN Express, Báo người lao động...`,
                 price: `-    Giá khám chưa bao gồm chi phí xét nghiệm: 250.000đ
@@ -3581,7 +3588,7 @@ Khám và điều trị
 14 Trần Bình Trọng - Hoàn Kiếm - Hà Nội`,
                 email: "landtt0052@gmail.com",
                 username: "landtt0052",
-                image: await toBase64("52bs-lan.jpg"),
+                image: toUrl("52bs-lan.jpg"),
                 describe: `Từng công tác tại Bệnh viện Bạch Mai        
 Giảng viên Bộ môn Dị ứng, Đại học Y Hà Nội        
 Nhiều năm kinh nghiệm trong khám và điều trị bệnh lý Dị ứng - Miễn dịch        
@@ -3630,7 +3637,7 @@ Khám và điều trị
 476B Nguyễn Tri Phương, Phường 9, Quận 10, Hồ Chí Minh`,
                 email: "anhlh0053@gmail.com",
                 username: "anhlh0053",
-                image: await toBase64("53bs-hong-anh.jpg"),
+                image: toUrl("53bs-hong-anh.jpg"),
                 describe: `Hơn 20 năm kinh nghiệm trong lĩnh vực Phổi và Lao        
 Từng công tác nhiều năm tại Bệnh viện Phạm Ngọc Thạch        
 Bác sĩ nhận bệnh nhân từ 13 tuổi trở lên`,
@@ -3694,7 +3701,7 @@ Khám và điều trị
 3 Đường Số 17A, Bình Trị Đông B, Bình Tân, Thành phố Hồ Chí Minh`,
                 email: "phuongda0054@gmail.com",
                 username: "phuongda0054",
-                image: await toBase64("54drduonganhphuong270x356.jpg"),
+                image: toUrl("54drduonganhphuong270x356.jpg"),
                 describe: `Bác sĩ Chuyên khoa II Dương Anh Phượng        
 Hơn 20 năm kinh nghiệm trong lĩnh vực Nội tổng quát - Hô hấp        
 Nguyên Phó Trưởng khoa Hô Hấp - Phó Trưởng khoa Hồi Sức Tích Cực, Bệnh viện Nhân Dân Gia Định        
@@ -3753,7 +3760,7 @@ Chẩn đoán & Điều trị các bệnh lý nội hô hấp:
 Tầng 2, Trung tâm thương mại Mandarin Garden 2, 99 phố Tân Mai, Tân Mai, Hoàng Mai, Hà Nội`,
                 email: "hongntd0055@gmail.com",
                 username: "hongntd0055",
-                image: await toBase64("55bs-hong.jpg"),
+                image: toUrl("55bs-hong.jpg"),
                 describe: `Hiện là bác sĩ điều trị tại Trung tâm Hô hấp, Bệnh viện Bạch Mai        
 Chủ tịch Công đoàn Trung tâm Hô hấp, Bệnh viện Bạch Mai        
 Gần 30 năm kinh nghiệm trong khám và điều trị bệnh lý Hô hấp        
@@ -3841,7 +3848,7 @@ Khám và điều trị
 108 Đường Nguyễn Hoàng, Phường Mỹ Đình 2, Quận Nam Từ Liêm, Thành phố Hà Nội.`,
                 email: "hungdk0056@gmail.com",
                 username: "hungdk0056",
-                image: await toBase64("56pgs-hung1.jpg"),
+                image: toUrl("56pgs-hung1.jpg"),
                 describe: `Nhiều năm kinh nghiệm về lĩnh vực Hô hấp - Phổi        
 Nguyên Phó Giám đốc Bệnh viện Quân y 103        
 Nguyên Phó Giám đốc Học viện Quân y`,
@@ -3883,7 +3890,7 @@ Khám và điều trị
 20-22 Dương Quang Trung, Phường 12, Quận 10, Tp. HCM`,
                 email: "loanptb0057@gmail.com",
                 username: "loanptb0057",
-                image: await toBase64("57bs-pham-thi-bich-loan.jpg"),
+                image: toUrl("57bs-pham-thi-bich-loan.jpg"),
                 describe: `Gần 30 năm kinh nghiệm lĩnh vực Hô hấp        
 Hiện đang công tác tại Phòng khám Bệnh viện Đại học Y Dược I        
 Từng công tác tại Bệnh viện An Bình`,
@@ -3962,7 +3969,7 @@ Khám và điều trị
 Số nhà 5 ngõ 192 Lê Trọng Tấn, Khương Mai, Thanh Xuân Hà Nội`,
                 email: "tanpv0058@gmail.com",
                 username: "tanpv0058",
-                image: await toBase64("58anh-avt.jpg"),
+                image: toUrl("58anh-avt.jpg"),
                 describe: `Nguyên Trưởng khoa Khám bệnh và Điều trị ngoại trú, Bệnh viện Mắt Trung ương        
 Trưởng Phòng khám chuyên khoa Mắt Dr.Tần        
 20 năm kinh nghiệm khám và điều trị các bệnh về mắt`,
@@ -4023,7 +4030,7 @@ Khám và điều trị
 104 phố Huế, Hai Bà Trưng, Hà Nội`,
                 email: "hungbv0059@gmail.com",
                 username: "hungbv0059",
-                image: await toBase64("59bsbuiviethung.jpg"),
+                image: toUrl("59bsbuiviethung.jpg"),
                 describe: `Bác sĩ chuyên ngành Nhãn khoa, Bệnh viện Mắt Trung ương        
 Hơn 10 năm kinh nghiệm trong ngành Nhãn khoa        `,
                 price: `-  Giá khám: 500.000đ`,
@@ -4097,7 +4104,7 @@ Bác sĩ nhận khám, điều trị tất cả các bệnh về mắt
 Tầng 4, số 171 Lò Đúc, Hai Bà Trưng, Hà Nội`,
                 email: "hondv0060@gmail.com",
                 username: "hondv0060",
-                image: await toBase64("60gs-do-nhu-hon.jpg"),
+                image: toUrl("60gs-do-nhu-hon.jpg"),
                 describe: `Nguyên Giám đốc Bệnh viện Mắt Trung ương        
 Được phong tặng Danh hiệu Thầy thuốc Nhân dân`,
                 price: `-  Giá khám: 500.000đ`,
@@ -4216,7 +4223,7 @@ Khám và điều trị
 101 Đường Số 3, KDC Cityland, Phường 10, Quận Gò Vấp - TP Hồ Chí Minh`,
                 email: "phonght0061@gmail.com",
                 username: "phonght0061",
-                image: await toBase64("61bs-phong.jpg"),
+                image: toUrl("61bs-phong.jpg"),
                 describe: `Cố vấn chuyên môn Trung tâm Mắt Sài Gòn Hikari        
 Nhiều năm kinh nghiệm trong khám và điều trị bệnh lý về mắt`,
                 price: `-  Giá khám: 500.000đ`,
@@ -4270,7 +4277,7 @@ Bác sĩ có thế mạnh về phẫu thuật Phaco, Lasik,...
 55 Hàm Long, Hoàn Kiếm, Hà Nội`,
                 email: "hanhnth0062@gmail.com",
                 username: "hanhnth0062",
-                image: await toBase64("62bs-nghiem-thi-hong-hanh1.jpg"),
+                image: toUrl("62bs-nghiem-thi-hong-hanh1.jpg"),
                 describe: `Giám đốc Bệnh viện chuyên khoa mắt Hitec        
 22 năm kinh nghiệm trong khám và điều trị các bệnh nhãn khoa`,
                 price: `-  Giá khám: 500.000đ`,
@@ -4387,7 +4394,7 @@ Khám và điều trị
 286 Thụy Khuê, quận Tây Hồ, Hà Nội`,
                 email: "huyenph0063@gmail.com",
                 username: "huyenph0063",
-                image: await toBase64("63bs-huyen.jpg"),
+                image: toUrl("63bs-huyen.jpg"),
                 describe: `Hơn 30 năm kinh nghiệm công tác trong lĩnh vực Thận tiết niệu        
 Nguyên Trưởng khoa Phẫu thuật Tiết niệu, Bệnh viện Xanh Pôn        
 Hiện là Phó Giám đốc, Phụ trách Ngoại thận tiết niệu tại Hệ thống Y tế Thu Cúc TCI`,
@@ -4444,7 +4451,7 @@ Khám và điều trị:
 Toà nhà Richstar 2 - RS5, 239-241 đường Hòa Bình, P. Hiệp Tân, Q.Tân Phú, TP. HCM`,
                 email: "hieuld0064@gmail.com",
                 username: "hieuld0064",
-                image: await toBase64("64.jpg"),
+                image: toUrl("64.jpg"),
                 describe: `Hơn 25 năm kinh nghiệm chuyên sâu về lĩnh vực bệnh lý Tiết niệu, Bệnh lý Nam giới - Hiếm muộn Nam        
 Hiện đang công tác tại Bệnh viện Nhân dân 115        
 Giảng viên Bộ môn Ngoại - Trường Đại học Y Khoa Phạm Ngọc Thạch TP. HCM`,
@@ -4509,7 +4516,7 @@ Khám và điều trị 
 Số 86-88 Phố Nguyễn Lương Bằng, Phường Nam Đồng, Đống Đa, Hà Nội`,
                 email: "lantn0065@gmail.com",
                 username: "lantn0065",
-                image: await toBase64("65bs-ngoc-lan.jpg"),
+                image: toUrl("65bs-ngoc-lan.jpg"),
                 describe: `Hơn 40 năm kinh nghiệm trong chuyên khoa Thận tiết niệu        
 Nguyên trưởng khoa Thận lọc máu bệnh viện Hữu nghị Việt Xô        
 Từng là Chuyên gia Y tế Vương Quốc Campuchia`,
@@ -4572,7 +4579,7 @@ Khám và điều trị
 6 Nguyễn Lương Bằng, Nam Sài Gòn (Phú Mỹ Hưng), Quận 7, TP. HCM` ,
                 email: "phuongtll0066@gmail.com",
                 username: "phuongtll0066",
-                image: await toBase64("66dr-tran-le-linh-phuong1.jpg"),
+                image: toUrl("66dr-tran-le-linh-phuong1.jpg"),
                 describe: `Hơn 30 năm kinh nghiệm trong lĩnh vực Tiết niệu        
 Từng công tác tại Khoa Tiết Niệu và Đơn vị Thận, Bệnh Viện Chợ Rẫy        
 Hiện đang công tác tại Khoa Tiết niệu, Bệnh Viện FV`,
@@ -4635,7 +4642,7 @@ Khám và điều trị 
 14 Trần Bình Trọng - Hoàn Kiếm - Hà Nội`,
                 email: "baont0067@gmail.com",
                 username: "baont0067",
-                image: await toBase64("67bs-bao.jpg"),
+                image: toUrl("67bs-bao.jpg"),
                 describe: `Từng công tác tại Bệnh viện Thận Hà Nội        
 Nhiều năm kinh nghiệm trong khám và điều trị bệnh lý Thận - Tiết niệu        
 Nhận khám từ 15 tuổi trở lên`,
@@ -4692,7 +4699,7 @@ Bác sĩ từ xa
 470 - 472 Lê Hồng Phong, Phường 1, Quận 10, TP. Hồ Chí Minh`,
                 email: "quynhnn0068@gmail.com",
                 username: "quynhnn0068",
-                image: await toBase64("68bac-si--le-ngoc-quynh.jpg"),
+                image: toUrl("68bac-si--le-ngoc-quynh.jpg"),
                 describe: `Hơn 10 năm cống hiến trong lĩnh vực răng sứ thẩm mỹ        
 Từ tu nghiệp, học tập chuyên sâu về lĩnh vực phục hình tại Cuba        
 Từng công tác tại Bệnh viện răng hàm mặt`,
@@ -4737,7 +4744,7 @@ Khám và điều trị
 470 - 472 Lê Hồng Phong, Phường 1, Quận 10, TP. Hồ Chí Minh`,
                 email: "tuphm0069@gmail.com",
                 username: "tuphm0069",
-                image: await toBase64("69bac-si-cki-phan-hoang-minh-tu.jpg"),
+                image: toUrl("69bac-si-cki-phan-hoang-minh-tu.jpg"),
                 describe: `Thâm niên 5 năm trong điều trị chuyên sâu răng hàm mặt        
 Hiện là bác sĩ điều trị tại Nha khoa trồng răng Sài Gòn        
 Từng công tác tại: Bệnh viện răng hàm mặt`,
@@ -4786,7 +4793,7 @@ Cơ sở 1: 484 Trần Khát Chân, Hai Bà Trưng, Hà Nội
 Cơ sở 2: Phong lan 1-25, đường Nguyễn Lam, Vinhomes Riverside, Long Biên, Hà Nội`,
                 email: "trangdt0070@gmail.com",
                 username: "trangdt0070",
-                image: await toBase64("70dung-thu-trang-nk-phu-hoa.jpg"),
+                image: toUrl("70dung-thu-trang-nk-phu-hoa.jpg"),
                 describe: `Hơn 10 năm kinh nghiệm lĩnh vực Nha khoa        
 Từng công tác tại Bệnh viện Đại Học Y Côn Minh, Trung Quốc        
 Từng công tác tại Bệnh Viện Đa Khoa Vinmec`,
@@ -4844,7 +4851,7 @@ Bác sĩ có chuyên môn trong lĩnh vực Chỉnh nha:
 81 Trần Nguyên Đán, Khu Đô Thị Định Công, Hoàng Mai, Hà Nội`,
                 email: "tungdt0071@gmail.com",
                 username: "tungdt0071",
-                image: await toBase64("71bs-thanh-tung.jpg"),
+                image: toUrl("71bs-thanh-tung.jpg"),
                 describe: `Bác sĩ Răng Hàm Mặt, Bệnh viện Đại học Y Hà Nội        
 Giảng viên Viện Đào tạo Răng Hàm Mặt, Đại học Y Hà Nộ`,
                 price: `-    Giá khám: Miễn phí`,
@@ -4898,7 +4905,7 @@ CS1: 53 Lê Duẩn, Phường Cửa Nam, Quận Hoàn Kiếm, Hà Nội
 CS2: 11 Vũ Trọng Phụng, Thanh Xuân, Hà Nội`,
                 email: "hienntt0072@gmail.com",
                 username: "hienntt0072",
-                image: await toBase64("72bsi-hien-win-smile.jpg"),
+                image: toUrl("72bsi-hien-win-smile.jpg"),
                 describe: `Nhiều năm kinh nghiệm lĩnh vực Nha khoa        
 Tốt nghiệp Khoa Răng hàm mặt - Đại học Y Hà Nội`,
                 price: `-    Giá khám: Miễn phí`,
@@ -4941,7 +4948,7 @@ Bác sĩ có thế mạnh chuyên môn về Phục hình thẩm mỹ. Ngoài ra
 20-22 Dương Quang Trung, Phường 12, Quận 10, Tp. HCM`,
                 email: "ngocnh0073@gmail.com",
                 username: "ngocnh0073",
-                image: await toBase64("73bs-nguyen-hong-ngoc-noi-tiet.jpg"),
+                image: toUrl("73bs-nguyen-hong-ngoc-noi-tiet.jpg"),
                 describe: `Hơn 30 năm kinh nghiệm lĩnh vực Nội tiết        
 Hiện đang công tác tại Phòng khám Bệnh viện Đại học Y Dược 1        
 Bác sĩ nhận khám từ 15 tuổi trở lên`,
@@ -4991,7 +4998,7 @@ Khám và điều trị
 Phòng khám bệnh theo yêu cầu, 42 Thanh Nhàn, Hai Bà Trưng, Hà Nội`,
                 email: "xuanntm0074@gmail.com",
                 username: "xuanntm0074",
-                image: await toBase64("74bac-si-chuyen-khoa-ii-ngo-thi-thanh-xuan.jpg"),
+                image: toUrl("74bac-si-chuyen-khoa-ii-ngo-thi-thanh-xuan.jpg"),
                 describe: `Nguyên Trưởng khoa Khám bệnh, Bệnh viện Thanh Nhàn        
 Thành viên Hội Nội tiết Việt Nam        
 Bác sĩ nhận khám cho người bệnh từ 18 tuổi trở lên`,
@@ -5047,7 +5054,7 @@ Khám và điều trị 
 34 Đại Cồ Việt, Hai Bà Trưng, Hà Nội`,
                 email: "langnt0075@gmail.com",
                 username: "langnt0075",
-                image: await toBase64("75screenshot-from-2021-02-22-11-17-23.jpg"),
+                image: toUrl("75screenshot-from-2021-02-22-11-17-23.jpg"),
                 describe: `Nguyên Trưởng khoa Ngoại chung – Bệnh viện Nội tiết Trung ương            
 Gần 40 năm kinh nghiệm trong lĩnh vực Nội tiết, hơn 30 năm phẫu thuật tuyến giáp           
 Bác sĩ nhận khám trên 3 tuổi`,
@@ -5117,7 +5124,7 @@ Khám và điều trị
 37-39 Lương Định Của, Phường An Khánh, TP. Thủ Đức`,
                 email: "huunv0076@gmail.com",
                 username: "huunv0076",
-                image: await toBase64("76bs-huu-victoria.jpg"),
+                image: toUrl("76bs-huu-victoria.jpg"),
                 describe: `20 năm kinh nghiệm lĩnh vực Nội tiết        
 Từng công tác tại Bệnh viện Nhân dân Gia Định`,
                 price: `-    Giá khám: 150.000đ
@@ -5169,7 +5176,7 @@ Khám và điều trị
 số 8 đường Châu Văn Liêm, phường Phú Đô, quận Nam Từ Liêm, Hà Nội`,
                 email: "phongdd0077@gmail.com",
                 username: "phongdd0077",
-                image: await toBase64("77bsi-phong-hong-ngoc.jpg"),
+                image: toUrl("77bsi-phong-hong-ngoc.jpg"),
                 describe: `Gần 20 năm kinh nghiệm khám và điều trị Nội tiết và Đái tháo đường        
 Từng công tác nhiều năm tại Bệnh viện Bạch Mai`,
                 price: `-    Giá khám: 150.000đ
@@ -5230,7 +5237,7 @@ Khám và điều trị
 Số 05, Đường 17A, Khu phố 11, Phường Bình Trị Đông B, Quận Bình Tân, TP.HCM`,
                 email: "thaohb0078@gmail.com",
                 username: "thaohb0078",
-                image: await toBase64("78bs-thao.jpg"),
+                image: toUrl("78bs-thao.jpg"),
                 describe: `Gần 15 năm kinh nghiệm trong khám và điều trị Vật lý trị liệu - Phục hồi chức năng        
 Trưởng khoa Vật lý trị liệu - Phục hồi chức năng, Bệnh viện Gia An 115        
 Từng công tác tại các bệnh viện lớn: Bệnh viện Chợ Rẫy, Bệnh viện Ung Bướu TP. HCM, Bệnh viện Đại học Y dược TP. HCM
@@ -5304,7 +5311,7 @@ Bác sĩ khám và điều trị các bệnh lý về Vật lý trị liệu v�
 138 Lý Tự Trọng, Quận 1, TP. Hồ Chí Minh`,
                 email: "harrisonmb0079@gmail.com",
                 username: "harrisonmb0079",
-                image: await toBase64("79bs-mark.jpg"),
+                image: toUrl("79bs-mark.jpg"),
                 describe: `Hơn 25 năm kinh nghiệm trong ngành Chiropractic        
 Giám đốc chuyên môn tại Đại học Japan Chiropractic Doctors College (JCDC)        
 Giám đốc sáng lập trung tâm The Kinesiology Centre`,
@@ -5345,7 +5352,7 @@ Phòng khám có hình thức thanh toán chi phí bằng tiền mặt`,
 19 Trương Hán Siêu, Hoàn Kiếm, Hà Nội`,
                 email: "hanhvtb0080@gmail.com",
                 username: "hanhvtb0080",
-                image: await toBase64("80pgs-vu-thi-bich-hanh.jpg"),
+                image: toUrl("80pgs-vu-thi-bich-hanh.jpg"),
                 describe: `	
 Phó giáo sư, Tiến sĩ Vũ Thị Bích Hạnh
 Nguyên Trưởng khoa Phục hồi chức năng, Bệnh viện Đại học Y Hà Nội        
@@ -5449,7 +5456,7 @@ Khám và điều trị
 Tòa nhà Ngôi sao Việt, số 4 ngõ 4 Kim Đồng, Giáp Bát, Hoàng Mai, Hà Nội`,
                 email: "chinhvd0081@gmail.com",
                 username: "chinhvd0081",
-                image: await toBase64("81ths-bs-vu-duy-chinh-phcn-ecohealth.jpg"),
+                image: toUrl("81ths-bs-vu-duy-chinh-phcn-ecohealth.jpg"),
                 describe: `Hơn 20 năm kinh nghiệm trong lĩnh vực Phục hồi chức năng        
 Phó Giám đốc Trung tâm Y học tái tạo và trị liệu tế bào        
 Bệnh viện Đa khoa Quốc tế Vinmec Times City`,
@@ -5542,7 +5549,7 @@ Phục hồi chức năng cho các bệnh nhân sau phẫu thuật lồng ngực
 303 Tên Lửa, P. Bình Trị Đông B, Q. Bình Tân, Thành phố Hồ Chí Minh`,
                 email: "chienlh0082@gmail.com",
                 username: "chienlh0082",
-                image: await toBase64("82bac-si-luu-huy-chien.jpg"),
+                image: toUrl("82bac-si-luu-huy-chien.jpg"),
                 describe: `Hơn 25 năm kinh nghiệm chuyên môn lĩnh vực Phục hồi chức năng        
 Từng công tác tại Bệnh viện Chỉnh hình - Phục hồi chức năng TP. HCM`,
                 price: `-   Giá khám Phục hồi chức năng là 150.000 vnđ
@@ -5598,7 +5605,7 @@ Khám và điều trị
 216 Trần Duy Hưng, Cầu Giấy, Hà Nội`,
                 email: "tuannq0083@gmail.com",
                 username: "tuannq0083",
-                image: await toBase64("83bs-nguyen-quang-tuan.jpg"),
+                image: toUrl("83bs-nguyen-quang-tuan.jpg"),
                 describe: `Nguyên Trưởng khoa Truyền nhiễm Bệnh viện Bạch Mai        
 Được phong tặng danh hiệu Thầy thuốc ưu tú        
 Hơn 40 năm kinh nghiệm khám và điều trị tại chuyên khoa Nội Truyền nhiễm`,
@@ -5651,7 +5658,7 @@ Khám và điều trị
 Tòa nhà Ngôi sao Việt, số 4 ngõ 4 Kim Đồng, Giáp Bát, Hoàng Mai, Hà Nội`,
                 email: "cuongdd0084@gmail.com",
                 username: "cuongdd0084",
-                image: await toBase64("84pgs-ts-do-duy-cuong-noi-truyen-nhiem-ecohealth.jpg"),
+                image: toUrl("84pgs-ts-do-duy-cuong-noi-truyen-nhiem-ecohealth.jpg"),
                 describe: `Giám đốc Trung tâm Bệnh Nhiệt đới, Bệnh viện Bạch Mai        
 Chuyên gia đầu ngành về bệnh Truyền nhiễm`,
                 price: `-  Giá khám: 150.000đ`,
@@ -5705,7 +5712,7 @@ Khám và điều trị
 216 Trần Duy Hưng, Cầu Giấy, Hà Nội`,
                 email: "mautq0085@gmail.com",
                 username: "mautq0085",
-                image: await toBase64("85bs-ta-quang-mau.jpg"),
+                image: toUrl("85bs-ta-quang-mau.jpg"),
                 describe: `Giám đốc Phòng khám Đa khoa Quốc tế Thu Cúc        
 Hơn 40 năm kinh nghiệm khám và chữa các bệnh nội khoa        
 Bác sĩ chuyên khoa Nội và Truyền nhiễm`,
@@ -5745,7 +5752,7 @@ Khám và điều trị
             //     clinicAddress: ,
             //     email: "@gmail.com" ,
             //     username: ,
-            //     image: await toBase64(),
+            //     image: toUrl(),
             //     describe: ,
             //     content: ,
             //     active: true,
@@ -5760,7 +5767,7 @@ Khám và điều trị
             //     clinicAddress: ,
             //     email: "@gmail.com" ,
             //     username: ,
-            //     image: await toBase64(),
+            //     image: toUrl(),
             //     describe: ,
             //     content: ,
             //     active: true,
@@ -5774,22 +5781,7 @@ Khám và điều trị
             //     clinicAddress: ,
             //     email: "@gmail.com" ,
             //     username: ,
-            //     image: await toBase64(),
-            //     describe: ,
-            //     content: ,
-            //     active: true,
-            // createdAt: new Date(),
-            //             updatedAt: new Date()
-
-            // },
-            // {
-            //     name: ,
-            //     phoneNumber: randomPhoneNumber(),
-            //     specialtyID: ,
-            //     clinicAddress: ,
-            //     email: "@gmail.com" ,
-            //     username: ,
-            //     image: await toBase64(),
+            //     image: toUrl(),
             //     describe: ,
             //     content: ,
             //     active: true,
@@ -5804,7 +5796,7 @@ Khám và điều trị
             //     clinicAddress: ,
             //     email: "@gmail.com" ,
             //     username: ,
-            //     image: await toBase64(),
+            //     image: toUrl(),
             //     describe: ,
             //     content: ,
             //     active: true,
@@ -5819,7 +5811,7 @@ Khám và điều trị
             //     clinicAddress: ,
             //     email: "@gmail.com" ,
             //     username: ,
-            //     image: await toBase64(),
+            //     image: toUrl(),
             //     describe: ,
             //     content: ,
             //     active: true,
@@ -5834,7 +5826,22 @@ Khám và điều trị
             //     clinicAddress: ,
             //     email: "@gmail.com" ,
             //     username: ,
-            //     image: await toBase64(),
+            //     image: toUrl(),
+            //     describe: ,
+            //     content: ,
+            //     active: true,
+            // createdAt: new Date(),
+            //             updatedAt: new Date()
+
+            // },
+            // {
+            //     name: ,
+            //     phoneNumber: randomPhoneNumber(),
+            //     specialtyID: ,
+            //     clinicAddress: ,
+            //     email: "@gmail.com" ,
+            //     username: ,
+            //     image: toUrl(),
             //     describe: ,
             //     content: ,
             //     active: true,

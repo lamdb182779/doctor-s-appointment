@@ -20,8 +20,10 @@ import {
 
 import moment from "moment"
 import "moment/locale/vi"
+import useUtil from "../../custom/utils"
 
 const Staff = (props) => {
+    const { handleLink } = useUtil()
     const { data, loading } = useFetch("http://localhost:8080/api/self/info")
     return (
         <div className="staff-container px-5 py-5">
@@ -59,7 +61,7 @@ const Staff = (props) => {
                                                             <Accordion.Body>
                                                                 <Row className="fs-5 text-dark d-grid gap-3">
                                                                     <Row className="">
-                                                                        <NavLink to="/staff/appointments" className="text-dark text-decoration-none">
+                                                                        <NavLink onClick={event => handleLink(event)} to="/staff/appointments" className="text-dark text-decoration-none">
                                                                             <FontAwesomeIcon icon={faTableList} size="xs" />
                                                                             &nbsp;Xem danh sách lịch hẹn &gt;&gt;&gt;
                                                                         </NavLink>

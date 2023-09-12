@@ -14,7 +14,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 
 import { NavLink } from "react-router-dom"
+import useUtil from "../../custom/utils"
 const Admin = (props) => {
+    const { handleLink } = useUtil()
     const { data, loading } = useFetch("http://localhost:8080/api/self/info")
     return (
         <div className="admin-container px-5 py-5">
@@ -51,13 +53,13 @@ const Admin = (props) => {
                                                             <Accordion.Body>
                                                                 <Row className="fs-5 text-dark d-grid gap-3">
                                                                     <Row className="">
-                                                                        <NavLink to="/admin/staff/list" className="text-dark text-decoration-none">
+                                                                        <NavLink onClick={event => handleLink(event)} to="/admin/staff/list" className="text-dark text-decoration-none">
                                                                             <FontAwesomeIcon icon={faTableList} size="xs" />
                                                                             &nbsp;Xem danh sách nhân viên &gt;&gt;&gt;
                                                                         </NavLink>
                                                                     </Row>
                                                                     <Row className="">
-                                                                        <NavLink to="/admin/staff/add" className="text-dark text-decoration-none">
+                                                                        <NavLink onClick={event => handleLink(event)} to="/admin/staff/add" className="text-dark text-decoration-none">
                                                                             <FontAwesomeIcon icon={faUserPlus} size="xs" />
                                                                             &nbsp;Thêm nhân viên mới &gt;&gt;&gt;
                                                                         </NavLink>
@@ -73,13 +75,13 @@ const Admin = (props) => {
                                                             <Accordion.Body>
                                                                 <Row className="fs-5 text-dark d-grid gap-3 ">
                                                                     <Row className="">
-                                                                        <NavLink to="/admin/doctor/list" className="text-dark text-decoration-none">
+                                                                        <NavLink onClick={event => handleLink(event)} to="/admin/doctor/list" className="text-dark text-decoration-none">
                                                                             <FontAwesomeIcon icon={faTableList} size="xs" />
                                                                             &nbsp;Xem danh sách bác sĩ &gt;&gt;&gt;
                                                                         </NavLink>
                                                                     </Row>
                                                                     <Row className="">
-                                                                        <NavLink to="/admin/doctor/add" className="text-dark text-decoration-none">
+                                                                        <NavLink onClick={event => handleLink(event)} to="/admin/doctor/add" className="text-dark text-decoration-none">
                                                                             <FontAwesomeIcon icon={faUserPlus} size="xs" />
                                                                             &nbsp;Thêm bác sĩ mới &gt;&gt;&gt;
                                                                         </NavLink>

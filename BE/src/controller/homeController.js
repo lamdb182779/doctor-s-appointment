@@ -2,24 +2,20 @@ const db = require("../models")
 const { Buffer } = require("buffer")
 const { sequelize } = require("../config/connect")
 
-const toImage = (image) => {
-    if (image) {
-        const imgBuffer = Buffer.from(image).toString("binary")
-        return `data:image/png;base64,${imgBuffer}`
-    }
-    return ""
-}
+// const toImage = (image) => {
+//     if (image) {
+//         const imgBuffer = Buffer.from(image).toString("binary")
+//         return `data:image/png;base64,${imgBuffer}`
+//     }
+//     return ""
+// }
 
 const getHomeSpecialties = async (req, res, next) => {
     try {
         let specialties = await db.Specialties.findAll({
             order: sequelize.random(),
-            limit: 10,
-            attributes: ["id", "name", "image"]
-        })
-        specialties = specialties.map((item) => {
-            item.image = toImage(item.image)
-            return item
+            limit: 5,
+            attributes: ["id", "name", "image", "description"]
         })
         return res.status(200).json({
             message: "ok",
@@ -48,10 +44,6 @@ const getHomeDoctors = async (req, res, next) => {
                     attributes: ["name"]
                 }
             ]
-        })
-        doctors = doctors.map((item) => {
-            item.image = toImage(item.image)
-            return item
         })
         return res.status(200).json({
             message: "ok",

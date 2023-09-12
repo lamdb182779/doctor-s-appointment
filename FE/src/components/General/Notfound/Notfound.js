@@ -7,26 +7,27 @@ import notfound from "../../../assets/images/notfound.png"
 import { useNavigate } from "react-router-dom"
 
 import { useSelector } from "react-redux"
+import useUtil from "../../../custom/utils"
 
 const Notfound = (props) => {
     const user = useSelector(state => state.user)
-    const navigate = useNavigate()
+    const { handleNavigate } = useUtil()
     const handleHome = () => {
         if (Object.keys(user).length === 0) {
-            navigate("/")
+            handleNavigate("/")
         } else {
             switch (user.table) {
                 case "Admins":
-                    navigate("/admin")
+                    handleNavigate("/admin")
                     break
                 case "Doctors":
-                    navigate("/doctor")
+                    handleNavigate("/doctor")
                     break
                 case "Staffs":
-                    navigate("/staff")
+                    handleNavigate("/staff")
                     break
                 default:
-                    navigate("/")
+                    handleNavigate("/")
                     break
             }
         }
@@ -45,7 +46,7 @@ const Notfound = (props) => {
             <Row className="notfound-button">
                 <Col>
                     <Button variant="primary" onClick={() => handleHome()}>Trở về trang chủ</Button><br />
-                    <Button variant="outline-link" onClick={() => navigate(-1)}>Quay về trang trước</Button>
+                    <Button variant="outline-link" onClick={() => handleNavigate(-1)}>Quay về trang trước</Button>
                 </Col>
             </Row>
         </div>

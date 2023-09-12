@@ -1,119 +1,193 @@
+import { Col, Row, Image } from "react-bootstrap";
 import "../../../styles/Guest/Home/Introduce.scss"
 
-import { Carousel, Col, Row } from "react-bootstrap"
-
-import appointment from "../../../assets/images/appointment.jpg"
-import takecare from "../../../assets/images/take-care.jpg"
-import specialties from "../../../assets/images/specialties.jpg"
-import nowinfor from "../../../assets/images/now-infor.jpg"
-import contact from "../../../assets/images/contact.jpg"
-import online from "../../../assets/images/online.jpg"
-import coop from "../../../assets/images/cooperation.jpg"
+import appointment from "../../../assets/images/appointment.png"
+import takecare from "../../../assets/images/take-care.png"
+import specialties from "../../../assets/images/specialties.png"
+import nowinfor from "../../../assets/images/now-infor.png"
+import contact from "../../../assets/images/contact.png"
+import online from "../../../assets/images/online.png"
+import coop from "../../../assets/images/cooperation.png"
+import { useRef, useEffect } from "react"
+import useUtil from "../../../custom/utils";
 
 const Introduce = (props) => {
+    const { handleNavigate } = useUtil()
+    const slideRef = useRef(null)
+    const textRef = useRef(null)
+
+    useEffect(() => {
+        const slide = slideRef.current
+
+        const handleScroll = (event) => {
+            const delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail)))
+            const scrollSlideSpeed = slideRef.current.offsetHeight * delta
+            const scrollTextSpeed = textRef.current.offsetWidth * delta
+
+            slide.scrollBy({
+                top: -scrollSlideSpeed,
+            })
+            textRef.current.scrollBy({
+                left: -scrollTextSpeed,
+            })
+            event.preventDefault()
+        }
+
+        slide.addEventListener('mousewheel', handleScroll)
+        slide.addEventListener('DOMMouseScroll', handleScroll)
+    }, [slideRef])// eslint-disable-line react-hooks/exhaustive-deps
+
+    const handleScroll = () => {
+        const mySlide = slideRef.current;
+        const slides = mySlide.querySelectorAll("[id^='slide']")
+
+        const myText = textRef.current;
+        const texts = myText.querySelectorAll("[id^='text']")
+
+        for (let i = 0; i < slides.length; i++) {
+            const slide = slides[i]
+            const text = texts[i]
+            const rect = slide.getBoundingClientRect()
+            const divRect = mySlide.getBoundingClientRect()
+
+            if (rect.top >= divRect.top && rect.bottom <= divRect.bottom) {
+                slide.classList.add("show")
+                text.classList.add("show")
+
+            } else {
+                slide.classList.remove("show")
+                text.classList.remove("show")
+            }
+        }
+    }
     return (
-        <div className="intro-container" >
-            <div className="intro-title">
-                <b>Về chúng tôi</b>
-            </div>
-            <Row className="intro-content" >
-                <Col xs={6} className="intro-carousel">
-                    <Carousel activeIndex={props.index} onSelect={(e) => props.setIndex(e)} data-bs-theme="dark" onSlide={(e) => props.setIndex(e)}>
-                        <Carousel.Item interval={4000}>
-                            <img
-                                className="d-block w-100"
+        <div className="introduce-container p-5" >
+            <Row>
+                <p className="fs-5">Đến với <b className="text-warning">Doctor Booking</b></p>
+                <Col xs={8} >
+                    <div className="slider-container p-5" ref={slideRef} onScroll={handleScroll}>
+                        <div id="slide1" className="slide pulse">
+                            <Image
+                                className="h-100 w-auto"
                                 src={appointment}
                                 alt="First slide"
                             />
-                        </Carousel.Item>
-                        <Carousel.Item interval={4000}>
-                            <img
-                                className="d-block w-100"
+                        </div>
+                        <div id="slide2" className="slide pulse">
+                            <Image
+                                className="h-100 w-auto"
                                 src={takecare}
                                 alt="Second slide"
                             />
-                        </Carousel.Item>
-                        <Carousel.Item interval={4000}>
-                            <img
-                                className="d-block w-100"
+                        </div>
+                        <div id="slide3" className="slide pulse">
+                            <Image
+                                className="h-100 w-auto"
                                 src={specialties}
                                 alt="Third slide"
                             />
-                        </Carousel.Item>
-                        <Carousel.Item interval={4000}>
-                            <img
-                                className="d-block w-100"
+                        </div>
+                        <div id="slide4" className="slide pulse">
+                            <Image
+                                className="h-100 w-auto"
                                 src={nowinfor}
                                 alt="Forth slide"
                             />
-                        </Carousel.Item>
-                        <Carousel.Item interval={4000}>
-                            <img
-                                className="d-block w-100"
+                        </div>
+                        <div id="slide5" className="slide pulse">
+                            <Image
+                                className="h-100 w-auto"
                                 src={online}
                                 alt="Fifth slide"
                             />
-                        </Carousel.Item>
-                        <Carousel.Item interval={4000}>
-                            <img
-                                className="d-block w-100"
+                        </div>
+                        <div id="slide6" className="slide pulse">
+                            <Image
+                                className="h-100 w-auto"
                                 src={coop}
                                 alt="Sixth slide"
                             />
-                        </Carousel.Item>
-                        <Carousel.Item interval={4000}>
-                            <img
-                                className="d-block w-100"
+                        </div>
+                        <div id="slide7" className="slide pulse">
+                            <Image
+                                className="h-100 w-auto"
                                 src={contact}
                                 alt="Seventh slide"
                             />
-                        </Carousel.Item>
-                    </Carousel>
+                        </div>
+                    </div>
                 </Col>
-                <Col className="intro-about-us fs-6 my-auto text-center">
-                    <Carousel activeIndex={props.index} controls={false} indicators={false}>
-                        <Carousel.Item>
-                            <p>Với Doctor Booking, việc thao tác cực kỳ đơn giản.</p>
-                            <p>Đặt lịch khám bệnh nhanh chóng, tiện lợi với trang web của chúng tôi.</p>
-                            <p>Mau chóng chọn bác sĩ phù hợp và hẹn trước.</p>
-                            <p style={{ cursor: "pointer" }} onClick={() => props.showMore("/doctors")}>Đặt lịch ngay &gt;&gt;&gt;</p>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <p>Doctor Booking cung cấp cho bạn nhiều tiện ích với sự chăm sóc tận tình.</p>
-                            <p>Tìm kiếm cơ sở y tế, bác sĩ, triệu chứng và dịch vụ trên website.</p>
-                            <p>Tìm hiểu thông tin, thay đổi thông tin dễ dàng.</p>
-                            <p>Các thắc mắc xin liên lạc theo điện thoại hỗ trợ, email.</p>
-                        </Carousel.Item>
-                        <Carousel.Item >
-                            <p>Quy tụ rất nhiều bác sĩ hàng đầu thuộc đầy đủ các chuyên khoa.</p>
-                            <p>Cung cấp đầy đủ các chuyên khoa bệnh khác nhau.</p>
-                            <p style={{ cursor: "pointer" }} onClick={() => props.showMore("/specialties")}>Tìm hiểu ngay các chuyên khoa &gt;&gt;&gt;</p>
-                        </Carousel.Item>
-                        <Carousel.Item >
-                            <p>Lịch hẹn liên tục cập nhật.</p>
-                            <p>Xác nhận, thay đổi lịch hẹn dễ dàng, nhanh chóng.</p>
-                            <p>Kết quả trả về hồ sơ hợp tác nhanh chóng trong vài ngày.</p>
-                        </Carousel.Item>
-                        <Carousel.Item >
-                            <p>Hệ thống nhân viên đông đảo, nhiệt tình, vui vẻ.</p>
-                            <p>Luôn luôn túc trực, giải đáp mọi thắc mắc.</p>
-                            <p>Thực hiện các yêu cầu, trợ giúp tận tình.</p>
-                        </Carousel.Item>
-                        <Carousel.Item >
-                            <p>Hệ thống đang mở rộng hợp tác với các bác sĩ toàn quốc.</p>
-                            <p>Cùng nhau tạo ra dịch vụ chất lượng.</p>
-                            <p>Hợp tác lâu dài, cùng phát triển mạnh mẽ.</p>
-                            <p>Liên hệ hợp tác tại email hoặc tại các trụ sở của Doctor Booking.</p>
-                        </Carousel.Item>
-                        <Carousel.Item >
-                            <p>Mọi thắc mắc có thể liên lạc nhanh chóng qua điện thoại hỗ trợ.</p>
-                            <p>Gửi hồ sơ hợp tác tại email hoặc theo địa chỉ trụ sở.</p>
-                        </Carousel.Item>
-                    </Carousel>
+                <Col className="fs-6 p-0 d-flex align-items-center" xs={4}>
+                    <div className="text-container p-3" ref={textRef}>
+                        <div id="text1" className="text fade">
+                            <div>
+                                <div>
+                                    <p>Đặt lịch khám bệnh nhanh chóng, tiện lợi.</p>
+                                    <p>Thao tác cực kỳ đơn giản.</p>
+                                    <p>Chọn bác sĩ phù hợp và hẹn trước.</p>
+                                    <p style={{ cursor: "pointer" }} onClick={() => handleNavigate("/doctors")}>Đặt lịch ngay &gt;&gt;&gt;</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="text2" className="text fade">
+                            <div>
+                                <div>
+                                    <p>Cung cấp cho bạn nhiều tiện ích với sự chăm sóc tận tình.</p>
+                                    <p>Tìm kiếm nhanh chóng, dễ dàng.</p>
+                                    <p>Tìm hiểu, thay đổi thông tin đơn giản.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="text3" className="text fade">
+                            <div>
+                                <div>
+                                    <p>Quy tụ rất nhiều bác sĩ hàng đầu.</p>
+                                    <p>Cung cấp tất cả chuyên khoa khác nhau.</p>
+                                    <p style={{ cursor: "pointer" }} onClick={() => handleNavigate("/specialties")}>Tìm hiểu ngay các chuyên khoa &gt;&gt;&gt;</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="text4" className="text fade">
+                            <div>
+                                <div>
+                                    <p>Lịch hẹn liên tục cập nhật.</p>
+                                    <p>Xác nhận, thay đổi lịch hẹn dễ dàng.</p>
+                                    <p>Kết quả trả về hồ sơ hợp tác nhanh chóng.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="text5" className="text fade">
+                            <div>
+                                <div>
+                                    <p>Hệ thống nhân viên đông đảo, nhiệt tình.</p>
+                                    <p>Luôn luôn túc trực, giải đáp mọi thắc mắc.</p>
+                                    <p>Thực hiện các yêu cầu, trợ giúp tận tình.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="text6" className="text fade">
+                            <div>
+                                <div>
+                                    <p>Hợp tác rộng rãi với các bác sĩ toàn quốc.</p>
+                                    <p>Cùng nhau tạo ra dịch vụ chất lượng.</p>
+                                    <p>Hợp tác lâu dài, cùng phát triển mạnh mẽ.</p>
+                                    <p>Liên hệ hợp tác tại email hoặc tại các trụ sở.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="text7" className="text fade">
+                            <div>
+                                <div>
+                                    <p>Mọi thắc mắc có thể liên lạc nhanh chóng qua điện thoại hỗ trợ.</p>
+                                    <p>Gửi hồ sơ hợp tác tại email hoặc theo địa chỉ trụ sở.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </Col>
             </Row>
         </div>
     )
 }
 
-export default Introduce;
+export default Introduce

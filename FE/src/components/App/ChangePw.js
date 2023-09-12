@@ -92,7 +92,7 @@ const ChangePw = (props) => {
                         <Form.Control
                             type={showPassword ? "text" : "password"}
                             value={oldpw}
-                            onChange={(event) => setOldPw(event.target.value)}
+                            onChange={event => setOldPw(event.target.value)}
                             isInvalid={!isValidOldPw}
                             placeholder="Mật khẩu hiện tại" />
                         <Form.Control.Feedback type="invalid">
@@ -109,7 +109,7 @@ const ChangePw = (props) => {
                         <Form.Control
                             type={showPassword ? "text" : "password"}
                             value={newpw}
-                            onChange={(event) => setNewPw(event.target.value)}
+                            onChange={event => setNewPw(event.target.value)}
                             isInvalid={!isValidNewPw}
                             placeholder="Mật khẩu mới" />
                         <Form.Control.Feedback type="invalid">

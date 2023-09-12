@@ -67,7 +67,7 @@ const Page = (props) => {
                                         aria-label="Search"
                                         size="sm"
                                         value={typePage}
-                                        onChange={(event) => setTypePage(event.target.value)}
+                                        onChange={event => setTypePage(event.target.value)}
                                     />
                                 </Col>
                                 <Col xs={4}>
@@ -117,7 +117,7 @@ const Page = (props) => {
                                         aria-label="Search"
                                         size="sm"
                                         value={typePage}
-                                        onChange={(event) => setTypePage(event.target.value)}
+                                        onChange={event => setTypePage(event.target.value)}
                                     />
                                 </Col>
                                 <Col xs={4}>
@@ -168,7 +168,7 @@ const Page = (props) => {
                                     aria-label="Search"
                                     size="sm"
                                     value={typePage}
-                                    onChange={(event) => setTypePage(event.target.value)}
+                                    onChange={event => setTypePage(event.target.value)}
                                 />
                             </Col>
                             <Col xs={4}>

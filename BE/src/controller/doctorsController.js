@@ -5,13 +5,13 @@ const moment = require("moment")
 
 const salt = bcrypt.genSaltSync(parseInt(process.env.BCRYPT_SALT))
 
-const toImage = (image) => {
-    if (image) {
-        const imgBuffer = Buffer.from(image).toString("binary")
-        return `data:image/jpg;base64,${imgBuffer}`
-    }
-    return ""
-}
+// const toImage = (image) => {
+//     if (image) {
+//         const imgBuffer = Buffer.from(image).toString("binary")
+//         return `data:image/jpg;base64,${imgBuffer}`
+//     }
+//     return ""
+// }
 
 const hiddenEmail = (email) => {
     return email.replace(/^(.{3}).*(\d{2}@.*$)/, "$1****$2")
@@ -137,11 +137,6 @@ const getAllDoctors = async (req, res, next) => {
                     }
                 ]
             })
-
-            data = data.map((item) => {
-                item.image = toImage(item.image)
-                return item
-            })
             data = data.map((item) => {
                 if (item.phoneNumber) {
                     item.phoneNumber = hiddenPhoneNumber(item.phoneNumber)
@@ -177,9 +172,6 @@ const getAllDoctors = async (req, res, next) => {
 const getDoctorById = async (req, res, next) => {
     let doctor = req.person
     if (doctor) {
-        if (doctor.image) {
-            doctor.image = toImage(doctor.image)
-        }
         if (doctor.phoneNumber) {
             doctor.phoneNumber = hiddenPhoneNumber(doctor.phoneNumber)
         }

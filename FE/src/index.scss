@@ -19,4 +19,44 @@ $transition-collapse: height 1s ease;
 
 @import "../node_modules/bootstrap/scss/mixins";
 
-@import "../node_modules/bootstrap/scss/transitions";
+@import "../node_modules/bootstrap/scss/forms/floating-labels";
+
+
+.form-floating {
+  padding-inline: 0;
+
+  .form-control {
+    background    : none;
+    border-top    : none;
+    border-left   : none;
+    border-right  : none;
+    border-bottom : 1px solid silver;
+    border-radius : 0;
+    padding-left  : 0.1rem !important;
+    padding-bottom: 0rem !important;
+
+
+    &:focus {
+      background   : none;
+      border-bottom: 1px solid black;
+      box-shadow   : none;
+    }
+  }
+
+  label {
+    padding    : 0;
+    scale      : 1.3;
+    margin-top : -0.75rem;
+    margin-left: -1rem;
+
+    &::after {
+      display: none;
+    }
+
+    &:not(:placeholder-shown) {
+      transform : translateY(0.75rem);
+      transition: all 500ms ease-in-out;
+      color     : black !important;
+    }
+  }
+}

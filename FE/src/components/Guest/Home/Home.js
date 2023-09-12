@@ -1,121 +1,73 @@
 import "../../../styles/Guest/Home/Home.scss"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-    faMagnifyingGlass,
-    faCalendarDays,
-    faHandshake,
-    faBlenderPhone,
-    faAddressBook,
-    faHospital,
-    faUserNurse,
-    faTruckArrowRight
-} from "@fortawesome/free-solid-svg-icons"
 
-import { useNavigate } from "react-router-dom"
-
-import Slide from "./Slide"
 import Introduce from "./Introduce"
+import Nav from "../../App/Nav"
+import HomeTitle from "./HomeTitle"
+import Statistic from "./Statistic"
 
-import { useState, useRef } from "react"
+import { useEffect, useRef } from "react"
 
 import { Row, Col } from "react-bootstrap"
+import SpecialtiesPreview from "./SpecialtiesPreview"
+import DoctorsPreview from "./DoctorsPreview"
 
 const Home = (props) => {
-    const navigate = useNavigate()
-    const componentRef = useRef(null)
+    const infoRef = useRef(null)
+    const contentRef = useRef(null)
 
-    const handleShowMore = (path) => {
-        navigate(path)
-        window.scrollTo(0, 0);
-    }
+    useEffect(() => {
+        const elements = contentRef.current.querySelectorAll("[id^='element']")
+        console.log(elements);
 
-    const handleClick = (id) => {
-        setIndex(id)
-        componentRef.current.scrollIntoView({ behavior: "smooth", block: "center" })
-    }
+        const handleScroll = () => {
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight
 
-    const handleSearch = (event) => {
-        if (search.trim() !== "" && event.key === "Enter") {
-            let path = `/search?${search.trim()}`
-            navigate(path)
-            window.scrollTo(0, 0)
+            for (let i = 0; i < elements.length; i++) {
+                const element = elements[i]
+                const { top, bottom } = element.getBoundingClientRect()
+                if (top < windowHeight - 200 && bottom >= 200) {
+                    element.classList.add("show")
+                } else {
+                    element.classList.remove("show")
+                }
+            }
         }
-    }
 
-    const [index, setIndex] = useState(0)
-    const [search, setSearch] = useState("")
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }, [])
     return (
         <div className="home-container">
-            <div className="home-title p-5">
-                <br />
-                <h2>
-                    Chào mừng đến với chúng tôi
-                </h2>
-                <h3>
-                    Nền tảng y tế - Chăm sóc sức khỏe toàn diện
-                </h3>
-                <div className="home-search d-flex justify-content-center mt-5">
-                    <div className="home-search d-flex justify-content-center bg-warning w-50 p-2 rounded-pill">
-                        <div className="search-icon ps-2">
-                            <FontAwesomeIcon icon={faMagnifyingGlass} size="2xs" />
-                        </div>
-                        <input className="w-100 fs-6 border-0 bg-warning px-3" onKeyDown={(event) => handleSearch(event)}
-                            type="text"
-                            placeholder="Nhập từ khóa (ngắn gọn). Ví dụ: lưng, Thu Hà, Ba Đình, ..."
-                            value={search}
-                            onChange={(event) => setSearch(event.target.value)} />
+            <Row className="d-flex justify-content-center">
+                <Col xs={2} className="p-0">
+                    <div className="px-2 w-100 m-0 left-nav">
+                        <Nav />
                     </div>
-                </div>
-                <Row className="home-functions fs-6 mt-5 text-secondary">
-                    <Col onClick={() => handleClick(0)}>
-                        <FontAwesomeIcon icon={faCalendarDays} size="2xl" />
-                        <br />
-                        Đặt lịch nhanh chóng
-                    </Col>
-                    <Col onClick={() => handleClick(1)}>
-                        <FontAwesomeIcon icon={faUserNurse} size="2xl" />
-                        <br />
-                        Chăm sóc tận tình
-                    </Col>
-                    <Col onClick={() => handleClick(2)}>
-                        <FontAwesomeIcon icon={faHospital} size="2xl" />
-                        <br />
-                        Đầy đủ các chuyên khoa
-                    </Col>
-                    <Col onClick={() => handleClick(3)}>
-                        <FontAwesomeIcon icon={faTruckArrowRight} size="2xl" />
-                        <br />
-                        Thông tin ngay lập tức
-                    </Col>
-                    <Col onClick={() => handleClick(4)}>
-                        <FontAwesomeIcon icon={faBlenderPhone} size="2xl" />
-                        <br />
-                        Túc trực 24/24
-                    </Col>
-                    <Col onClick={() => handleClick(5)}>
-                        <FontAwesomeIcon icon={faHandshake} size="2xl" />
-                        <br />
-                        Hợp tác rộng rãi
-                    </Col>
-
-                    <Col onClick={() => handleClick(6)}>
-                        <FontAwesomeIcon icon={faAddressBook} size="2xl" />
-                        <br />
-                        Liên lạc dễ dàng
-                    </Col>
-                </Row>
-            </div>
-            <div className="home-content">
-                <Row ref={componentRef}>
-                    <Introduce index={index} setIndex={setIndex} showMore={handleShowMore} />
-                </Row>
-                <Row className="mt-5">
-                    <Slide showMore={handleShowMore} show={"/specialties"} />
-                </Row>
-                <Row className="mt-5">
-                    <Slide showMore={handleShowMore} show={"/doctors"} />
-                </Row>
-            </div>
+                </Col>
+                <Col ref={contentRef} className="main-element p-0 d-grid" xs={9}>
+                    <Row id="element1" className="element show">
+                        <HomeTitle infoRef={infoRef} />
+                    </Row>
+                    <Row id="element2" className="element fs-6 fw-bold p-5 shadow">
+                        <Statistic />
+                    </Row>
+                    <Row id="element3" className="element" ref={infoRef}>
+                        <Introduce />
+                    </Row>
+                    <Row id="element4" className="element">
+                        <DoctorsPreview />
+                    </Row>
+                    <Row id="element5" className="element">
+                        <SpecialtiesPreview />
+                    </Row>
+                </Col>
+                {/* <Col xs={4} className="p-0">
+                    <div className="right-nav h-100 w-100 m-0">
+                    </div>
+                </Col> */}
+            </Row>
         </div>
     )
 }

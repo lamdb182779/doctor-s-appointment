@@ -1,0 +1,90 @@
+.specialties-preview-container {
+
+    .specialties-preview-content {
+        margin          : auto;
+        overflow-x      : auto;
+        overflow-y      : hidden;
+        scroll-snap-type: x mandatory;
+        height          : 35rem;
+        width           : 80%;
+
+        .specialty {
+            position         : relative;
+            transform-style  : preserve-3d;
+            scroll-snap-align: start;
+            flex-shrink      : 0;
+            flex-basis       : 100%;
+
+            &:hover {
+                cursor: pointer;
+
+                .specialty-front {
+                    transform: rotateY(180deg);
+                }
+
+                .specialty-back {
+                    transform: rotateY(0);
+                }
+            }
+
+            .specialty-front,
+            .specialty-back {
+                width              : 100%;
+                height             : 100%;
+                position           : absolute;
+                backface-visibility: hidden;
+                transition         : transform 200ms linear;
+            }
+
+            .specialty-front {
+                color: #32609e;
+
+                >div {
+                    background-color: rgba(255, 255, 255, 0.9);
+                    display         : flex;
+                    align-items     : center;
+                    justify-content : center;
+                    position        : absolute;
+                    bottom          : 0;
+                    left            : 0;
+                }
+            }
+
+            .specialty-back {
+                border-radius      : 10px;
+                position           : absolute;
+                backface-visibility: hidden;
+                font-size          : 65%;
+                text-align         : start;
+                transform          : rotateY(180deg);
+
+                >div {
+                    display        : flex;
+                    justify-content: center;
+                    align-items    : center;
+
+                    ul {
+                        display              : grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        grid-column-gap      : 10%;
+                    }
+                }
+            }
+        }
+    }
+
+    .specialties-preview-content::-webkit-scrollbar {
+        width: 0;
+    }
+
+    .slide-arrow {
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+
+        &:hover {
+            cursor: pointer;
+            color : gray;
+        }
+    }
+}

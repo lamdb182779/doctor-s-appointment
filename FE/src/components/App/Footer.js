@@ -31,14 +31,14 @@ const Footer = (props) => {
                                     <Row className="App-address">
                                         <Col>
                                             <FontAwesomeIcon icon={faLocationDot} size="sm" />
-                                            <b>Địa chỉ</b><br />
+                                            &nbsp;<b>Địa chỉ</b><br />
                                             {data[0].address}
                                         </Col>
                                     </Row>
                                     <Row className="App-email">
                                         <Col>
                                             <FontAwesomeIcon icon={faEnvelope} size="sm" />
-                                            <b>Email</b><br />
+                                            &nbsp;<b>Email</b><br />
                                             <a rel="noopener noreferrer" target="_blank" href="https://mail.google.com/mail/?view=cm&to=lamxxxxxx79@gmail.com">
                                                 {data[0].email}
                                             </a>
@@ -47,7 +47,7 @@ const Footer = (props) => {
                                     <Row className="App-phone">
                                         <Col>
                                             <FontAwesomeIcon icon={faPhone} size="sm" />
-                                            <b>Điện thoại</b><br />
+                                            &nbsp;<b>Điện thoại</b><br />
                                             {data[0].phoneNumber}
                                         </Col>
                                     </Row>

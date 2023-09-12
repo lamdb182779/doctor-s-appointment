@@ -12,12 +12,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 
 import useFetch from "../../custom/fetch"
+import useUtil from "../../custom/utils"
 
 import Warning from "../General/Dialog/Warning"
 import { toast } from "react-toastify"
 
 const DoctorAdd = (props) => {
-    const navigate = useNavigate()
+    const { handleNavigate } = useUtil()
 
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
@@ -70,7 +71,7 @@ const DoctorAdd = (props) => {
         setAdd(add + 1)
     }
     const handleBack = () => {
-        navigate(-1)
+        handleNavigate(-1)
     }
     useEffect(() => {
         if (loading === false && add !== 0) {
@@ -128,7 +129,7 @@ const DoctorAdd = (props) => {
                                 <Form.Control
                                     type="text"
                                     value={name}
-                                    onChange={(event) => setName(event.target.value)}
+                                    onChange={event => setName(event.target.value)}
                                     size="sm" />
                             </Col>
                         </Row>
@@ -142,7 +143,7 @@ const DoctorAdd = (props) => {
                                 <Form.Control
                                     type="text"
                                     value={phone}
-                                    onChange={(event) => setPhone(event.target.value)}
+                                    onChange={event => setPhone(event.target.value)}
                                     size="sm" />
                             </Col>
                         </Row>
@@ -158,7 +159,7 @@ const DoctorAdd = (props) => {
                                 <Form.Control
                                     type="email"
                                     value={email}
-                                    onChange={(event) => setEmail(event.target.value)}
+                                    onChange={event => setEmail(event.target.value)}
                                     size="sm" />
                             </Col>
                         </Row>
@@ -169,7 +170,7 @@ const DoctorAdd = (props) => {
                                 <b>Chuyên khoa: </b>
                             </Col>
                             <Col>
-                                <Form.Select onClick={(event) => setSpecialtyID(event.target.value)} size="sm">
+                                <Form.Select onClick={event => setSpecialtyID(event.target.value)} size="sm">
                                     <option value="">Chọn chuyên khoa</option>
                                     {specialtiesLoading === false ?
                                         <>
@@ -212,7 +213,7 @@ const DoctorAdd = (props) => {
                                     value={address}
                                     as="textarea"
                                     rows={5}
-                                    onChange={(event) => setAddress(event.target.value)} />
+                                    onChange={event => setAddress(event.target.value)} />
                             </Row>
                         </Col>
                         <Col className="">
@@ -243,7 +244,7 @@ const DoctorAdd = (props) => {
                                     value={describe}
                                     as="textarea"
                                     rows={5}
-                                    onChange={(event) => setDescribe(event.target.value)} />
+                                    onChange={event => setDescribe(event.target.value)} />
                             </Row>
                         </Col>
                         <Col className="">
@@ -274,7 +275,7 @@ const DoctorAdd = (props) => {
                                     value={price}
                                     as="textarea"
                                     rows={5}
-                                    onChange={(event) => setPrice(event.target.value)} />
+                                    onChange={event => setPrice(event.target.value)} />
                             </Row>
                         </Col>
                         <Col className="">
@@ -305,7 +306,7 @@ const DoctorAdd = (props) => {
                                     value={content}
                                     as="textarea"
                                     rows={15}
-                                    onChange={(event) => setContent(event.target.value)} />
+                                    onChange={event => setContent(event.target.value)} />
                             </Row>
                         </Col>
                         <Col className="">

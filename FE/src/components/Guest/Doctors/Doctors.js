@@ -5,12 +5,13 @@ import { Button, Dropdown, Form, Col, Row, Spinner } from "react-bootstrap"
 
 import { useLocation, useNavigate } from "react-router-dom"
 import useFetch from "../../../custom/fetch"
+import useUtil from "../../../custom/utils"
 
 import Doctor from "./Doctor"
 import Page from "../../General/Page/Page"
 
 const Doctors = (props) => {
-    const navigate = useNavigate()
+    const { handleNavigate } = useUtil()
     const location = useLocation()
     const componentRef = useRef(null)
 
@@ -50,12 +51,11 @@ const Doctors = (props) => {
 
     const handleDoctor = (id) => {
         let path = `/doctors/${id}`
-        navigate(path)
-        window.scrollTo(0, 0);
+        handleNavigate(path)
     }
 
     const handleBack = () => {
-        navigate(-1)
+        handleNavigate(-1)
     }
 
     return (
@@ -124,7 +124,7 @@ const Doctors = (props) => {
                                         aria-label="Search"
                                         size="sm"
                                         value={searchName}
-                                        onChange={(event) => setSearchName(event.target.value)}
+                                        onChange={event => setSearchName(event.target.value)}
                                     />
                                 </Col>
                             </Row>
@@ -142,7 +142,7 @@ const Doctors = (props) => {
                                 aria-label="Search"
                                 size="sm"
                                 value={searchAddress}
-                                onChange={(event) => setSearchAddress(event.target.value)}
+                                onChange={event => setSearchAddress(event.target.value)}
                             />
                         </Col>
                         <Col xs={2}>

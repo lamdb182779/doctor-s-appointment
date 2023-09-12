@@ -1,4 +1,5 @@
 import useFetch from "../../custom/fetch"
+import useUtil from "../../custom/utils"
 import "../../styles/Admin/StaffList.scss"
 
 import { Row, Col, Button, Table, Modal } from "react-bootstrap"
@@ -33,7 +34,7 @@ const StaffList = (props) => {
     const [changed, setChanged] = useState(0)
     const [changeId, setChangeId] = useState(0)
 
-    const navigate = useNavigate()
+    const { handleNavigate } = useUtil()
     // const location = useLocation()
 
     const [showWarning, setShowWarning] = useState(false)
@@ -63,15 +64,11 @@ const StaffList = (props) => {
         //     scrollY: props.route.scrollY ? props.route.scrollY : 0,
         //     path: path
         // })
-        // navigate(path)
+        // handleNavigate(path)
         // componentRef.current.scrollIntoView({ behavior: "smooth" })
         setPage(page)
-        window.scrollTo(0, 0)
     }
     const handleInfo = (id) => {
-        // let path = `/admin/staff-info/${id}`
-        // navigate(path)
-        // window.scrollTo(0, 0)
         setChangeId(id)
         handleShow()
     }
@@ -85,7 +82,7 @@ const StaffList = (props) => {
     }
 
     const handleBack = () => {
-        navigate(-1)
+        handleNavigate(-1)
     }
 
     useEffect(() => {

@@ -1,13 +1,13 @@
 const db = require("../models")
 const { Op } = require("sequelize")
 
-const toImage = (item) => {
-    if (item.image) {
-        const imgBuffer = Buffer.from(item.image).toString("binary")
-        return item.table === "Doctors" ? `data:image/jpg;base64,${imgBuffer}` : `data:image/png;base64,${imgBuffer}`
-    }
-    return ""
-}
+// const toImage = (item) => {
+//     if (item.image) {
+//         const imgBuffer = Buffer.from(item.image).toString("binary")
+//         return item.table === "Doctors" ? `data:image/jpg;base64,${imgBuffer}` : `data:image/png;base64,${imgBuffer}`
+//     }
+//     return ""
+// }
 
 const getAllResult = async (req, res, next) => {
     let search = req.params.search
@@ -51,11 +51,6 @@ const getAllResult = async (req, res, next) => {
             return item
         })
         let data = ["Chuyên khoa", ...specialties, "Bác sĩ", ...doctors, count]
-        data = data.map((item) => {
-            if (item.image)
-                item.image = toImage(item)
-            return item
-        })
         return res.status(200).json({
             message: "ok",
             data: data

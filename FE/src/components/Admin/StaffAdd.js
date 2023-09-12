@@ -15,6 +15,7 @@ import {
     faSquare
 } from "@fortawesome/free-regular-svg-icons"
 import useFetch from "../../custom/fetch"
+import useUtil from "../../custom/utils"
 
 import Warning from "../General/Dialog/Warning"
 
@@ -23,7 +24,7 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import { toast } from "react-toastify"
 const StaffAdd = (props) => {
-    const navigate = useNavigate()
+    const { handleNavigate } = useUtil()
 
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
@@ -74,7 +75,7 @@ const StaffAdd = (props) => {
         setAdd(add + 1)
     }
     const handleBack = () => {
-        navigate(-1)
+        handleNavigate(-1)
     }
     useEffect(() => {
         if (loading === false && add !== 0) {
@@ -123,7 +124,7 @@ const StaffAdd = (props) => {
                             <Form.Control
                                 type="text"
                                 value={name}
-                                onChange={(event) => setName(event.target.value)} />
+                                onChange={event => setName(event.target.value)} />
                         </FloatingLabel>
                     </Col>
                     <Col xs={1} />
@@ -165,7 +166,7 @@ const StaffAdd = (props) => {
                             <Form.Control
                                 type="text"
                                 value={phone}
-                                onChange={(event) => setPhone(event.target.value)} />
+                                onChange={event => setPhone(event.target.value)} />
                         </FloatingLabel>
                     </Col>
                     <Col xs={1} />
@@ -201,7 +202,7 @@ const StaffAdd = (props) => {
                             <Form.Control
                                 type="text"
                                 value={email}
-                                onChange={(event) => setEmail(event.target.value)} />
+                                onChange={event => setEmail(event.target.value)} />
                         </FloatingLabel>
                     </Col>
                     <Col xs={1} />
@@ -225,7 +226,7 @@ const StaffAdd = (props) => {
                             <Form.Control
                                 type="text"
                                 value={address}
-                                onChange={(event) => setAddress(event.target.value)} />
+                                onChange={event => setAddress(event.target.value)} />
                         </FloatingLabel>
                     </Col>
                 </Row>

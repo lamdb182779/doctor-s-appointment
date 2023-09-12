@@ -4,6 +4,7 @@ import { Row, Col, Button, Image, Tooltip, Popover, OverlayTrigger, Modal } from
 
 import { useNavigate, useParams } from "react-router-dom"
 import useFetch from "../../custom/fetch"
+import useUtil from "../../custom/utils"
 import ReactMarkdown from "react-markdown"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -21,7 +22,7 @@ import DoctorChange from "./DoctorChange"
 import nullavatar from "../../assets/images/nullavatardoctor.jpg"
 
 const DoctorInfo = (props) => {
-    const navigate = useNavigate()
+    const { handleNavigate } = useUtil()
     // const location = useLocation()
     const { id } = useParams()
 
@@ -33,7 +34,7 @@ const DoctorInfo = (props) => {
     const [changed, setChanged] = useState(0)
     const { data, loading } = useFetch(`http://localhost:8080/api/doctors/${id}/${changed}`)
     const handleBack = () => {
-        navigate(-1)
+        handleNavigate(-1)
     }
     const renderChangeTooltip = (props) => (
         <Tooltip id="change-tooltip" {...props}>
@@ -70,7 +71,7 @@ const DoctorInfo = (props) => {
                                         trigger="click"
                                         placement="auto"
                                         overlay={renderAvatar}>
-                                        <Image onClick={(event) => event.target.click()} className="w-50 h-auto"
+                                        <Image onClick={event => event.target.click()} className="w-50 h-auto"
                                             src={data[0].image ? data[0].image : nullavatar} alt="avatar" roundedCircle />
                                     </OverlayTrigger>
                                 </Col>

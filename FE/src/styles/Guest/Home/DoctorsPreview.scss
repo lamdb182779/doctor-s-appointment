@@ -1,0 +1,63 @@
+.doctors-preview-container {
+
+    h4 {
+        color: #32609e;
+    }
+
+    h5 {
+        color: #4fb5e6;
+    }
+
+    .doctors-preview-content {
+        display         : flex;
+        height          : 23rem;
+        width           : 90%;
+        overflow-x      : auto;
+        overflow-y      : hidden;
+        scroll-snap-type: x mandatory;
+        align-items     : flex-end;
+
+        >div {
+            display          : block;
+            scroll-snap-align: start;
+            height           : 20rem;
+            flex-shrink      : 0;
+            flex-basis       : 25%;
+            background-color : #32609e;
+            transition       : margin-bottom 200ms linear;
+
+            img {
+                height: 75%;
+                width : 100%;
+            }
+
+            &:hover {
+                margin-bottom: 2rem;
+                cursor       : pointer;
+                box-shadow   : 0 1rem 3rem rgba(0, 0, 0, .175);
+
+                >div {
+                    background-color: #4fb5e6;
+                }
+
+                img {
+                    border: 1px solid grey;
+                }
+            }
+        }
+    }
+
+    .doctors-preview-content::-webkit-scrollbar {
+        width: 0;
+    }
+
+    .slide-arrow {
+        display    : flex;
+        align-items: center;
+
+        &:hover {
+            cursor: pointer;
+            color : gray;
+        }
+    }
+}

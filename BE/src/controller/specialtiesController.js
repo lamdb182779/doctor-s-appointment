@@ -1,13 +1,13 @@
 const db = require("../models")
 const { Buffer } = require("buffer")
 
-const toImage = (image) => {
-    if (image) {
-        const imgBuffer = Buffer.from(image).toString("binary")
-        return `specialties:image/png;base64,${imgBuffer}`
-    }
-    return ""
-}
+// const toImage = (image) => {
+//     if (image) {
+//         const imgBuffer = Buffer.from(image).toString("binary")
+//         return `specialties:image/png;base64,${imgBuffer}`
+//     }
+//     return ""
+// }
 
 const getSpecialties = async (req, res, next) => {
     let { limit, offset } = req.query
@@ -19,12 +19,6 @@ const getSpecialties = async (req, res, next) => {
         let specialties = await db.Specialties.findAll({
             limit: limit,
             offset: offset
-        })
-        specialties = specialties.map((item) => {
-            if (item.image) {
-                item.image = toImage(item.image)
-            }
-            return item
         })
         return res.status(200).json({
             message: "ok",

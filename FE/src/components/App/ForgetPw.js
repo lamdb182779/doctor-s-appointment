@@ -47,7 +47,7 @@ const ForgetPw = (props) => {
         }
     }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
 
-    const handleCheckUsername = (event) => {
+    const handleCheckUsername = event => {
         event.preventDefault()
         props.setSendVerify(0)
         props.setActiveSendEmail(false)
@@ -79,7 +79,7 @@ const ForgetPw = (props) => {
                 Nhập vào tên tài khoản của bạn
             </div>
             <div className="forgetpw-content">
-                <Form onKeyDown={(event) => { if (event.key === "Enter") event.preventDefault() }}>
+                <Form onKeyDown={event => { if (event.key === "Enter") event.preventDefault() }}>
                     <Form.Group controlId="formBasicUsername">
                         <Form.Label>
                             <FontAwesomeIcon icon={faUser} size="sm" />
@@ -90,7 +90,7 @@ const ForgetPw = (props) => {
                                 <Form.Control type="search"
                                     placeholder="Username"
                                     value={username}
-                                    onChange={(event) => setUserName(event.target.value)}
+                                    onChange={event => setUserName(event.target.value)}
                                     isInvalid={!isValid}
                                 />
                                 <Form.Control.Feedback type="invalid">
@@ -99,7 +99,7 @@ const ForgetPw = (props) => {
                                 </Form.Control.Feedback>
                             </Col>
                             <Col>
-                                <Button className="w-100" onClick={(event) => handleCheckUsername(event)}>Kiểm tra</Button></Col>
+                                <Button className="w-100" onClick={event => handleCheckUsername(event)}>Kiểm tra</Button></Col>
                         </Row>
                         {loading === true ?
                             <>

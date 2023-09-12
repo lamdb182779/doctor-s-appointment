@@ -10,7 +10,7 @@ const Specialty = (props) => {
             </div>
             <Row className="specialty-content h-100 d-flex align-items-center justify-content-between">
                 <Col xs={4} className="specialty-image">
-                    <Image className="rounded-4" src={props.data.image} alt={props.data.name} fluid />
+                    <Image className="rounded-4" src={props.data.image} alt={props.data.name} data-src="01Musculoskeletal.png.png" fluid />
                 </Col>
                 <Col className="specialty-description">
                     <ReactMarkdown className="specialty-markdown text-break">{props.data.description}</ReactMarkdown>

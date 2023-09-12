@@ -2,16 +2,14 @@ import { Col, Row, Tooltip, OverlayTrigger } from "react-bootstrap"
 import "../../styles/Staff/StaffHeader.scss"
 import { NavLink } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-// import {
-//     // faUserDoctor,
-//     faUserPen,
-// } from "@fortawesome/free-solid-svg-icons"
 import {
     faCircleUser,
     faCalendarDays,
 } from "@fortawesome/free-regular-svg-icons"
+import useUtil from "../../custom/utils"
 
 const StaffHeader = (props) => {
+    const { handleLink } = useUtil()
     const renderHomeTooltip = (props) => {
         return (
             <Tooltip id="home-tooltip" {...props}>
@@ -32,7 +30,7 @@ const StaffHeader = (props) => {
                 placement="bottom"
                 overlay={renderHomeTooltip}>
                 <Col xs={4} className="staff-header-home d-flex align-items-center justify-content-center">
-                    <NavLink end to="/staff" className="w-100 h-100 text-secondary text-decoration-none p-2">
+                    <NavLink onClick={event => handleLink(event)} end to="/staff" className="w-100 h-100 text-secondary text-decoration-none p-2">
                         <div className="h-100 w-100 rounded-3 d-flex align-items-center justify-content-center">
                             <FontAwesomeIcon size="lg" icon={faCircleUser} />
                         </div>
@@ -43,7 +41,7 @@ const StaffHeader = (props) => {
                 placement="bottom"
                 overlay={renderAppointmentTooltip}>
                 <Col xs={4} className="staff-header-appointment d-flex align-items-center justify-content-center">
-                    <NavLink to="/staff/appointments" className="w-100 h-100 text-secondary text-decoration-none p-2">
+                    <NavLink onClick={event => handleLink(event)} to="/staff/appointments" className="w-100 h-100 text-secondary text-decoration-none p-2">
                         <div className="h-100 w-100 rounded-3 d-flex align-items-center justify-content-center">
                             <FontAwesomeIcon size="lg" icon={faCalendarDays} />
                         </div>
@@ -51,7 +49,7 @@ const StaffHeader = (props) => {
                 </Col>
             </OverlayTrigger>
             {/* <Col xs={4} className="staff-header-staff d-flex align-items-center justify-content-center">
-                <NavLink to="/staff/staff-list" className="w-100 h-100 text-secondary text-decoration-none p-2">
+                <NavLink onClick={event => handleLink(event)} to="/staff/staff-list" className="w-100 h-100 text-secondary text-decoration-none p-2">
                     <div className="h-100 w-100 rounded-3 d-flex align-items-center justify-content-center">
                         <FontAwesomeIcon size="nm" icon={faUserDoctor} />
                     </div>

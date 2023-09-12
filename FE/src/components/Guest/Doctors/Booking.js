@@ -117,7 +117,7 @@ const Booking = (props) => {
                             <Form.Control
                                 type="text"
                                 value={name}
-                                onChange={(event) => setName(event.target.value)}
+                                onChange={event => setName(event.target.value)}
                                 size="sm" />
                         </FloatingLabel>
                     </Col>
@@ -126,7 +126,7 @@ const Booking = (props) => {
                             <Form.Control
                                 type="text"
                                 value={phone}
-                                onChange={(event) => setPhone(event.target.value)}
+                                onChange={event => setPhone(event.target.value)}
                                 size="sm" />
                         </FloatingLabel>
                     </Col>
@@ -135,7 +135,7 @@ const Booking = (props) => {
                             <Form.Control
                                 type="email"
                                 value={email}
-                                onChange={(event) => setEmail(event.target.value)}
+                                onChange={event => setEmail(event.target.value)}
                                 size="sm" />
                         </FloatingLabel>
                     </Col>
@@ -147,7 +147,7 @@ const Booking = (props) => {
                                 rows={5}
                                 value={description}
                                 as="textarea"
-                                onChange={(event) => setDescription(event.target.value)} />
+                                onChange={event => setDescription(event.target.value)} />
                         </FloatingLabel>
                     </Col>
                 </Row>

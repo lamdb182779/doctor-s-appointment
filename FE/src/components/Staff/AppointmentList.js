@@ -7,12 +7,13 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 
 import useFetch from "../../custom/fetch"
+import useUtil from "../../custom/utils"
 
 import moment from "moment"
 import "moment/locale/vi"
 
 const AppointmentList = (props) => {
-    const navigate = useNavigate()
+    const { handleNavigate } = useUtil()
 
     const today = moment().startOf("day")
     const [day, setDay] = useState(moment(today).add(1, "days"))
@@ -50,7 +51,7 @@ const AppointmentList = (props) => {
             <div className="apponitment-list-title">
                 <Row className="">
                     <Col xs={2} className="d-flex justify-content-start">
-                        <Button onClick={() => navigate("/staff")} variant="outline-secondary" size="sm">Quay lại</Button>
+                        <Button onClick={() => handleNavigate("/staff")} variant="outline-secondary" size="sm">Quay lại</Button>
                     </Col>
                     <Col xs={8} className="d-flex align-items-center justify-content-center fw-bold">
                         Danh sách lịch hẹn

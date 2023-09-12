@@ -167,7 +167,7 @@ const DoctorChange = (props) => {
                                     type="text"
                                     disabled={nameDisable}
                                     value={name}
-                                    onChange={(event) => setName(event.target.value)}
+                                    onChange={event => setName(event.target.value)}
                                     size="sm" />
                             </Col>
                             <Col>
@@ -185,7 +185,7 @@ const DoctorChange = (props) => {
                                     type="text"
                                     disabled={phoneDisable}
                                     value={phone}
-                                    onChange={(event) => setPhone(event.target.value)}
+                                    onChange={event => setPhone(event.target.value)}
                                     size="sm" />
                             </Col>
                             <Col>
@@ -203,7 +203,7 @@ const DoctorChange = (props) => {
                                     type="email"
                                     disabled={emailDisable}
                                     value={email}
-                                    onChange={(event) => setEmail(event.target.value)}
+                                    onChange={event => setEmail(event.target.value)}
                                     size="sm" />
                             </Col>
                             <Col>
@@ -303,7 +303,7 @@ const DoctorChange = (props) => {
                                                 !contentDisable ? content : ""}
                                     as="textarea"
                                     rows={row > 5 ? row : 5}
-                                    onChange={(event) => {
+                                    onChange={event => {
                                         !addressDisable ? setAddress(event.target.value) :
                                             !describeDisable ? setDescribe(event.target.value) :
                                                 !priceDisable ? setPrice(event.target.value) :

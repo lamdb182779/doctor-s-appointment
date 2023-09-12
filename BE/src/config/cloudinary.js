@@ -1,0 +1,13 @@
+require("dotenv").config()
+const cloudinary = require('cloudinary').v2;
+const fs = require('fs');
+const multer = require("multer")
+
+const folderPath = path.join(__dirname, '/Specialties');
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_KEY,
+    api_secret: process.env.CLOUDINARY_SECRET
+})
+

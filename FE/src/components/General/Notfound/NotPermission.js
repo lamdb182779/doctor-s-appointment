@@ -7,26 +7,27 @@ import { Image, Button, Row, Col } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 
 import { useSelector } from "react-redux"
+import useUtil from "../../../custom/utils"
 const NotPermission = (props) => {
-    const navigate = useNavigate()
+    const { handleNavigate } = useUtil()
 
     const user = useSelector(state => state.user)
     const handleHome = () => {
         if (Object.keys(user).length === 0) {
-            navigate("/")
+            handleNavigate("/")
         } else {
             switch (props.user.table) {
                 case "Admins":
-                    navigate("/admin")
+                    handleNavigate("/admin")
                     break
                 case "Doctors":
-                    navigate("/doctor")
+                    handleNavigate("/doctor")
                     break
                 case "Staffs":
-                    navigate("/staff")
+                    handleNavigate("/staff")
                     break
                 default:
-                    navigate("/")
+                    handleNavigate("/")
                     break
             }
         }
@@ -49,7 +50,7 @@ const NotPermission = (props) => {
                 </Row>
                 <Row>
                     <Col className=" d-flex justify-content-center">
-                        <Button variant="outline-link" onClick={() => navigate(-1)}>Quay lại trang trước</Button>
+                        <Button variant="outline-link" onClick={() => handleNavigate(-1)}>Quay lại trang trước</Button>
                     </Col>
                 </Row>
             </Row>
