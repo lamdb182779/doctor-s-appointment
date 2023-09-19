@@ -1,0 +1,14 @@
+.appointment-content.modal-body {
+    .form-floating {
+        font-size: 80%;
+
+        label {
+            margin-top: -0.5rem;
+        }
+
+        textarea.form-control {
+            height     : 7rem;
+            padding-top: 2rem;
+        }
+    }
+}

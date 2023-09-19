@@ -2,8 +2,6 @@ import "../../styles/Staff/AppointmentList.scss"
 
 import { Row, Col, Button, Table, Dropdown } from "react-bootstrap"
 
-import { useNavigate } from "react-router-dom"
-
 import { useState } from "react"
 
 import useFetch from "../../custom/fetch"

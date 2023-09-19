@@ -85,8 +85,10 @@ const Login = (props) => {
         <div className="login-container">
             <Row className="d-flex justify-content-center">
                 <Col xs={2} className="p-0">
-                    <div className="left-nav px-2 w-100 m-0">
-                        <LoginNav />
+                    <div className="left-nav">
+                        <div className="px-2 w-100 m-0">
+                            <LoginNav />
+                        </div>
                     </div>
                 </Col>
                 <Col xs={4} className="main-element fs-6">

@@ -760,14 +760,11 @@ Chuyên gia đầu ngành trong lĩnh vực bệnh lý Tiêu hóa
 Nguyên Giám đốc Bệnh viện Đại học Y Hà Nội
 Bác sĩ khám cho người bệnh từ 3 tuổi trở lên`,
                 price: `-   Giá khám chưa bao gồm chi phí chụp chiếu, xét nghiệm.  500.000^đ^ 
--   Nội soi dạ dày gây mê - Nội soi dạ dày công nghệ cao NBI (có mê): 2.030.000đ - 2.600.000đ 
--   Nội soi dạ dày không gây mê - Nội soi dạ dày công nghệ cao NBI (không mê): 1.050.000đ - 1.600.000đ 
--   Nội soi đại tràng gây mê - Nội soi đại tràng công nghệ cao NBI (gây mê): 2.370.000đ - 2.800.000đ
--   Nội soi đại tràng không gây mê - Nội soi đại tràng công nghệ cao NBI (không mê): 1.320.000đ - 2.000.000đ
--   Nội soi thực quản gây mê - Nội soi thực quản công nghệ cao NBI (có mê): 2.030.000đ - 2.400.000đ
--   Nội soi thực quản không gây mê - Nội soi thực quản công nghệ cao NBI (không mê): 1.050.000đ - 1.600.000đ
-
-Bệnh viện có các hình thức thanh toán: Chuyển khoản, tiền mặt, thẻ tín dụng`,
+                -   Nội soi dạ dày gây mê - Nội soi dạ dày công nghệ cao NBI (có mê): 2.030.000đ - 2.600.000đ 
+                -   Nội soi đại tràng gây mê - Nội soi đại tràng công nghệ cao NBI (gây mê): 2.370.000đ - 2.800.000đ
+                -   Nội soi thực quản gây mê - Nội soi thực quản công nghệ cao NBI (có mê): 2.030.000đ - 2.400.000đ
+                
+                Bệnh viện có các hình thức thanh toán: Chuyển khoản, tiền mặt, thẻ tín dụng`,
                 content: `Giáo sư, Tiến sĩ, Bác sĩ Hà Văn Quyết
 -------------------------------------
 
@@ -892,11 +889,8 @@ Hiện tại bác sĩ có lịch khám tại Phòng khám Vietlife
 Bác sĩ khám cho người bệnh từ 16 tuổi trở lên`,
                 price: `-   Giá khám chưa bao gồm chi phí chụp chiếu, xét nghiệm.  500.000^đ^ 
 -   Nội soi dạ dày gây mê - Nội soi dạ dày công nghệ cao NBI (có mê): 2.030.000đ - 2.600.000đ 
--   Nội soi dạ dày không gây mê - Nội soi dạ dày công nghệ cao NBI (không mê): 1.050.000đ - 1.600.000đ 
 -   Nội soi đại tràng gây mê - Nội soi đại tràng công nghệ cao NBI (gây mê): 2.370.000đ - 2.800.000đ
--   Nội soi đại tràng không gây mê - Nội soi đại tràng công nghệ cao NBI (không mê): 1.320.000đ - 2.000.000đ
 -   Nội soi thực quản gây mê - Nội soi thực quản công nghệ cao NBI (có mê): 2.030.000đ - 2.400.000đ
--   Nội soi thực quản không gây mê - Nội soi thực quản công nghệ cao NBI (không mê): 1.050.000đ - 1.600.000đ
 
 Bệnh viện có các hình thức thanh toán: Chuyển khoản, tiền mặt, thẻ tín dụng`,
                 content: `Bác sĩ Chuyên khoa II Lê Tuyết Anh
@@ -934,11 +928,8 @@ Giảng viên bộ môn Ngoại Tổng quát Trường Đại học Y Dược TP
 Bác sĩ nhận khám từ 15 tuổi trở lên`,
                 price: `-   Giá khám chưa bao gồm chi phí chụp chiếu, xét nghiệm.  500.000^đ^ 
 -   Nội soi dạ dày gây mê - Nội soi dạ dày công nghệ cao NBI (có mê): 2.030.000đ - 2.600.000đ 
--   Nội soi dạ dày không gây mê - Nội soi dạ dày công nghệ cao NBI (không mê): 1.050.000đ - 1.600.000đ 
 -   Nội soi đại tràng gây mê - Nội soi đại tràng công nghệ cao NBI (gây mê): 2.370.000đ - 2.800.000đ
--   Nội soi đại tràng không gây mê - Nội soi đại tràng công nghệ cao NBI (không mê): 1.320.000đ - 2.000.000đ
 -   Nội soi thực quản gây mê - Nội soi thực quản công nghệ cao NBI (có mê): 2.030.000đ - 2.400.000đ
--   Nội soi thực quản không gây mê - Nội soi thực quản công nghệ cao NBI (không mê): 1.050.000đ - 1.600.000đ
 
 Bệnh viện có các hình thức thanh toán: Chuyển khoản, tiền mặt, thẻ tín dụng`,
                 content: `Bác sĩ Chuyên khoa I Nguyễn Văn Thông
@@ -992,11 +983,8 @@ Gần 30 năm kinh nghiệm trong lĩnh vực tiêu hóa
 Bác sĩ nhận khám cho trẻ từ 15 tuổi trở lên`,
                 price: `-   Giá khám chưa bao gồm chi phí chụp chiếu, xét nghiệm.  500.000^đ^ 
 -   Nội soi dạ dày gây mê - Nội soi dạ dày công nghệ cao NBI (có mê): 2.030.000đ - 2.600.000đ 
--   Nội soi dạ dày không gây mê - Nội soi dạ dày công nghệ cao NBI (không mê): 1.050.000đ - 1.600.000đ 
 -   Nội soi đại tràng gây mê - Nội soi đại tràng công nghệ cao NBI (gây mê): 2.370.000đ - 2.800.000đ
--   Nội soi đại tràng không gây mê - Nội soi đại tràng công nghệ cao NBI (không mê): 1.320.000đ - 2.000.000đ
 -   Nội soi thực quản gây mê - Nội soi thực quản công nghệ cao NBI (có mê): 2.030.000đ - 2.400.000đ
--   Nội soi thực quản không gây mê - Nội soi thực quản công nghệ cao NBI (không mê): 1.050.000đ - 1.600.000đ
 
 Bệnh viện có các hình thức thanh toán: Chuyển khoản, tiền mặt, thẻ tín dụng`,
                 content: `Bác sĩ Chuyên khoa II Nguyễn Thị Tuyết Vân
@@ -1068,11 +1056,8 @@ Từng công tác nhiều năm tại Bệnh viện Quân Y 103
 Nguyên giảng viên Học viện Quân Y`,
                 price: `-   Giá khám chưa bao gồm chi phí chụp chiếu, xét nghiệm.  500.000^đ^ 
 -   Nội soi dạ dày gây mê - Nội soi dạ dày công nghệ cao NBI (có mê): 2.030.000đ - 2.600.000đ 
--   Nội soi dạ dày không gây mê - Nội soi dạ dày công nghệ cao NBI (không mê): 1.050.000đ - 1.600.000đ 
 -   Nội soi đại tràng gây mê - Nội soi đại tràng công nghệ cao NBI (gây mê): 2.370.000đ - 2.800.000đ
--   Nội soi đại tràng không gây mê - Nội soi đại tràng công nghệ cao NBI (không mê): 1.320.000đ - 2.000.000đ
 -   Nội soi thực quản gây mê - Nội soi thực quản công nghệ cao NBI (có mê): 2.030.000đ - 2.400.000đ
--   Nội soi thực quản không gây mê - Nội soi thực quản công nghệ cao NBI (không mê): 1.050.000đ - 1.600.000đ
 
 Bệnh viện có các hình thức thanh toán: Chuyển khoản, tiền mặt, thẻ tín dụng`,
                 content: `Bác sĩ Chuyên khoa II Nguyễn Thị Bạch Liễu

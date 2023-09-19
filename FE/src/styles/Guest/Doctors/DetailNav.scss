@@ -1,0 +1,19 @@
+.detail-nav-list {
+    >div {
+        cursor        : pointer;
+        height        : 2rem;
+        display       : flex;
+        align-items   : center;
+        padding-inline: 0.5rem;
+
+        &:hover {
+            background-color: white;
+            color           : black;
+        }
+    }
+
+    .active {
+        background-color: grey;
+        color           : white
+    }
+}

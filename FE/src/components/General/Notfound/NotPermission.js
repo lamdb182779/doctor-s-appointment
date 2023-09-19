@@ -4,8 +4,6 @@ import notpermission from "../../../assets/images/notpermission.png"
 
 import { Image, Button, Row, Col } from "react-bootstrap"
 
-import { useNavigate } from "react-router-dom"
-
 import { useSelector } from "react-redux"
 import useUtil from "../../../custom/utils"
 const NotPermission = (props) => {

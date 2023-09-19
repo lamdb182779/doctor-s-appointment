@@ -9,7 +9,7 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown"
 
 import Page from "../General/Page/Page"
 
-import { useNavigate, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 
 import Warning from "../General/Dialog/Warning"

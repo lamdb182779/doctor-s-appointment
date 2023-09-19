@@ -1,34 +1,25 @@
-.booking-content.modal-body {
-    .form-floating {
+.booking-container {
 
-        textarea.form-control {
-            // line-height: 2;
-            height     : 7rem;
-            padding-top: 2rem;
-        }
+    .time,
+    .slot {
+        transform-origin: top;
+        transition      : all 200ms linear;
+    }
+
+    .scroll {
+        transform: rotateX(90deg);
+    }
+
+    .form-floating {
+        margin-top: -0.5rem;
+        font-size : small;
 
         .form-control {
-            border-top   : none;
-            border-left  : none;
-            border-right : none;
-            border-radius: 0;
-            padding-left : 0;
-
-            &:not(:placeholder-shown) {
-                padding-bottom: 0;
-            }
-
-            &:focus {
-                box-shadow: none;
-            }
+            padding-block: 0;
         }
 
         label {
-            padding-left: 0;
-
-            &:not(:placeholder-shown) {
-                transform: translate();
-            }
+            margin-top: -0.2rem;
         }
     }
 }

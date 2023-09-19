@@ -61,11 +61,13 @@ const Specialties = (props) => {
         <div className="specialties-container">
             <Row className="d-flex justify-content-center">
                 <Col xs={2} className="p-0">
-                    <div className="px-2 w-100 m-0 left-nav">
-                        <Nav />
+                    <div className="left-nav">
+                        <div className="px-2 w-100 m-0">
+                            <Nav />
+                        </div>
                     </div>
                 </Col>
-                <Col className="main-element p-5 d-grid gap-4" xs={5}>
+                <Col className="main-element p-5 d-grid gap-5" xs={5}>
                     <Row className="">
                         <h3>Danh sách các chuyên khoa</h3>
                     </Row>

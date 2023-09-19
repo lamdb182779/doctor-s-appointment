@@ -3,8 +3,6 @@ import "../../../styles/General/Notfound/DoctorNotfound.scss"
 import notfound from "../../../assets/images/doctor-notfound.png"
 
 import { Image, Button, Row, Col } from "react-bootstrap"
-
-import { useNavigate } from "react-router-dom"
 import useUtil from "../../../custom/utils"
 
 const DoctorNotfound = (props) => {

@@ -1,0 +1,40 @@
+.back {
+    .form-floating {
+        margin-top: -0.5rem;
+        font-size : small;
+
+        .form-control {
+            padding-block: 0;
+        }
+
+        label {
+            margin-top: -0.2rem;
+        }
+    }
+
+    .schedule {
+        transform-origin: top left;
+        transition      : scale 200ms linear;
+    }
+
+    .schedule.hide {
+        scale: 0;
+    }
+
+    .time,
+    .slot,
+    .appointment {
+        transform-origin: top;
+        transition      : all 200ms linear;
+    }
+
+    .scroll {
+        transform: rotateX(90deg);
+    }
+
+    .col>div>div>div {
+        height          : 100px !important;
+        scale           : 0.7;
+        transform-origin: top right;
+    }
+}

@@ -4,7 +4,6 @@ import "../../styles/Admin/DoctorAdd.scss"
 import { Row, Col, Form, Button, OverlayTrigger, Popover } from "react-bootstrap"
 
 import ReactMarkdown from "react-markdown"
-import { useNavigate } from "react-router-dom"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {

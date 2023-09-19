@@ -3,12 +3,13 @@ import "../../../styles/Guest/Doctors/Doctors.scss"
 
 import { Button, Dropdown, Form, Col, Row, Spinner } from "react-bootstrap"
 
-import { useLocation, useNavigate } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import useFetch from "../../../custom/fetch"
 import useUtil from "../../../custom/utils"
 
 import Doctor from "./Doctor"
 import Page from "../../General/Page/Page"
+import Nav from "../../App/Nav"
 
 const Doctors = (props) => {
     const { handleNavigate } = useUtil()
@@ -49,114 +50,107 @@ const Doctors = (props) => {
         setPage(1)
     }
 
-    const handleDoctor = (id) => {
-        let path = `/doctors/${id}`
-        handleNavigate(path)
-    }
-
-    const handleBack = () => {
-        handleNavigate(-1)
-    }
-
     return (
-        <div className="doctors-container p-5">
-            <div className="doctors-title d-flex justify-content-between">
-                <Button variant="outline-secondary" size="sm" onClick={() => handleBack()}>Quay lại</Button>
-                <b>Danh sách các bác sĩ </b>
-                <div></div>
-            </div>
-            <div className="doctors-content mt-5">
-                <div className="doctors-search fs-6 fw-bold text-start d-grid gap-3">
-                    <Row className="d-flex align-items-center">
-                        <Col xs={3}>
-                            <Row className="doctors-specialty d-flex align-items-center">
-                                <Col xs={4}>
-                                    Chuyên khoa:
-                                </Col>
-                                <Col xs={8}>
-                                    {specialtiesLoading === false ?
-                                        <>
-                                            <Dropdown>
-                                                <Dropdown.Toggle variant="outline-dark" size="sm">
-                                                    {specialtiesData.find(item => item.id === specialty)?.name}
-                                                </Dropdown.Toggle>
-                                                <Dropdown.Menu style={{ height: "50vh", overflowY: "scroll" }} >
-                                                    <Dropdown.Item onClick={() => handleSpecialty("")}>Tất cả</Dropdown.Item>
-                                                    {specialtiesData?.length > 0 ?
-                                                        <>
-                                                            {specialtiesData.map((item, index) => {
-                                                                return (
-                                                                    <Dropdown.Item key={index} onClick={() => handleSpecialty(item.id)}>
-                                                                        {item.name}
-                                                                    </Dropdown.Item>
-                                                                )
-                                                            })
-                                                            }
-                                                        </>
-                                                        :
-                                                        <>
-                                                            <Dropdown.Item>
-                                                                &nbsp;Không có dữ liệu
-                                                            </Dropdown.Item>
-                                                        </>
-                                                    }
-                                                </Dropdown.Menu>
-                                            </Dropdown>
-                                        </>
-                                        :
-                                        <>
-                                            &nbsp;Loading...
-                                        </>
-                                    }
-                                </Col>
-                            </Row>
-                        </Col>
-                        <Col xs={7}>
-                            <Row className="doctors-name d-flex align-items-center">
-                                <Col xs={1}>
-                                    Tên:
-                                </Col>
-                                <Col>
-                                    <Form.Control
-                                        type="search"
-                                        placeholder="Nhập tên bác sĩ"
-                                        className="me-2"
-                                        aria-label="Search"
-                                        size="sm"
-                                        value={searchName}
-                                        onChange={event => setSearchName(event.target.value)}
-                                    />
-                                </Col>
-                            </Row>
-                        </Col>
-                    </Row>
-                    <Row className="doctors-address d-flex align-items-center">
-                        <Col xs={1}>
-                            Địa chỉ:
-                        </Col>
-                        <Col>
-                            <Form.Control
-                                type="search"
-                                placeholder="Nhập địa chỉ"
-                                className="me-2"
-                                aria-label="Search"
-                                size="sm"
-                                value={searchAddress}
-                                onChange={event => setSearchAddress(event.target.value)}
-                            />
-                        </Col>
-                        <Col xs={2}>
-                            <Button className="w-100" variant="outline-success" size="sm"
-                                onClick={() => handleSearch()}>Tìm kiếm</Button>
-                        </Col>
-                    </Row>
-                </div>
-                <div className="doctors-list mt-5" ref={componentRef}>
-                    <div className="doctors-viewmode d-flex align-items-center">
-                        <div className="fs-6 d-inline me-2">
-                            Chế độ xem:
+        <div className="doctors-container">
+            <Row className="d-flex justify-content-center">
+                <Col xs={2} className="p-0">
+                    <div className="left-nav">
+                        <div className="px-2 w-100 m-0">
+                            <Nav />
                         </div>
-                        <div className="d-inline">
+                    </div>
+                </Col>
+                <Col className="main-element p-5 d-grid gap-5" xs={9}>
+                    <Row className="">
+                        <h3>Danh sách bác sĩ</h3>
+                    </Row>
+                    <Row className="fs-6 text-start d-grid gap-5">
+                        <Row>
+                            <Col xs={4}>
+                                <Row>
+                                    <Col xs={5} className="d-flex align-items-center">
+                                        Chuyên khoa:
+                                    </Col>
+                                    <Col className="ms-4 ps-4 d-flex align-items-center justify-content-start">
+                                        {specialtiesLoading === false ?
+                                            <>
+                                                <Dropdown>
+                                                    <Dropdown.Toggle variant="outline-dark" size="sm">
+                                                        {specialtiesData.find(item => item.id === specialty)?.name}
+                                                    </Dropdown.Toggle>
+                                                    <Dropdown.Menu style={{ height: "50vh", overflowY: "scroll" }} >
+                                                        <Dropdown.Item onClick={() => handleSpecialty("")}>Tất cả</Dropdown.Item>
+                                                        {specialtiesData?.length > 0 ?
+                                                            <>
+                                                                {specialtiesData.map((item, index) => {
+                                                                    return (
+                                                                        <Dropdown.Item key={index} onClick={() => handleSpecialty(item.id)}>
+                                                                            {item.name}
+                                                                        </Dropdown.Item>
+                                                                    )
+                                                                })
+                                                                }
+                                                            </>
+                                                            :
+                                                            <>
+                                                                <Dropdown.Item>
+                                                                    &nbsp;Không có dữ liệu
+                                                                </Dropdown.Item>
+                                                            </>
+                                                        }
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
+                                            </>
+                                            :
+                                            <>
+                                                &nbsp;Loading...
+                                            </>
+                                        }
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col xs={6}>
+                                <Row>
+                                    <Col className="d-flex align-items-end" xs={1}>
+                                        Tên:
+                                    </Col>
+                                    <Col className="" >
+                                        <Form.Control
+                                            placeholder=""
+                                            type="search"
+                                            value={searchName}
+                                            onChange={event => setSearchName(event.target.value)} />
+                                    </Col>
+                                </Row>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="" xs={10}>
+                                <Row className="h-100">
+                                    <Col xs={2} className="d-flex align-items-end">
+                                        Địa chỉ:
+                                    </Col>
+                                    <Col className="ms-4 ps-4">
+                                        <Form.Control
+                                            placeholder=""
+                                            type="search"
+                                            value={searchAddress}
+                                            onChange={event => setSearchAddress(event.target.value)} />
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col xs={2} className="d-flex align-items-center">
+                                <Button variant="outline-success" size="sm" className="w-100" onClick={() => handleSearch()}>
+                                    Tìm kiếm
+                                </Button>
+                            </Col>
+                        </Row>
+                    </Row>
+                    <Row ref={componentRef} className="fs-6 text-start">
+                        <Col xs={2} className="d-flex align-items-center">
+                            Chế độ xem:
+                        </Col>
+                        <Col className="ps-3 d-flex align-items-center">
                             <Dropdown>
                                 <Dropdown.Toggle variant="outline-primary" id="dropdown-basic" size="sm">
                                     {pagesize} kết quả/ trang
@@ -167,18 +161,18 @@ const Doctors = (props) => {
                                     <Dropdown.Item onClick={() => handlePagesize(15)}>15 kết quả/trang</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
-                        </div>
-                    </div>
+                        </Col>
+                    </Row>
                     {loading === false ?
                         <>
-                            {data?.length > 1 ?
+                            {data?.length > 0 ?
                                 <>
                                     {data.map((item, index) => {
                                         if (index !== data.length - 1) {
                                             return (
-                                                <div key={index} onClick={() => handleDoctor(item.id)}>
-                                                    <Doctor data={item} />
-                                                </div>
+                                                <Row className="d-flex justify-content-center px-5">
+                                                    <Doctor doctor={item} />
+                                                </Row>
                                             )
                                         }
                                         let len = parseInt((item - 1) / pagesize + 1)
@@ -191,23 +185,13 @@ const Doctors = (props) => {
                                     }
                                 </>
                                 :
-                                <>
-                                    <div className="doctors-nodata">
-                                        Không có dữ liệu
-                                    </div>
-                                </>
-                            }
+                                <></>}
                         </>
                         :
-                        <>
-                            <div className="doctors-loading">
-                                <Spinner animation="border" variant="primary" />
-                                Đang tải dữ liệu...
-                            </div>
-                        </>
+                        <></>
                     }
-                </div>
-            </div>
+                </Col>
+            </Row>
         </div>
     )
 }

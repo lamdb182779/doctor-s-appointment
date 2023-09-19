@@ -15,10 +15,6 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "scheduleId",
         targetKey: "id",
       })
-      Appointments.belongsTo(models.Doctors, {
-        foreignKey: "doctorId",
-        targetKey: "id",
-      })
       Appointments.belongsTo(Appointments, {
         as: "previous",
         foreignKey: "preAppointmentId",
@@ -32,13 +28,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     status: DataTypes.INTEGER,
-    doctorId: DataTypes.STRING,
     patientName: DataTypes.STRING,
     patientPhoneNumber: DataTypes.STRING,
     patientEmail: DataTypes.STRING,
     description: DataTypes.STRING,
-    date: DataTypes.DATE,
-    time: DataTypes.STRING,
     preAppointmentId: DataTypes.STRING,
     scheduleId: DataTypes.STRING
   }, {

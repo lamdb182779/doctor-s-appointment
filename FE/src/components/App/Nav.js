@@ -1,6 +1,6 @@
 import "../../styles/App/Nav.scss"
 
-import { NavLink, useNavigate } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 import { Button } from "react-bootstrap"
 import { useState } from "react"

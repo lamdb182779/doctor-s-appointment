@@ -1,6 +1,6 @@
 import "../../styles/Admin/AdminNav.scss"
 
-import { NavLink, useNavigate } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 import { Button } from "react-bootstrap"
 

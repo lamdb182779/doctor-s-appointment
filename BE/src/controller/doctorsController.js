@@ -129,7 +129,7 @@ const getAllDoctors = async (req, res, next) => {
                 where: find,
                 offset: skip,
                 limit: pagesize,
-                attributes: ["id", "name", "clinicAddress", "email", "phoneNumber", "describe", "image"],
+                attributes: ["id", "name", "clinicAddress", "price", "describe", "image"],
                 include: [
                     {
                         model: db.Specialties,
@@ -198,7 +198,7 @@ const deleteDoctorById = async (req, res, next) => {
                 active: true,
             }
         })
-        if (deactivate === [0]) {
+        if (deactivate.isEqual(0)) {
             console.log("No matching doctor.")
             return res.status(500).json({
                 message: "server error",
@@ -247,7 +247,7 @@ const updateDoctorById = async (req, res, next) => {
                 active: true,
             }
         })
-        if (doctor === [0]) {
+        if (doctor.isEqual([0])) {
             console.log("No matching doctor")
             return res.status(500).json({
                 message: "wrong id"

@@ -3,7 +3,7 @@ import "../../../styles/Guest/Search/Search.scss"
 
 import { Button, Col, Form, Row, Spinner, Card } from "react-bootstrap"
 
-import { useNavigate, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 import useFetch from "../../../custom/fetch"
 import useUtil from "../../../custom/utils"

@@ -12,10 +12,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      doctorId: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
       patientName: {
         allowNull: false,
         type: Sequelize.STRING
@@ -28,14 +24,6 @@ module.exports = {
         type: Sequelize.STRING
       },
       description: {
-        type: Sequelize.STRING
-      },
-      date: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      time: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       preAppointmentId: {

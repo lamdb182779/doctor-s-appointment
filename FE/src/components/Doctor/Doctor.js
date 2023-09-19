@@ -7,8 +7,6 @@ import ReactMarkdown from "react-markdown"
 
 import { Row, Col, Image, } from "react-bootstrap"
 
-import { useNavigate } from "react-router-dom"
-
 const Doctor = (props) => {
     const { data, loading } = useFetch("http://localhost:8080/api/self/info")
 

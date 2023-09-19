@@ -4,8 +4,6 @@ import "../../../styles/General/Notfound/Notfound.scss"
 
 import notfound from "../../../assets/images/notfound.png"
 
-import { useNavigate } from "react-router-dom"
-
 import { useSelector } from "react-redux"
 import useUtil from "../../../custom/utils"
 

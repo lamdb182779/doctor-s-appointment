@@ -2,7 +2,7 @@ import "../../styles/Admin/DoctorInfo.scss"
 
 import { Row, Col, Button, Image, Tooltip, Popover, OverlayTrigger, Modal } from "react-bootstrap"
 
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import useFetch from "../../custom/fetch"
 import useUtil from "../../custom/utils"
 import ReactMarkdown from "react-markdown"

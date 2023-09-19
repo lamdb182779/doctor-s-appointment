@@ -1,98 +1,17 @@
-// .doctors-container {
-//     margin-top: 5%;
-//     padding   : 3% 5%;
+.doctors-container {
+    .form-control {
+        background   : none;
+        border-radius: 0;
+        border-top   : none;
+        border-left  : none;
+        border-right : none;
+        border-bottom: 1px solid black;
+        padding      : 0;
 
-//     .doctors-title {
-//         position: relative;
-
-//         button {
-//             position: absolute;
-//             left    : 0;
-//         }
-//     }
-
-//     .doctors-content {
-//         margin-top: 1%;
-
-//         .doctors-search {
-//             text-align : left;
-//             font-size  : 70%;
-//             font-weight: 500;
-
-//             .doctors-specialty,
-//             .doctors-name,
-//             .doctors-address {
-//                 display      : flex;
-//                 align-items  : center;
-//                 margin-bottom: 3%;
-//             }
-
-//             .doctors-specialty {
-//                 button {
-//                     margin-left: 1rem;
-//                     height     : 2.3rem;
-//                 }
-//             }
-
-//             .doctors-name {
-//                 margin-left: 3.7rem;
-
-//                 input {
-//                     margin-left: 1rem;
-//                     width      : 70%;
-//                     height     : 2.3rem;
-//                 }
-//             }
-
-//             .doctors-address {
-//                 input {
-//                     margin-left: 4rem;
-//                     width      : 75%;
-//                     height     : 2.3rem;
-//                 }
-
-//                 button {
-//                     margin-left: 1rem;
-//                     width      : 10%;
-//                 }
-//             }
-//         }
-
-//         .doctors-list {
-//             margin-top: 2%;
-
-//             .doctors-viewmode {
-//                 text-align : left;
-//                 font-size  : 70%;
-//                 font-weight: 500;
-//                 display    : flex;
-//                 align-items: center;
-
-//                 button {
-//                     margin-left: 1.5rem;
-//                 }
-//             }
-
-//             .page-item {
-//                 margin-left: 5px;
-//             }
-
-//             .doctors-nodata,
-//             .doctors-loading {
-//                 display        : flex;
-//                 align-items    : center;
-//                 justify-content: center;
-//                 font-size      : 70%;
-//                 margin-top     : 3%;
-//             }
-
-//             .doctors-loading {
-//                 color: #1976d2;
-
-//                 >div {
-//                     margin-right: 1%;
-//                 }
-//             }
-//         }
-//     }
-// }
+        &:focus {
+            background   : none;
+            border-bottom: 1px solid#4fb5e6;
+            box-shadow   : none;
+        }
+    }
+}

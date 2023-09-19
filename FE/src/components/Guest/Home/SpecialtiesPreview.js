@@ -41,24 +41,22 @@ const SpecialtiesPreview = (props) => {
                                 <Col xs={12} ref={specialtiesRef} className="specialties-preview-content d-flex p-0">
                                     {data.map((item, index) => {
                                         return (
-                                            <>
-                                                <div className="specialty w-100" onClick={() => handleNavigate(`/doctors?specialtyID=${item.id}`)}>
-                                                    <div key={index} className="specialty-front p-0">
-                                                        <Image className=" w-100 h-100" src={item.image ? item.image : nullavatar} alt={item.name} />
-                                                        <div className="w-100 h-25">
-                                                            {item.name}
+                                            <div key={index} className="specialty w-100" onClick={() => handleNavigate(`/doctors?specialtyID=${item.id}`)}>
+                                                <div className="specialty-front p-0">
+                                                    <Image className=" w-100 h-100" src={item.image ? item.image : nullavatar} alt={item.name} />
+                                                    <div className="w-100 h-25">
+                                                        {item.name}
+                                                    </div>
+                                                </div>
+                                                <div className="specialty-back p-0 mx-4">
+                                                    <div className="fs-3 h-25">{item.name}</div>
+                                                    <div>
+                                                        <div className="w-100">
+                                                            <ReactMarkdown>{item.description ? item.description : "Chưa có mô tả cụ thể về chuyên khoa này"}</ReactMarkdown>
                                                         </div>
                                                     </div>
-                                                    <div key={index} className="specialty-back p-0 mx-4">
-                                                        <div className="fs-3 h-25">{item.name}</div>
-                                                        <div>
-                                                            <div className="w-100">
-                                                                <ReactMarkdown>{item.description ? item.description : "Chưa có mô tả cụ thể về chuyên khoa này"}</ReactMarkdown>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div >
-                                            </>
+                                                </div>
+                                            </div >
                                         )
                                     })
                                     }

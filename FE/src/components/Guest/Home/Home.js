@@ -17,7 +17,6 @@ const Home = (props) => {
 
     useEffect(() => {
         const elements = contentRef.current.querySelectorAll("[id^='element']")
-        console.log(elements);
 
         const handleScroll = () => {
             const windowHeight = window.innerHeight || document.documentElement.clientHeight
@@ -42,8 +41,10 @@ const Home = (props) => {
         <div className="home-container">
             <Row className="d-flex justify-content-center">
                 <Col xs={2} className="p-0">
-                    <div className="px-2 w-100 m-0 left-nav">
-                        <Nav />
+                    <div className="left-nav">
+                        <div className="px-2 w-100 m-0">
+                            <Nav />
+                        </div>
                     </div>
                 </Col>
                 <Col ref={contentRef} className="main-element p-0 d-grid" xs={9}>
@@ -63,10 +64,6 @@ const Home = (props) => {
                         <SpecialtiesPreview />
                     </Row>
                 </Col>
-                {/* <Col xs={4} className="p-0">
-                    <div className="right-nav h-100 w-100 m-0">
-                    </div>
-                </Col> */}
             </Row>
         </div>
     )

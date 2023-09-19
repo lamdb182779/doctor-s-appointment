@@ -12,7 +12,7 @@ const NavigateRoles = (props) => {
     const scrollRef = useRef(null)
 
     useLayoutEffect(() => {
-        const scrollOptions = { behavior: 'smooth' }
+        const scrollOptions = { behavior: "smooth" }
         scrollRef.current.scrollIntoView(scrollOptions)
     }, [location.pathname])// eslint-disable-line react-hooks/exhaustive-deps
 
