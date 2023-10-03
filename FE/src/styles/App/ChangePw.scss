@@ -1,16 +1,16 @@
 .changepw-container {
-    .changepw-title {
-        margin-top : -2%;
-        font-weight: 500;
+    .form-floating {
+        label {
+            font-size : 90%;
+            margin-top: -0.2rem;
+        }
     }
 
-    .changepw-content {
-        margin-top: 3%;
+    .pw-hidden.hide {
+        scale: 0;
+    }
 
-        form {
-            >div {
-                margin-top: 3%;
-            }
-        }
+    .pw-hidden {
+        transition: scale 200ms linear;
     }
 }

@@ -26,15 +26,13 @@ const Home = (props) => {
                 const { top, bottom } = element.getBoundingClientRect()
                 if (top < windowHeight - 200 && bottom >= 200) {
                     element.classList.add("show")
-                } else {
-                    element.classList.remove("show")
                 }
             }
         }
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll)
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', handleScroll)
         }
     }, [])
     return (

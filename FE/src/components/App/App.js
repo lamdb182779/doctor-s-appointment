@@ -1,55 +1,43 @@
 import Header from "./Header"
-import Footer from "./Footer";
-import Login from "./Login";
-import ForgetPw from "./ForgetPw"
-import Home from "../Guest/Home/Home";
-import Specialties from "../Guest/Specialties/Specialties";
-import Doctors from "../Guest/Doctors/Doctors";
-import Detail from "../Guest/Doctors/Detail";
-import Notfound from "../General/Notfound/Notfound";
-import Search from "../Guest/Search/Search";
-import Doctor from "../Doctor/Doctor";
-import Staff from "../Staff/Staff";
-import Admin from "../Admin/Admin";
-import PrivateRoute from "./PrivateRoute";
-import ChangePw from "./ChangePw";
-import StaffList from "../Admin/StaffList";
-import StaffAdd from "../Admin/StaffAdd";
-import DoctorAdd from "../Admin/DoctorAdd";
-import DoctorList from "../Admin/DoctorList";
-import Appointments from "../Doctor/Appointments";
-import AppointmentList from "../Staff/AppointmentList";
+import Footer from "./Footer"
+import Login from "./Login"
+import Home from "../Guest/Home/Home"
+import Specialties from "../Guest/Specialties/Specialties"
+import Doctors from "../Guest/Doctors/Doctors"
+import Detail from "../Guest/Doctors/Detail"
+import Notfound from "../General/Notfound/Notfound"
+import Search from "../Guest/Search/Search"
+import Doctor from "../Doctor/Doctor"
+import Staff from "../Staff/Staff"
+import Admin from "../Admin/Admin"
+import PrivateRoute from "./PrivateRoute"
+import StaffList from "../Admin/StaffList"
+import StaffAdd from "../Admin/StaffAdd"
+import DoctorAdd from "../Admin/DoctorAdd"
+import DoctorList from "../Admin/DoctorList"
+import Appointments from "../Doctor/Appointments"
+import AppointmentList from "../Staff/AppointmentList"
+import NavigateRoles from "./NavigateRoles"
+import GuestRoute from "./GuestRoute"
+import ChangePw from "./ChangePw"
+import DoctorInfo from "../Admin/DoctorInfo"
 
-import "../../styles/App/App.scss";
+import "../../styles/App/App.scss"
 
 import logo from "../../assets/images/logo.png"
-
-import { Offcanvas, Button, Modal } from "react-bootstrap";
-
-import { useEffect, useState } from "react";
 
 import {
   BrowserRouter,
   Route,
   Routes,
 } from "react-router-dom"
-import AdminNav from "../Admin/AdminNav";
-import DoctorNav from "../Doctor/DoctorNav";
-import StaffNav from "../Staff/StaffNav";
 
-import { useSelector } from "react-redux";
+import useConfirm from "../../custom/confirm"
 
-import DoctorInfo from "../Admin/DoctorInfo";
-
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import useUser from "../../custom/user";
-import NavigateRoles from "./NavigateRoles";
-import GuestRoute from "./GuestRoute";
 const App = (props) => {
-  const user = useSelector(state => state.user)
-  const { setUser, clearUser } = useUser()
-
+  const { ConfirmDialog } = useConfirm()
   return (
     <BrowserRouter>
       <div className="App">
@@ -66,6 +54,7 @@ const App = (props) => {
             <Route path="/doctors" element={<GuestRoute element={<Doctors />} />} />
             <Route path="/doctors/:id" element={<GuestRoute element={<Detail />} />} />
             <Route path="/search" element={<GuestRoute element={<Search />} />} />
+            <Route path="/changepassword" element={<PrivateRoute table={["Admins", "Doctors", "Staffs"]} element={<ChangePw />} />} />
             <Route path="/admin" element={<PrivateRoute table={["Admins"]} element={<Admin />} />} />
             <Route path="/admin/staff" element={<PrivateRoute table={["Admins"]} element={<StaffList />} />} />
             <Route path="/admin/staff/add" element={<PrivateRoute table={["Admins"]} element={<StaffAdd />} />} />
@@ -95,8 +84,9 @@ const App = (props) => {
         pauseOnHover
         theme="light"
       />
+      <ConfirmDialog />
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

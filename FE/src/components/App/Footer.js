@@ -1,6 +1,6 @@
 import "../../styles/App/Footer.scss"
 
-import useFetch from "../../custom/fetch"
+import useGet from "../../custom/get"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -12,7 +12,7 @@ import {
 import { Image, Spinner, Row, Col } from "react-bootstrap"
 
 const Footer = (props) => {
-    const { data, loading } = useFetch("http://localhost:8080/api")
+    const { data, loading } = useGet("/")
     return (
         <>
             <Row className="w-100 p-5 fs-6">

@@ -1,0 +1,2 @@
+
+export const SET_CONFIG_CONFIRM = "SET_CONFIG_CONFIRM"

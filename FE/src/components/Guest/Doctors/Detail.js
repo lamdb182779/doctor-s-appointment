@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom"
 
 import { useRef, useState } from "react"
 
-import useFetch from "../../../custom/fetch"
+import useGet from "../../../custom/get"
 import DoctorNotfound from "../../General/Notfound/DoctorNotfound"
 import DetailNav from "./DetailNav"
 import Nav from "../../App/Nav"
@@ -24,7 +24,7 @@ const Detail = (props) => {
     const topRef = useRef(null)
     const contentRef = useRef(null)
     const [viewmode, setViewmode] = useState(0)
-    const { data, loading } = useFetch(`http://localhost:8080/api/doctors/${id}/1`)
+    const { data, loading } = useGet(`/doctors/${id}/1`)
 
     const renderContent = () => {
         switch (viewmode) {

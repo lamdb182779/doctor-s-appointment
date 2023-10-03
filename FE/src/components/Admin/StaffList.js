@@ -1,15 +1,11 @@
-import useFetch from "../../custom/fetch"
+import useGet from "../../custom/get"
 import useUtil from "../../custom/utils"
 import "../../styles/Admin/StaffList.scss"
 
 import { Row, Col, Button, Table, Modal } from "react-bootstrap"
 
-// import { ReactMarkdown } from "react-markdown/lib/react-markdown"
-
 import Page from "../General/Page/Page"
 import { useEffect, useState } from "react"
-
-import Warning from "../General/Dialog/Warning"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -47,8 +43,8 @@ const StaffList = (props) => {
     // name = name !== undefined ? name : ""
     // specialtyID = specialtyID !== undefined ? specialtyID : ""
     // clinicAddress = clinicAddress !== undefined ? clinicAddress : ""
-    const { data, loading } = useFetch(`http://localhost:8080/api/staffs?page=${page}&pagesize=10&${deleted}&${changed}`)
-    const { message, loading: delLoading } = useFetch(confirm === false ? "" : `http://localhost:8080/api/staffs/${delId}/${deleted}`,
+    const { data, loading } = useGet(`/staffs?page=${page}&pagesize=10&${deleted}&${changed}`)
+    const { message, loading: delLoading } = useGet(confirm === false ? "" : `/staffs/${delId}/${deleted}`,
         confirm === false ? {} : {
             method: "DELETE",
             headers: {
@@ -108,11 +104,6 @@ const StaffList = (props) => {
                     changed={changed}
                     data={data[changeId]} />
             </Modal>
-            <Warning
-                show={showWarning}
-                setShow={setShowWarning}
-                handleYes={handleYes}
-                body="Bạn có chắc muốn hủy kích hoạt nhân viên này không?" />
 
             <div className="staff-list-title">
                 <Row className="">

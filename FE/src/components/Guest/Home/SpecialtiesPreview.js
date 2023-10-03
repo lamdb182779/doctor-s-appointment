@@ -1,9 +1,9 @@
 import { Col, Image, Row } from "react-bootstrap"
 import "../../../styles/Guest/Home/SpecialtiesPreview.scss"
-import useFetch from "../../../custom/fetch"
+import useGet from "../../../custom/get"
 import nullavatar from "../../../assets/images/nullavatarspecialty.jpg"
 import ReactMarkdown from "react-markdown"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faChevronLeft,
     faChevronRight,
@@ -12,7 +12,7 @@ import useUtil from "../../../custom/utils"
 import { useRef } from "react"
 
 const SpecialtiesPreview = (props) => {
-    const { data, loading } = useFetch("http://localhost:8080/api/home/specialties")
+    const { data, loading } = useGet("/home/specialties")
     const { handleNavigate } = useUtil()
     const specialtiesRef = useRef(null)
     const handleScrollLeft = () => {
@@ -48,7 +48,7 @@ const SpecialtiesPreview = (props) => {
                                                         {item.name}
                                                     </div>
                                                 </div>
-                                                <div className="specialty-back p-0 mx-4">
+                                                <div className="specialty-back p-0">
                                                     <div className="fs-3 h-25">{item.name}</div>
                                                     <div>
                                                         <div className="w-100">

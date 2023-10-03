@@ -1,18 +1,18 @@
 import { Image, Row, Col } from "react-bootstrap"
 import "../../../styles/Guest/Home/DoctorsPreview.scss"
-import useFetch from "../../../custom/fetch";
+import useGet from "../../../custom/get"
 import nullavatar from "../../../assets/images/nullavatardoctor.jpg"
-import useUtil from "../../../custom/utils";
-import { useRef } from "react";
+import useUtil from "../../../custom/utils"
+import { useRef } from "react"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faChevronLeft,
     faChevronRight,
 } from "@fortawesome/free-solid-svg-icons"
 
 const DoctorsPreview = (props) => {
-    const { data, loading } = useFetch("http://localhost:8080/api/home/doctors")
+    const { data, loading } = useGet("/home/doctors")
     const { handleNavigate } = useUtil()
     const doctorsRef = useRef(null)
     const handleScrollLeft = () => {

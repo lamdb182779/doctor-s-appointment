@@ -18,9 +18,7 @@ import { useState, useEffect } from "react"
 import DatePicker from "react-datepicker"
 
 import "react-datepicker/dist/react-datepicker.css"
-import useFetch from "../../custom/fetch"
-
-import Warning from "../General/Dialog/Warning"
+import useGet from "../../custom/get"
 import { toast } from "react-toastify"
 
 const StaffChange = (props) => {
@@ -50,7 +48,7 @@ const StaffChange = (props) => {
 
     const [showWarning, setShowWarning] = useState(false)
 
-    const { message, loading } = useFetch(change === 0 ? "" : `http://localhost:8080/api/staffs/${data.id}/${change}`, change === 0 ? {} : {
+    const { message, loading } = useGet(change === 0 ? "" : `/staffs/${data.id}/${change}`, change === 0 ? {} : {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -101,11 +99,6 @@ const StaffChange = (props) => {
     )
     return (
         <>
-            <Warning
-                show={showWarning}
-                setShow={setShowWarning}
-                handleYes={handleYes}
-                body="Bạn có chắc muốn thực hiện những thay đổi này không?" />
 
             <Modal.Header closeButton className="border-0">
                 <Modal.Title >

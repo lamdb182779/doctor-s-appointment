@@ -10,10 +10,8 @@ import {
     faUserPlus
 } from "@fortawesome/free-solid-svg-icons"
 
-import useFetch from "../../custom/fetch"
+import useGet from "../../custom/get"
 import useUtil from "../../custom/utils"
-
-import Warning from "../General/Dialog/Warning"
 import { toast } from "react-toastify"
 
 const DoctorAdd = (props) => {
@@ -42,8 +40,8 @@ const DoctorAdd = (props) => {
         </Popover>
     )
 
-    const { data, loading: specialtiesLoading } = useFetch("http://localhost:8080/api/doctors/specialties")
-    const { message, loading } = useFetch(add === 0 ? "" : `http://localhost:8080/api/doctors?${add}`, add === 0 ? {} : {
+    const { data, loading: specialtiesLoading } = useGet("/doctors/specialties")
+    const { message, loading } = useGet(add === 0 ? "" : `/doctors?${add}`, add === 0 ? {} : {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -87,11 +85,6 @@ const DoctorAdd = (props) => {
     }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div className="doctor-add-container p-5">
-            <Warning
-                show={showWarning}
-                setShow={setShowWarning}
-                handleYes={handleYes}
-                body="Bạn có chắc muốn thêm thông tin bác sĩ vào hệ thống không?" />
             <div className="doctor-add-title">
                 <Row className="">
                     <Col xs={2} className="d-flex justify-content-start">

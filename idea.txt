@@ -1,7 +1,6 @@
 - validate form
 - sửa lại message và log từ server
 - sửa lại thông báo từ toast dựa trên message
-- sửa lại lưu trữ phiên đăng nhập
 - sửa lại CRUD ảnh đại diện
 - sửa lại kiểm tra role ở BE
 - sửa lại render loading, notfound
@@ -11,5 +10,4 @@
 - thêm chatbot
 - sửa lại các ảnh sử dụng 
 - thêm quản lý lịch hẹn
-- thêm mã capcha
 - single sign on

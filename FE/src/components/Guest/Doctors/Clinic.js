@@ -26,6 +26,7 @@ const Clinic = (props) => {
                     </h6>
                     <ReactMarkdown>{doctor.price}</ReactMarkdown>
                 </Col>
+                <Col className="main-element p-5 m-1"></Col>
             </Row>
         </>
     )

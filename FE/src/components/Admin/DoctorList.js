@@ -1,4 +1,4 @@
-import useFetch from "../../custom/fetch"
+import useGet from "../../custom/get"
 import useUtil from "../../custom/utils"
 
 import "../../styles/Admin/DoctorList.scss"
@@ -11,8 +11,6 @@ import Page from "../General/Page/Page"
 
 import { useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
-
-import Warning from "../General/Dialog/Warning"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -37,8 +35,8 @@ const DoctorList = (props) => {
     // name = name !== undefined ? name : ""
     // specialtyID = specialtyID !== undefined ? specialtyID : ""
     // clinicAddress = clinicAddress !== undefined ? clinicAddress : ""
-    const { data, loading } = useFetch(`http://localhost:8080/api/doctors?page=${page}&pagesize=10&${deleted}`)
-    const { message, loading: delLoading } = useFetch(confirm === false ? "" : `http://localhost:8080/api/doctors/${delId}/${deleted}`,
+    const { data, loading } = useGet(`/doctors?page=${page}&pagesize=10&${deleted}`)
+    const { message, loading: delLoading } = useGet(confirm === false ? "" : `/doctors/${delId}/${deleted}`,
         confirm === false ? {} : {
             method: "DELETE",
             headers: {
@@ -81,11 +79,6 @@ const DoctorList = (props) => {
     }, [delLoading])// eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div className="doctor-list-container px-5 py-5">
-            <Warning
-                show={showWarning}
-                setShow={setShowWarning}
-                handleYes={handleYes}
-                body="Bạn có chắc muốn hủy kích hoạt bác sĩ này không?" />
             <div className="doctor-list-title">
                 <Row className="">
                     <Col xs={2} className="d-flex justify-content-start">

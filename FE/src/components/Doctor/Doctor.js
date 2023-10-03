@@ -1,14 +1,14 @@
 import "../../styles/Doctor/Doctor.scss"
 
 import nullavatar from "../../assets/images/nullavatardoctor.jpg"
-import useFetch from "../../custom/fetch"
+import useGet from "../../custom/get"
 
 import ReactMarkdown from "react-markdown"
 
 import { Row, Col, Image, } from "react-bootstrap"
 
 const Doctor = (props) => {
-    const { data, loading } = useFetch("http://localhost:8080/api/self/info")
+    const { data, loading } = useGet("/self/info")
 
     return (
         <div className="doctor-user-container px-5 py-5 d-grid gap-5">

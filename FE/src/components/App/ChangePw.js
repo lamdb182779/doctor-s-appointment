@@ -1,139 +1,180 @@
 import "../../styles/App/ChangePw.scss"
 
-import { Form } from "react-bootstrap"
+import { Col, Form, Row, FloatingLabel, Button } from "react-bootstrap"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faLock,
     faEye,
     faEyeSlash,
-    faLocationPinLock,
 } from "@fortawesome/free-solid-svg-icons"
 
 import { useEffect, useState } from "react"
-import useFetch from "../../custom/fetch"
+import usePost from "../../custom/post"
 
 import { toast } from "react-toastify"
+import { NavLink } from "react-router-dom"
+import useUtil from "../../custom/utils"
 
 const ChangePw = (props) => {
-    const change = props.change
-
+    const { handleNavigate } = useUtil()
+    const [index, setIndex] = useState(-1)
     const [oldpw, setOldPw] = useState("")
+    const [showOld, setShowOld] = useState(false)
     const [newpw, setNewPw] = useState("")
-    const [showPassword, setShowPassword] = useState(false)
+    const [showNew, setShowNew] = useState(false)
+    const [repw, setRePw] = useState("")
+    const [showRe, setShowRe] = useState(false)
+    const [input, setInput] = useState({})
 
-    const [isBlankOldPw, setIsBlankOldPw] = useState(true)
-    const [isBlankNewPw, setIsBlankNewPw] = useState(true)
-    const [isDupPw, setIsDupPw] = useState(true)
-
-    const [isValidOldPw, setIsValidOldPw] = useState(true)
-    const [isValidNewPw, setIsValidNewPw] = useState(true)
-
-    const handleShowPassword = () => {
-        setShowPassword(!showPassword)
+    const { message } = usePost("/self/changepw", input)
+    const handleChange = () => {
+        if (oldpw === "" || newpw === "" || repw === "" || oldpw === newpw || newpw !== repw) {
+            toast.warning(oldpw === "" || newpw === "" || repw === "" ? "Có thông tin cần thiết bị bỏ trống"
+                : oldpw === newpw ? "Mật khẩu mới phải khác mật khẩu hiện tại" :
+                    newpw !== repw ? "Hãy nhập lại đúng mật khẩu mới" : "Có lỗi xảy ra")
+        } else {
+            setInput({
+                oldpw: oldpw,
+                newpw: newpw
+            })
+        }
     }
 
     useEffect(() => {
-        setIsBlankOldPw(oldpw === "" ? true : false)
-        setIsBlankNewPw(newpw === "" ? true : false)
-        setIsDupPw(oldpw === newpw ? true : false)
-
-        setIsValidOldPw(change && oldpw === "" ? false : true)
-        setIsValidNewPw(change && (newpw === "" || oldpw === newpw) ? false : true)
-    }, [change])// eslint-disable-line react-hooks/exhaustive-deps
-
-    const { message, loading } = useFetch(change === 0
-        || oldpw === ""
-        || newpw === ""
-        || oldpw === newpw
-        ? ""
-        : `http://localhost:8080/api/self/changepw?${change}`,
-        change === 0
-            || oldpw === ""
-            || newpw === ""
-            || oldpw === newpw
-            ? {} : {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    oldpw: oldpw,
-                    newpw: newpw,
-                })
-            })
-
-    useEffect(() => {
-        setIsValidOldPw(message === "wrong password" ? false : true)
-        if (change !== 0 && loading === false) {
-            if (message === "ok") {
-                toast.success("Đổi mật khẩu thành công!")
-                props.handleCloseChangePw()
-            } else {
-                toast.error(message === "server error!" ? "Lỗi Server"
-                    : message === "wrong verify" ? "Lỗi xác thực"
-                        : message === "wrong password" ? "Sai mật khẩu hiện tại"
-                            : "Có lỗi xảy ra")
-            }
+        if (message === "ok") {
+            toast.success("Đổi mật khẩu thành công")
+            handleNavigate("/")
         }
-    }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
+    }, [message])// eslint-disable-line react-hooks/exhaustive-deps
+    useEffect(() => {
+        const inputs = document.querySelectorAll("input")
+        const hiddens = document.querySelectorAll(".pw-hidden")
+        const handleClick = () => {
+            inputs.forEach((element, idx) => {
+                if (element === document.activeElement) {
+                    if (index !== idx) {
+                        setIndex(idx)
+                        hiddens.forEach((element, index) => {
+                            if (index === idx) {
+                                element.classList.remove("hide")
+                            } else {
+                                element.classList.add("hide")
+                            }
+                        })
+                    }
+                }
+            })
+        }
+        window.addEventListener("click", handleClick)
+    }, [])// eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div className="changepw-container">
-            <div className="changepw-title">
-                Nhập mật khẩu hiện tại và mật khẩu mới
-            </div>
-            <div className="changepw-content">
-                <Form>
-                    <Form.Group className="mb-3" controlId="formOldPassword">
-                        <Form.Label>
-                            <FontAwesomeIcon icon={faLocationPinLock} size="sm" />
-                            &nbsp;Mật khẩu hiện tại
-                        </Form.Label>
-                        <Form.Control
-                            type={showPassword ? "text" : "password"}
-                            value={oldpw}
-                            onChange={event => setOldPw(event.target.value)}
-                            isInvalid={!isValidOldPw}
-                            placeholder="Mật khẩu hiện tại" />
-                        <Form.Control.Feedback type="invalid">
-                            &nbsp;{isBlankOldPw ? "Vui lòng điền mật khẩu hiện tại" : ""}
-                        </Form.Control.Feedback>
-                    </Form.Group>
-
-
-                    <Form.Group className="mb-3" controlId="formNewPassword">
-                        <Form.Label>
-                            <FontAwesomeIcon icon={faLock} size="sm" />
-                            &nbsp;Mật khẩu mới
-                        </Form.Label>
-                        <Form.Control
-                            type={showPassword ? "text" : "password"}
-                            value={newpw}
-                            onChange={event => setNewPw(event.target.value)}
-                            isInvalid={!isValidNewPw}
-                            placeholder="Mật khẩu mới" />
-                        <Form.Control.Feedback type="invalid">
-                            &nbsp;{isBlankNewPw ? "Vui lòng điền mật khẩu mới"
-                                : isDupPw ? "Mật khẩu mới không được trùng với mật khẩu cũ" : ""}
-                        </Form.Control.Feedback>
-                    </Form.Group>
-
-                    <Form.Group onClick={() => handleShowPassword()} className="mt-1" controlId="formBasicCheckbox" style={{ cursor: "pointer" }} >
-                        {showPassword === false ?
-                            <>
-                                <FontAwesomeIcon icon={faEye} />
-                                &nbsp;Hiện mật khẩu
-                            </>
-                            :
-                            <>
-                                <FontAwesomeIcon icon={faEyeSlash} />
-                                &nbsp;Ẩn mật khẩu
-                            </>
-                        }
-                    </Form.Group>
-                </Form>
-            </div>
-        </div>
+            <Row className="d-flex justify-content-center">
+                <Col xs={7} className="main-element fs-6">
+                    <Row>
+                        <Col xs={5} className="image-account-theme" />
+                        <Col>
+                            <Row className="d-flex align-items-center h-100">
+                                <Col className="p-5 d-grid gap-3" xs={12}>
+                                    <Row className="">
+                                        <div className="d-flex justify-content-center">
+                                            <div className="mb-2 p-3 rounded-circle text-white bg-danger d-flex justify-content-center align-items-center">
+                                                <FontAwesomeIcon size="lg" icon={faLock} />
+                                            </div>
+                                        </div>
+                                        <h4 >Đổi mật khẩu</h4>
+                                    </Row>
+                                    <Row className="fs-6">
+                                        <Col className="p-0">
+                                            <FloatingLabel controlId="oldpw" label="Mật khẩu cũ">
+                                                <Form.Control
+                                                    placeholder=""
+                                                    type={showOld === true ? "text" : "password"}
+                                                    value={oldpw}
+                                                    onChange={event => setOldPw(event.target.value)} />
+                                            </FloatingLabel>
+                                        </Col>
+                                        <Col xs={1} className="d-flex align-items-center p-0">
+                                            <div onClick={() => setShowOld(!showOld)} className="text-center pw-hidden w-100 mt-4 hide">
+                                                {showOld === false ?
+                                                    <>
+                                                        <FontAwesomeIcon icon={faEye} />
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <FontAwesomeIcon icon={faEyeSlash} />
+                                                    </>
+                                                }
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                    <Row className="fs-6">
+                                        <Col className="p-0">
+                                            <FloatingLabel controlId="newpw" label="Mật khẩu mới">
+                                                <Form.Control
+                                                    placeholder=""
+                                                    type={showNew === true ? "text" : "password"}
+                                                    value={newpw}
+                                                    onChange={event => setNewPw(event.target.value)} />
+                                            </FloatingLabel>
+                                        </Col>
+                                        <Col xs={1} className="d-flex align-items-center p-0">
+                                            <div onClick={() => setShowNew(!showNew)} className="text-center mt-4 pw-hidden w-100 hide">
+                                                {showNew === false ?
+                                                    <>
+                                                        <FontAwesomeIcon icon={faEye} />
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <FontAwesomeIcon icon={faEyeSlash} />
+                                                    </>
+                                                }
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col className="p-0">
+                                            <FloatingLabel controlId="repw" label="Nhập lại mật khẩu mới">
+                                                <Form.Control
+                                                    placeholder=""
+                                                    type={showRe === true ? "text" : "password"}
+                                                    value={repw}
+                                                    onChange={event => setRePw(event.target.value)} />
+                                            </FloatingLabel>
+                                        </Col>
+                                        <Col xs={1} className="d-flex align-items-center p-0">
+                                            <div onClick={() => setShowRe(!showRe)} className="text-center mt-4 pw-hidden w-100 hide">
+                                                {showRe === false ?
+                                                    <>
+                                                        <FontAwesomeIcon icon={faEye} />
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <FontAwesomeIcon icon={faEyeSlash} />
+                                                    </>
+                                                }
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col className="text-start p-0 d-flex align-items-center">
+                                            <NavLink to="/forgetpassword">Quên mật khẩu</NavLink>
+                                        </Col>
+                                        <div className="p-0 mt-2">
+                                            <Button className="w-100" onClick={() => handleChange()}>Đổi mật khẩu</Button>
+                                        </div>
+                                    </Row>
+                                    <span className="text-secondary">
+                                        Copyright © <a href="/" className="text-secondary">Doctor Booking</a> 2023.
+                                    </span>
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                </Col>
+            </Row >
+        </div >
     )
 }
 

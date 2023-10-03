@@ -10,8 +10,7 @@ import { Row, Col, Modal, Form, Button, } from "react-bootstrap"
 
 import ReactMarkdown from "react-markdown"
 import { useEffect, useState } from "react"
-import useFetch from "../../custom/fetch"
-import Warning from "../General/Dialog/Warning"
+import useGet from "../../custom/get"
 
 import { useRef } from "react"
 
@@ -56,7 +55,7 @@ const DoctorChange = (props) => {
 
     const [showWarning, setShowWarning] = useState(false)
 
-    const { message, loading } = useFetch(change === 0 ? "" : `http://localhost:8080/api/doctors/${data[0].id}/${change}`,
+    const { message, loading } = useGet(change === 0 ? "" : `/doctors/${data[0].id}/${change}`,
         change === 0 ? {} : {
             method: "PUT",
             headers: {
@@ -144,11 +143,6 @@ const DoctorChange = (props) => {
     }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
     return (
         <>
-            <Warning
-                show={showWarning}
-                setShow={setShowWarning}
-                handleYes={handleYes}
-                body="Bạn có chắc muốn thực hiện những thay đổi này không?" />
             <Modal.Header closeButton>
                 <Modal.Title>
                     Thay đổi thông tin bác sĩ

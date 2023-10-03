@@ -4,7 +4,7 @@ import { Row, Col, Button, Table, Dropdown } from "react-bootstrap"
 
 import { useState } from "react"
 
-import useFetch from "../../custom/fetch"
+import useGet from "../../custom/get"
 import useUtil from "../../custom/utils"
 
 import { useSelector } from "react-redux"
@@ -45,7 +45,7 @@ const Appointments = (props) => {
         "15": "17:00 - 17:30",
     }
 
-    const { data, loading } = useFetch(`http://localhost:8080/api/appointments?doctorId=${user.id}&date=${day}`)
+    const { data, loading } = useGet(`/appointments?doctorId=${user.id}&date=${day}`)
     return (
         <div className="appointments-container p-5">
             <div className="apponitments-title">

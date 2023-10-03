@@ -12,10 +12,8 @@ import {
 import {
     faSquare
 } from "@fortawesome/free-regular-svg-icons"
-import useFetch from "../../custom/fetch"
+import useGet from "../../custom/get"
 import useUtil from "../../custom/utils"
-
-import Warning from "../General/Dialog/Warning"
 
 import DatePicker from "react-datepicker"
 
@@ -48,7 +46,7 @@ const StaffAdd = (props) => {
         </Popover>
     )
 
-    const { message, loading } = useFetch(add === 0 ? "" : `http://localhost:8080/api/staffs?${add}`, add === 0 ? {} : {
+    const { message, loading } = useGet(add === 0 ? "" : `/staffs?${add}`, add === 0 ? {} : {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -100,11 +98,6 @@ const StaffAdd = (props) => {
     )
     return (
         <div className="staff-add-container p-5">
-            <Warning
-                show={showWarning}
-                setShow={setShowWarning}
-                handleYes={handleYes}
-                body="Bạn có chắc muốn thêm thông tin nhân viên vào hệ thống không?" />
             <div className="staff-add-title">
                 <Row className="">
                     <Col xs={2} className="d-flex justify-content-start">

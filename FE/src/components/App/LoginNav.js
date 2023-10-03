@@ -9,13 +9,13 @@ const LoginNav = (props) => {
     return (
         <div className="login-nav-list fs-6 py-3">
             <div className="nav-login mb-1 rounded">
-                <NavLink onClick={event => handleLink(event)} className="text-decoration-none d-flex align-items-center ps-2 h-100 w-100 rounded" to="/login">Đăng nhập</NavLink>
+                <NavLink onClick={event => handleLink(event, event.target)} className="text-decoration-none d-flex align-items-center ps-2 h-100 w-100 rounded" to="/login">Đăng nhập</NavLink>
             </div>
             <div className="nav-forgetpassword mb-1 rounded">
-                <NavLink onClick={event => handleLink(event)} className="text-decoration-none d-flex align-items-center ps-2 h-100 w-100 rounded" to="/forgetpassword">Quên mật khẩu</NavLink>
+                <NavLink onClick={event => handleLink(event, event.target)} className="text-decoration-none d-flex align-items-center ps-2 h-100 w-100 rounded" to="/forgetpassword">Quên mật khẩu</NavLink>
             </div>
             <div className="nav-register mb-1 rounded">
-                <NavLink onClick={event => handleLink(event)} className="text-decoration-none d-flex align-items-center ps-2 h-100 w-100 rounded" to="/register">Đăng ký</NavLink>
+                <NavLink onClick={event => handleLink(event, event.target)} className="text-decoration-none d-flex align-items-center ps-2 h-100 w-100 rounded" to="/register">Đăng ký</NavLink>
             </div>
 
             <Button className="w-100 mt-5" onClick={() => handleNavigate("/")} size="sm">Trang chủ</Button>

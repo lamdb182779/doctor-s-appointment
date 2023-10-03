@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 
 import { useState, useEffect } from "react"
-import useFetch from "../../custom/fetch"
+import useGet from "../../custom/get"
 
 const ForgetPw = (props) => {
     const sendVerify = props.sendVerify
@@ -24,10 +24,10 @@ const ForgetPw = (props) => {
         setIsValid(check && username.trim() === "" ? false : true)
     }, [check])// eslint-disable-line react-hooks/exhaustive-deps
 
-    const { data, message, loading } = useFetch(check === 0
+    const { data, message, loading } = useGet(check === 0
         || username.trim() === ""
         ? ""
-        : `http://localhost:8080/api/login/findemail?${check}`,
+        : `/login/findemail?${check}`,
         check === 0
             || username.trim() === ""
             ? {} : {
@@ -54,7 +54,7 @@ const ForgetPw = (props) => {
         setCheck(check + 1)
     }
 
-    const { message: verifyMessage, loading: verifyLoading } = useFetch(sendVerify === 0 ? "" : `http://localhost:8080/api/login/sendverify?${sendVerify}`, sendVerify === 0 ? {} : {
+    const { message: verifyMessage, loading: verifyLoading } = useGet(sendVerify === 0 ? "" : `/login/sendverify?${sendVerify}`, sendVerify === 0 ? {} : {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

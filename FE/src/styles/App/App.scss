@@ -21,16 +21,15 @@
   }
 
   .App-main {
-    background         : url("../../assets/images/background-app.jpg");
-    background-size    : 100% auto;
-    background-repeat  : repeat-y;
-    padding-top        : 6rem;
-    text-align         : center;
-    // background-color: black;
-    background-color   : whitesmoke;
-    opacity            : 0.1;
-    transition         : opacity 100ms ease-in-out;
-    padding-bottom     : 2rem;
+    background       : url("../../assets/images/background-app.jpg");
+    background-size  : 100% auto;
+    background-repeat: repeat-y;
+    padding-top      : 6rem;
+    text-align       : center;
+    background-color : whitesmoke;
+    opacity          : 0.1;
+    transition       : opacity 100ms ease-in-out;
+    padding-bottom   : 2rem;
 
     // box-shadow                : 0 2px 4px rgba(0, 0, 0, 0.2)
     .left-nav>div,
@@ -64,6 +63,19 @@
       top             : 7rem;
       right           : 0;
     }
+
+    .image-account-theme {
+      background               : linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../../assets/images/navleft.jpg");
+      background-size          : 100% auto;
+      background-repeat        : repeat-y;
+      border-top-left-radius   : 10px;
+      border-bottom-left-radius: 10px;
+    }
+  }
+
+  .pw-hidden {
+    color : black;
+    cursor: pointer;
   }
 
   .App-footer {

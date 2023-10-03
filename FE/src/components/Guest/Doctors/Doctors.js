@@ -4,7 +4,7 @@ import "../../../styles/Guest/Doctors/Doctors.scss"
 import { Button, Dropdown, Form, Col, Row, Spinner } from "react-bootstrap"
 
 import { useLocation } from "react-router-dom"
-import useFetch from "../../../custom/fetch"
+import useGet from "../../../custom/get"
 import useUtil from "../../../custom/utils"
 
 import Doctor from "./Doctor"
@@ -24,8 +24,8 @@ const Doctors = (props) => {
     const [specialty, setSpecialty] = useState(specialtyID !== undefined ? specialtyID : "")
     const [clinicAddress, setClinicAddress] = useState("")
 
-    const { data: specialtiesData, loading: specialtiesLoading } = useFetch("http://localhost:8080/api/doctors/specialties")
-    const { data, loading } = useFetch(`http://localhost:8080/api/doctors?page=${page}&pagesize=${pagesize}&specialtyID=${specialty}&name=${name}&clinicAddress=${clinicAddress}`)
+    const { data: specialtiesData, loading: specialtiesLoading } = useGet("/doctors/specialties")
+    const { data, loading } = useGet(`/doctors?page=${page}&pagesize=${pagesize}&specialtyID=${specialty}&name=${name}&clinicAddress=${clinicAddress}`)
     const [searchName, setSearchName] = useState(name ? name : "")
     const [searchAddress, setSearchAddress] = useState(clinicAddress ? clinicAddress : "")
 

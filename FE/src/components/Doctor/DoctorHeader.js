@@ -11,9 +11,12 @@ import {
     faCalendarDays,
 } from "@fortawesome/free-regular-svg-icons"
 import useUtil from "../../custom/utils"
+import { useRef } from "react"
 
 const DoctorHeader = (props) => {
     const { handleLink } = useUtil()
+    const doctorRef = useRef(null)
+    const appointmentRef = useRef(null)
     const renderHomeTooltip = (props) => {
         return (
             <Tooltip id="home-tooltip" {...props}>
@@ -34,7 +37,7 @@ const DoctorHeader = (props) => {
                 placement="bottom"
                 overlay={renderHomeTooltip}>
                 <Col xs={4} className="doctor-header-home d-flex align-items-center justify-content-center">
-                    <NavLink onClick={event => handleLink(event)} end to="/doctor" className="w-100 h-100 text-secondary text-decoration-none p-2">
+                    <NavLink ref={doctorRef} onClick={event => handleLink(event, doctorRef.current)} end to="/doctor" className="w-100 h-100 text-secondary text-decoration-none p-2">
                         <div className="h-100 w-100 rounded-3 d-flex align-items-center justify-content-center">
                             <FontAwesomeIcon size="lg" icon={faCircleUser} />
                         </div>
@@ -45,7 +48,7 @@ const DoctorHeader = (props) => {
                 placement="bottom"
                 overlay={renderAppointmentTooltip}>
                 <Col xs={4} className="doctor-header-appointment d-flex align-items-center justify-content-center">
-                    <NavLink onClick={event => handleLink(event)} to="/doctor/appointments" className="w-100 h-100 text-secondary text-decoration-none p-2">
+                    <NavLink ref={appointmentRef} onClick={event => handleLink(event, appointmentRef.current)} to="/doctor/appointments" className="w-100 h-100 text-secondary text-decoration-none p-2">
                         <div className="h-100 w-100 rounded-3 d-flex align-items-center justify-content-center">
                             <FontAwesomeIcon size="lg" icon={faCalendarDays} />
                         </div>

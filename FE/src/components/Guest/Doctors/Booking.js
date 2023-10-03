@@ -7,24 +7,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faCalendarDays,
 } from "@fortawesome/free-solid-svg-icons"
-import useFetch from "../../../custom/fetch"
 import moment from "moment"
 import "moment/locale/vi"
 import { toast } from "react-toastify"
 import ReCAPTCHA from "react-google-recaptcha"
+import useConfirm from "../../../custom/confirm"
+import useGet from "../../../custom/get"
+import usePost from "../../../custom/post"
 
 const Booking = (props) => {
+    const { showConfirm } = useConfirm()
     const doctor = props.doctor
     const [day, setDay] = useState(dayArray[0])
-    const [book, setBook] = useState(0)
     const [booked, setBooked] = useState(0)
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
     const [email, setEmail] = useState("")
     const [describe, setDescribe] = useState("")
+    const [input, setInput] = useState({})
+
     const [index, setIndex] = useState(0)
-    const [captcha, setCaptcha] = useState("")
-    const { data, loading } = useFetch(`http://localhost:8080/api/schedules?doctorId=${doctor.id}&date=${day}&${booked}`)
+    const { data, loading } = useGet(`/schedules?doctorId=${doctor.id}&date=${day}&${booked}`)
     const scheduleRef = useRef(null)
     const captchaRef = useRef(null)
     const timeRef = useRef(null)
@@ -34,13 +37,13 @@ const Booking = (props) => {
         if (index !== idx) {
             timeRef.current.classList.add("scroll")
             slotRef.current.classList.add("scroll")
+            const buttons = scheduleRef.current.querySelectorAll("button")
+            buttons[index + 1].classList.remove("active")
             setTimeout(() => {
                 timeRef.current.classList.remove("scroll")
                 slotRef.current.classList.remove("scroll")
                 setIndex(idx)
             }, 200)
-            const buttons = scheduleRef.current.querySelectorAll("button")
-            buttons[index].classList.remove("active")
             event.target.classList.add("active")
         }
     }
@@ -54,25 +57,11 @@ const Booking = (props) => {
                 setDay(date)
                 scheduleRef.current.classList.remove("flip")
                 appointmentRef.current.classList.remove("flip")
-            }, [200])
+            }, 200)
         }
     }
 
-    const { message, loading: appointmentLoading } = useFetch(book === 0 ? "" : `http://localhost:8080/api/appointments?${book}`, book === 0 ? {} : {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            patientName: name.trim(),
-            patientPhoneNumber: phone.trim(),
-            patientEmail: email.trim(),
-            description: describe.trim(),
-            scheduleId: data[index].id,
-            currentNumber: data[index].currentNumber,
-            captcha: captcha
-        })
-    })
+    const { loading: appointmentLoading, message } = usePost("/appointments", input)
 
     const handleReset = () => {
         setName("")
@@ -83,29 +72,36 @@ const Booking = (props) => {
     }
 
     const handleBooking = () => {
-        if ((name.trim() === "") || (phone.trim() === "") || (data[index].maxNumber - data[index].currentNumber === 0)) {
+        if ((name.trim() === "")
+            || (phone.trim() === "")
+            || (data[index].maxNumber - data[index].currentNumber === 0)) {
             toast.warning(((name.trim() === "") || (phone.trim() === "")) ? "Có thông tin cần thiết bị bỏ trống" :
                 data[index].maxNumber - data[index].currentNumber === 0 ? "Đã hết chỗ trống trong khung giờ này" :
                     "Có lỗi xảy ra")
         }
         else {
-            setCaptcha(captchaRef.current.getValue())
-            captchaRef.current.reset()
-            setBook(book + 1)
+            showConfirm({
+                body: "Bạn có chắc muốn đặt lịch không?",
+                accept: () => {
+                    setInput({
+                        patientName: name.trim(),
+                        patientPhoneNumber: phone.trim(),
+                        patientEmail: email.trim(),
+                        description: describe.trim(),
+                        scheduleId: data[index].id,
+                        currentNumber: data[index].currentNumber,
+                        captcha: captchaRef.current.getValue()
+                    })
+                    captchaRef.current.reset()
+                }
+            })
         }
     }
 
     useEffect(() => {
-        if (appointmentLoading === false && book !== 0) {
-            if (message === "ok") {
-                toast.success("Đặt lịch thành công")
-                setBooked(booked + 1)
-                setBook(0)
-            } else {
-                toast.error(message === "server error!" ? "Lỗi Server" :
-                    message === "full slot" ? "Đã hết chỗ trống khung giờ này" :
-                        "Có lỗi xảy ra")
-            }
+        if (appointmentLoading === false && message === "ok") {
+            toast.success("Đặt lịch thành công")
+            setBooked(booked + 1)
         }
     }, [appointmentLoading])// eslint-disable-line react-hooks/exhaustive-deps
     return (

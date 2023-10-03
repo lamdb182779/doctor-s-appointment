@@ -14,7 +14,7 @@ const deactivateAccount = async (req, res, next) => {
                     active: true,
                 }
             })
-            if (deactivate === [0]) {
+            if (deactivate[0] = 0) {
                 console.log("No matching account.")
                 return res.status(500).json({
                     message: "wrong username",

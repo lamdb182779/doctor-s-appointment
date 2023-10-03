@@ -12,14 +12,6 @@ const hiddenPhoneNumber = (phoneNumber) => {
     return phoneNumber.replace(/^(\d{3}).*(\d{2})$/, "$1****$2")
 }
 
-const toImage = (image) => {
-    if (image) {
-        const imgBuffer = Buffer.from(image).toString("binary")
-        return `data:image/jpg;base64,${imgBuffer}`
-    }
-    return ""
-}
-
 const changePw = async (req, res, next) => {
     let { oldpw, newpw } = req.body
     let user = req.user
@@ -60,7 +52,7 @@ const changePw = async (req, res, next) => {
                                 active: true,
                             }
                         })
-                        if (data === [0]) {
+                        if (data[0] === 0) {
                             console.log("no matching data.")
                             res.return(500).json({
                                 message: "wrong verify",
@@ -107,9 +99,6 @@ const getInfo = async (req, res, next) => {
                     exclude: ["id", "table", "createdAt", "updatedAt", "username", "active"]
                 }
             })
-            if (info.image) {
-                info.image = toImage(info.image)
-            }
             if (info.phoneNumber) {
                 info.phoneNumber = hiddenPhoneNumber(info.phoneNumber)
             }

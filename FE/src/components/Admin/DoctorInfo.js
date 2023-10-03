@@ -3,7 +3,7 @@ import "../../styles/Admin/DoctorInfo.scss"
 import { Row, Col, Button, Image, Tooltip, Popover, OverlayTrigger, Modal } from "react-bootstrap"
 
 import { useParams } from "react-router-dom"
-import useFetch from "../../custom/fetch"
+import useGet from "../../custom/get"
 import useUtil from "../../custom/utils"
 import ReactMarkdown from "react-markdown"
 
@@ -32,7 +32,7 @@ const DoctorInfo = (props) => {
     const handleShow = () => setShow(true)
 
     const [changed, setChanged] = useState(0)
-    const { data, loading } = useFetch(`http://localhost:8080/api/doctors/${id}/${changed}`)
+    const { data, loading } = useGet(`/doctors/${id}/${changed}`)
     const handleBack = () => {
         handleNavigate(-1)
     }

@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 
 import { timeframe, dayArray } from "../../../constants/variables/schedule.js"
-import useFetch from "../../../custom/fetch"
+import useGet from "../../../custom/get"
 
 import { useRef, useState } from "react"
 import Appointment from "./Appointment"
@@ -32,7 +32,7 @@ const Overview = (props) => {
 
     const [booked, setBooked] = useState(0)
 
-    const { data, loading } = useFetch(`http://localhost:8080/api/schedules?doctorId=${doctor.id}&date=${day}&${booked}`)
+    const { data, loading } = useGet(`/schedules?doctorId=${doctor.id}&date=${day}&${booked}`)
     const renderBookingTooltip = (props) => (
         <Tooltip id="booking-tooltip" {...props}>
             Đặt lịch ngay

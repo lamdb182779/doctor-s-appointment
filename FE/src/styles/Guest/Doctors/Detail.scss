@@ -29,6 +29,10 @@
         transition: transform 200ms linear;
     }
 
+    .detail-content {
+        min-height: 30rem;
+    }
+
     .flip {
         transform: rotateY(90deg);
     }

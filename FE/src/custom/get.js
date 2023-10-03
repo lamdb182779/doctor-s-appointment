@@ -1,28 +1,26 @@
+import axios from "../services/axios"
 import { useState, useEffect } from "react"
 
-const useFetch = (url, options) => {
+const useGet = (url) => {
     let [data, setData] = useState([])
     let [loading, setLoading] = useState(false)
     let [message, setMessage] = useState("")
 
     const getInfo = async () => {
-        if (url !== "") {
-            setLoading(true)
-            try {
-                let res = await (await fetch(url, { ...options, credentials: "include" })).json()
+        setLoading(true)
+        axios.get(url)
+            .then(res => {
                 console.log(res)
                 setData(res?.data ? res.data : [])
                 setMessage(res?.message ? res.message : "")
-            }
-            catch (e) {
-                console.log("Error:", e)
-            }
-            setLoading(false)
-        }
+            }).catch(error => console.log("Axios get error: ", error))
+            .finally(() => setLoading(false))
     }
 
     useEffect(() => {
-        getInfo()
+        if (url) {
+            getInfo()
+        }
     }, [url])// eslint-disable-line react-hooks/exhaustive-deps
 
     return {
@@ -32,4 +30,4 @@ const useFetch = (url, options) => {
     }
 }
 
-export default useFetch
+export default useGet

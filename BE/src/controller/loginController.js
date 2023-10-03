@@ -53,7 +53,8 @@ const checkLogin = async (req, res, next) => {
             data: [{
                 id: user.id,
                 table: user.table,
-                name: user.name
+                name: user.name,
+                image: user.image ? user.image : ""
             }]
         })
     }

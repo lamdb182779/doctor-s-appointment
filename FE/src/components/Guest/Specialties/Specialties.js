@@ -2,7 +2,7 @@ import "../../../styles/Guest/Specialties/Specialties.scss"
 import { Row, Col, Image } from "react-bootstrap"
 import Nav from "../../App/Nav"
 import { useState, useEffect, useRef } from "react"
-import useFetch from "../../../custom/fetch"
+import useGet from "../../../custom/get"
 import useUtil from "../../../custom/utils"
 import nullavatar from "../../../assets/images/nullavatarspecialty.jpg"
 import ReactMarkdown from "react-markdown"
@@ -16,7 +16,7 @@ const Specialties = (props) => {
 
     const { handleNavigate } = useUtil()
 
-    const { data: newData, loading } = useFetch(`http://localhost:8080/api/specialties?offset=${offset}&limit=4`)
+    const { data: newData, loading } = useGet(`/specialties?offset=${offset}&limit=4`)
 
     useEffect(() => {
         if (loading === false) {
@@ -78,7 +78,7 @@ const Specialties = (props) => {
                                     {data.map((item, index) => {
                                         return (
                                             <Row key={index} className="specialty"
-                                                onClick={() => handleSpecialtyDoctors()}
+                                                onClick={() => handleSpecialtyDoctors(item.id)}
                                                 onMouseEnter={() => handleOnEnter(index)}>
                                                 <Image className="p-0" src={item.image ? item.image : nullavatar} alt={item.name} />
                                                 <div className="w-100 h-25 p-0">

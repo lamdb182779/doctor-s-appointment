@@ -7,80 +7,62 @@ import "moment/locale/vi"
 
 import { useEffect, useRef, useState } from "react"
 
-import useFetch from "../../../custom/fetch"
-
-import Warning from "../../General/Dialog/Warning"
-
 import nullavatar from "../../../assets/images/nullavatardoctor.jpg"
 import { timeframe } from "../../../constants/variables/schedule"
 
 import { toast } from "react-toastify"
 
 import ReCAPTCHA from "react-google-recaptcha"
+
+import useConfirm from "../../../custom/confirm"
+import usePost from "../../../custom/post"
 const Appointment = (props) => {
+    const { showConfirm } = useConfirm()
     const captchaRef = useRef(null)
     const schedule = props.schedule
     const doctor = props.doctor
-    const [book, setBook] = useState(0)
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
     const [email, setEmail] = useState("")
-    const [description, setDescription] = useState("")
-    const [captcha, setCaptcha] = useState("")
+    const [describe, setDescribe] = useState("")
+    const [input, setInput] = useState({})
 
-    const [showWarning, setShowWarning] = useState(false)
+    const { loading, message } = usePost("/appointments", input)
 
-    const { message, loading } = useFetch(book === 0 ? "" : `http://localhost:8080/api/appointments?${book}`, book === 0 ? {} : {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            patientName: name.trim(),
-            patientPhoneNumber: phone.trim(),
-            patientEmail: email.trim(),
-            description: description.trim(),
-            scheduleId: schedule.id,
-            currentNumber: schedule.currentNumber,
-            captcha: captcha,
-        })
-    })
     const handleBook = () => {
-        if ((name.trim() === "") || (phone.trim() === "") || (schedule.maxNumber - schedule.currentNumber === 0)) {
+        if ((name.trim() === "")
+            || (phone.trim() === "")
+            || (schedule.maxNumber - schedule.currentNumber === 0)) {
             toast.warning(((name.trim() === "") || (phone.trim() === "")) ? "Có thông tin cần thiết bị bỏ trống" :
                 schedule.maxNumber - schedule.currentNumber === 0 ? "Đã hết chỗ trống trong khung giờ này" :
                     "Có lỗi xảy ra")
         }
         else {
-            setCaptcha(captchaRef.current.getValue())
-            setShowWarning(true)
+            showConfirm({
+                body: "Bạn có chắc muốn đặt lịch không?",
+                accept: () => {
+                    setInput({
+                        patientName: name.trim(),
+                        patientPhoneNumber: phone.trim(),
+                        patientEmail: email.trim(),
+                        describe: describe.trim(),
+                        scheduleId: schedule.id,
+                        currentNumber: schedule.currentNumber,
+                        captcha: captchaRef.current.getValue()
+                    })
+                    captchaRef.current.reset()
+                }
+            })
         }
     }
-    const handleYes = () => {
-        captchaRef.current.reset()
-        setBook(book + 1)
-    }
     useEffect(() => {
-        if (loading === false && book !== 0) {
-            if (message === "ok") {
-                toast.success("Đặt lịch thành công")
-                props.setBooked(props.booked + 1)
-                setBook(0)
-            } else {
-                toast.error(message === "server error!" ? "Lỗi Server" :
-                    message === "full slot" ? "Đã hết chỗ trống khung giờ này" :
-                        message === "wrong captcha" ? "Lỗi captcha, vui lòng xác thực lại" :
-                            "Có lỗi xảy ra")
-            }
+        if (loading === false && message === "ok") {
+            toast.success("Đặt lịch thành công")
+            props.setBooked(props.booked + 1)
         }
     }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
     return (
         <>
-            <Warning
-                show={showWarning}
-                setShow={setShowWarning}
-                handleYes={handleYes}
-                body="Bạn có chắc chắn muốn đặt lịch không?" />
             <Modal.Header closeButton>
                 <Modal.Title>
                     Thông tin đặt lịch hẹn bác sĩ
@@ -131,12 +113,12 @@ const Appointment = (props) => {
                 </Row>
                 <Row>
                     <Col>
-                        <FloatingLabel controlId="description" label="Mô tả ngắn gọn lý do khám">
+                        <FloatingLabel controlId="describe" label="Mô tả ngắn gọn lý do khám">
                             <Form.Control
                                 placeholder=""
-                                value={description}
+                                value={describe}
                                 as="textarea"
-                                onChange={event => setDescription(event.target.value)} />
+                                onChange={event => setDescribe(event.target.value)} />
                         </FloatingLabel>
                     </Col>
                 </Row>

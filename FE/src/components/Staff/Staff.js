@@ -1,6 +1,6 @@
 import "../../styles/Staff/Staff.scss"
 
-import useFetch from "../../custom/fetch"
+import useGet from "../../custom/get"
 
 import nullavatar from "../../assets/images/nullavatarstaff.jpg"
 
@@ -24,7 +24,7 @@ import useUtil from "../../custom/utils"
 
 const Staff = (props) => {
     const { handleLink } = useUtil()
-    const { data, loading } = useFetch("http://localhost:8080/api/self/info")
+    const { data, loading } = useGet("/self/info")
     return (
         <div className="staff-container px-5 py-5">
             {loading === false ?

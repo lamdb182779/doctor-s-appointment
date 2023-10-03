@@ -1,4 +1,4 @@
-import { Col, Row, Image } from "react-bootstrap";
+import { Col, Row, Image } from "react-bootstrap"
 import "../../../styles/Guest/Home/Introduce.scss"
 
 import appointment from "../../../assets/images/appointment.png"
@@ -9,7 +9,7 @@ import contact from "../../../assets/images/contact.png"
 import online from "../../../assets/images/online.png"
 import coop from "../../../assets/images/cooperation.png"
 import { useRef, useEffect } from "react"
-import useUtil from "../../../custom/utils";
+import useUtil from "../../../custom/utils"
 
 const Introduce = (props) => {
     const { handleNavigate } = useUtil()
@@ -38,10 +38,10 @@ const Introduce = (props) => {
     }, [slideRef])// eslint-disable-line react-hooks/exhaustive-deps
 
     const handleScroll = () => {
-        const mySlide = slideRef.current;
+        const mySlide = slideRef.current
         const slides = mySlide.querySelectorAll("[id^='slide']")
 
-        const myText = textRef.current;
+        const myText = textRef.current
         const texts = myText.querySelectorAll("[id^='text']")
 
         for (let i = 0; i < slides.length; i++) {
@@ -125,7 +125,7 @@ const Introduce = (props) => {
                                     <p>Đặt lịch khám bệnh nhanh chóng, tiện lợi.</p>
                                     <p>Thao tác cực kỳ đơn giản.</p>
                                     <p>Chọn bác sĩ phù hợp và hẹn trước.</p>
-                                    <p style={{ cursor: "pointer" }} onClick={() => handleNavigate("/doctors")}>Đặt lịch ngay &gt;&gt;&gt;</p>
+                                    <p style={{ cursor: "pointer" }} onClick={() => handleNavigate("/doctors")}>Đặt lịch ngay &gt&gt&gt</p>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +143,7 @@ const Introduce = (props) => {
                                 <div>
                                     <p>Quy tụ rất nhiều bác sĩ hàng đầu.</p>
                                     <p>Cung cấp tất cả chuyên khoa khác nhau.</p>
-                                    <p style={{ cursor: "pointer" }} onClick={() => handleNavigate("/specialties")}>Tìm hiểu ngay các chuyên khoa &gt;&gt;&gt;</p>
+                                    <p style={{ cursor: "pointer" }} onClick={() => handleNavigate("/specialties")}>Tìm hiểu ngay các chuyên khoa &gt&gt&gt</p>
                                 </div>
                             </div>
                         </div>

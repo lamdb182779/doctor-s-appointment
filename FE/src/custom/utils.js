@@ -12,14 +12,14 @@ const useUtil = () => {
         }, 100)
     }
 
-    const handleLink = event => {
+    const handleLink = (event, ref) => {
         event.preventDefault()
         const main = document.querySelector('main')
         main.classList.remove("active")
 
         setTimeout(() => {
             main.classList.add("active")
-            navigate((new URL(event.target.href)).pathname)
+            navigate((new URL(ref.href)).pathname)
         }, 100)
     }
     return {

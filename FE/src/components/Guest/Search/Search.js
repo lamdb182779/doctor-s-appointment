@@ -5,7 +5,7 @@ import { Button, Col, Form, Row, Spinner, Card } from "react-bootstrap"
 
 import { useLocation } from "react-router-dom"
 
-import useFetch from "../../../custom/fetch"
+import useGet from "../../../custom/get"
 import useUtil from "../../../custom/utils"
 import { ReactMarkdown } from "react-markdown/lib/react-markdown"
 import Page from "../../General/Page/Page"
@@ -17,7 +17,7 @@ const Search = (props) => {
 
     const [search, setSearch] = useState("")
 
-    const { data, loading } = useFetch(`http://localhost:8080/api/search/${location.search.substring(1)}`)
+    const { data, loading } = useGet(`/search/${location.search.substring(1)}`)
 
     const handleSearch = () => {
         let path = `/search?${search.trim()}`

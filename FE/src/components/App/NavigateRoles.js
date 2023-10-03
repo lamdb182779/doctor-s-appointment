@@ -1,17 +1,30 @@
-import { useEffect, useLayoutEffect, useRef } from "react"
-import { useLocation } from "react-router-dom"
-import useUtil from "../../custom/utils"
+import { useEffect, useRef } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import useUser from "../../custom/user"
+import useGet from "../../custom/get"
+import { useSelector } from "react-redux"
+import useUtil from "../../custom/utils"
 
 const NavigateRoles = (props) => {
     const { handleNavigate } = useUtil()
+    const navigate = useNavigate()
     const location = useLocation()
     const { loadUserStorage } = useUser()
-
+    const user = useSelector(state => state.user)
     const scrollRef = useRef(null)
+    const { clearUser } = useUser()
+    const { loading, message } = useGet(`/checktoken`)
+    useEffect(() => {
+        if (loading === false && message !== "") {
+            if (message === "no token" && Object.keys(user).length > 0) {
+                clearUser()
+                navigate("/")
+            }
+        }
+    }, [loading])// eslint-disable-line react-hooks/exhaustive-deps
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const scrollOptions = { behavior: "smooth" }
         scrollRef.current.scrollIntoView(scrollOptions)
     }, [location.pathname])// eslint-disable-line react-hooks/exhaustive-deps
