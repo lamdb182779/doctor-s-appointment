@@ -6,7 +6,7 @@ const DetailNav = (props) => {
     const topRef = props.topRef
     const contentRef = props.contentRef
     const handleClick = (mode) => {
-        if (mode !== props.viewmode) {
+        if (mode !== props.viewmode && props.active) {
             const navs = navRef.current.querySelectorAll("[id^='nav']")
             const contentClassList = contentRef.current.classList
             navs[props.viewmode].classList.remove("active")

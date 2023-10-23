@@ -1,0 +1,158 @@
+@keyframes glass-move {
+    from {
+        top : 10rem;
+        left: 30rem;
+    }
+
+    to {
+        top : 10rem;
+        left: 30rem;
+    }
+
+    25% {
+        top : 15rem;
+        left: 20rem;
+    }
+
+    35% {
+        top : 10rem;
+        left: 15rem;
+    }
+
+    50% {
+        top : 5rem;
+        left: 25rem;
+    }
+
+    65% {
+        top : 15rem;
+        left: 30rem;
+    }
+
+    75% {
+        top : 15rem;
+        left: 40rem;
+    }
+
+    85% {
+        top : 5rem;
+        left: 35rem;
+    }
+}
+
+@keyframes handle-move {
+    from {
+        top : 13.6rem;
+        left: 33rem;
+    }
+
+    to {
+        top : 13.6rem;
+        left: 33rem;
+    }
+
+    25% {
+        top : 18.6rem;
+        left: 23rem;
+    }
+
+    35% {
+        top : 13.6rem;
+        left: 18rem;
+    }
+
+    50% {
+        top : 8.6rem;
+        left: 28rem;
+    }
+
+    65% {
+        top : 18.6rem;
+        left: 33rem;
+    }
+
+    75% {
+        top : 18.6rem;
+        left: 43rem;
+    }
+
+    85% {
+        top : 8.6rem;
+        left: 38rem;
+    }
+}
+
+@keyframes scale-move {
+    from {
+        top : -25rem;
+        left: -62rem;
+    }
+
+    to {
+        top : -25rem;
+        left: -62rem;
+    }
+
+    25% {
+        top : -35rem;
+        left: -42rem;
+    }
+
+    35% {
+        top : -25rem;
+        left: -32rem;
+    }
+
+    50% {
+        top : -15rem;
+        left: -52rem
+    }
+
+    65% {
+        top : -35rem;
+        left: -62rem;
+    }
+
+    75% {
+        top : -35rem;
+        left: -82rem;
+    }
+
+    85% {
+        top : -15rem;
+        left: -72rem;
+    }
+}
+
+.loading-container {
+    position: relative;
+
+    .magnifying-glass {
+        opacity         : 1;
+        position        : absolute;
+        overflow        : hidden;
+        border          : 5px solid #333;
+        border-radius   : 50%;
+        height          : 4rem !important;
+        width           : 4rem !important;
+        background-color: white;
+        top             : 10rem;
+        left            : 30rem;
+        animation       : glass-move infinite 5s linear;
+        top             : 10rem;
+        left            : 30rem;
+
+        .scale-div {
+            position : absolute;
+            animation: scale-move infinite 5s linear;
+        }
+    }
+
+    .magnifying-handle {
+        position : absolute;
+        height   : 0.5rem;
+        width    : 2rem;
+        rotate   : 45deg;
+        animation: handle-move infinite 5s linear;
+    }
+}

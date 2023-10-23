@@ -1,0 +1,69 @@
+.staff-list-container {
+    .table-container {
+        overflow    : scroll;
+        aspect-ratio: 16/9;
+        max-height  : 50vh;
+
+        .table {
+            --bs-table-bg          : none !important;
+            --bs-table-border-color: silver !important;
+
+            .id {
+                min-width: 2rem;
+            }
+
+            .name {
+                min-width: 15rem;
+            }
+
+            .gender {
+                min-width: 7rem;
+            }
+
+            .address {
+                min-width: 20rem;
+            }
+
+            .email {
+                min-width: 10rem;
+            }
+
+            .phone {
+                min-width: 10rem;
+            }
+
+            .doB {
+                min-width: 7rem;
+            }
+
+            .no-scroll {
+                min-width       : 10rem;
+                position        : sticky;
+                right           : 3px;
+                background-color: whitesmoke;
+                z-index         : 1;
+            }
+        }
+    }
+
+    .staff-list-content {
+        min-height: 60vh;
+    }
+
+    .form-control {
+        background   : none;
+        border-radius: 0;
+        border-top   : none;
+        border-left  : none;
+        border-right : none;
+        border-bottom: 1px solid black;
+        padding      : 0;
+        height       : 100%;
+
+        &:focus {
+            background   : none;
+            border-bottom: 1px solid#4fb5e6;
+            box-shadow   : none;
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import "../../../styles/Guest/Doctors/OverviewDetail.scss"
+import "../../../styles/Guest/Doctors/Overview.scss"
 import { Col, Row, OverlayTrigger, Dropdown, Button, Tooltip, Modal } from "react-bootstrap"
 
 import ReactMarkdown from "react-markdown"

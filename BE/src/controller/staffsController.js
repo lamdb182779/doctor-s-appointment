@@ -5,22 +5,6 @@ const bcrypt = require("bcryptjs")
 
 const salt = bcrypt.genSaltSync(parseInt(process.env.BCRYPT_SALT))
 
-// const toImage = (image) => {
-//     if (image) {
-//         const imgBuffer = Buffer.from(image).toString("binary")
-//         return `data:image/jpg;base64,${imgBuffer}`
-//     }
-//     return ""
-// }
-
-const hiddenEmail = (email) => {
-    return email.replace(/^(.{3}).*(\d{2}@.*$)/, "$1****$2")
-}
-
-const hiddenPhoneNumber = (phoneNumber) => {
-    return phoneNumber.replace(/^(\d{3}).*(\d{2})$/, "$1****$2")
-}
-
 const nameToUsername = (name, id) => {
     let normal = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D")
     let lower = normal.toLowerCase()
@@ -89,21 +73,32 @@ const checkDupEmail = async (req, res, next) => {
 }
 
 const getAllStaffs = async (req, res, next) => {
-    let { page, pagesize, name } = req.query
+    let { page, pagesize, name, active, gender, address, email } = req.query
     page = parseInt(page)
     pagesize = parseInt(pagesize)
 
-    pagesize = !pagesize ? 5 : pagesize
+    pagesize = !pagesize || pagesize < 5 ? 5 : pagesize
 
     pagesize = pagesize > 15 ? 15 : pagesize
 
     page = !page ? 1 : page
     try {
         //Structure data need to find
-        let find = { active: true };
+        let find = {};
+        if (active) {
+            find.active = active
+        }
         if (name) {
             find.name = {
                 [Op.substring]: name
+            }
+        }
+        if (gender) {
+            find.gender = gender
+        }
+        if (address) {
+            find.address = {
+                [Op.substring]: find
             }
         }
         let count = await db.Staffs.count({
@@ -115,25 +110,12 @@ const getAllStaffs = async (req, res, next) => {
         page = page === 0 ? 1 : page
         let skip = (page - 1) * pagesize
 
-        //
         try {
             let data = await db.Staffs.findAll({
                 where: find,
                 offset: skip,
                 limit: pagesize,
                 attributes: ["id", "name", "address", "email", "phoneNumber", "gender", "doB", "image"],
-            })
-            data = data.map((item) => {
-                if (item.phoneNumber) {
-                    item.phoneNumber = hiddenPhoneNumber(item.phoneNumber)
-                }
-                return item
-            })
-            data = data.map((item) => {
-                if (item.email) {
-                    item.email = hiddenEmail(item.email)
-                }
-                return item
             })
             data.push(count)
 
@@ -158,12 +140,6 @@ const getAllStaffs = async (req, res, next) => {
 const getStaffById = async (req, res, next) => {
     let staff = req.person
     if (staff) {
-        if (staff.phoneNumber) {
-            staff.phoneNumber = hiddenPhoneNumber(staff.phoneNumber)
-        }
-        if (staff.email) {
-            staff.email = hiddenEmail(staff.email)
-        }
         return res.status(200).json({
             message: "ok",
             data: [staff]
@@ -180,7 +156,7 @@ const deleteStaffById = async (req, res, next) => {
                 active: true,
             }
         })
-        if (deactivate === [0]) {
+        if (deactivate[0] === 0) {
             console.log("No matching staff.")
             res.return(500).json({
                 message: "wrong id",
@@ -223,7 +199,7 @@ const updateStaffById = async (req, res, next) => {
                 active: true,
             }
         })
-        if (staff === [0]) {
+        if (staff[0] === 0) {
             console.log("no matching staff")
             return res.status(500).json({
                 message: "wrong id"

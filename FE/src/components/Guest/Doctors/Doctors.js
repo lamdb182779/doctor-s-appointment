@@ -5,14 +5,12 @@ import { Button, Dropdown, Form, Col, Row, Spinner } from "react-bootstrap"
 
 import { useLocation } from "react-router-dom"
 import useGet from "../../../custom/get"
-import useUtil from "../../../custom/utils"
 
 import Doctor from "./Doctor"
 import Page from "../../General/Page/Page"
 import Nav from "../../App/Nav"
 
 const Doctors = (props) => {
-    const { handleNavigate } = useUtil()
     const location = useLocation()
     const componentRef = useRef(null)
 

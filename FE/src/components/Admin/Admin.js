@@ -15,16 +15,17 @@ import {
 
 import { NavLink } from "react-router-dom"
 import useUtil from "../../custom/utils"
+import AdminNav from "./AdminNav"
 const Admin = (props) => {
     const { handleLink } = useUtil()
     const { data, loading } = useGet("/self/info")
     return (
-        <div className="admin-container px-5 py-5">
-            <Row>
+        <div className="admin-container">
+            <Row className="d-flex justify-content-center">
                 <Col xs={2} className="p-0">
                     <div className="left-nav">
                         <div className="px-2 w-100 m-0">
-
+                            <AdminNav />
                         </div>
                     </div>
                 </Col>

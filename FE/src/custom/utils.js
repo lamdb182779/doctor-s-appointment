@@ -19,7 +19,11 @@ const useUtil = () => {
 
         setTimeout(() => {
             main.classList.add("active")
-            navigate((new URL(ref.href)).pathname)
+            if (ref) {
+                navigate((new URL(ref.href)).pathname)
+            } else {
+                navigate((new URL(event.target.href)).pathname)
+            }
         }, 100)
     }
     return {

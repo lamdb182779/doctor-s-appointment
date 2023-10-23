@@ -1,0 +1,19 @@
+.admin-nav-list {
+    >div {
+        height: 2rem;
+
+        a {
+            color         : black;
+            padding-inline: 0.5rem;
+        }
+
+        &:hover {
+            background-color: white;
+        }
+
+        .active {
+            background-color: grey;
+            color           : white
+        }
+    }
+}

@@ -4,14 +4,6 @@ const db = require("../models")
 const bcrypt = require("bcryptjs")
 const salt = bcrypt.genSaltSync(parseInt(process.env.BCRYPT_SALT))
 
-const hiddenEmail = (email) => {
-    return email.replace(/^(.{3}).*(\d{2}@.*$)/, "$1****$2")
-}
-
-const hiddenPhoneNumber = (phoneNumber) => {
-    return phoneNumber.replace(/^(\d{3}).*(\d{2})$/, "$1****$2")
-}
-
 const changePw = async (req, res, next) => {
     let { oldpw, newpw } = req.body
     let user = req.user
@@ -99,12 +91,6 @@ const getInfo = async (req, res, next) => {
                     exclude: ["id", "table", "createdAt", "updatedAt", "username", "active"]
                 }
             })
-            if (info.phoneNumber) {
-                info.phoneNumber = hiddenPhoneNumber(info.phoneNumber)
-            }
-            if (info.email) {
-                info.email = hiddenEmail(info.email)
-            }
             return res.status(200).json({
                 message: "ok",
                 data: [info]

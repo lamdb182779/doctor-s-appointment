@@ -5,19 +5,20 @@ import NotFound from "../General/Notfound/Notfound"
 import NotPermission from "../General/Notfound/NotPermission"
 import useGet from "../../custom/get"
 import useUser from "../../custom/user"
-import { useLocation } from "react-router-dom"
 import { toast } from "react-toastify"
+import useUtil from "../../custom/utils"
 
 const PrivateRoute = (props) => {
     const user = useSelector(state => state.user)
-    const location = useLocation()
+    const { handleNavigate } = useUtil()
     const { clearUser } = useUser()
-    const { loading, message } = useGet("http://localhost:8080/api/checktoken")
+    const { loading, message } = useGet("/checktoken")
     useEffect(() => {
-        if (loading === false && message !== "") {
+        if (loading === false) {
             switch (message) {
                 case "no token":
                     clearUser()
+                    handleNavigate("/")
                     toast.warning("Không thể xác thực người dùng, đăng nhập để tiếp tục")
                     break
                 default: break

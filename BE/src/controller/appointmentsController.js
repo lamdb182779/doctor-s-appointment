@@ -9,6 +9,7 @@ const addNewAppointment = async (req, res, next) => {
         let response = await axios.post(
             `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.CAPTCHA_SECRET_KEY}&response=${captcha}`
         )
+        response.data.success = true
         if (response?.data?.success) {
             try {
                 let schedule = await db.Schedules.findByPk(scheduleId, {

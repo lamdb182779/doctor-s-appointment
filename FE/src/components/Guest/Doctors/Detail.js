@@ -18,6 +18,7 @@ import Overview from "./Overview"
 import ReactMarkdown from "react-markdown"
 import Clinic from "./Clinic"
 import Booking from "./Booking"
+import Loading from "../../General/Notfound/Loading"
 
 const Detail = (props) => {
     const { id } = useParams()
@@ -35,7 +36,7 @@ const Detail = (props) => {
                 return <Clinic
                     doctor={data[0]} />
             case 2:
-                return <ReactMarkdown>{data[0].content}</ReactMarkdown>
+                return <div><ReactMarkdown>{data[0].content}</ReactMarkdown></div>
             case 3:
                 return <Booking
                     doctor={data[0]} />
@@ -57,7 +58,9 @@ const Detail = (props) => {
                                 setViewmode={setViewmode}
                                 viewmode={viewmode}
                                 contentRef={contentRef}
-                                topRef={topRef} />
+                                topRef={topRef}
+                                active={loading === false && data?.length > 0}
+                            />
                         </div>
                     </div>
                 </Col>
@@ -98,8 +101,7 @@ const Detail = (props) => {
                     <>
                         <Col className="main-element mt-0 p-5 d-grid gap-5" xs={9}>
                             <div ref={contentRef} className="detail-loading">
-                                <Spinner animation="border" variant="primary" />
-                                Đang tải dữ liệu
+                                <Loading />
                             </div>
                         </Col>
                     </>

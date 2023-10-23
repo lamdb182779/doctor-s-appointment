@@ -2,6 +2,7 @@ const db = require("../models")
 const { Op } = require("sequelize")
 const bcrypt = require("bcryptjs")
 const moment = require("moment")
+const { verifyToken } = require("../middleware/jwt-action")
 
 const salt = bcrypt.genSaltSync(parseInt(process.env.BCRYPT_SALT))
 
@@ -14,11 +15,22 @@ const salt = bcrypt.genSaltSync(parseInt(process.env.BCRYPT_SALT))
 // }
 
 const hiddenEmail = (email) => {
-    return email.replace(/^(.{3}).*(\d{2}@.*$)/, "$1****$2")
+    return email.replace(/^(.{1}).*(\d{2}@.*$)/, "$1***$2")
 }
 
 const hiddenPhoneNumber = (phoneNumber) => {
-    return phoneNumber.replace(/^(\d{3}).*(\d{2})$/, "$1****$2")
+    return phoneNumber.replace(/^(\d{1}).*(\d{1})$/, "$1***$2")
+}
+
+const checkAdminPermission = (cookies) => {
+    if (cookies?.token) {
+        let token = cookies.token
+        let decoded = verifyToken(token)
+        if (decoded?.table && decoded.table === "Admins") {
+            return true
+        }
+    }
+    return false
 }
 
 const nameToUsername = (name, id) => {
@@ -129,7 +141,7 @@ const getAllDoctors = async (req, res, next) => {
                 where: find,
                 offset: skip,
                 limit: pagesize,
-                attributes: ["id", "name", "clinicAddress", "price", "describe", "image"],
+                attributes: ["id", "name", "clinicAddress", "price", "describe", "image", "email", "phoneNumber"],
                 include: [
                     {
                         model: db.Specialties,
@@ -137,18 +149,20 @@ const getAllDoctors = async (req, res, next) => {
                     }
                 ]
             })
-            data = data.map((item) => {
-                if (item.phoneNumber) {
-                    item.phoneNumber = hiddenPhoneNumber(item.phoneNumber)
-                }
-                return item
-            })
-            data = data.map((item) => {
-                if (item.email) {
-                    item.email = hiddenEmail(item.email)
-                }
-                return item
-            })
+            if (!checkAdminPermission(req.cookies)) {
+                data = data.map((item) => {
+                    if (item.phoneNumber) {
+                        item.phoneNumber = hiddenPhoneNumber(item.phoneNumber)
+                    }
+                    return item
+                })
+                data = data.map((item) => {
+                    if (item.email) {
+                        item.email = hiddenEmail(item.email)
+                    }
+                    return item
+                })
+            }
             data.push(count)
 
             return res.status(200).json({
@@ -172,11 +186,13 @@ const getAllDoctors = async (req, res, next) => {
 const getDoctorById = async (req, res, next) => {
     let doctor = req.person
     if (doctor) {
-        if (doctor.phoneNumber) {
-            doctor.phoneNumber = hiddenPhoneNumber(doctor.phoneNumber)
-        }
-        if (doctor.email) {
-            doctor.email = hiddenEmail(doctor.email)
+        if (!checkAdminPermission(req.cookies)) {
+            if (doctor.phoneNumber) {
+                doctor.phoneNumber = hiddenPhoneNumber(doctor.phoneNumber)
+            }
+            if (doctor.email) {
+                doctor.email = hiddenEmail(doctor.email)
+            }
         }
         return res.status(200).json({
             message: "ok",

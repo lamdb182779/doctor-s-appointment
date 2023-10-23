@@ -2,7 +2,6 @@ import "./../../styles/App/Header.scss"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
-    faCircleQuestion,
     faArrowRightFromBracket
 } from "@fortawesome/free-solid-svg-icons"
 
@@ -14,7 +13,7 @@ import AdminHeader from "../Admin/AdminHeader"
 import DoctorHeader from "../Doctor/DoctorHeader"
 import StaffHeader from "../Staff/StaffHeader"
 import useGet from "../../custom/get"
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 import useUser from "../../custom/user"
 import useUtil from "../../custom/utils"
 import { NavLink } from "react-router-dom"
@@ -29,12 +28,10 @@ const Header = (props) => {
         return nameArray[0].charAt(0).toUpperCase()
     }
     const user = useSelector(state => state.user)
-    const [show, setShow] = useState(false)
-    const avatarRef = useRef(null)
     const logoRef = useRef(null)
     const { clearUser } = useUser()
     const { handleNavigate, handleLink } = useUtil()
-    const renderNav = () => {
+    const renderHeader = () => {
         switch (user.table) {
             case "Admins":
                 return <AdminHeader />
@@ -57,13 +54,21 @@ const Header = (props) => {
         handleNavigate("/login")
     }
 
-    useEffect(() => {
-        window.addEventListener("click", (event) => {
-            if (!(avatarRef.current && avatarRef.current.contains(event.target))) {
-                setShow(false)
-            }
-        })
-    }, [])// eslint-disable-line react-hooks/exhaustive-deps
+    const handleInfo = () => {
+        switch (user?.table) {
+            case "Admins":
+                handleNavigate("/admin")
+                break
+            case "Doctors":
+                handleNavigate("/doctor")
+                break
+            case "Staffs":
+                handleNavigate("/staff")
+                break
+            default:
+                break
+        }
+    }
 
     const renderAccount = (props) => (
         <Popover className="shadow" id="avatar-popover" {...props}>
@@ -84,7 +89,7 @@ const Header = (props) => {
                         </Col>
                     </Row>
                     <hr className="m-2" />
-                    <Button className="w-100 text-start text-primary text-decoration-none" variant="link" size="sm">
+                    <Button onClick={() => handleInfo()} className="w-100 text-start text-primary text-decoration-none" variant="link" size="sm">
                         <h6 className="m-0">Xem thông tin cá nhân</h6>
                     </Button>
                 </div>
@@ -92,7 +97,7 @@ const Header = (props) => {
                     Đổi mật khẩu
                 </Button>
                 <Button onClick={() => handleLogout()} className="w-100 text-start text-danger text-decoration-none" variant="link" size="">
-                    <FontAwesomeIcon icon={faArrowRightFromBracket} />&nbspĐăng xuất
+                    <FontAwesomeIcon icon={faArrowRightFromBracket} />&nbsp;Đăng xuất
                 </Button>
             </Popover.Body>
         </Popover>
@@ -109,7 +114,7 @@ const Header = (props) => {
                     </Row>
                 </Col>
                 <Col xs={4}>
-                    {renderNav()}
+                    {renderHeader()}
                 </Col>
                 <Col xs={4} className="d-flex justify-content-end align-items-center">
                     <Row className="w-100 h-100 justify-content-end align-items-center">
@@ -117,10 +122,11 @@ const Header = (props) => {
                             {user?.table ?
                                 <>
                                     <OverlayTrigger
-                                        show={show}
                                         placement="bottom-end"
+                                        trigger={"click"}
+                                        rootClose
                                         overlay={renderAccount}>
-                                        <div ref={avatarRef} onClick={() => setShow(!show)} className="App-user fs-6 text-secondary">
+                                        <div className="App-user fs-6 text-secondary">
                                             {user.image ?
                                                 <Image className="w-100 h-100" src={user.image} alt={user.name} roundedCircle />
                                                 :

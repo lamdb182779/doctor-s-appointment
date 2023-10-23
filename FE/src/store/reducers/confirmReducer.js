@@ -6,7 +6,9 @@ const nothing = () => { }
 
 const initialState = {
     show: false,
-    size: "",
+    centered: false,
+    variant: "warning",
+    size: "lg",
     title: "Cảnh báo",
     body: "Bạn có chắc thực hiện hành động này?",
     fs: "6",

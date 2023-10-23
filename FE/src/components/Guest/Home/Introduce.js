@@ -125,7 +125,7 @@ const Introduce = (props) => {
                                     <p>Đặt lịch khám bệnh nhanh chóng, tiện lợi.</p>
                                     <p>Thao tác cực kỳ đơn giản.</p>
                                     <p>Chọn bác sĩ phù hợp và hẹn trước.</p>
-                                    <p style={{ cursor: "pointer" }} onClick={() => handleNavigate("/doctors")}>Đặt lịch ngay &gt&gt&gt</p>
+                                    <p style={{ cursor: "pointer" }} onClick={() => handleNavigate("/doctors")}>Đặt lịch ngay &gt;&gt;&gt;</p>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +143,7 @@ const Introduce = (props) => {
                                 <div>
                                     <p>Quy tụ rất nhiều bác sĩ hàng đầu.</p>
                                     <p>Cung cấp tất cả chuyên khoa khác nhau.</p>
-                                    <p style={{ cursor: "pointer" }} onClick={() => handleNavigate("/specialties")}>Tìm hiểu ngay các chuyên khoa &gt&gt&gt</p>
+                                    <p style={{ cursor: "pointer" }} onClick={() => handleNavigate("/specialties")}>Tìm hiểu ngay các chuyên khoa &gt;&gt;&gt;</p>
                                 </div>
                             </div>
                         </div>
